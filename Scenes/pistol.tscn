@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgtj7ysdismb"]
+
+[ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="1_bttkv"]
+[ext_resource type="PackedScene" uid="uid://c4c6pxj54c53y" path="res://Assets/pistol.glb" id="2_6e3nq"]
+
+[node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
+script = ExtResource("1_bttkv")
+current_ammo = 12
+ammo = 36
+max_ammo = 12
+ray = NodePath("RayCast3D")
+number_balas = 1
+metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="blaster-q2" parent="." instance=ExtResource("2_6e3nq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375909, -1.19209e-07, 0.00939655)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]

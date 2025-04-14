@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0q52hnxwbxdo"]
+
+[ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bkhw5ssuuvkp2" path="res://Assets/crosshair005.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://dt2cby328mi5" path="res://Script/bullet_lbl.gd" id="3_vgqql"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52989, 0)
+shape = SubResource("CapsuleShape3D_0b4ue")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989639, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77035, 0)
+
+[node name="WeaponsManager" type="Node3D" parent="head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243636, -0.120761, -0.546164)
+script = ExtResource("2_6t5aa")
+metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="GunPosition" type="Marker3D" parent="head/Camera3D/WeaponsManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.302789)
+
+[node name="HUD" type="Control" parent="head"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Ammo" type="ColorRect" parent="head/HUD"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 558.0
+offset_right = 694.0
+offset_bottom = 619.0
+color = Color(1, 1, 1, 0.247059)
+
+[node name="Label" type="Label" parent="head/HUD/Ammo"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 4.0
+offset_right = 77.0
+offset_bottom = 27.0
+text = "Ammo"
+
+[node name="Blabel" type="Label" parent="head/HUD/Ammo" node_paths=PackedStringArray("manager")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 31.0
+offset_right = 71.0
+offset_bottom = 54.0
+text = " "
+script = ExtResource("3_vgqql")
+manager = NodePath("../../../Camera3D/WeaponsManager")
+
+[node name="Health" type="ColorRect" parent="head/HUD"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 558.0
+offset_right = 567.0
+offset_bottom = 619.0
+color = Color(1, 1, 1, 0.25098)
+
+[node name="Label" type="Label" parent="head/HUD/Health"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 3.0
+offset_right = 74.0
+offset_bottom = 26.0
+text = "Health"
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Crosshair" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_cvnsp")

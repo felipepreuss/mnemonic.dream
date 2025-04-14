@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceaey3qmvx0oa"]
+
+[ext_resource type="Script" uid="uid://cg8s21twqa7np" path="res://Scenes/shot_gun.gd" id="1_mdamf"]
+[ext_resource type="PackedScene" uid="uid://dfqi5j2jabl11" path="res://Assets/shotgun.glb" id="2_syoir"]
+
+[node name="Shotgun" type="Node3D" node_paths=PackedStringArray("raycontainer", "raio")]
+script = ExtResource("1_mdamf")
+raycontainer = NodePath("Raycontainer")
+raio = [NodePath("Raycontainer/ray1"), NodePath("Raycontainer/ray2"), NodePath("Raycontainer/ray3"), NodePath("Raycontainer/ray4"), NodePath("Raycontainer/ray5"), NodePath("Raycontainer/ray6")]
+current_ammo = 6
+ammo = 24
+max_ammo = 6
+can_reload = true
+number_balas = 1
+metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="blaster-r2" parent="." instance=ExtResource("2_syoir")]
+
+[node name="Raycontainer" type="Node3D" parent="."]
+
+[node name="ray1" type="RayCast3D" parent="Raycontainer"]
+
+[node name="ray2" type="RayCast3D" parent="Raycontainer"]
+
+[node name="ray3" type="RayCast3D" parent="Raycontainer"]
+
+[node name="ray4" type="RayCast3D" parent="Raycontainer"]
+
+[node name="ray5" type="RayCast3D" parent="Raycontainer"]
+
+[node name="ray6" type="RayCast3D" parent="Raycontainer"]
