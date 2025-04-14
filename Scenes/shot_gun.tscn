@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceaey3qmvx0oa"]
 
-[ext_resource type="Script" uid="uid://cg8s21twqa7np" path="res://Scenes/shot_gun.gd" id="1_mdamf"]
+[ext_resource type="Script" uid="uid://cg8s21twqa7np" path="res://Script/shot_gun.gd" id="1_mdamf"]
 [ext_resource type="PackedScene" uid="uid://dfqi5j2jabl11" path="res://Assets/shotgun.glb" id="2_syoir"]
+
 
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("raycontainer", "raio")]
 script = ExtResource("1_mdamf")

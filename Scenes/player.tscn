@@ -77,6 +77,15 @@ offset_right = 74.0
 offset_bottom = 26.0
 text = "Health"
 
+[node name="life" type="Label" parent="head/HUD/Health"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 53.0
+text = "100%"
+horizontal_alignment = 1
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
