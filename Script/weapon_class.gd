@@ -21,26 +21,28 @@ var gun_count = 0
 ]
 
 func _physics_process(delta: float) -> void: 
-	handle_shooting()
 	handle_weapon_switch()
-	handle_reload()
-	update_ammo_display()
+	if current_gun != null:  
+		handle_shooting()
+		handle_reload()
+		update_ammo_display()
 func handle_shooting():
-	if Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
+	#
+	#	else:
+	#		print('Sem balas suficientes!')
+	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
+		print("rodando if")
 		if current_gun.current_ammo >= current_gun.number_balas:
 			current_gun.current_ammo -= current_gun.number_balas
 			if current_gun.current_ammo < 1:
 				have_ammo = false
-		else:
-			print('Sem balas suficientes!')
-	if auto and Input.is_action_pressed("Left-Click"):
+	elif Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
 		if current_gun.current_ammo >= current_gun.number_balas:
 			current_gun.current_ammo -= current_gun.number_balas
-			if current_gun.current_ammo < 1:
-				have_ammo = false
+			have_ammo = false
 		else:
 			print('Sem balas suficientes!')
-
+	print(auto)
 func handle_weapon_switch():
 	for i in range(weapon_scenes.size()):
 		if Input.is_physical_key_pressed(KEY_0 + i + 1):
@@ -81,10 +83,12 @@ func switch_weapon(index: int):
 func sync_stats_from_gun():
 	if current_gun and gun_equipped:
 		current_ammo = current_gun.current_ammo
+		auto = current_gun.auto
 		ammo = current_gun.ammo
 		max_ammo = current_gun.max_ammo
 		number_balas = current_gun.number_balas
 		have_ammo = current_ammo > 0
+		print(current_gun.auto)
 
 func shooting(mira: RayCast3D, dano: int):
 	if mira.is_colliding():
