@@ -20,9 +20,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989639, 0)
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77035, 0)
 
-[node name="WeaponsManager" type="Node3D" parent="head/Camera3D"]
+[node name="WeaponsManager" type="Node3D" parent="head/Camera3D" node_paths=PackedStringArray("local")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243636, -0.120761, -0.546164)
 script = ExtResource("2_6t5aa")
+local = NodePath("GunPosition")
 metadata/_custom_type_script = "uid://cme4um2042nwv"
 
 [node name="GunPosition" type="Marker3D" parent="head/Camera3D/WeaponsManager"]

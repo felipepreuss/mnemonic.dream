@@ -10,9 +10,10 @@ class_name WeaponsManager extends Node3D
 @export var number_balas: int #muda muito o nome
 
 var gun_equipped = false
-var current_gun = null
+var current_gun 
 var gun_limit = 1
 var gun_count = 0
+
 @export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
 	load("res://Scenes/shot_gun.tscn"),
 	load("res://Scenes/pistol.tscn"),
@@ -27,14 +28,14 @@ func _physics_process(delta: float) -> void:
 func handle_shooting():
 	if Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
 		if current_gun.current_ammo >= current_gun.number_balas:
-			current_gun.current_ammo -= number_balas
+			current_gun.current_ammo -= current_gun.number_balas
 			if current_gun.current_ammo < 1:
 				have_ammo = false
 		else:
 			print('Sem balas suficientes!')
 	if auto and Input.is_action_pressed("Left-Click"):
 		if current_gun.current_ammo >= current_gun.number_balas:
-			current_gun.current_ammo -= number_balas
+			current_gun.current_ammo -= current_gun.number_balas
 			if current_gun.current_ammo < 1:
 				have_ammo = false
 		else:
@@ -72,7 +73,6 @@ func instantiate_gun(index: int, local: Marker3D):
 
 func switch_weapon(index: int):
 	if current_gun:
-		
 		current_gun.queue_free()
 		gun_equipped = false
 		gun_count = 0
