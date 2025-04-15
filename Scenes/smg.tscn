@@ -1,14 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://fhmux8ryyl36"]
 
-[ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="1_jsj7r"]
 [ext_resource type="PackedScene" uid="uid://c16ce1bg1ykyt" path="res://Assets/machine_gun.glb" id="2_sfvq1"]
 
-[node name="MachineGun" type="Node3D"]
-script = ExtResource("1_jsj7r")
+[sub_resource type="GDScript" id="GDScript_2ecjt"]
+script/source = "extends WeaponsManager
+var damage:int
+func _physics_process(delta: float) -> void:
+	shooting(ray,lerp(5,20,damage))
+"
+
+[node name="MachineGun" type="Node3D" node_paths=PackedStringArray("ray")]
+script = SubResource("GDScript_2ecjt")
 auto = true
 current_ammo = 25
 ammo = 200
 max_ammo = 25
+ray = NodePath("RayCast3D")
 number_balas = 1
 metadata/_custom_type_script = "uid://cme4um2042nwv"
 
@@ -16,3 +23,5 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104096, 0, 0.188018)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0683294, -4.71001)
+target_position = Vector3(0, 0, 5)

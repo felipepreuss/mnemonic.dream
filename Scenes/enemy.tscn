@@ -12,7 +12,7 @@ size = Vector2(2, 2)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1f0kj"]
 points = PackedVector3Array(-1.01587, -1.01587, -0.015873, 1.01587, 1.01587, 0.015873, 1.01587, 1.01587, -0.015873, -1.01587, 1.01587, 0.015873, 1.01587, -1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, 0.015873)
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_7k104")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -20,6 +20,6 @@ transform = Transform3D(-0.992016, 0, 0.126112, 0, 1, 0, -0.126112, 0, -0.992016
 material_override = SubResource("StandardMaterial3D_afpow")
 mesh = SubResource("QuadMesh_287tu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(-0.992016, 0, 0.126112, 0, 1, 0, -0.126112, 0, -0.992016, 0, 0.664997, 0)
 shape = SubResource("ConvexPolygonShape3D_1f0kj")

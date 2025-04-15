@@ -1,10 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvgtj7ysdismb"]
 
-[ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="1_bttkv"]
 [ext_resource type="PackedScene" uid="uid://c4c6pxj54c53y" path="res://Assets/pistol.glb" id="2_6e3nq"]
 
+[sub_resource type="GDScript" id="GDScript_j1qo2"]
+script/source = "extends WeaponsManager
+
+func _physics_process(delta: float) -> void:	
+	shooting(ray,lerp(5,20,5))
+"
+
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
-script = ExtResource("1_bttkv")
+script = SubResource("GDScript_j1qo2")
 current_ammo = 12
 ammo = 36
 max_ammo = 12
@@ -16,3 +22,5 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375909, -1.19209e-07, 0.00939655)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0790563, -5.06008)
+target_position = Vector3(0, 0, 5)

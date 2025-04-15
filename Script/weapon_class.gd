@@ -91,8 +91,8 @@ func sync_stats_from_gun():
 		print(current_gun.auto)
 
 func shooting(mira: RayCast3D, dano: int):
-	if mira.is_colliding():
-		var target = mira.get_collider()
+	var target = mira.get_collider()
+	if mira.get_collider()!= null:
 		if target.is_in_group('Enemy'):
 			target.calcularDano(dano)
 			print('Dano causado! Vida restante ', target.vida)

@@ -15,6 +15,10 @@ run/main_scene="uid://dcj0cgtntcnla"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
+[global_group]
+
+Enemy=""
+
 [input]
 
 Left={

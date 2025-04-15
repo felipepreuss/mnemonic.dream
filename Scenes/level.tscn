@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcj0cgtntcnla"]
+[gd_scene load_steps=8 format=3 uid="uid://dcj0cgtntcnla"]
 
 [ext_resource type="Texture2D" uid="uid://nwqncmry4ug2" path="res://Assets/icon.svg" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_6phgx"]
+[ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="3_6phgx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -35,3 +36,6 @@ use_collision = true
 size = Vector3(100, 1, 100)
 
 [node name="player" parent="." instance=ExtResource("2_6phgx")]
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
+player = NodePath("../player")
