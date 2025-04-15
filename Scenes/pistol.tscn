@@ -6,7 +6,8 @@
 script/source = "extends WeaponsManager
 
 func _physics_process(delta: float) -> void:	
-	shooting(ray,lerp(5,20,5))
+	if Input.is_action_just_pressed(\"Left-Click\"):
+		shooting(ray,lerp(5,20,5))
 "
 
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
