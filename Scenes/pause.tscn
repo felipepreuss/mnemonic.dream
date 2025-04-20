@@ -46,7 +46,6 @@ alignment = 0
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Quit"
-alignment = 0
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Options" to="." method="_on_options_pressed"]

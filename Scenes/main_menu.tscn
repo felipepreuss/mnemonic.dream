@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmltaik44kl74"]
+[gd_scene load_steps=14 format=3 uid="uid://dmltaik44kl74"]
 
 [ext_resource type="Script" uid="uid://bn1uapfuhbbk4" path="res://Script/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://nwqncmry4ug2" path="res://Assets/icon.svg" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="3_1ehe0"]
+[ext_resource type="Script" uid="uid://dfe0eqeduturc" path="res://Scenes/label.gd" id="4_ce3w2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ehe0"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -127,6 +128,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(285, 50)
 theme_override_font_sizes/font_size = 60
 text = "MNEMONIC.DREAM"
+script = ExtResource("4_ce3w2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
