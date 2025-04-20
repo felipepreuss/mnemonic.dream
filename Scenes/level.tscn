@@ -1,19 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcj0cgtntcnla"]
+[gd_scene load_steps=9 format=3 uid="uid://dcj0cgtntcnla"]
 
 [ext_resource type="Texture2D" uid="uid://nwqncmry4ug2" path="res://Assets/icon.svg" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="3_6phgx"]
+[ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="4_81xng"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_vonw3"]
+[sub_resource type="Sky" id="Sky_6phgx"]
 sky_material = SubResource("ProceduralSkyMaterial_u52ul")
 
 [sub_resource type="Environment" id="Environment_oi3di"]
 background_mode = 2
-sky = SubResource("Sky_vonw3")
+sky = SubResource("Sky_6phgx")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
@@ -39,3 +40,5 @@ size = Vector3(100, 1, 100)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
 player = NodePath("../player")
+
+[node name="Pause" parent="." instance=ExtResource("4_81xng")]

@@ -1,0 +1,162 @@
+[gd_scene load_steps=2 format=3 uid="uid://b774b8iatemmd"]
+
+[ext_resource type="Script" uid="uid://dqj2mtgbxymb1" path="res://Script/settings_menu.gd" id="1_icv2g"]
+
+[node name="settings_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_icv2g")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 281.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 79.0
+offset_right = -327.0
+offset_bottom = 556.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.427451)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.270833
+anchor_top = 0.0617284
+anchor_right = 1.24902
+anchor_bottom = 1.03742
+offset_left = -205.438
+offset_top = -29.6296
+offset_right = -205.438
+offset_bottom = -19.963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="resolution" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RESOLUTION"
+
+[node name="OptionButton" type="OptionButton" parent="ColorRect/VBoxContainer/resolution"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = 3.0
+offset_right = 47.0
+offset_bottom = 34.0
+grow_horizontal = 2
+item_count = 3
+popup/item_0/text = "1152x648"
+popup/item_0/id = 0
+popup/item_1/text = "800x600"
+popup/item_1/id = 1
+popup/item_2/text = "640x480"
+popup/item_2/id = 2
+
+[node name="master_volume" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MASTER VOLUME"
+
+[node name="HSlider" type="HSlider" parent="ColorRect/VBoxContainer/master_volume"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326114
+anchor_top = 0.25
+anchor_right = 0.597945
+anchor_bottom = 0.821429
+offset_right = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.5
+metadata/_edit_use_anchors_ = true
+
+[node name="music_volume" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MUSIC VOLUME"
+
+[node name="HSlider" type="HSlider" parent="ColorRect/VBoxContainer/music_volume"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.298664
+anchor_top = 0.285714
+anchor_right = 0.570495
+anchor_bottom = 0.857143
+offset_right = 3.05176e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="language" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LANGUAGE
+"
+
+[node name="pt_check" type="CheckBox" parent="ColorRect/VBoxContainer/language"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.233607
+anchor_top = -0.0344828
+anchor_right = 0.319672
+anchor_bottom = 0.54023
+theme_override_font_sizes/font_size = 30
+text = "PT"
+metadata/_edit_use_anchors_ = true
+
+[node name="eng_check" type="CheckBox" parent="ColorRect/VBoxContainer/language"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34153
+anchor_top = -0.0344828
+anchor_right = 0.464481
+anchor_bottom = 0.54023
+offset_left = 1.52588e-05
+offset_right = -1.52588e-05
+theme_override_font_sizes/font_size = 30
+text = "ENG"
+metadata/_edit_use_anchors_ = true
+
+[node name="apply_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0520833
+anchor_top = 0.858025
+anchor_right = 0.217014
+anchor_bottom = 0.998457
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "APPLY"
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.525174
+anchor_top = 0.858025
+anchor_right = 0.669271
+anchor_bottom = 0.998457
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="apply_button" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

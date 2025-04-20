@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmltaik44kl74"]
+
+[ext_resource type="Script" uid="uid://bn1uapfuhbbk4" path="res://Script/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://nwqncmry4ug2" path="res://Assets/icon.svg" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="3_1ehe0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ehe0"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_vonw3"]
+sky_material = SubResource("ProceduralSkyMaterial_1ehe0")
+
+[sub_resource type="Environment" id="Environment_ce3w2"]
+background_mode = 2
+sky = SubResource("Sky_vonw3")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45e2"]
+albedo_texture = ExtResource("2_48xlc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce3w2"]
+albedo_texture = ExtResource("3_1ehe0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_n45e2"]
+size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_28flt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_erv1k"]
+resource_name = "ROTATE"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0523599, -0.0523599, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_48xlc"]
+_data = {
+&"RESET": SubResource("Animation_28flt"),
+&"ROTATE": SubResource("Animation_erv1k")
+}
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.831954, 0.024202, -0.554316, 0, 0.999048, 0.0436194, 0.554844, 0.0362893, -0.831162, 0, 0, 0)
+light_color = Color(1, 0, 1, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_ce3w2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+material_override = SubResource("StandardMaterial3D_n45e2")
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00565481, 1.6483, 7.54959)
+
+[node name="fambri_preview" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50827, 0)
+material_override = SubResource("StandardMaterial3D_ce3w2")
+mesh = SubResource("QuadMesh_n45e2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.018
+anchor_right = 0.500434
+anchor_bottom = 0.018
+offset_left = -286.0
+offset_top = 68.336
+offset_right = 283.5
+offset_bottom = 153.336
+grow_horizontal = 2
+pivot_offset = Vector2(285, 50)
+theme_override_font_sizes/font_size = 60
+text = "MNEMONIC.DREAM"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_48xlc")
+}
+autoplay = "ROTATE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -313.0
+offset_right = 212.0
+grow_vertical = 0
+
+[node name="play_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
+[node name="load_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "LOAD"
+
+[node name="settings_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "OPTIONS"
+
+[node name="quit_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
