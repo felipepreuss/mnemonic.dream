@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://e5st2iuskey8"]
+
+[ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ps50"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_3xsek"]
+sky_material = SubResource("ProceduralSkyMaterial_6ps50")
+
+[sub_resource type="Environment" id="Environment_os6q4"]
+background_mode = 2
+sky = SubResource("Sky_3xsek")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iakj"]
+albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rc3e"]
+albedo_color = Color(0.876932, 0.351846, 0.67921, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ps50"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_os6q4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2885, 0.55611, -68.5984)
+size = Vector3(76.7609, 0.2, 164.377)
+material = SubResource("StandardMaterial3D_5iakj")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9315, 0.55611, -68.4389)
+size = Vector3(20, 0.2, 164.696)
+material = SubResource("StandardMaterial3D_4rc3e")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5148, 0, -68.2011)
+size = Vector3(120, 1, 163.598)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.324, 9.47276, -33.1087)
+size = Vector3(2.59163, 17.0828, 33.0811)
+
+[node name="player" parent="." instance=ExtResource("1_4rc3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4526, 9.98566, 6.40354)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.3236, 11.6573, -32.6987)
+size = Vector3(25.124, 1.67625, 23.2274)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1061, 6.20496, -22.4099)
+size = Vector3(1, 10.9559, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1155, 6.14449, -40.8361)
+size = Vector3(1, 11.0769, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2501, 5.99384, -22.66)
+size = Vector3(0.866699, 10.8022, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2726, 5.58633, -40.897)
+size = Vector3(1, 10.7852, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.102, 5.67182, -40.8361)
+size = Vector3(1, 10.1104, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.455, 2.726, -22)
+size = Vector3(2.50089, 5.01221, 1)
+material = SubResource("StandardMaterial3D_6ps50")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.178, 3.85162, -13.7875)
+size = Vector3(3.77445, 5.01221, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.586, 5.727, -22.7412)
+size = Vector3(1, 10, 1)
