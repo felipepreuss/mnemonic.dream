@@ -40,17 +40,17 @@ size = Vector3(76.7609, 0.2, 164.377)
 material = SubResource("StandardMaterial3D_5iakj")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9315, 0.55611, -68.4389)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, -68.4389)
 size = Vector3(20, 0.2, 164.696)
 material = SubResource("StandardMaterial3D_4rc3e")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5148, 0, -68.2011)
-size = Vector3(120, 1, 163.598)
+size = Vector3(80, 1, 163.598)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.324, 9.47276, -33.1087)
-size = Vector3(2.59163, 17.0828, 33.0811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.324, 6.95865, -33.1087)
+size = Vector3(2.59163, 12.0546, 33.0811)
 
 [node name="player" parent="." instance=ExtResource("1_4rc3e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4526, 9.98566, 6.40354)
@@ -58,8 +58,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4526, 9.98566, 6.40354)
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.3236, 11.6573, -32.6987)
-size = Vector3(25.124, 1.67625, 23.2274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5579, 11.3355, -37.7226)
+size = Vector3(34.5911, 1.03265, 41.434)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1061, 6.20496, -22.4099)
@@ -81,15 +81,87 @@ size = Vector3(1, 10.7852, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.102, 5.67182, -40.8361)
 size = Vector3(1, 10.1104, 1)
 
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.102, 5.67182, -52.2446)
+size = Vector3(1, 10.1104, 1)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.2087, 5.67182, -52.2446)
+size = Vector3(1, 10.1104, 1)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.7676, 5.67182, -52.2446)
+size = Vector3(1, 10.1104, 1)
+
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.455, 2.726, -22)
-size = Vector3(2.50089, 5.01221, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.551, 1.6859, -21.7244)
+size = Vector3(1.02138, 2.93201, 1)
 material = SubResource("StandardMaterial3D_6ps50")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.178, 3.85162, -13.7875)
-size = Vector3(3.77445, 5.01221, 1)
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.2768, 8.86166, -22.5346)
+size = Vector3(3.44618, 1.93933, 0.12915)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.6832, 8.86166, -22.5346)
+size = Vector3(3.44618, 1.93933, 0.12915)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.2768, 8.86166, -40.825)
+size = Vector3(3.44618, 1.93933, 0.12915)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5775, 8.86166, -40.825)
+size = Vector3(3.44618, 1.93933, 0.12915)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.5075, 8.59976, -52.2289)
+size = Vector3(3.44618, 1.93933, 0.12915)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.6248, 8.59976, -52.2289)
+size = Vector3(3.44618, 1.93933, 0.12915)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.1586, 1.57098, -40.9075)
+size = Vector3(6.334, 2.06244, 1)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5103, 0.853071, -52.26)
+size = Vector3(6.35743, 3.36609, 1)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.8626, 2.83212, -52.26)
+size = Vector3(1.46369, 3.43433, 1)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.8626, 2.83212, -40.9089)
+size = Vector3(1.46369, 3.43433, 1)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.8626, 2.83212, -22.617)
+size = Vector3(1.46369, 3.43433, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.3416, 1.5853, -22.6197)
+size = Vector3(6.04787, 2.22925, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.586, 5.727, -22.7412)
 size = Vector3(1, 10, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.1037, 11.2967, -16.9981)
+size = Vector3(27.4343, 0.27002, 0.124023)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5691, 11.174, -58.2955)
+size = Vector3(34.749, 0.27002, 0.416504)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -71.2567, 11.1796, -37.7158)
+size = Vector3(41.4453, 0.26416, 0.139465)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -105.857, 11.1699, -37.7059)
+size = Vector3(41.5744, 0.277588, 0.139465)
