@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d37kk3eeo6mwd"]
+[gd_scene load_steps=7 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
+[ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_b0ipy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4frd1"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -119,3 +120,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45313, 0, 6.26396)
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39515, 0, 4.23444)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85037, 0.835004, 3.17335)
+player = NodePath("../player")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
+transform = Transform3D(-0.714057, 0, -0.700087, 0, 1, 0, 0.700087, 0, -0.714057, -1.98942, 2.28178, 0.796084)
+player = NodePath("../player")
+
+[node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
+transform = Transform3D(-0.714057, 0, -0.700087, 0, 1, 0, 0.700087, 0, -0.714057, 4.79519, 2.28178, -5.49671)
+player = NodePath("../player")
