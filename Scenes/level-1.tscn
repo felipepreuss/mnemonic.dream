@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=17 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
+[ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="1_6a23k"]
+[ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="1_8kvl1"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_6ps50"]
+[ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="3_8kvl1"]
+[ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="6_b5c44"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ps50"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,9 +21,25 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iakj"]
 albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
+albedo_texture = ExtResource("1_8kvl1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rc3e"]
-albedo_color = Color(0.876932, 0.351846, 0.67921, 1)
+albedo_color = Color(0.435294, 0.435294, 0.435294, 1)
+albedo_texture = ExtResource("1_8kvl1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5c44"]
+albedo_texture = ExtResource("1_6a23k")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yqp8"]
+albedo_texture = ExtResource("3_8kvl1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27dfm"]
+albedo_texture = ExtResource("3_8kvl1")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vshho"]
+albedo_texture = ExtResource("3_8kvl1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ps50"]
 
@@ -35,32 +55,36 @@ shadow_enabled = true
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Calcada2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2885, 0.55611, -68.5984)
 size = Vector3(76.7609, 0.2, 164.377)
 material = SubResource("StandardMaterial3D_5iakj")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Calcada" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, -68.4389)
 size = Vector3(20, 0.2, 164.696)
 material = SubResource("StandardMaterial3D_4rc3e")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Rua" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5148, 0, -68.2011)
 size = Vector3(80, 1, 163.598)
+material = SubResource("StandardMaterial3D_b5c44")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.324, 6.95865, -33.1087)
-size = Vector3(2.59163, 12.0546, 33.0811)
+[node name="Loja" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.831, 6.61372, -33.1087)
+size = Vector3(13.6054, 12.0546, 33.0811)
+material = SubResource("StandardMaterial3D_2yqp8")
 
 [node name="player" parent="." instance=ExtResource("1_4rc3e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4526, 9.98566, 6.40354)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_27dfm")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5579, 11.3355, -37.7226)
 size = Vector3(34.5911, 1.03265, 41.434)
+material = SubResource("StandardMaterial3D_vshho")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1061, 6.20496, -22.4099)
@@ -178,3 +202,5 @@ player = NodePath("../player")
 [node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
 transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -104.578, 1.08681, -21.9098)
 player = NodePath("../player")
+
+[node name="Pause" parent="." instance=ExtResource("6_b5c44")]
