@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://d37kk3eeo6mwd"]
+[gd_scene load_steps=28 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="1_koo5p"]
+[ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_v1or5"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_b0ipy"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="2_fjiq8"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_vuhrq"]
@@ -74,171 +75,181 @@ albedo_texture = ExtResource("2_vuhrq")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Pause" parent="." instance=ExtResource("7_sr1xm")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = ExtResource("1_v1or5")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_dx6h8")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
 use_collision = true
 
-[node name="Chão" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Chão" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.521332)
 size = Vector3(20, 1, 16.043)
 material = SubResource("StandardMaterial3D_fjiq8")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.35854)
 size = Vector3(10, 1, 1.8353)
 
-[node name="Entrada" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Entrada" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00925541, 0.437667, 8.87782)
 size = Vector3(10.0185, 0.2, 2.81165)
 material = SubResource("StandardMaterial3D_4frd1")
 
-[node name="Bancada3" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Bancada3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21048, 0.981135, 2.4448)
 size = Vector3(0.734955, 1, 4.07893)
 material = SubResource("StandardMaterial3D_e88m5")
 
-[node name="Bancada2" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Bancada2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(0.000715613, 0, -1, 0, 1, 0, 1, 0, 0.000715613, -8.35515, 0.986358, 0.0816576)
 size = Vector3(0.705566, 1, 3.02739)
 material = SubResource("StandardMaterial3D_rlpci")
 
-[node name="Bancada" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Bancada" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(0.000715613, 0, -1, 0, 1, 0, 1, 0, 0.000715613, -7.64279, 0.974938, 4.79825)
 size = Vector3(0.624603, 1, 1.58583)
 material = SubResource("StandardMaterial3D_ky03g")
 
-[node name="Parede2" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Parede2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270507, 2.43984, -7.22945)
 cast_shadow = 0
 size = Vector3(19.4129, 5, 0.63)
 material = SubResource("StandardMaterial3D_dtk1r")
 
-[node name="Parede" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Parede" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.65436, 2.46737, 0.469315)
 cast_shadow = 0
 size = Vector3(16.0184, 5.03156, 0.683286)
 material = SubResource("StandardMaterial3D_vuhrq")
 
-[node name="Parede3" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Parede3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.72914, 2.49717, -0.0445433)
 cast_shadow = 0
 size = Vector3(15.045, 5, 0.63)
 material = SubResource("StandardMaterial3D_v1or5")
 
-[node name="Parede c porta" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Parede c porta" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0835714, 2.47903, 7.17031)
 cast_shadow = 0
 size = Vector3(19.695, 5, 0.63)
 material = SubResource("StandardMaterial3D_sr1xm")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.150205, 1.51213, 7.12876)
 cast_shadow = 0
 operation = 2
 size = Vector3(1.69197, 2.06299, 0.869)
 material = SubResource("StandardMaterial3D_hrep3")
 
-[node name="player" parent="." instance=ExtResource("1_4frd1")]
+[node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_4frd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496223, 0.5, 9.59372)
 
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="Pratilheira" type="CSGBox3D" parent="CSGCombiner3D2"]
+[node name="Pratilheira" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00888, 0.87678, -3.489)
 size = Vector3(0.034, 4, 4)
 material = SubResource("StandardMaterial3D_c5vrt")
 
-[node name="Pratilheira2" type="CSGBox3D" parent="CSGCombiner3D2"]
+[node name="Pratilheira2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12859, 0.87678, 2.98308)
 size = Vector3(0.034, 4, 4)
 material = SubResource("StandardMaterial3D_0787j")
 
-[node name="Pratilheira3" type="CSGBox3D" parent="CSGCombiner3D2"]
+[node name="Pratilheira3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55351, 0.87678, 2.98308)
 size = Vector3(0.034, 4, 4)
 material = SubResource("StandardMaterial3D_k1i42")
 
-[node name="Pratilheira4" type="CSGBox3D" parent="CSGCombiner3D2"]
+[node name="Pratilheira4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33718, 0.87964, 2.97165)
 size = Vector3(0.034, 4, 4)
 material = SubResource("StandardMaterial3D_fxita")
 
-[node name="Pratilheira5" type="CSGBox3D" parent="CSGCombiner3D2"]
+[node name="Pratilheira5" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24122, 0.87678, -3.36673)
 size = Vector3(0.034, 4, 4)
 material = SubResource("StandardMaterial3D_dsj4o")
 
-[node name="Pratilheira6" type="CSGBox3D" parent="CSGCombiner3D2"]
+[node name="Pratilheira6" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66773, 0.87678, -3.45428)
 size = Vector3(0.034, 4, 4)
 material = SubResource("StandardMaterial3D_jis6o")
 
-[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="Planta" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="Planta" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69134, 0, 6.26396)
 material = ExtResource("5_sr1xm")
 
-[node name="Planta2" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="Planta2" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45313, 0, 6.26396)
 material = ExtResource("5_sr1xm")
 
-[node name="Planta3" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="Planta3" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75874, 0, -0.852967)
 material = ExtResource("5_sr1xm")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(0.508861, 0, -0.860849, 0, 1, 0, 0.860849, 0, 0.508861, 6.68116, 0.890873, -1.82063)
 radius = 1.256
 height = 1.2
 material = ExtResource("5_sr1xm")
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(0.508861, 0, -0.860849, 0, 1, 0, 0.860849, 0, 0.508861, 5.0894, 0.612917, -0.879714)
 radius = 0.381
 height = 0.5
 material = ExtResource("5_sr1xm")
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(0.508861, 0, -0.860849, 0, 1, 0, 0.860849, 0, 0.508861, 8.05076, 0.676672, -2.85023)
 radius = 0.381
 height = 0.5
 material = ExtResource("5_sr1xm")
 
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(0.583938, 0, 0.811798, 0, 1, 0, -0.811798, 0, 0.583938, 5.52024, 0.890873, 2.3705)
 radius = 1.256
 height = 1.2
 material = ExtResource("5_sr1xm")
 
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(0.583938, 0, 0.811798, 0, 1, 0, -0.811798, 0, 0.583938, 7.02131, 0.612917, 3.45023)
 radius = 0.381
 height = 0.5
 material = ExtResource("5_sr1xm")
 
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D3"]
 transform = Transform3D(0.583938, 0, 0.811798, 0, 1, 0, -0.811798, 0, 0.583938, 4.0272, 0.676672, 1.52983)
 radius = 0.381
 height = 0.5
 material = ExtResource("5_sr1xm")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
+[node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85037, 0.835004, 3.17335)
 player = NodePath("../player")
 
-[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
+[node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
 transform = Transform3D(-0.714057, 0, -0.700087, 0, 1, 0, 0.700087, 0, -0.714057, -1.98942, 2.28178, 0.796084)
 player = NodePath("../player")
 
-[node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
+[node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
 transform = Transform3D(-0.714057, 0, -0.700087, 0, 1, 0, 0.700087, 0, -0.714057, 4.79519, 2.28178, -5.49671)
 player = NodePath("../player")
-
-[node name="Pause" parent="." instance=ExtResource("7_sr1xm")]

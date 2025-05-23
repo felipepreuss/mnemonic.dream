@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dgicjbtbf5vt3"]
+
+[ext_resource type="Shader" uid="uid://vlknqo0o0voe" path="res://Script/postproc.gdshader" id="1_iu3v5"]
+
+[resource]
+shader = ExtResource("1_iu3v5")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 3
