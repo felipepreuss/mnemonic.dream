@@ -29,20 +29,19 @@ func _unhandled_input(event):
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
+	var target_tilt = 0.0
 	if Input.is_action_pressed("Right"):
-		Head.rotation.z = deg_to_rad(transform.basis.z.z)
+		target_tilt = -0.05
 	elif Input.is_action_pressed("Left"):
-		Head.rotation.z = deg_to_rad(-transform.basis.z.z)
-	Head.rotation.z = clamp(Head.rotation.z, -0.05, 0.05)
-	if !Input.get_axis("Left","Right"):
-		Head.rotation.z = 0
+		target_tilt = 0.05
+	Head.rotation.z = lerp(Head.rotation.z, target_tilt, 0.1)
+ 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		velocity.y = JUMP_VELOCITY *1.1
+	 
 
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backwards")
 	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
