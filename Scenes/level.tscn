@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcj0cgtntcnla"]
+[gd_scene load_steps=11 format=3 uid="uid://dcj0cgtntcnla"]
 
 [ext_resource type="Texture2D" uid="uid://nwqncmry4ug2" path="res://Assets/icon.svg" id="1_k5f4k"]
+[ext_resource type="Script" uid="uid://c0n26wsx0sdt8" path="res://Scenes/level.gd" id="1_wqkje"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="4_81xng"]
@@ -17,10 +18,15 @@ background_mode = 2
 sky = SubResource("Sky_6phgx")
 tonemap_mode = 2
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_wqkje"]
+vertices = PackedVector3Array(-49.5, 1, -49.5, -49.5, 1, 49.5, 49.5, 1, 49.5, 49.5, 1, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
 albedo_texture = ExtResource("1_k5f4k")
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_wqkje")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.831954, 0.024202, -0.554316, 0, 0.999048, 0.0436194, 0.554844, 0.0362893, -0.831162, 0, 0, 0)
@@ -31,14 +37,17 @@ directional_shadow_max_distance = 1.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oi3di")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-material_override = SubResource("StandardMaterial3D_vonw3")
-use_collision = true
-size = Vector3(100, 1, 100)
-
 [node name="player" parent="." instance=ExtResource("2_6phgx")]
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
 player = NodePath("../player")
 
 [node name="Pause" parent="." instance=ExtResource("4_81xng")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_wqkje")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+material_override = SubResource("StandardMaterial3D_vonw3")
+use_collision = true
+size = Vector3(100, 1, 100)

@@ -23,3 +23,5 @@ mesh = SubResource("QuadMesh_287tu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(-0.992016, 0, 0.126112, 0, 1, 0, -0.126112, 0, -0.992016, 0, 0.664997, 0)
 shape = SubResource("ConvexPolygonShape3D_1f0kj")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
