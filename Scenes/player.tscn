@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=9 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -6,6 +6,43 @@
 [ext_resource type="Script" uid="uid://dt2cby328mi5" path="res://Script/bullet_lbl.gd" id="3_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "recoil"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.243636, -0.120761, -0.546164), Vector3(0.243636, -0.120761, -0.33473), Vector3(0.243636, -0.120761, -0.546164)]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.243636, -0.120761, -0.546164)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
+_data = {
+&"RESET": SubResource("Animation_fkybt"),
+&"recoil": SubResource("Animation_vgqql")
+}
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
@@ -29,6 +66,11 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 
 [node name="GunPosition" type="Marker3D" parent="head/Camera3D/WeaponsManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.302789)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/WeaponsManager"]
+libraries = {
+&"": SubResource("AnimationLibrary_x3wgy")
+}
 
 [node name="HUD" type="Control" parent="head"]
 layout_mode = 3

@@ -5,9 +5,13 @@
 [sub_resource type="GDScript" id="GDScript_2ecjt"]
 script/source = "extends WeaponsManager
 var damage:int
-func _physics_process(delta: float) -> void:
+
+func handle_shooting () -> void:
+	super()
 	if Input.is_action_pressed(\"Left-Click\") && auto:
 		shooting(ray,lerp(5,20,damage))
+		 
+	
 "
 
 [node name="MachineGun" type="Node3D" node_paths=PackedStringArray("ray")]

@@ -13,6 +13,8 @@ var gun_equipped = false
 var current_gun 
 var gun_limit = 1
 var gun_count = 0
+@onready var kickb 
+@onready var head = $"../.."
 
 @export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
 	load("res://Scenes/shot_gun.tscn"),
@@ -20,23 +22,35 @@ var gun_count = 0
 	load("res://Scenes/smg.tscn")
 ]
 
+func _ready() -> void:
+	await  get_parent().ready
+	kickb = $AnimationPlayer  
 func _physics_process(delta: float) -> void: 
+ 
 	handle_weapon_switch()
 	if current_gun != null:  
 		handle_shooting()
 		handle_reload()
 		update_ammo_display()
+	 
 func handle_shooting():
 	#
 	#	else:
 	#		print('Sem balas suficientes!')
+
 	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
+		
+ 
 		if current_gun.current_ammo >= current_gun.number_balas:
+			
+			kickb.play('recoil')
 			current_gun.current_ammo -= current_gun.number_balas
+			
 			if current_gun.current_ammo < 1:
 				have_ammo = false
 	elif Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
 		if current_gun.current_ammo >= current_gun.number_balas:
+			kickb.play('recoil')
 			current_gun.current_ammo -= current_gun.number_balas
 			have_ammo = false
 		else:
@@ -55,10 +69,10 @@ func handle_reload():
 			current_gun.current_ammo += to_reload
 			current_gun.ammo -= to_reload
 			have_ammo = current_gun.current_ammo > 0
-			print('Recarregado , to_reload,  balas.')
+			#print('Recarregado , to_reload,  balas.')
 
 func update_ammo_display():
-	print(str(current_ammo, '/', ammo))
+	pass#print(str(current_ammo, '/', ammo))
 
 func instantiate_gun(index: int, local: Marker3D):
 	if gun_count < gun_limit:
@@ -87,11 +101,11 @@ func sync_stats_from_gun():
 		max_ammo = current_gun.max_ammo
 		number_balas = current_gun.number_balas
 		have_ammo = current_ammo > 0
-		print(current_gun.auto)
+		#print(current_gun.auto)
 
 func shooting(mira: RayCast3D, dano: int):
 	var target = mira.get_collider()
 	if mira.get_collider()!= null:
 		if target.is_in_group('Enemy'):
 			target.calcularDano(dano)
-			print('Dano causado! Vida restante ', target.vida)
+		#	print('Dano causado! Vida restante ', target.vida)
