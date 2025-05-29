@@ -1,11 +1,74 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=19 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bkhw5ssuuvkp2" path="res://Assets/crosshair005.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="3_fkybt"]
 [ext_resource type="Script" uid="uid://dt2cby328mi5" path="res://Script/bullet_lbl.gd" id="3_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
+
+[sub_resource type="Gradient" id="Gradient_x3wgy"]
+offsets = PackedFloat32Array(0, 0.544199, 0.546961, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.395028, 0.395028, 0.395028, 1, 0.422371, 0.422371, 0.422371, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_62l51"]
+gradient = SubResource("Gradient_x3wgy")
+
+[sub_resource type="Curve" id="Curve_3smsa"]
+_limits = [0.0, 25.0, 0.0, 1.0]
+_data = [Vector2(0, 25), 0.0, 0.0, 0, 0, Vector2(1e-05, 25), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yfygn"]
+curve = SubResource("Curve_3smsa")
+
+[sub_resource type="Curve" id="Curve_8erm5"]
+_limits = [0.0, 0.850947, 0.0, 1.0]
+_data = [Vector2(0.0180412, 0), 0.0, 0.0, 0, 0, Vector2(0.963917, 0.850947), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3vlnx"]
+curve = SubResource("Curve_8erm5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f1ek2"]
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_3vlnx")
+color = Color(0.786502, 0.10305, 0.367896, 1)
+color_ramp = SubResource("GradientTexture1D_62l51")
+emission_curve = SubResource("CurveTexture_yfygn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbiks"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.807843, 0.054902, 1)
+albedo_texture = ExtResource("3_fkybt")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_distance = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_tx1dd"]
+material = SubResource("StandardMaterial3D_tbiks")
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.243636, -0.120761, -0.546164)]
+}
 
 [sub_resource type="Animation" id="Animation_vgqql"]
 resource_name = "recoil"
@@ -21,21 +84,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.243636, -0.120761, -0.546164), Vector3(0.243636, -0.120761, -0.33473), Vector3(0.243636, -0.120761, -0.546164)]
-}
-
-[sub_resource type="Animation" id="Animation_fkybt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.243636, -0.120761, -0.546164)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
@@ -66,6 +114,17 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 
 [node name="GunPosition" type="Marker3D" parent="head/Camera3D/WeaponsManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.302789)
+
+[node name="muzzle" type="GPUParticles3D" parent="head/Camera3D/WeaponsManager/GunPosition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085335, -0.417695)
+emitting = false
+amount = 1
+one_shot = true
+speed_scale = 5.5
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_f1ek2")
+draw_pass_1 = SubResource("QuadMesh_tx1dd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/WeaponsManager"]
 libraries = {

@@ -8,7 +8,7 @@ class_name WeaponsManager extends Node3D
 @export var ray: RayCast3D
 @export var local: Marker3D #muda o nome
 @export var number_balas: int #muda muito o nome
-
+@onready var flash 
 var gun_equipped = false
 var current_gun 
 var gun_limit = 1
@@ -25,6 +25,7 @@ var gun_count = 0
 func _ready() -> void:
 	await  get_parent().ready
 	kickb = $AnimationPlayer  
+	flash =  $GunPosition/muzzle
 func _physics_process(delta: float) -> void: 
  
 	handle_weapon_switch()
@@ -40,10 +41,9 @@ func handle_shooting():
 
 	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
 		
- 
 		if current_gun.current_ammo >= current_gun.number_balas:
-			
 			kickb.play('recoil')
+			flash.emitting = true
 			current_gun.current_ammo -= current_gun.number_balas
 			
 			if current_gun.current_ammo < 1:
@@ -51,6 +51,8 @@ func handle_shooting():
 	elif Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
 		if current_gun.current_ammo >= current_gun.number_balas:
 			kickb.play('recoil')
+			flash.emitting = true
+			flash.restart()
 			current_gun.current_ammo -= current_gun.number_balas
 			have_ammo = false
 		else:
