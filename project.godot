@@ -15,6 +15,10 @@ run/main_scene="uid://dmltaik44kl74"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [global_group]
 
 Enemy=""

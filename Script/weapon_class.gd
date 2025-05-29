@@ -8,11 +8,12 @@ class_name WeaponsManager extends Node3D
 @export var ray: RayCast3D
 @export var local: Marker3D #muda o nome
 @export var number_balas: int #muda muito o nome
-@onready var flash 
+
 var gun_equipped = false
 var current_gun 
 var gun_limit = 1
 var gun_count = 0
+@onready var flash 
 @onready var kickb 
 @onready var head = $"../.."
 
@@ -50,8 +51,10 @@ func handle_shooting():
 				have_ammo = false
 	elif Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
 		if current_gun.current_ammo >= current_gun.number_balas:
-			kickb.play('recoil')
 			flash.emitting = true
+			flash.restart()
+			kickb.play('recoil')
+			
  
 			current_gun.current_ammo -= current_gun.number_balas
 			have_ammo = false
