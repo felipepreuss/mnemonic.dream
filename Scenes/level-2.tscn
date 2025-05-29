@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
-[ext_resource type="Script" uid="uid://b4kqtfpencpj3" path="res://Scenes/level_2.gd" id="1_hrep3"]
+[ext_resource type="Script" uid="uid://b4kqtfpencpj3" path="res://Script/level_2.gd" id="1_hrep3"]
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="1_koo5p"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_v1or5"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_b0ipy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_vuhrq"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="5_sr1xm"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="7_sr1xm"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4frd1"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)

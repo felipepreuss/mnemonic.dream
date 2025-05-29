@@ -52,7 +52,7 @@ func handle_shooting():
 		if current_gun.current_ammo >= current_gun.number_balas:
 			kickb.play('recoil')
 			flash.emitting = true
-			flash.restart()
+ 
 			current_gun.current_ammo -= current_gun.number_balas
 			have_ammo = false
 		else:
