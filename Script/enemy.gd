@@ -6,7 +6,7 @@ var SPEED = 3.0
 var accel = 10
 
 @onready var nav_agent = $NavigationAgent3D
-
+#@onready var hurt = $alienHurt
 #var LOW_DAMAGE = randf_range(1,20)
 #var MEDIUM_DAMAGE = randf_range(21,50)
 #var BIG_DAMAGE = randf_range(51,100)
@@ -47,17 +47,22 @@ func retreat_state(delta):
 	move_and_slide()
 	
 func death_state(delta):
-	queue_free()
+	pass#queue_free()
 	
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)
 	
 func calcularDano(dano:int):
 	vida -= dano
+	$alienHurt.play()
 	if vida <= 0:
-		queue_free()
+		$alienDeath.play()
 		
 func set_state(novo_estado):
 	if novo_estado != current_state:
 		current_state = novo_estado
 		state_start = true
+
+
+func _on_alien_death_finished() -> void:
+	queue_free() # Replace with function body.

@@ -17,6 +17,8 @@ var gun_count = 0
 @onready var kickb 
 @onready var head = $"../.."
 
+
+ 
 @export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
 	load("res://Scenes/shot_gun.tscn"),
 	load("res://Scenes/pistol.tscn"),

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ben12aetap0mp"]
+[gd_scene load_steps=8 format=3 uid="uid://ben12aetap0mp"]
 
 [ext_resource type="Script" uid="uid://d5sflvoplbfc" path="res://Script/enemy.gd" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_1f0kj"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_afpow"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_287tu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afpow"]
 albedo_texture = ExtResource("2_1f0kj")
@@ -25,3 +27,14 @@ transform = Transform3D(-0.992016, 0, 0.126112, 0, 1, 0, -0.126112, 0, -0.992016
 shape = SubResource("ConvexPolygonShape3D_1f0kj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+
+[node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_afpow")
+volume_db = 1.0
+autoplay = true
+
+[node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_287tu")
+volume_db = 1.0
+
+[connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]

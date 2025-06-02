@@ -2,6 +2,7 @@ extends CharacterBody3D
 @onready var crosshair = $UI/Crosshair
 @onready var Head =  $head
 @onready var Camera =  $head/Camera3D
+@onready var walking = $AudioStreamPlayer3D
 #@onready var vida = $head/HUD/Color/Vbox/Vida
 #@onready var weapon = $head/Camera3D/weapon
 const SPEED = 5.0
@@ -48,9 +49,11 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		walking.play()
 	move_and_slide()
 	#atirar
 	#if Input.is_action_just_pressed("Left-Click") and Globals.have_ammo:

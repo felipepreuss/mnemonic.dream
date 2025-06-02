@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvgtj7ysdismb"]
+[gd_scene load_steps=4 format=3 uid="uid://dvgtj7ysdismb"]
 
+[ext_resource type="AudioStream" uid="uid://uswhqpincxe8" path="res://SFX/1336501__steshystesh__laser-pistolgun.mp3" id="1_v21tj"]
 [ext_resource type="PackedScene" uid="uid://c4c6pxj54c53y" path="res://Assets/pistol.glb" id="2_6e3nq"]
 
 [sub_resource type="GDScript" id="GDScript_j1qo2"]
 script/source = "extends WeaponsManager
-
+@onready var laser = $AudioStreamPlayer3D
 func _physics_process(delta: float) -> void:	
 	if Input.is_action_just_pressed(\"Left-Click\"):
 		shooting(ray,lerp(5,20,5))
+		laser.play()
 "
 
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
@@ -25,3 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375909, -1.19209e-07, 0.0
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0790563, -5.06008)
 target_position = Vector3(0, 0, 5)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_v21tj")

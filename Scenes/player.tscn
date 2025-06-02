@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=20 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bkhw5ssuuvkp2" path="res://Assets/crosshair005.png" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="3_fkybt"]
 [ext_resource type="Script" uid="uid://dt2cby328mi5" path="res://Script/bullet_lbl.gd" id="3_vgqql"]
+[ext_resource type="AudioStream" uid="uid://cio87owh78h6s" path="res://SFX/walking-sound-effect-272246.mp3" id="6_x3wgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -200,3 +201,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("2_cvnsp")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_x3wgy")
