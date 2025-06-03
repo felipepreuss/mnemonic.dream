@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=21 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -92,6 +92,9 @@ _data = {
 &"RESET": SubResource("Animation_fkybt"),
 &"recoil": SubResource("Animation_vgqql")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x3wgy"]
+radius = 3.96378
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
@@ -204,3 +207,12 @@ texture = ExtResource("2_cvnsp")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_x3wgy")
+
+[node name="enemy_box" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6503, 0)
+shape = SubResource("SphereShape3D_x3wgy")
+
+[connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
+[connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]

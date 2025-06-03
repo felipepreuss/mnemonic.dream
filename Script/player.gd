@@ -71,3 +71,11 @@ func _physics_process(delta: float) -> void:
 	#if Globals.ammo <= 0:
 		#Globals.can_reload = false
 	
+
+
+func _on_enemy_box_body_entered(body: Node3D) -> void:
+	pass #body.
+
+
+func _on_enemy_box_body_exited(body: Node3D) -> void:
+	pass 
