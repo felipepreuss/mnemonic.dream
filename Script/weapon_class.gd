@@ -8,6 +8,7 @@ class_name WeaponsManager extends Node3D
 @export var ray: RayCast3D
 @export var local: Marker3D #muda o nome
 @export var number_balas: int #muda muito o nome
+const screenshake = preload("res://Scenes/camera_3d.gd")
 
 var gun_equipped = false
 var current_gun 
@@ -16,7 +17,7 @@ var gun_count = 0
 @onready var flash 
 @onready var kickb 
 @onready var head = $"../.."
-
+ 
 
  
 @export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
@@ -29,6 +30,7 @@ func _ready() -> void:
 	await  get_parent().ready
 	kickb = $AnimationPlayer  
 	flash =  $GunPosition/muzzle
+	 
 func _physics_process(delta: float) -> void: 
  
 	handle_weapon_switch()
@@ -38,26 +40,26 @@ func _physics_process(delta: float) -> void:
 		update_ammo_display()
 	 
 func handle_shooting():
-	#
-	#	else:
-	#		print('Sem balas suficientes!')
-
-	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
-		
-		if current_gun.current_ammo >= current_gun.number_balas:
-			kickb.play('recoil')
-			flash.emitting = true
-			current_gun.current_ammo -= current_gun.number_balas
-			
-			if current_gun.current_ammo < 1:
-				have_ammo = false
-	elif Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
-		if current_gun.current_ammo >= current_gun.number_balas:
+	
+	#if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun and auto_shoot:
+		#if current_gun.current_ammo >= current_gun.number_balas:
+			#auto_shoot = false
+			#ScreenShake.screenShake($"..",1,0.25,1)
+			#fire_delay.start()
+			#kickb.play('recoil')
+			#flash.emitting = true
+			#flash.restart()
+			#current_gun.current_ammo -= current_gun.number_balas
+			#
+			#if current_gun.current_ammo < 1:
+				#have_ammo = false
+	
+	if Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
+		if current_gun.current_ammo >= current_gun.number_balas && flash:
 			flash.emitting = true
 			flash.restart()
 			kickb.play('recoil')
-			
- 
+			ScreenShake.screenShake($"..",1,0.25,1)
 			current_gun.current_ammo -= current_gun.number_balas
 			have_ammo = false
 		else:
@@ -116,3 +118,5 @@ func shooting(mira: RayCast3D, dano: int):
 		if target.is_in_group('Enemy'):
 			target.calcularDano(dano)
 		#	print('Dano causado! Vida restante ', target.vida)
+
+ 

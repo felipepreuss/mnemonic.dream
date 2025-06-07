@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=22 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://14wfcj5kpilu" path="res://Scenes/camera_3d.gd" id="2_3smsa"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bkhw5ssuuvkp2" path="res://Assets/crosshair005.png" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="3_fkybt"]
@@ -109,6 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989639, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77035, 0)
+script = ExtResource("2_3smsa")
 
 [node name="WeaponsManager" type="Node3D" parent="head/Camera3D" node_paths=PackedStringArray("local")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243636, -0.120761, -0.546164)
