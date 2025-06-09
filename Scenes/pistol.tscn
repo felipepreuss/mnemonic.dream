@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvgtj7ysdismb"]
+[gd_scene load_steps=5 format=3 uid="uid://dvgtj7ysdismb"]
 
 [ext_resource type="AudioStream" uid="uid://uswhqpincxe8" path="res://SFX/1336501__steshystesh__laser-pistolgun.mp3" id="1_v21tj"]
 [ext_resource type="PackedScene" uid="uid://c4c6pxj54c53y" path="res://Assets/pistol.glb" id="2_6e3nq"]
+[ext_resource type="AudioStream" uid="uid://d6rbwx7df31r" path="res://SFX/scifi_reload.mp3" id="3_ui64p"]
 
 [sub_resource type="GDScript" id="GDScript_j1qo2"]
 script/source = "extends WeaponsManager
 @onready var laser = $AudioStreamPlayer3D
 func _physics_process(delta: float) -> void:	
-	if Input.is_action_just_pressed(\"Left-Click\"):
+	if Input.is_action_just_pressed(\"Left-Click\") && have_ammo:
 		shooting(ray,lerp(5,20,5))
 		laser.play()
+	if Input.is_action_just_pressed('Reload') && have_ammo:
+		$Rel.play()
 "
 
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
@@ -30,3 +33,6 @@ target_position = Vector3(0, 0, 5)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_v21tj")
+
+[node name="Rel" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ui64p")

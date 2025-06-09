@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://14wfcj5kpilu" path="res://Scenes/camera_3d.gd" id="2_3smsa"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bkhw5ssuuvkp2" path="res://Assets/crosshair005.png" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="3_fkybt"]
 [ext_resource type="Script" uid="uid://dt2cby328mi5" path="res://Script/bullet_lbl.gd" id="3_vgqql"]
 [ext_resource type="AudioStream" uid="uid://cio87owh78h6s" path="res://SFX/walking-sound-effect-272246.mp3" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://c8vtvxw1d5806" path="res://SFX/jumpnoise.mp3" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -110,7 +110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989639, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77035, 0)
-script = ExtResource("2_3smsa")
 
 [node name="WeaponsManager" type="Node3D" parent="head/Camera3D" node_paths=PackedStringArray("local")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243636, -0.120761, -0.546164)
@@ -215,6 +214,9 @@ stream = ExtResource("6_x3wgy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_box"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6503, 0)
 shape = SubResource("SphereShape3D_x3wgy")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_3smsa")
 
 [connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
 [connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]

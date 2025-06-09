@@ -8,6 +8,8 @@ func _physics_process(delta: float) -> void:
 			r.target_position.x = randi_range(10,-10)
 			r.target_position.y = randi_range(10,-10)
 		ray = raio[randi_range(0,5)]
-		$AudioStreamPlayer3D.play()
+		$FIRE.play()
 		shooting(ray,20)
+	if Input.is_action_just_pressed('Reload'):
+		$RELOAD.play()
 	#print(str(current_ammo, '/', ammo))

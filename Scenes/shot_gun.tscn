@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceaey3qmvx0oa"]
+[gd_scene load_steps=5 format=3 uid="uid://ceaey3qmvx0oa"]
 
 [ext_resource type="Script" uid="uid://cg8s21twqa7np" path="res://Script/shot_gun.gd" id="1_mdamf"]
 [ext_resource type="PackedScene" uid="uid://dfqi5j2jabl11" path="res://Assets/shotgun.glb" id="2_syoir"]
 [ext_resource type="AudioStream" uid="uid://cc35rr8brxu0g" path="res://SFX/shotgunsound.mp3" id="3_n84jv"]
+[ext_resource type="AudioStream" uid="uid://0a8v0n8m4afm" path="res://SFX/shot_reload.mp3" id="4_oon85"]
 
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("raycontainer", "raio")]
 script = ExtResource("1_mdamf")
@@ -38,5 +39,8 @@ target_position = Vector3(0, 0, -20.5)
 [node name="ray6" type="RayCast3D" parent="Raycontainer"]
 target_position = Vector3(0, 0, -20.5)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="FIRE" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_n84jv")
+
+[node name="RELOAD" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_oon85")

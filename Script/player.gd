@@ -15,8 +15,6 @@ const SENSITIVITY = 0.003
 
 var life_value = 200
 
-
-
 func _ready():
 #	vida.value = life_value
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -42,18 +40,25 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY *1.1
+		$AudioStreamPlayer3D2.play()
 	 
-
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backwards")
 	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		
+
+		if is_on_floor() and not walking.playing:
+			walking.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		walking.play()
+
+		if walking.playing:
+			walking.stop()
+
+	if not is_on_floor() and walking.playing:
+		walking.stop()
 	move_and_slide()
 	#atirar
 	#if Input.is_action_just_pressed("Left-Click") and Globals.have_ammo:
