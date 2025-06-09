@@ -41,19 +41,12 @@ func _physics_process(delta: float) -> void:
 	 
 func handle_shooting():
 	
-	#if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun and auto_shoot:
-		#if current_gun.current_ammo >= current_gun.number_balas:
-			#auto_shoot = false
+	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
+		
 			#ScreenShake.screenShake($"..",1,0.25,1)
-			#fire_delay.start()
-			#kickb.play('recoil')
-			#flash.emitting = true
-			#flash.restart()
-			#current_gun.current_ammo -= current_gun.number_balas
-			#
-			#if current_gun.current_ammo < 1:
-				#have_ammo = false
-	
+		if current_gun.current_ammo >= current_gun.number_balas && flash:
+			kickb.play('recoil')
+			flash.emitting = true
 	if Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
 		if current_gun.current_ammo >= current_gun.number_balas && flash:
 			flash.emitting = true
