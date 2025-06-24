@@ -14,7 +14,8 @@ const ACELERATION = 2.2
 const SENSITIVITY = 0.003
 
 var life_value = 200
-
+signal switch_to_shoot
+signal switch_to_chase
 func _ready():
 #	vida.value = life_value
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -66,8 +67,8 @@ func _physics_process(delta: float) -> void:
 		#if ray.is_colliding():
 			#var target = ray.get_collider()
 			#if target.is_in_group("Enemy"):
-				##var dano = randi_range(0,3)
-				##target.calcularDano(dano)
+				#var dano = randi_range(0,3)
+				#target.calcularDano(dano)
 		#Globals.current_ammo -= 1
 	#if Globals.current_ammo <= 0:
 		#Globals.have_ammo = false
@@ -79,8 +80,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_enemy_box_body_entered(body: Node3D) -> void:
-	pass #body.
+	if body.is_in_group("Enemy"):
+		switch_to_shoot.emit()
 
 
 func _on_enemy_box_body_exited(body: Node3D) -> void:
-	pass 
+	if body.is_in_group("Enemy"):
+		switch_to_chase.emit()

@@ -66,7 +66,7 @@ environment = SubResource("Environment_ehuit")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 141.032)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 129.697)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8445, -3.97244, 91.5248)
 player = NodePath("../player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

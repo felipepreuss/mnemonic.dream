@@ -26,6 +26,7 @@ ScreenShake="*res://Script/screen_shake.gd"
 [global_group]
 
 Enemy=""
+Player=""
 
 [input]
 
