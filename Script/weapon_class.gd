@@ -111,5 +111,3 @@ func shooting(mira: RayCast3D, dano: int):
 		if target.is_in_group('Enemy'):
 			target.calcularDano(dano)
 		#	print('Dano causado! Vida restante ', target.vida)
-
- 

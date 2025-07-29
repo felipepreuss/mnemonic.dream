@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=21 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="1_6a23k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://hg5xl4a1km67" path="res://Script/level_1.gd" id="1_vshho"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_6ps50"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="3_8kvl1"]
+[ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="6_2yqp8"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="6_b5c44"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ps50"]
@@ -83,8 +84,11 @@ transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886
 player = NodePath("../player")
 
 [node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -104.578, 1.08681, -21.9098)
+transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -104.761, 1.28225, -21.8047)
 player = NodePath("../player")
+
+[node name="chiclete_powerup" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_2yqp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1756, 0.729732, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2yqp8")

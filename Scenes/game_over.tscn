@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx6d6j2hvg1t5"]
+[gd_scene load_steps=3 format=3 uid="uid://dx6d6j2hvg1t5"]
 
 [ext_resource type="Script" uid="uid://b6kbv8xcd2q23" path="res://Script/game_over.gd" id="1_ojehl"]
+[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_8fo1c"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -10,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ojehl")
+
+[node name="Fabbri2" type="Sprite2D" parent="."]
+position = Vector2(588, 318)
+scale = Vector2(2.76559, 1.19584)
+texture = ExtResource("2_8fo1c")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

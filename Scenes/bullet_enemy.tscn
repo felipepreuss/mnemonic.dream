@@ -12,14 +12,14 @@ material = SubResource("StandardMaterial3D_7stv0")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mqx58"]
 
-[node name="BulletEnemy" type="CharacterBody3D"]
+[node name="BulletEnemy" type="CharacterBody3D" groups=["Bullet"]]
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)
 script = ExtResource("1_mqx58")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mqx58")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." groups=["Bullet"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_mqx58")

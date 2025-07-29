@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ben12aetap0mp"]
+[gd_scene load_steps=9 format=3 uid="uid://ben12aetap0mp"]
 
 [ext_resource type="Script" uid="uid://d5sflvoplbfc" path="res://Script/enemy.gd" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_1f0kj"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_afpow"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_287tu"]
+[ext_resource type="Script" uid="uid://biiyvivtwwoxe" path="res://Script/slowdown_check.gd" id="5_0830c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afpow"]
 albedo_texture = ExtResource("2_1f0kj")
@@ -42,6 +43,9 @@ autostart = true
 
 [node name="bullet_marker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249993, -0.142254)
+
+[node name="slowdown_check" type="Node3D" parent="."]
+script = ExtResource("5_0830c")
 
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
