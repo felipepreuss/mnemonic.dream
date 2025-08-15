@@ -8,7 +8,7 @@ class_name WeaponsManager extends Node3D
 @export var ray: RayCast3D
 @export var local: Marker3D #muda o nome
 @export var number_balas: int #muda muito o nome
- 
+@export var gun_name: String
 
 var gun_equipped = false
 var current_gun 

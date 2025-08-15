@@ -42,6 +42,7 @@ ammo = 200
 max_ammo = 25
 ray = NodePath("RayCast3D")
 number_balas = 1
+gun_name = "Machine Gun"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
 
 [node name="blaster-d2" parent="." instance=ExtResource("2_sfvq1")]

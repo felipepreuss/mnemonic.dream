@@ -83,6 +83,7 @@ func retreat_state(delta):
 	if is_on_floor():
 		velocity = new_velocity
 		look_at(player.global_transform.origin, Vector3.UP)
+		rotation.z = 0
 		rotation.x = 0
 	else:
 		velocity += get_gravity() * delta
@@ -98,14 +99,19 @@ func shoot_state(delta):
 		set_state(RETREAT)
 	look_at(player.global_transform.origin, Vector3.UP)
 	rotation.x = 0
+	rotation.z = 0
 	if can_shoot == true:
 		var bala = bullet.instantiate()
-		add_child(bala)
+		#bala.transform.basis = transform.basis
+		get_parent().get_parent().get_parent().add_child(bala)
+		bala.rotation.y = rotation.y
 		bala.global_position = $bullet_marker.global_position
+		bala.dir = transform.basis
+		bala.dir.x = -transform.basis.x
 		can_shoot = false
 		#var bala = bullet.instantiate()
 		#bullet.position = pos.global_position
-		#bullet.transform.basis = pos.global_transform.basis
+		#bala.transform.basis = $bullet_marker.global_transform.basis
 		#get_parent().add_child(bullet)
 		
 
