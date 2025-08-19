@@ -73,7 +73,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_4rc3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4526, 9.98566, 6.40354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4526, 9.98566, -7.03231)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, -55.1353)
@@ -95,6 +95,7 @@ navigation_mesh = SubResource("NavigationMesh_2yqp8")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_27dfm")
+use_collision = true
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5579, 11.3355, -37.7226)
@@ -228,3 +229,23 @@ material = SubResource("StandardMaterial3D_b5c44")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.831, 6.61372, -33.1087)
 size = Vector3(13.6054, 12.0546, 33.0811)
 material = SubResource("StandardMaterial3D_2yqp8")
+
+[node name="Parede invisivel" type="CSGCombiner3D" parent="."]
+visible = false
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2472, 11.9557, -64.3516)
+size = Vector3(49.3256, 32.3985, 177.26)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.4225, 14.12, 20.1282)
+size = Vector3(191.1, 36.7269, 25.0477)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.1063, 11.3928, -157.603)
+size = Vector3(215.818, 31.2725, 27.4626)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.32, 10.3585, -67.5785)
+size = Vector3(22.7306, 28.9201, 185.15)

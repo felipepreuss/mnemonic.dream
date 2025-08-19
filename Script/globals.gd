@@ -6,7 +6,8 @@ var contador = 0
 var get_chiclete = false
 var get_pop_candy = false
 var get_chocolate = false
-
+var dialogue_end = false
+var dialogue_start = false
 func reset_powerups():
 	pop_candy_powerup = false
 	chiclete_powerup = false

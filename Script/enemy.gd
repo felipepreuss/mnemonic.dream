@@ -17,12 +17,13 @@ var chocolate_powerup_scene =preload("res://Scenes/chocolate_powerup.tscn")
 
 var can_shoot = false
 @onready var nav_agent = $NavigationAgent3D
-enum {CHASE,ATTACK,RETREAT,DEATH, SHOOT}
+enum {IDLE, CHASE,ATTACK,RETREAT,DEATH, SHOOT}
 var current_state = 0
 var state_start = true
 
 func _ready():
 	Globals.contador += 1
+	
 	if player != null:
 		player.switch_to_shoot.connect(on_switch_to_shoot)
 		player.switch_to_chase.connect(on_switch_to_chase)
@@ -32,6 +33,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	match current_state:
+		IDLE:
+			idle_state(delta)
 		CHASE:
 			chase_state(delta)
 		ATTACK:
@@ -43,6 +46,18 @@ func _physics_process(delta: float) -> void:
 		SHOOT:
 			shoot_state(delta)
 
+func idle_state(delta):
+	if death:
+		set_state(DEATH)
+	elif Globals.dialogue_end:
+		set_state(CHASE)
+	var current_location = global_transform.origin
+	var new_velocity = (current_location).normalized() 
+	velocity = Vector3(0,0,0)
+	look_at(player.global_transform.origin, Vector3.UP)
+	rotation.x = 0
+	move_and_slide()
+	
 func chase_state(delta):
 	if death:
 		set_state(DEATH)
@@ -50,6 +65,8 @@ func chase_state(delta):
 		set_state(RETREAT)
 	elif attack:
 		set_state(ATTACK)
+	elif Globals.dialogue_start:
+		set_state(IDLE)
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
 	var new_velocity = (next_location - current_location).normalized() * SPEED
@@ -63,6 +80,8 @@ func attack_state(delta):
 		set_state(DEATH)
 	elif retreat:
 		set_state(RETREAT)
+	elif Globals.dialogue_start:
+		set_state(IDLE)
 		
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
@@ -77,6 +96,8 @@ func retreat_state(delta):
 		set_state(DEATH)
 	elif attack:
 		set_state(ATTACK)
+	elif Globals.dialogue_start:
+		set_state(IDLE)
 		
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
@@ -98,6 +119,8 @@ func shoot_state(delta):
 		set_state(DEATH)
 	elif retreat:
 		set_state(RETREAT)
+	elif Globals.dialogue_start:
+		set_state(IDLE)
 	look_at(player.global_transform.origin, Vector3.UP)
 	rotation.x = 0
 	rotation.z = 0
