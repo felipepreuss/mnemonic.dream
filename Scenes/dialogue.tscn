@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc2whvfhdgxy3"]
+
+[ext_resource type="Script" uid="uid://8fqmb6mnwxvr" path="res://Script/dialogue.gd" id="1_5rqxr"]
+[ext_resource type="Texture2D" uid="uid://8piqocnhya34" path="res://Assets/papel-removebg-preview.png" id="2_dgfud"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5rqxr")
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="Papel-removebg-preview" type="Sprite2D" parent="Ui"]
+position = Vector2(605, 835)
+rotation = 0.0698132
+scale = Vector2(5, 5)
+texture = ExtResource("2_dgfud")
+
+[node name="PanelContainer" type="PanelContainer" parent="Ui"]
+offset_top = 402.0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+
+[node name="Labelo" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30

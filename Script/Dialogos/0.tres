@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogo" load_steps=2 format=3 uid="uid://tw56rffaf85a"]
+
+[ext_resource type="Script" uid="uid://cgpdyh7vnrsoy" path="res://Script/Dialogo.gd" id="1_otyut"]
+
+[resource]
+script = ExtResource("1_otyut")
+id = 0
+personagem = "penis"
+texto = "duro"
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

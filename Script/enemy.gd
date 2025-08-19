@@ -22,6 +22,7 @@ var current_state = 0
 var state_start = true
 
 func _ready():
+	Globals.contador += 1
 	if player != null:
 		player.switch_to_shoot.connect(on_switch_to_shoot)
 		player.switch_to_chase.connect(on_switch_to_chase)
@@ -122,6 +123,8 @@ func calcularDano(dano:int):
 	vida -= dano
 	$alienHurt.play()
 	if vida <= 0:
+		Globals.contador -= 1
+		print("sim",Globals.contador)
 		death = true
 	elif vida <= 100:
 		retreat = true
@@ -152,7 +155,6 @@ func _on_alien_death_finished() -> void:
 	
 func _on_bullet_timer_timeout() -> void:
 	can_shoot = true
-	#print("lucas é um corno")
 
 func on_switch_to_shoot() -> void:
 	if death:

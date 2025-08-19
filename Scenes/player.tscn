@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=29 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="3_fkybt"]
 [ext_resource type="Script" uid="uid://dt2cby328mi5" path="res://Script/bullet_lbl.gd" id="3_vgqql"]
 [ext_resource type="Script" uid="uid://b5lk0im56olf8" path="res://Script/life.gd" id="5_8erm5"]
+[ext_resource type="Script" uid="uid://yvigbgbg8i5g" path="res://Script/hp.gd" id="5_pu2lt"]
 [ext_resource type="Script" uid="uid://cw3w6ct1amurw" path="res://Script/gun.gd" id="6_f1ek2"]
 [ext_resource type="AudioStream" uid="uid://cio87owh78h6s" path="res://SFX/walking-sound-effect-272246.mp3" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://c8vtvxw1d5806" path="res://SFX/jumpnoise.mp3" id="7_3smsa"]
-[ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Scenes/power_up.gd" id="7_tx1dd"]
+[ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Script/power_up.gd" id="7_tx1dd"]
+[ext_resource type="Script" uid="uid://dctki5lgsrowk" path="res://Script/aliens.gd" id="8_gymyn"]
+[ext_resource type="PackedScene" uid="uid://bc2whvfhdgxy3" path="res://Scenes/dialogue.tscn" id="13_ukyrk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -192,7 +195,23 @@ offset_bottom = 26.0
 text = "Health"
 horizontal_alignment = 1
 
+[node name="hp" type="Label" parent="head/HUD/Health"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.5
+offset_top = -33.0
+offset_right = 20.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_pu2lt")
+
 [node name="Health" type="ProgressBar" parent="head/HUD/Health"]
+visible = false
 layout_mode = 0
 offset_left = 27.0
 offset_top = 30.0
@@ -219,20 +238,22 @@ horizontal_alignment = 1
 
 [node name="Gun" type="Label" parent="head/HUD/Gun" node_paths=PackedStringArray("manager")]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 1.0
 offset_top = 31.0
-offset_right = 71.0
+offset_right = 103.0
 offset_bottom = 54.0
 text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("6_f1ek2")
 manager = NodePath("../../../Camera3D/WeaponsManager")
 
 [node name="Drogas" type="ColorRect" parent="head/HUD"]
 layout_mode = 0
 offset_left = 690.0
-offset_top = 560.0
+offset_top = 536.0
 offset_right = 796.0
-offset_bottom = 621.0
+offset_bottom = 639.0
 color = Color(1, 1, 1, 0.247059)
 
 [node name="Label" type="Label" parent="head/HUD/Drogas"]
@@ -244,15 +265,43 @@ offset_bottom = 27.0
 text = "Power up"
 horizontal_alignment = 1
 
-[node name="Power up" type="Label" parent="head/HUD/Drogas"]
+[node name="Power Up" type="Label" parent="head/HUD/Drogas"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 31.0
 offset_right = 100.0
 offset_bottom = 54.0
-text = " "
+text = " None"
 horizontal_alignment = 1
 script = ExtResource("7_tx1dd")
+
+[node name="contador de inimigos" type="ColorRect" parent="head/HUD"]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 14.0
+offset_right = 1117.0
+offset_bottom = 75.0
+color = Color(1, 1, 1, 0.247059)
+
+[node name="Label" type="Label" parent="head/HUD/contador de inimigos"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 4.0
+offset_right = 84.0
+offset_bottom = 27.0
+text = "Inimigos"
+horizontal_alignment = 1
+
+[node name="Aliens" type="Label" parent="head/HUD/contador de inimigos"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 31.0
+offset_right = 71.0
+offset_bottom = 54.0
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_gymyn")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -285,6 +334,8 @@ stream = ExtResource("7_3smsa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6503, 0)
 shape = SubResource("CapsuleShape3D_8erm5")
 debug_color = Color(0.628337, 0, 0.201289, 0.42)
+
+[node name="Dialogue" parent="." instance=ExtResource("13_ukyrk")]
 
 [connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
 [connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]

@@ -46,13 +46,20 @@ func _physics_process(delta: float) -> void:
 		delta_time = 0
 		if HP > 100:
 			HP -= 1
-
 	if Input.is_action_just_pressed("botão da morte mortal"):
 		death = true
 	if death or HP < 1:
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-
-
+		
+		#Usar consumível
+	if Input.is_action_just_pressed("Q"):
+		powerup_check()
+		powerup(power_up)
+		power_up = "none"
+		Globals.get_chiclete = false
+		Globals.get_chocolate = false
+		Globals.get_pop_candy = false
+		
 	var target_tilt = 0.0
 	if Input.is_action_pressed("Right"):
 		target_tilt = -0.05
@@ -108,14 +115,11 @@ func _physics_process(delta: float) -> void:
 
 func powerup(powerup):
 	if powerup == "pop_candy":
-		power_up = "pop_candy"
 		Globals.pop_candy_powerup = true
-		print("HOLY [Cungadero]")
 		await get_tree().create_timer(10).timeout
-		power_up = "none"
 		Globals.pop_candy_powerup = false
-		print("DELICIS KROMER")
-
+	if powerup == "chiclete":
+		Globals.chiclete_powerup = true
 	if powerup == "chocolate":
 		HP += 70
 		if HP > max_HP:
@@ -123,6 +127,21 @@ func powerup(powerup):
 	else:
 		pass
 
+func powerup_check():
+	if Globals.get_chiclete:
+		power_up = "chiclete"
+	elif Globals.get_pop_candy:
+		power_up = "pop_candy"
+	elif Globals.get_chocolate:
+		power_up = "chocolate"
+
+func reset_powerups():
+	Globals.pop_candy_powerup = false
+	Globals.chiclete_powerup = false
+	chocolate_powerup = false
+	Globals.get_chiclete = false
+	Globals.get_pop_candy = false
+	Globals.get_chocolate = false
 
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):

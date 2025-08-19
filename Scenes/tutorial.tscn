@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=21 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://y2cbql8sdien" path="res://Scenes/pop_candy.tscn" id="6_on4kn"]
 [ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="7_8va2t"]
 [ext_resource type="PackedScene" uid="uid://chv6nc68ahtak" path="res://Scenes/chocolate_powerup.tscn" id="8_8mnmb"]
+[ext_resource type="Script" uid="uid://d1aertuga1lqi" path="res://Script/nextlevel.gd" id="12_8mnmb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -41,6 +42,8 @@ uv1_scale = Vector3(5, 5, 5)
 albedo_color = Color(0.435192, 0.435192, 0.435192, 1)
 albedo_texture = ExtResource("2_p8jf4")
 uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_koko0"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_h2ono")
@@ -195,3 +198,13 @@ material = ExtResource("3_p8jf4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.077, 5.06652, -85.8745)
 size = Vector3(40.31, 21.4245, 17.6604)
 material = ExtResource("3_p8jf4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(86.5438, 0, 0, 0, 20.0419, 0, 0, 0, 20.4792, -34.8985, 1.90735e-06, 101.811)
+shape = SubResource("BoxShape3D_koko0")
+script = ExtResource("12_8mnmb")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

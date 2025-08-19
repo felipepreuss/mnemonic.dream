@@ -4,8 +4,7 @@ func _process(delta: float) -> void:
 	$Sprite3D/AnimationPlayer.play()
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.name == "player":
-		body.powerup("chiclete")
-		print("ENEMY SLOWDOWN.")
-		Globals.chiclete_powerup = true
+	if body.name == "player" and !Globals.get_chiclete and !Globals.get_chocolate and !Globals.get_pop_candy:
+		Globals.get_chiclete = true
+		body.powerup_check()
 		queue_free()
