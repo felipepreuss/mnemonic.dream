@@ -21,9 +21,7 @@ var gun_count = 0
 
  
 @export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
-	load("res://Scenes/shot_gun.tscn"),
-	load("res://Scenes/pistol.tscn"),
-	load("res://Scenes/smg.tscn")
+	load("res://Scenes/pistol.tscn")
 ]
 
 func _ready() -> void:
@@ -38,7 +36,9 @@ func _physics_process(delta: float) -> void:
 		handle_shooting()
 		handle_reload()
 		update_ammo_display()
-	 
+	if Globals.get_gun:
+		if weapon_scenes.size() == 1:
+			get_new_weapon(load("res://Scenes/shot_gun.tscn"))
 func handle_shooting():
 	
 	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
@@ -111,3 +111,6 @@ func shooting(mira: RayCast3D, dano: int):
 		if target.is_in_group('Enemy'):
 			target.calcularDano(dano)
 		#	print('Dano causado! Vida restante ', target.vida)
+
+func get_new_weapon(weapon_slot):
+	weapon_scenes.append(weapon_slot)

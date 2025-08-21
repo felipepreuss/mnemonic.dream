@@ -8,6 +8,8 @@ var get_pop_candy = false
 var get_chocolate = false
 var dialogue_end = false
 var dialogue_start = false
+var get_gun = false
+var is_tutorial = false
 func reset_powerups():
 	pop_candy_powerup = false
 	chiclete_powerup = false

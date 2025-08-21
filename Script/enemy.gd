@@ -20,6 +20,7 @@ var can_shoot = false
 enum {IDLE, CHASE,ATTACK,RETREAT,DEATH, SHOOT}
 var current_state = 0
 var state_start = true
+signal on_death
 
 func _ready():
 	Globals.contador += 1
@@ -112,6 +113,7 @@ func retreat_state(delta):
 	move_and_slide()
 	
 func death_state(delta):
+	emit_signal("on_death")
 	$alienDeath.play() 
 
 func shoot_state(delta):
