@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc58amk2buxq0"]
+
+[ext_resource type="Script" uid="uid://cxim3hx3sa007" path="res://Script/acquire_weapon.gd" id="1_2xhsj"]
+[ext_resource type="PackedScene" uid="uid://dfqi5j2jabl11" path="res://Assets/shotgun.glb" id="2_77hrl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2xhsj"]
+
+[node name="AcquireWeapon" type="Node"]
+script = ExtResource("1_2xhsj")
+
+[node name="blaster-r2" parent="." instance=ExtResource("2_77hrl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 123.826)
+
+[node name="weapon_get_area" type="Area3D" parent="blaster-r2"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.368599, 0.97244, -0.43811)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blaster-r2/weapon_get_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384102, -0.747453, -0.359734)
+shape = SubResource("BoxShape3D_2xhsj")

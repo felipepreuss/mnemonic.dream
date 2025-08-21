@@ -158,3 +158,7 @@ func _on_player_box_area_entered(area: Area3D) -> void:
 		HP -= 5
 		healthChanged.emit()
 		print (HP)
+
+
+func _on_weapon_get_area_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
