@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=26 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://y2cbql8sdien" path="res://Scenes/pop_candy.tscn" id="6_on4kn"]
 [ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="7_8va2t"]
 [ext_resource type="PackedScene" uid="uid://chv6nc68ahtak" path="res://Scenes/chocolate_powerup.tscn" id="8_8mnmb"]
-[ext_resource type="Script" uid="uid://d1aertuga1lqi" path="res://Script/nextlevel.gd" id="12_8mnmb"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
@@ -45,6 +44,7 @@ albedo_texture = ExtResource("2_p8jf4")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_koko0"]
+size = Vector3(1, 0.991699, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mnmb"]
 size = Vector3(223.22, 4.65918, 5.47943)
@@ -85,41 +85,23 @@ shadow_enabled = true
 environment = SubResource("Environment_ehuit")
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_feyax")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 141.032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 106.003)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 123.876)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 78.9557)
 player = NodePath("../player")
 
-[node name="pop_candy" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_on4kn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8462, -3.99783, 128.289)
-
-[node name="pop_candy2" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_on4kn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1155, -3.99783, 131.454)
-
 [node name="pop_candy3" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_on4kn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8462, -3.99783, 132.932)
-
-[node name="chiclete_powerup" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_8va2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3867, -3.86291, 141.127)
-
-[node name="chiclete_powerup2" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_8va2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5239, -3.86291, 139.072)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.158, -3.99783, 132.932)
 
 [node name="chiclete_powerup4" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_8va2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8425, -3.86291, 141.127)
-
-[node name="chocolate_powerup2" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_8mnmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.6172, -3.99413, 134.11)
-
-[node name="chocolate_powerup3" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_8mnmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.7746, -3.99413, 134.11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -406.154, -3.86291, 141.127)
 
 [node name="chocolate_powerup4" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_8mnmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.7746, -3.99413, 136.679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -431.086, -3.99413, 136.679)
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -49.3911, -4.13135, 115.05)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -49.3911, -4.13135, 76.1856)
 player = NodePath("../player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -216,18 +198,18 @@ size = Vector3(40.31, 21.4245, 17.6604)
 material = ExtResource("3_p8jf4")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0912)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(86.5438, 0, 0, 0, 20.0419, 0, 0, 0, 20.4792, -34.8985, 1.90735e-06, 94.3391)
+transform = Transform3D(86.5438, 0, 0, 0, 20.0419, 0, 0, 0, 20.4792, -34.8985, 0.0831836, 55.7694)
 shape = SubResource("BoxShape3D_koko0")
-script = ExtResource("12_8mnmb")
 
 [node name="invisible_wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3362, -41.6234, 27.3401)
 script = ExtResource("13_koko0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="invisible_wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7527, 40.2471, 76.1556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7527, 40.2471, 6.38263)
 shape = SubResource("BoxShape3D_8mnmb")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="invisible_wall"]

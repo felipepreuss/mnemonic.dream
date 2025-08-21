@@ -1,19 +1,17 @@
 extends Control
 @onready var ui = $Ui
-@onready var nome = $Ui/PanelContainer/VBoxContainer/Label
 @onready var texto= $Ui/PanelContainer/VBoxContainer/Labelo
 
 var dialogo: Dialogo:
 	set(value):
-		ui.visible = true
 		Globals.dialogue_start = true
 		dialogo = value
-		nome.text = value.personagem
 		texto.text = value.texto
 		
+
 func _ready():
-	Dialogue.ui.visible = false
-	
+	dialogo = load('res://Script/Dialogos/Info.tres')
+
 func _process(delta):
 	if Input.is_action_just_pressed("Left-Click") and ui.visible == true:
 		if dialogo.next_dialog != null:
@@ -24,4 +22,3 @@ func _process(delta):
 			ui.visible = false
 			Globals.dialogue_end = true
 			Globals.dialogue_start = false
-			

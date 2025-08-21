@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c8vtvxw1d5806" path="res://SFX/jumpnoise.mp3" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Script/power_up.gd" id="7_tx1dd"]
 [ext_resource type="Script" uid="uid://dctki5lgsrowk" path="res://Script/aliens.gd" id="8_gymyn"]
-[ext_resource type="PackedScene" uid="uid://bc2whvfhdgxy3" path="res://Scenes/dialogue.tscn" id="13_ukyrk"]
+[ext_resource type="PackedScene" uid="uid://xnyhb4qxj6gh" path="res://Scenes/tutorial_info.tscn" id="14_7dp3o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -335,7 +335,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6503, 0)
 shape = SubResource("CapsuleShape3D_8erm5")
 debug_color = Color(0.628337, 0, 0.201289, 0.42)
 
-[node name="Dialogue" parent="." instance=ExtResource("13_ukyrk")]
+[node name="Tutorial_info" parent="." instance=ExtResource("14_7dp3o")]
 
 [connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
 [connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]
