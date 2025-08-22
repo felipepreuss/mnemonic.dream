@@ -138,10 +138,6 @@ func powerup_check():
 func reset_powerups():
 	Globals.pop_candy_powerup = false
 	Globals.chiclete_powerup = false
-	chocolate_powerup = false
-	Globals.get_chiclete = false
-	Globals.get_pop_candy = false
-	Globals.get_chocolate = false
 
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
@@ -161,4 +157,4 @@ func _on_player_box_area_entered(area: Area3D) -> void:
 
 
 func _on_weapon_get_area_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
+	pass

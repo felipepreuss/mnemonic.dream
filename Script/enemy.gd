@@ -160,24 +160,23 @@ func set_state(novo_estado):
 		state_start = true
 
 func _on_alien_death_finished() -> void:
-	var chiclete_powerup = chiclete_powerup_scene.instantiate()
-	var chocolate = chocolate_powerup_scene.instantiate()
-	var pop_candy = pop_candy_powerup_scene.instantiate()
-	var rng = RandomNumberGenerator.new()
-	randomize()
-	var rng_powerup = rng.randi_range(1, 3)
-	print(rng_powerup)
-	if rng_powerup == 1:
-		get_parent().add_child(chiclete_powerup)
-		chiclete_powerup.global_position = $bullet_marker.global_position
-	if rng_powerup == 2:
-		get_parent().add_child(chocolate)
-		chocolate.global_position = $bullet_marker.global_position
-	if rng_powerup == 3:
-		get_parent().add_child(pop_candy)
-		pop_candy.global_position = $bullet_marker.global_position
-	queue_free()
-	
+		var chiclete_powerup = chiclete_powerup_scene.instantiate()
+		var chocolate = chocolate_powerup_scene.instantiate()
+		var pop_candy = pop_candy_powerup_scene.instantiate()
+		var rng = RandomNumberGenerator.new()
+		randomize()
+		var rng_powerup = rng.randi_range(1, 3)
+		print(rng_powerup)
+		if rng_powerup == 1:
+			get_parent().add_child(chiclete_powerup)
+			chiclete_powerup.global_position = $bullet_marker.global_position
+		if rng_powerup == 2:
+			get_parent().add_child(chocolate)
+			chocolate.global_position = $bullet_marker.global_position
+		if rng_powerup == 3:
+			get_parent().add_child(pop_candy)
+			pop_candy.global_position = $bullet_marker.global_position
+		queue_free()
 func _on_bullet_timer_timeout() -> void:
 	can_shoot = true
 
@@ -200,5 +199,4 @@ func on_switch_to_chase() -> void:
 func on_slowdown() -> void:
 		SPEED = 1.0
 		await get_tree().create_timer(10).timeout
-		print("ENEMY SPEED UP.")
 		SPEED = 3.0

@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 	if Globals.get_gun:
 		if weapon_scenes.size() == 1:
 			get_new_weapon(load("res://Scenes/shot_gun.tscn"))
+			
 func handle_shooting():
 	
 	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
@@ -57,7 +58,7 @@ func handle_shooting():
 			have_ammo = false
 		else:
 			print('Sem balas suficientes!')
-	
+
 func handle_weapon_switch():
 	for i in range(weapon_scenes.size()):
 		if Input.is_physical_key_pressed(KEY_0 + i + 1):
