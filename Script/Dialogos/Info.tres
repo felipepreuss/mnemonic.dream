@@ -6,7 +6,7 @@
 script = ExtResource("1_5xb2d")
 id = 1
 personagem = ""
-texto = "Move: W,A,S,D "
+texto = "Move: W,A,S,D pegar Arma: tecla 1"
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
 
 [resource]

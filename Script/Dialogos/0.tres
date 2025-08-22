@@ -1,26 +1,82 @@
-[gd_resource type="Resource" script_class="Dialogo" load_steps=4 format=3 uid="uid://tw56rffaf85a"]
+[gd_resource type="Resource" script_class="Dialogo" load_steps=11 format=3 uid="uid://tw56rffaf85a"]
 
 [ext_resource type="Script" uid="uid://cgpdyh7vnrsoy" path="res://Script/Dialogo.gd" id="1_otyut"]
 
+[sub_resource type="Resource" id="Resource_mq62d"]
+script = ExtResource("1_otyut")
+id = 9
+personagem = "Dra. Lúcia"
+texto = "Vamos começar de onde paramos..."
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
 [sub_resource type="Resource" id="Resource_vcc66"]
 script = ExtResource("1_otyut")
+id = 8
+personagem = "Dra. Lúcia"
+texto = "Lembre-se só você pode fazer isso"
+next_dialog = SubResource("Resource_mq62d")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_x8ky5"]
+script = ExtResource("1_otyut")
+id = 7
+personagem = "Dra. Lúcia"
+texto = "Apenas enfrentando isso você se sentirá melhor…"
+next_dialog = SubResource("Resource_vcc66")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_n8uj0"]
+script = ExtResource("1_otyut")
+id = 6
+personagem = "Crystal (eu)"
+texto = "...Não sei se quero continuar com isso."
+next_dialog = SubResource("Resource_x8ky5")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_2p8av"]
+script = ExtResource("1_otyut")
+id = 5
+personagem = "Crystal (eu)"
+texto = "..."
+next_dialog = SubResource("Resource_n8uj0")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_g40ma"]
+script = ExtResource("1_otyut")
+id = 4
+personagem = "Dra. Lúcia"
+texto = "Vá com cautela, com calma, respira fundo."
+next_dialog = SubResource("Resource_2p8av")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_o36ko"]
+script = ExtResource("1_otyut")
+id = 3
+personagem = "Dra. Lúcia"
+texto = "Aos poucos as coisas vão voltar à clareza logo"
+next_dialog = SubResource("Resource_g40ma")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_nns3s"]
+script = ExtResource("1_otyut")
 id = 2
-personagem = "Dra Lucia"
-texto = "Vá devagar, com calma, respira. Aos poucos as coisas vão voltar à clareza."
+personagem = "Crystal (eu)"
+texto = "Tina!?!? Cadê você??"
+next_dialog = SubResource("Resource_o36ko")
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
 
 [sub_resource type="Resource" id="Resource_v5pjx"]
 script = ExtResource("1_otyut")
 id = 1
 personagem = "Tina"
-texto = "Aquilo é um.. alien? Não.. Isso não tá realmente acontecendo né?"
-next_dialog = SubResource("Resource_vcc66")
+texto = "Aquilo é um.. alien? Não.. Isso não pode ser real..."
+next_dialog = SubResource("Resource_nns3s")
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
 
 [resource]
 script = ExtResource("1_otyut")
 id = 0
-personagem = "Crystal"
-texto = "Quem é aquele ali parado?"
+personagem = "Crystal (eu)"
+texto = "Quem são aqueles ali parados?... oque tá rolando?!?!"
 next_dialog = SubResource("Resource_v5pjx")
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

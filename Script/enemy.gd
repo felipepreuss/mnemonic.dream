@@ -11,9 +11,9 @@ var bullet = preload("res://Scenes/bullet_enemy.tscn")
 
 @onready var slowdown_check = $slowdown_check
 
-var chiclete_powerup_scene =preload("res://Scenes/chiclete_powerup.tscn")
-var pop_candy_powerup_scene =preload("res://Scenes/pop_candy.tscn")
-var chocolate_powerup_scene =preload("res://Scenes/chocolate_powerup.tscn")
+var chiclete_powerup_scene = preload("res://Scenes/chiclete_powerup.tscn")
+var pop_candy_powerup_scene = preload("res://Scenes/pop_candy.tscn")
+var chocolate_powerup_scene = preload("res://Scenes/chocolate_powerup.tscn")
 
 var can_shoot = false
 @onready var nav_agent = $NavigationAgent3D

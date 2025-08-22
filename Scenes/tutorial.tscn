@@ -46,7 +46,7 @@ albedo_texture = ExtResource("2_p8jf4")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_koko0"]
-size = Vector3(2.27216, 0.731689, 1.01514)
+size = Vector3(0.813565, 0.731689, 1.01514)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mnmb"]
 size = Vector3(225.051, 17.27, 4.02402)
@@ -203,8 +203,9 @@ material = ExtResource("3_p8jf4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0912)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
-transform = Transform3D(86.5438, 0, 0, 0, 20.0419, 0, 0, 0, 20.4792, -37.0299, 2.68873, 55.9244)
+transform = Transform3D(86.5438, 0, 0, 0, 20.0419, 0, 0, 0, 20.4792, -48.3711, 2.68873, 55.9244)
 shape = SubResource("BoxShape3D_koko0")
+debug_color = Color(0.971812, 0.133536, 0.263744, 0.42)
 
 [node name="invisible_wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3362, -41.6234, 27.3401)

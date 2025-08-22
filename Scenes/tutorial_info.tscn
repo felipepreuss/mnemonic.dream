@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://xnyhb4qxj6gh"]
+[gd_scene load_steps=5 format=3 uid="uid://xnyhb4qxj6gh"]
 
 [ext_resource type="Script" uid="uid://df3n0ras2hgbf" path="res://Script/tutorial_info.gd" id="1_kxe6u"]
+[ext_resource type="Texture2D" uid="uid://cipeisym3xpb0" path="res://Assets/Fundo Preto.jpeg" id="2_0mxru"]
 [ext_resource type="Texture2D" uid="uid://8piqocnhya34" path="res://Assets/papel-removebg-preview.png" id="2_kjrpv"]
+[ext_resource type="FontFile" uid="uid://bqlxwg5goynp6" path="res://Assets/Fonts/Mayonice.ttf" id="4_2ubpp"]
 
 [node name="Tutorial_info" type="Control"]
 layout_mode = 3
@@ -14,23 +16,69 @@ mouse_filter = 1
 script = ExtResource("1_kxe6u")
 
 [node name="Ui" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="FundoPreto" type="Sprite2D" parent="Ui"]
+position = Vector2(606.5, 395)
+scale = Vector2(2.11849, 2.14062)
+texture = ExtResource("2_0mxru")
 
 [node name="PanelContainer" type="PanelContainer" parent="Ui"]
-offset_left = 545.0
-offset_top = 33.0
-offset_right = 942.0
-offset_bottom = 132.0
+offset_left = 134.0
+offset_top = 68.0
+offset_right = 1011.0
+offset_bottom = 526.0
 
 [node name="Papel-removebg-preview" type="Sprite2D" parent="Ui/PanelContainer"]
-position = Vector2(294.258, 27.7872)
+position = Vector2(450.783, 259.531)
 rotation = 0.0698132
-scale = Vector2(2.2599, 1.59998)
+scale = Vector2(3.8792, 3.27357)
 texture = ExtResource("2_kjrpv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Ui/PanelContainer"]
 layout_mode = 2
 
+[node name="Labele" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2ubpp")
+theme_override_font_sizes/font_size = 37
+text = "11/06/2026"
+horizontal_alignment = 2
+
 [node name="Labelo" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("4_2ubpp")
+theme_override_font_sizes/font_size = 37
+text = "MAPA  DE    CONTROLES"
+horizontal_alignment = 1
+
+[node name="Labela" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2ubpp")
+theme_override_font_sizes/font_size = 45
+text = "Movimento: W,A,S,D
+Pular: Espaço
+Atirar: Botão Esquerdo
+Recarregar: R
+Power Up: Q"
+
+[node name="Label" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2ubpp")
+theme_override_font_sizes/font_size = 45
+text = "Clique botão esquerdo para seguir"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Labeli" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2ubpp")
+theme_override_font_sizes/font_size = 29
+text = "Assinado: DRA. Lúcia"
+horizontal_alignment = 2
+vertical_alignment = 2

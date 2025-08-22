@@ -51,7 +51,7 @@ uv1_scale = Vector3(3, 3, 3)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yqp8"]
 albedo_texture = ExtResource("3_8kvl1")
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 script = ExtResource("1_vshho")
 
 [node name="Pause" parent="." instance=ExtResource("6_b5c44")]

@@ -9,6 +9,7 @@ var get_chocolate = false
 var dialogue_end = false
 var dialogue_start = false
 var get_gun = false
+var CabouTexto = false
 
 
 @onready var Dialogue = "res://Scenes/dialogue.tscn"
