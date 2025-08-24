@@ -2,7 +2,9 @@ extends CharacterBody3D
 @onready var crosshair = $UI/Crosshair
 @onready var Head =  $head
 @onready var Camera =  $head/Camera3D
-@onready var walking = $AudioStreamPlayer3D
+@onready var walk_1: AudioStreamPlayer3D = $Walk1
+@onready var walk_2: AudioStreamPlayer3D = $Walk2
+
 #@onready var vida = $head/HUD/Color/Vbox/Vida
 #@onready var weapon = $head/Camera3D/weapon
 var SPEED = 5.0
@@ -22,6 +24,8 @@ var death = false
 
 var chocolate_powerup = false
 var delta_time = 0
+var step_timer := 0.0
+var step_interval := 0.5  # base interval between steps
 
 signal healthChanged
 signal switch_to_shoot
@@ -77,21 +81,20 @@ func _physics_process(delta: float) -> void:
 	 
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backwards")
 	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction :
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-
-		if is_on_floor() and not walking.playing:
-			walking.play()
+		if is_on_floor() and not walk_1.playing and not walk_2.playing:
+					if randf() > 0.5:
+						walk_1.play()
+					else:
+						walk_2.play()		
+ 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-		if walking.playing:
-			walking.stop()
 
-	if not is_on_floor() and walking.playing:
-		walking.stop()
 	if Globals.pop_candy_powerup == true:
 		SPEED = 10
 	else:
