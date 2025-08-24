@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cdp1m1v6b855b"]
+[gd_scene load_steps=2 format=3 uid="uid://cdp1m1v6b855b"]
+
+[ext_resource type="Script" uid="uid://5wp24ka0cvbu" path="res://Scenes/level_complete.gd" id="1_u5kwf"]
 
 [node name="level_complete" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_u5kwf")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -69,3 +72,5 @@ text = "NEXT"
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "SAVE"
+
+[connection signal="pressed" from="HBoxContainer/next_button" to="." method="_on_next_button_pressed"]

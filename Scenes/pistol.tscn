@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 [node name="Pistola (1)" parent="." instance=ExtResource("1_ui64p")]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0790563, -5.06008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.095401, -5.06008)
 target_position = Vector3(0, 0, 5)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

@@ -74,7 +74,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_4rc3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4799, 9.89002, -6.92393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4799, 0.998116, -6.92393)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, -55.1353)
