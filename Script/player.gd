@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("botão da morte mortal"):
 		death = true
 	if death or HP < 1:
+		Globals.reset_powerups()
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 		
 		#Usar consumível
@@ -138,15 +139,15 @@ func powerup_check():
 func reset_powerups():
 	Globals.pop_candy_powerup = false
 	Globals.chiclete_powerup = false
-
+	HP = 100
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
-		switch_to_shoot.emit()
+		body.switch_to_shoot()
 
 
 func _on_enemy_box_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
-		switch_to_chase.emit()
+		body.switch_to_chase()
 
 
 func _on_player_box_area_entered(area: Area3D) -> void:

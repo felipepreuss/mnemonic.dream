@@ -30,7 +30,6 @@ func _ready() -> void:
 	flash =  $GunPosition/muzzle
 	 
 func _physics_process(delta: float) -> void: 
- 
 	handle_weapon_switch()
 	if current_gun != null:  
 		handle_shooting()
@@ -39,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	if Globals.get_gun:
 		if weapon_scenes.size() == 1:
 			get_new_weapon(load("res://Scenes/shot_gun.tscn"))
-			
 func handle_shooting():
 	
 	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
@@ -55,8 +53,9 @@ func handle_shooting():
 			kickb.play('recoil')
 			ScreenShake.screenShake($"..",1,0.25,1)
 			current_gun.current_ammo -= current_gun.number_balas
-			have_ammo = false
 		else:
+			have_ammo = false
+			current_gun.have_ammo = false
 			print('Sem balas suficientes!')
 
 func handle_weapon_switch():
@@ -72,6 +71,7 @@ func handle_reload():
 			current_gun.current_ammo += to_reload
 			current_gun.ammo -= to_reload
 			have_ammo = current_gun.current_ammo > 0
+			current_gun.have_ammo = current_gun.current_ammo > 0
 			#print('Recarregado , to_reload,  balas.')
 
 func update_ammo_display():
@@ -103,7 +103,12 @@ func sync_stats_from_gun():
 		ammo = current_gun.ammo
 		max_ammo = current_gun.max_ammo
 		number_balas = current_gun.number_balas
-		have_ammo = current_ammo > 0
+		if current_ammo > 0:
+			have_ammo = true
+			current_gun.have_ammo = true
+		else:
+			have_ammo = false
+			current_gun.have_ammo = false
 		#print(current_gun.auto)
 
 func shooting(mira: RayCast3D, dano: int):

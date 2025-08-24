@@ -9,7 +9,7 @@ var death = false
 var attack = false
 var bullet = preload("res://Scenes/bullet_enemy.tscn")
 
-@onready var slowdown_check = $slowdown_check
+#@onready var slowdown_check = $slowdown_check
 
 var chiclete_powerup_scene = preload("res://Scenes/chiclete_powerup.tscn")
 var pop_candy_powerup_scene = preload("res://Scenes/pop_candy.tscn")
@@ -24,12 +24,12 @@ signal on_death
 
 func _ready():
 	Globals.contador += 1
-	
-	if player != null:
-		player.switch_to_shoot.connect(on_switch_to_shoot)
-		player.switch_to_chase.connect(on_switch_to_chase)
-	if slowdown_check != null:
-		slowdown_check.slowdown.connect(on_slowdown)
+	Globals.slowdown.connect(on_slowdown)
+	#if player != null:
+		#player.switch_to_shoot.connect(on_switch_to_shoot)
+		#player.switch_to_chase.connect(on_switch_to_chase)
+	#if slowdown_check != null:
+		#slowdown_check.slowdown.connect(on_slowdown)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -149,7 +149,7 @@ func calcularDano(dano:int):
 	$alienHurt.play()
 	if vida <= 0:
 		Globals.contador -= 1
-		print("sim",Globals.contador)
+		print("inimigos",Globals.contador)
 		death = true
 	elif vida <= 100:
 		retreat = true
@@ -179,8 +179,7 @@ func _on_alien_death_finished() -> void:
 		queue_free()
 func _on_bullet_timer_timeout() -> void:
 	can_shoot = true
-
-func on_switch_to_shoot() -> void:
+func switch_to_shoot() -> void:
 	if death:
 		set_state(DEATH)
 	elif retreat:
@@ -188,7 +187,7 @@ func on_switch_to_shoot() -> void:
 	else:
 		set_state(SHOOT)
 
-func on_switch_to_chase() -> void:
+func switch_to_chase() -> void:
 	if death:
 		set_state(DEATH)
 	elif retreat: 
@@ -197,6 +196,8 @@ func on_switch_to_chase() -> void:
 		set_state(CHASE)
 
 func on_slowdown() -> void:
-		SPEED = 1.0
-		await get_tree().create_timer(10).timeout
-		SPEED = 3.0
+	if Globals.chiclete_powerup:
+		SPEED = 0.5
+		if Globals.chiclete_powerup and get_tree():
+			await get_tree().create_timer(10).timeout
+			SPEED = 3.0
