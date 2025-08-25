@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyoyq5ejonka2"]
+
+[ext_resource type="PackedScene" uid="uid://c3m0wkotsvjv8" path="res://Assets/Guns/Taco de baseball.glb" id="1_esccj"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Taco de baseball" parent="." instance=ExtResource("1_esccj")]
