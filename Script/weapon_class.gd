@@ -9,6 +9,7 @@ class_name WeaponsManager extends Node3D
 @export var local: Marker3D #muda o nome
 @export var number_balas: int #muda muito o nome
 @export var gun_name: String
+@export var melee = false
 
 var gun_equipped = false
 var current_gun 
@@ -21,7 +22,8 @@ var gun_count = 0
 
  
 @export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
-	load("res://Scenes/pistol.tscn")
+	load("res://Scenes/pistol.tscn"),
+	load("res://Scenes/taco.tscn")
 ]
 
 func _ready() -> void:
@@ -40,14 +42,14 @@ func _physics_process(delta: float) -> void:
 			get_new_weapon(load("res://Scenes/shot_gun.tscn"))
 func handle_shooting():
 	
-	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun:
+	if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun and !melee:
 		
 			#ScreenShake.screenShake($"..",1,0.25,1)
 		if current_gun.current_ammo >= current_gun.number_balas && flash:
 			kickb.play('recoil')
 			flash.emitting = true
 	if Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
-		if current_gun.current_ammo >= current_gun.number_balas && flash:
+		if current_gun.current_ammo >= current_gun.number_balas && flash and not current_gun.melee:
 			flash.emitting = true
 			flash.restart()
 			kickb.play('recoil')
