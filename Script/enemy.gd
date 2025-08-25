@@ -33,7 +33,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	#scale *= 1.003
+	scale *= 1.003
 	match current_state:
 		IDLE:
 			idle_state(delta)
