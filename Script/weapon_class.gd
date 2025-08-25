@@ -1,129 +1,3 @@
-#class_name WeaponsManager extends Node3D
-#@export var auto: bool
-#@export var have_ammo = true
-#@export var current_ammo: int
-#@export var ammo :int
-#@export var max_ammo: int
-#@export var can_reload := false
-#@export var ray: RayCast3D
-#@export var local: Marker3D #muda o nome
-#@export var number_balas: int #muda muito o nome
-#@export var gun_name: String
-#@export var melee = false
-#
-#var gun_equipped = false
-#var current_gun 
-#var magazine
-#var gun_limit = 1
-#var gun_count = 0
-#@onready var flash 
-#@onready var kickb 
-#@onready var head = $"../.."
- #
-#@export var weapon_scenes : Array[PackedScene] = [ # muda pra export pq vai ficar mais leve
-	#load("res://Scenes/pistol.tscn"),
-	#load("res://Scenes/taco.tscn")
-#]
-#
-#func _ready() -> void:
-	#await  get_parent().ready
-	#kickb = $AnimationPlayer  
-	#flash =  $GunPosition/muzzle
-	 #
-#func _physics_process(delta: float) -> void: 
-	#handle_weapon_switch()
-	#if current_gun != null:  
-		#handle_shooting()
-		#handle_reload()
-		#update_ammo_display()
-	#if Globals.get_gun:
-		#if weapon_scenes.size() == 1:
-			#get_new_weapon(load("res://Scenes/shot_gun.tscn"))
-#func handle_shooting():
-	#
-	#if current_gun.auto and Input.is_action_pressed("Left-Click") and gun_equipped and current_gun and !melee:
-		#
-			##ScreenShake.screenShake($"..",1,0.25,1)
-		#if current_gun.current_ammo >= current_gun.number_balas && flash:
-			#kickb.play('recoil')
-			#get_parent().add_shake(0.5)
-			#flash.emitting = true
-	#if Input.is_action_just_pressed('Left-Click') and gun_equipped and current_gun:
-		#if current_gun.current_ammo >= current_gun.number_balas && flash and not current_gun.melee:
-			#flash.emitting = true
-			#flash.restart()
-			#kickb.play('recoil')
-			##ScreenShake.screenShake($"..",1,0.25,1)
-			#get_parent().add_shake(0.5)
-			#current_gun.current_ammo -= current_gun.number_balas
-		#else:
-			#have_ammo = false
-			#current_gun.have_ammo = false
-			#print('Sem balas suficientes!')
-#
-#func handle_weapon_switch():
-	#for i in range(weapon_scenes.size()):
-		#if Input.is_physical_key_pressed(KEY_0 + i + 1):
-			#switch_weapon(i)
-			#break
-#
-#func handle_reload():
-	#if Input.is_action_just_pressed('Reload') and gun_equipped:
-		#if current_gun.current_ammo < current_gun.max_ammo and current_gun.ammo >= 0:
-			#var to_reload = min(current_gun.max_ammo - current_gun.current_ammo, current_gun.ammo)
-			#current_gun.current_ammo += to_reload
-			#current_gun.ammo -= to_reload
-			#have_ammo = current_gun.current_ammo > 0
-			#current_gun.have_ammo = current_gun.current_ammo > 0
-			##print('Recarregado , to_reload,  balas.')
-#
-#func update_ammo_display():
-	#pass#print(str(current_ammo, '/', ammo))
-#
-#func instantiate_gun(index: int, local: Marker3D):
-	#if gun_count < gun_limit:
-		#gun_count += 1
-		#var gun = weapon_scenes[index].instantiate()
-		#gun.position = Vector3.ZERO  # Reset to avoid offset
-		#add_child(gun)
-		#gun.add_to_group('Gun')
-		#current_gun = gun
-		##sync_stats_from_gun()
-		#gun_equipped = true
-		#gun_count += 1
-#
-#func switch_weapon(index: int):
-	#if current_gun:
-		#current_ammo 
-		#current_gun.queue_free()
-		#gun_equipped = false
-		#gun_count = 0
-	#instantiate_gun(index, local)
-#
-##func sync_stats_from_gun():
-	##if current_gun and gun_equipped:
-		##auto = current_gun.auto
-		##ammo = current_gun.ammo
-		##max_ammo = current_gun.max_ammo
-		##number_balas = current_gun.number_balas
-		##if current_ammo > 0:
-			##have_ammo = true
-			##current_gun.have_ammo = true
-		##else:
-			##have_ammo = false
-			##current_gun.have_ammo = false
-		##print(current_gun.auto)
-#
-#func shooting(mira: RayCast3D, dano: int):
-	#var target = mira.get_collider()
-	#if mira.get_collider()!= null:
-		#if target.is_in_group('Enemy'):
-			#target.calcularDano(dano)
-		##	print('Dano causado! Vida restante ', target.vida)
-#
-#func get_new_weapon(weapon_slot):
-	#weapon_scenes.append(weapon_slot)
-
 class_name WeaponsManager extends Node3D
 
 @export var auto: bool
@@ -133,8 +7,8 @@ class_name WeaponsManager extends Node3D
 @export var max_ammo: int
 @export var can_reload := false
 @export var ray: RayCast3D
-@export var local: Marker3D #muda o nome
-@export var number_balas: int #muda muito o nome
+@export var local: Marker3D
+@export var number_balas: int
 @export var gun_name: String
 @export var melee = false
 @export var weapon_scenes: Array[PackedScene]
@@ -144,6 +18,9 @@ var gun_equipped: bool = false
 var gun_count: int = 0
 var gun_limit: int = 1
 
+# Store all weapon instances
+var weapon_instances: Array[Node3D] = []
+
 @onready var flash: GPUParticles3D
 @onready var kickb: AnimationPlayer
 
@@ -151,6 +28,19 @@ func _ready() -> void:
 	await get_parent().ready
 	kickb = $AnimationPlayer  
 	flash = $GunPosition/muzzle
+	
+	# Pre-instantiate all weapons
+	for weapon_scene in weapon_scenes:
+		var weapon_instance = weapon_scene.instantiate()
+		add_child(weapon_instance)
+		weapon_instance.hide()
+		weapon_instance.set_process(false)
+		weapon_instance.set_physics_process(false)
+		weapon_instances.append(weapon_instance)
+	
+	# Equip first weapon
+	if weapon_instances.size() > 0:
+		switch_weapon(0)
 
 func _physics_process(delta: float) -> void: 
 	handle_weapon_switch()
@@ -185,7 +75,7 @@ func try_shoot():
 		print('Sem balas suficientes!')
 
 func handle_weapon_switch():
-	for i in range(weapon_scenes.size()):
+	for i in range(weapon_instances.size()):
 		if Input.is_physical_key_pressed(KEY_0 + i + 1):
 			switch_weapon(i)
 			break
@@ -204,26 +94,19 @@ func update_ammo_display():
 		#print(str(current_gun.current_ammo, '/', current_gun.ammo))
 		pass
 
-func instantiate_gun(index: int):
-	if gun_count >= gun_limit and current_gun:
-		current_gun.queue_free()
-		gun_count = 0
-	
-	var gun = weapon_scenes[index].instantiate()
-	gun.position = Vector3.ZERO
-	add_child(gun)
-	gun.add_to_group('Gun')
-	current_gun = gun
-	gun_equipped = true
-	gun_count += 1
-
 func switch_weapon(index: int):
-	if index < weapon_scenes.size():
+	if index < weapon_instances.size():
+		# Hide current weapon instead of destroying it
 		if current_gun:
-			current_gun.queue_free()
-			gun_count = 0
-		
-		instantiate_gun(index)
+			current_gun.hide()
+			current_gun.set_process(false)
+			current_gun.set_physics_process(false)
+		# Show and activate new weapon
+		current_gun = weapon_instances[index]
+		current_gun.show()
+		current_gun.set_process(true)
+		current_gun.set_physics_process(true)
+		gun_equipped = true
 
 func shooting(mira: RayCast3D, dano: int):
 	var target = mira.get_collider()
@@ -231,4 +114,13 @@ func shooting(mira: RayCast3D, dano: int):
 		target.calcularDano(dano)
 
 func get_new_weapon(weapon_slot: PackedScene):
+	# Add to weapon scenes array
 	weapon_scenes.append(weapon_slot)
+	
+	# Instantiate the new weapon but keep it hidden and disabled
+	var weapon_instance = weapon_slot.instantiate()
+	add_child(weapon_instance)
+	weapon_instance.hide()
+	weapon_instance.set_process(false)
+	weapon_instance.set_physics_process(false)
+	weapon_instances.append(weapon_instance)

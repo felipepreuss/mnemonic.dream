@@ -5,7 +5,7 @@ extends WeaponsManager
 
 func _physics_process(delta):
 
-	if Input.is_action_pressed("Left-Click") && current_gun.melee:
+	if Input.is_action_pressed("Left-Click") && melee:
 		animation_player.play("attack")
 		for enemies in hitbox.get_overlapping_bodies():
 			if enemies.has_method("calcularDano"):
