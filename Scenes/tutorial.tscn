@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=24 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_omtrn"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_p8jf4"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="3_p8jf4"]
+[ext_resource type="Script" uid="uid://dyhhyl8uclsa2" path="res://Scenes/directional_light_3d.gd" id="4_70gml"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
@@ -79,6 +80,7 @@ render_target_update_mode = 4
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+script = ExtResource("4_70gml")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_ehuit")

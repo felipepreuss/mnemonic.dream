@@ -62,6 +62,7 @@ offset_top = 3.0
 offset_right = 47.0
 offset_bottom = 34.0
 grow_horizontal = 2
+selected = 0
 item_count = 3
 popup/item_0/text = "1152x648"
 popup/item_0/id = 0
@@ -117,6 +118,7 @@ anchor_top = -0.0344828
 anchor_right = 0.319672
 anchor_bottom = 0.54023
 theme_override_font_sizes/font_size = 30
+button_pressed = true
 text = "PT"
 metadata/_edit_use_anchors_ = true
 
