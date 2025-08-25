@@ -160,5 +160,6 @@ theme_override_font_sizes/font_size = 50
 text = "EXIT"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="item_selected" from="ColorRect/VBoxContainer/resolution/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="apply_button" to="." method="_on_apply_button_pressed"]
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
