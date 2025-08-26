@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=31 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://cw3w6ct1amurw" path="res://Script/gun.gd" id="6_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://cyoyq5ejonka2" path="res://Scenes/taco.tscn" id="6_h4iuc"]
 [ext_resource type="AudioStream" uid="uid://c8vtvxw1d5806" path="res://SFX/jumpnoise.mp3" id="7_3smsa"]
-[ext_resource type="PackedScene" uid="uid://dvgtj7ysdismb" path="res://Scenes/pistol.tscn" id="7_fd4e3"]
 [ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Script/power_up.gd" id="7_tx1dd"]
 [ext_resource type="Script" uid="uid://dctki5lgsrowk" path="res://Script/aliens.gd" id="8_gymyn"]
 
@@ -135,7 +134,7 @@ script = ExtResource("4_7dp3o")
 [node name="WeaponsManager" type="Node3D" parent="head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243636, -0.120761, -0.546164)
 script = ExtResource("2_6t5aa")
-weapon_scenes = Array[PackedScene]([ExtResource("6_h4iuc"), ExtResource("7_fd4e3")])
+weapon_scenes = Array[PackedScene]([ExtResource("6_h4iuc")])
 metadata/_custom_type_script = "uid://cme4um2042nwv"
 
 [node name="GunPosition" type="Marker3D" parent="head/Camera3D/WeaponsManager"]

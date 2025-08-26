@@ -1,19 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc58amk2buxq0"]
+[gd_scene load_steps=7 format=3 uid="uid://bc58amk2buxq0"]
 
 [ext_resource type="Script" uid="uid://cxim3hx3sa007" path="res://Script/acquire_weapon.gd" id="1_2xhsj"]
-[ext_resource type="PackedScene" uid="uid://dfqi5j2jabl11" path="res://Assets/shotgun.glb" id="2_77hrl"]
+[ext_resource type="PackedScene" uid="uid://ur8p6e5hn8pj" path="res://Assets/Guns/Pistola (1).glb" id="2_2xhsj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2xhsj"]
+size = Vector3(0.380035, 0.367432, 0.906738)
 
-[node name="AcquireWeapon" type="Node"]
+[sub_resource type="Animation" id="Animation_2xhsj"]
+resource_name = "rotaaate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0), Vector3(0, -6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_77hrl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77hrl"]
+_data = {
+&"RESET": SubResource("Animation_77hrl"),
+&"rotaaate": SubResource("Animation_2xhsj")
+}
+
+[node name="acquire_weapon" type="Node3D"]
 script = ExtResource("1_2xhsj")
 
-[node name="blaster-r2" parent="." instance=ExtResource("2_77hrl")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 123.826)
+[node name="Pistola (1)" parent="." instance=ExtResource("2_2xhsj")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0)
 
-[node name="weapon_get_area" type="Area3D" parent="blaster-r2"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.368599, 0.97244, -0.43811)
+[node name="weapon_get_area" type="Area3D" parent="Pistola (1)"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.0563155, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="blaster-r2/weapon_get_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384102, -0.747453, -0.359734)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistola (1)/weapon_get_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0138092, -0.0189209, -0.0466309)
 shape = SubResource("BoxShape3D_2xhsj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pistola (1)"]
+libraries = {
+&"": SubResource("AnimationLibrary_77hrl")
+}
+
+[connection signal="body_entered" from="Pistola (1)/weapon_get_area" to="." method="_on_weapon_get_area_body_entered"]

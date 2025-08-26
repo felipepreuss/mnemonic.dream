@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdp1m1v6b855b"]
 
-[ext_resource type="Script" uid="uid://5wp24ka0cvbu" path="res://Scenes/level_complete.gd" id="1_u5kwf"]
+[ext_resource type="Script" uid="uid://5wp24ka0cvbu" path="res://Script/level_complete.gd" id="1_u5kwf"]
+
 
 [node name="level_complete" type="Control"]
 layout_mode = 3

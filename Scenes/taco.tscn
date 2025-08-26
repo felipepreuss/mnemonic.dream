@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cyoyq5ejonka2"]
 
 [ext_resource type="PackedScene" uid="uid://c3m0wkotsvjv8" path="res://Assets/Guns/Taco de baseball.glb" id="1_esccj"]
-[ext_resource type="Script" uid="uid://ca0uwaxt38p1f" path="res://Scenes/taco.gd" id="1_hnl0q"]
+[ext_resource type="Script" uid="uid://ca0uwaxt38p1f" path="res://Script/taco.gd" id="1_hnl0q"]
 
 [sub_resource type="Animation" id="Animation_hnl0q"]
 length = 0.001

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=25 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_omtrn"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_p8jf4"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="3_p8jf4"]
-[ext_resource type="Script" uid="uid://dyhhyl8uclsa2" path="res://Scenes/directional_light_3d.gd" id="4_70gml"]
+[ext_resource type="Script" uid="uid://dyhhyl8uclsa2" path="res://Script/directional_light_3d.gd" id="4_70gml"]
+[ext_resource type="Script" uid="uid://ddoddoqp1u83g" path="res://Script/weapon_get_instantiator.gd" id="7_8va2t"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
@@ -44,7 +45,7 @@ albedo_texture = ExtResource("2_p8jf4")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_koko0"]
-size = Vector3(0.813565, 0.731689, 1.01514)
+size = Vector3(80, 12.4723, 1.015)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mnmb"]
 size = Vector3(225.051, 17.27, 4.02402)
@@ -91,6 +92,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 106.003)
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 78.9557)
 player = NodePath("../player")
+
+[node name="weapon_get_instantiator" type="Node3D" parent="SubViewportContainer/SubViewport/Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59758, 0.995605)
+script = ExtResource("7_8va2t")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -52.285, -4.13135, 71.9481)
@@ -193,7 +198,7 @@ material = ExtResource("3_p8jf4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0912)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
-transform = Transform3D(86.5438, 0, 0, 0, 20.0419, 0, 0, 0, 20.4792, -48.3711, 2.68873, 55.9244)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -48.3711, 5.26943, 55.9244)
 shape = SubResource("BoxShape3D_koko0")
 debug_color = Color(0.971812, 0.133536, 0.263744, 0.42)
 
@@ -202,7 +207,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3362, -41.6234, 27.3401)
 script = ExtResource("13_koko0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="invisible_wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8371, 46.5525, 6.05709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8371, 46.5525, 1.54978)
 shape = SubResource("BoxShape3D_8mnmb")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="invisible_wall"]

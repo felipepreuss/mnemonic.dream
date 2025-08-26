@@ -149,12 +149,10 @@ func calcularDano(dano:int):
 	vida -= dano
 	$alienHurt.play()
 	if vida <= 0:
-		Globals.contador -= 1
-		print("inimigos",Globals.contador)
 		death = true
 	elif vida <= 100:
 		retreat = true
-		
+
 func set_state(novo_estado):
 	if novo_estado != current_state:
 		current_state = novo_estado
@@ -177,6 +175,8 @@ func _on_alien_death_finished() -> void:
 		if rng_powerup == 3:
 			get_parent().add_child(pop_candy)
 			pop_candy.global_position = $bullet_marker.global_position
+		Globals.contador -= 1
+		print("inimigos",Globals.contador)
 		queue_free()
 func _on_bullet_timer_timeout() -> void:
 	can_shoot = true

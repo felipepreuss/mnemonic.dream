@@ -21,6 +21,7 @@ func reset_powerups():
 	get_chiclete = false
 	get_pop_candy = false
 	get_chocolate = false
+	get_gun = false
 
 func _physics_process(delta: float) -> void:
 	if Globals.chiclete_powerup:
