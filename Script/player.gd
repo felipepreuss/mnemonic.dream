@@ -45,7 +45,10 @@ func _unhandled_input(event):
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
-	 
+	#if Dialogue != null and Dialogue.ui.visible:
+		#get_tree().paused = true
+	#else:
+		#get_tree().paused = false
 	delta_time += delta
 	if delta_time >= 1.0:
 		delta_time = 0
@@ -56,7 +59,6 @@ func _physics_process(delta: float) -> void:
 	if death or HP < 1:
 		Globals.reset_powerups()
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-		
 		#Usar consumível
 	if Input.is_action_just_pressed("Q"):
 		powerup_check()

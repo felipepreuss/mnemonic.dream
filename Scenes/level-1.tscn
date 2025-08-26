@@ -14,12 +14,12 @@
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_3xsek"]
+[sub_resource type="Sky" id="Sky_2yqp8"]
 sky_material = SubResource("ProceduralSkyMaterial_6ps50")
 
 [sub_resource type="Environment" id="Environment_os6q4"]
 background_mode = 2
-sky = SubResource("Sky_3xsek")
+sky = SubResource("Sky_2yqp8")
 tonemap_mode = 2
 fog_enabled = true
 
@@ -78,15 +78,15 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4799, 0.998116, -6.92393)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, -55.1353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, -62.1397)
 player = NodePath("../player")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -79.6174, 1.11555, -20.1154)
+transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -79.6174, 1.11555, -16.2678)
 player = NodePath("../player")
 
 [node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -104.761, 1.28225, -21.8047)
+transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -104.761, 1.28225, -15.5628)
 player = NodePath("../player")
 
 [node name="chiclete_powerup" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_2yqp8")]

@@ -26,7 +26,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Left-Click") and ui.visible and Globals.CabouTexto:
 		if dialogo.next_dialog != null:
 			Globals.CabouTexto = false
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.01).timeout
 			dialogo = dialogo.next_dialog
 			Globals.dialogue_end = false
 			Globals.dialogue_start = true

@@ -109,6 +109,7 @@ radius = 5.24767
 radius = 0.638274
 
 [node name="player" type="CharacterBody3D" groups=["Player"]]
+process_mode = 1
 script = ExtResource("1_4flbx")
 
 [node name="Walk1" type="AudioStreamPlayer3D" parent="."]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8piqocnhya34" path="res://Assets/papel-removebg-preview.png" id="2_dgfud"]
 
 [node name="Dialogue" type="Control"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +17,7 @@ script = ExtResource("1_5rqxr")
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="Ui"]
-offset_top = 402.0
+offset_top = 505.0
 offset_right = 1153.0
 offset_bottom = 649.0
 

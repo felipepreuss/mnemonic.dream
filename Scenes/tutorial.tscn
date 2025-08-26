@@ -87,6 +87,7 @@ script = ExtResource("4_70gml")
 environment = SubResource("Environment_ehuit")
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_feyax")]
+process_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 106.003)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
@@ -99,6 +100,10 @@ script = ExtResource("7_8va2t")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -52.285, -4.13135, 71.9481)
+player = NodePath("../player")
+
+[node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.916, -3.88024, 64.1993)
 player = NodePath("../player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
