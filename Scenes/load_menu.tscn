@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm30l2vm5nu0u"]
+[gd_scene load_steps=4 format=3 uid="uid://dm30l2vm5nu0u"]
 
 [ext_resource type="Script" uid="uid://cj4qkw264ojkv" path="res://Script/load_menu.gd" id="1_h2gvq"]
 [ext_resource type="Texture2D" uid="uid://bil1m6vb7odnd" path="res://Assets/back_arrow.png" id="2_ia5h8"]
+[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_x2u1x"]
 
 [node name="load_menu" type="Control"]
 layout_mode = 3
@@ -45,26 +46,81 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -356.0
+offset_top = -164.5
+offset_right = 487.0
+offset_bottom = 166.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="FILE_1" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "asrgershgrshtrhrst"
+text = "FASE X
+DATE: XX/XX/XXXX
+XX:XX:XX"
+alignment = 0
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/FILE_1"]
+position = Vector2(-43, 19)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_x2u1x")
+
+[node name="FILE_2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "FASE Y
+DATE: XX/XX/XXXX
+XX:XX:XX"
+alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/FILE_2"]
+position = Vector2(-43, 21.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_x2u1x")
+
+[node name="FILE_3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "FASE Z
+DATE: XX/XX/XXXX
+XX:XX:XX"
+alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/FILE_3"]
+position = Vector2(-43, 22.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_x2u1x")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 12.0
-offset_right = 69.0
-offset_bottom = 69.0
+offset_right = 72.0
+offset_bottom = 70.0
 texture_normal = ExtResource("2_ia5h8")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -50.0
+offset_right = 495.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 810
+
+[node name="load_button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "LOAD"
+
+[node name="delete_button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "DELETE"
+
+[connection signal="pressed" from="VBoxContainer/FILE_1" to="." method="_on_file_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/FILE_2" to="." method="_on_file_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/FILE_3" to="." method="_on_file_3_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
