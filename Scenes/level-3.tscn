@@ -25,12 +25,12 @@ albedo_color = Color(1, 0, 0, 1)
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_3xsek"]
+[sub_resource type="Sky" id="Sky_oopfi"]
 sky_material = SubResource("ProceduralSkyMaterial_oopfi")
 
 [sub_resource type="Environment" id="Environment_12l26"]
 background_mode = 2
-sky = SubResource("Sky_3xsek")
+sky = SubResource("Sky_oopfi")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
@@ -39,6 +39,7 @@ tonemap_mode = 2
 material = ExtResource("1_4ph04")
 offset_right = 1152.0
 offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=23 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="1_6a23k"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="3_8kvl1"]
 [ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="6_2yqp8"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="6_b5c44"]
+[ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="10_dfuvp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ps50"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -50,6 +51,9 @@ uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yqp8"]
 albedo_texture = ExtResource("3_8kvl1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72gx4"]
+albedo_texture = ExtResource("10_dfuvp")
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_vshho")
@@ -231,6 +235,13 @@ material = SubResource("StandardMaterial3D_b5c44")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.831, 6.61372, -33.1087)
 size = Vector3(13.6054, 12.0546, 33.0811)
 material = SubResource("StandardMaterial3D_2yqp8")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -129.041, 2.55465, -33.1588)
+cast_shadow = 0
+operation = 2
+size = Vector3(2.98769, 3.98279, 14.0993)
+material = SubResource("StandardMaterial3D_72gx4")
 
 [node name="Parede invisivel" type="CSGCombiner3D" parent="."]
 visible = false
