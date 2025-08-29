@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 #@onready var vida = $head/HUD/Color/Vbox/Vida
 #@onready var weapon = $head/Camera3D/weapon
-var SPEED = 5.0
+var SPEED = 12.0
 var HP = 100
 var max_HP = 125
 var power_up = "none"
@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		target_tilt = -0.05
 	elif Input.is_action_pressed("Left"):
 		target_tilt = 0.05
-	Head.rotation.z = lerp(Head.rotation.z, target_tilt, 0.1)
+	Head.rotation.z = lerp(Head.rotation.z, target_tilt, 0.3)
  
 	if not is_on_floor():
 		velocity += get_gravity() * delta
