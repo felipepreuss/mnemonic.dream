@@ -3,7 +3,9 @@ extends Control
 
 var levels = [
 	"res://Scenes/level-1.tscn",
-	"res://Scenes/level-2.tscn"
+	"res://Scenes/level-2.tscn",
+	"res://Scenes/level-3.tscn",
+	"res://Scenes/level-4.tscn"
 ]
 
 var current_level := 0

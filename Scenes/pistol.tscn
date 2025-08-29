@@ -1,26 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvgtj7ysdismb"]
 
+[ext_resource type="Script" uid="uid://tf5e7015q6mb" path="res://Scenes/pistol.gd" id="1_mix3b"]
 [ext_resource type="PackedScene" uid="uid://ur8p6e5hn8pj" path="res://Assets/Guns/Pistola (1).glb" id="1_ui64p"]
 [ext_resource type="AudioStream" uid="uid://uswhqpincxe8" path="res://SFX/1336501__steshystesh__laser-pistolgun.mp3" id="1_v21tj"]
 [ext_resource type="AudioStream" uid="uid://d6rbwx7df31r" path="res://SFX/scifi_reload.mp3" id="3_ui64p"]
 
-[sub_resource type="GDScript" id="GDScript_j1qo2"]
-script/source = "extends WeaponsManager
-
-@onready var laser = $AudioStreamPlayer3D
-var pistol_ammo = max_ammo
-func _physics_process(delta: float) -> void:	
-	if Input.is_action_just_pressed(\"Left-Click\") && have_ammo:
-		shooting(ray,lerp(5,20,5))
-		laser.play()
-	elif Input.is_action_just_pressed(\"Left-Click\") && not have_ammo:
-		pass
-	if Input.is_action_just_pressed('Reload') && have_ammo:
-		$Rel.play()
-"
-
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
-script = SubResource("GDScript_j1qo2")
+script = ExtResource("1_mix3b")
 current_ammo = 12
 ammo = 36
 max_ammo = 12
@@ -32,8 +18,8 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 [node name="Pistola (1)" parent="." instance=ExtResource("1_ui64p")]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.095401, -5.06008)
-target_position = Vector3(0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.095, 0)
+target_position = Vector3(0, 0, -30)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_v21tj")

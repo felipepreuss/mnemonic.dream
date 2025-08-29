@@ -12,12 +12,12 @@ uv1_scale = Vector3(3, 3, 3)
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_3xsek"]
+[sub_resource type="Sky" id="Sky_m0p0k"]
 sky_material = SubResource("ProceduralSkyMaterial_28sx8")
 
 [sub_resource type="Environment" id="Environment_urvdd"]
 background_mode = 2
-sky = SubResource("Sky_3xsek")
+sky = SubResource("Sky_m0p0k")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
@@ -35,13 +35,19 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_hoe83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.1712, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12363, 4.15222, -26.2646)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 use_collision = true
 
 [node name="Floor" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 0, -18.5699)
+size = Vector3(302.153, 1, 360.052)
+material = SubResource("StandardMaterial3D_lo2vs")
+
+[node name="Ceiling" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.7019, -18.5699)
 size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 
@@ -90,8 +96,8 @@ transform = Transform3D(-0.0524929, 0, -0.998621, 0, 1, 0, 0.998621, 0, -0.05249
 size = Vector3(1.17529, 14.0597, 29.1124)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.47847, 6.14327, 44.2135)
-size = Vector3(1.17529, 14.0597, 123.638)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.47847, 6.14327, 55.3103)
+size = Vector3(1.17529, 14.0597, 145.832)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(-0.173683, 0, -0.984802, 0, 1, 0, 0.984802, 0, -0.173683, 85.3946, 6.14327, 141.799)
@@ -110,8 +116,8 @@ transform = Transform3D(-0.529978, 0, 0.848011, 0, 1, 0, -0.848011, 0, -0.529978
 size = Vector3(1.17529, 14.0597, 28.7246)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
-transform = Transform3D(-0.519802, 0, 0.854286, 0, 1, 0, -0.854286, 0, -0.519802, 178.75, 6.14327, 145.577)
-size = Vector3(1.17529, 14.0597, 49.2374)
+transform = Transform3D(-0.519802, 0, 0.854286, 0, 1, 0, -0.854286, 0, -0.519802, 181.811, 6.14327, 143.715)
+size = Vector3(1.17529, 14.0597, 42.0723)
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(-0.918508, 0, -0.395401, 0, 1, 0, 0.395401, 0, -0.918508, 189.236, 6.14327, 112.899)
@@ -126,8 +132,12 @@ transform = Transform3D(-0.98536, 0, 0.170485, 0, 1, 0, -0.170485, 0, -0.98536, 
 size = Vector3(1.17529, 14.0597, 183.027)
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
-transform = Transform3D(-0.754847, 0, 0.655901, 0, 1, 0, -0.655901, 0, -0.754847, 241.902, 6.14327, -161.441)
-size = Vector3(1.17529, 14.0597, 88.3421)
+transform = Transform3D(-0.718175, 0, 0.695863, 0, 1, 0, -0.695863, 0, -0.718175, 238.699, 6.14327, -158.135)
+size = Vector3(1.17529, 14.0597, 79.1358)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
+transform = Transform3D(0.325238, 0, 0.945632, 0, 1, 0, -0.945632, 0, 0.325238, 249.9, 6.14327, -155.723)
+size = Vector3(1.17529, 14.0597, 22.1399)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(-0.754847, 0, 0.655901, 0, 1, 0, -0.655901, 0, -0.754847, 170.13, 6.14327, -82.1813)

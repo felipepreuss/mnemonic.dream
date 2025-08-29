@@ -45,6 +45,7 @@ func _unhandled_input(event):
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
+	Engine.time_scale = pow(Engine.time_scale, Engine.time_scale)
 	#if Dialogue != null and Dialogue.ui.visible:
 		#get_tree().paused = true
 	#else:

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://d325sqxmyu5e4"]
+
+[ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_i6r6q"]
+[ext_resource type="PackedScene" uid="uid://cv4dykadxloyc" path="res://bounding_sphere.tscn" id="2_1hftp"]
+[ext_resource type="Shader" uid="uid://doub6btyl6dmv" path="res://bounding.gdshader" id="3_1hftp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i6r6q"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_1hftp"]
+sky_material = SubResource("ProceduralSkyMaterial_i6r6q")
+
+[sub_resource type="Environment" id="Environment_v251j"]
+background_mode = 2
+sky = SubResource("Sky_1hftp")
+tonemap_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v251j"]
+render_priority = -128
+shader = ExtResource("3_1hftp")
+shader_parameter/albedo = Color(0.32549, 0, 0.364706, 1)
+shader_parameter/proximity_fade_distance = 15.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_snsa3"]
+flip_faces = true
+radius = 10.0
+height = 10.0
+is_hemisphere = true
+
+[node name="Nodeteste3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v251j")
+
+[node name="player" parent="." instance=ExtResource("1_i6r6q")]
+
+[node name="bounding_sphere" parent="." instance=ExtResource("2_1hftp")]
+material_override = SubResource("ShaderMaterial_v251j")
+mesh = SubResource("SphereMesh_snsa3")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(50, 1, 50)
