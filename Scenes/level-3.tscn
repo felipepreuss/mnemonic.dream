@@ -30,12 +30,12 @@ size = Vector3(4.605, 3, 3)
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_oopfi"]
+[sub_resource type="Sky" id="Sky_j84td"]
 sky_material = SubResource("ProceduralSkyMaterial_oopfi")
 
 [sub_resource type="Environment" id="Environment_12l26"]
 background_mode = 2
-sky = SubResource("Sky_oopfi")
+sky = SubResource("Sky_j84td")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
