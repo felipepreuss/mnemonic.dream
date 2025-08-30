@@ -88,9 +88,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.35854)
 size = Vector3(10, 1, 1.8353)
 
 [node name="ParedeCasa" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9532, 2.46737, 0.615221)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.009, 2.46737, 0.326087)
 cast_shadow = 0
-size = Vector3(28.3683, 5.03156, 0.683286)
+size = Vector3(28.9466, 5.03156, 0.79489)
 material = SubResource("StandardMaterial3D_472lb")
 
 [node name="ParendeCasa2" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -124,7 +124,7 @@ size = Vector3(20.0119, 3.02119, 0.46762)
 material = SubResource("StandardMaterial3D_472lb")
 
 [node name="ParendeCasa19" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.292009, 4.6305, -14.4217)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.292009, 4.6305, -14.352)
 cast_shadow = 0
 size = Vector3(31.3514, 0.618212, 0.712447)
 material = SubResource("StandardMaterial3D_472lb")
