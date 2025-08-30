@@ -68,6 +68,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.956177, 0.217339, 1.23331)
 size = Vector3(31.343, 1, 30.1007)
 material = SubResource("StandardMaterial3D_dst8n")
 
+[node name="Chão2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.956177, 4.82911, 1.23331)
+size = Vector3(31.343, 1, 30.1007)
+material = SubResource("StandardMaterial3D_dst8n")
+
+[node name="Chão3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.940074, 0.34097, 0, -0.34097, 0.940074, 0, 0, 0, 1, 7.49094, 7.25531, 1.23331)
+size = Vector3(15.6285, 1, 30.101)
+material = SubResource("StandardMaterial3D_dst8n")
+
+[node name="Chão4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.955278, -0.295708, 8.74228e-08, -0.295708, 0.955278, 0, -8.35131e-08, -2.58516e-08, -1, -8.02165, 7.47063, 1.23331)
+size = Vector3(17.572, 1, 30.101)
+material = SubResource("StandardMaterial3D_dst8n")
+
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.35854)
 size = Vector3(10, 1, 1.8353)
@@ -79,9 +94,9 @@ size = Vector3(28.3683, 5.03156, 0.683286)
 material = SubResource("StandardMaterial3D_472lb")
 
 [node name="ParendeCasa2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6393, 2.46737, 0.602683)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6393, 2.46737, 0.693911)
 cast_shadow = 0
-size = Vector3(29.5386, 5.03156, 0.683286)
+size = Vector3(29.3561, 5.03156, 0.683286)
 material = SubResource("StandardMaterial3D_472lb")
 
 [node name="ParendeCasa5" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -100,6 +115,60 @@ material = SubResource("StandardMaterial3D_472lb")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0925083, 2.46737, -13.6525)
 cast_shadow = 0
 size = Vector3(30.4239, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.849565, 5.58743, -13.6402)
+cast_shadow = 0
+size = Vector3(20.0119, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa19" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.59141, 5.58755, -14.4217)
+cast_shadow = 0
+size = Vector3(28.514, 0.618212, 0.712447)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.4387, 5.11725, -13.6402)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.5198, 5.11725, -13.6402)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.361642, 8.58504, -13.6402)
+cast_shadow = 0
+size = Vector3(1.00601, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.798589, 5.58743, 16.0092)
+cast_shadow = 0
+size = Vector3(20.0119, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.4897, 5.11725, 16.0092)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa17" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.4689, 5.11725, 16.0092)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa18" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.412618, 8.58504, 16.0092)
+cast_shadow = 0
+size = Vector3(1.00601, 3.02119, 0.46762)
 material = SubResource("StandardMaterial3D_472lb")
 
 [node name="ParedeQuintal" type="CSGBox3D" parent="CSGCombiner3D"]
