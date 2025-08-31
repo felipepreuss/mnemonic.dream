@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc1f5r0mrro6k"]
 
-[ext_resource type="Script" uid="uid://df8k02ubo01ww" path="res://rocket.gd" id="1_wrv6b"]
+[ext_resource type="Script" uid="uid://df8k02ubo01ww" path="res://Script/rocket.gd" id="1_wrv6b"]
+
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3w1rt"]
 rings = 0

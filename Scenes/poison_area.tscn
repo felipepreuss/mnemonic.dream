@@ -1,15 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhssv17acnyh"]
+[gd_scene load_steps=8 format=3 uid="uid://bhssv17acnyh"]
 
 [ext_resource type="Script" uid="uid://6k78b0xr0erm" path="res://Script/poison_area.gd" id="1_g8eqm"]
+[ext_resource type="Texture2D" uid="uid://do0ufnblbthyx" path="res://Assets/volumetric_fog_quad_mesh_texture.webp" id="2_usply"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g8eqm"]
-size = Vector3(10.9576, 5.50092, 10.286)
+size = Vector3(12.0599, 8.98337, 9.93503)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0apd"]
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+albedo_texture = ExtResource("2_usply")
+billboard_mode = 1
+proximity_fade_distance = 4.05
+distance_fade_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fdf4x"]
+material = SubResource("StandardMaterial3D_u0apd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdf4x"]
+albedo_color = Color(0, 1, 0, 1)
+albedo_texture = ExtResource("2_usply")
+billboard_mode = 1
+distance_fade_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_lvwjo"]
+material = SubResource("StandardMaterial3D_fdf4x")
+size = Vector2(20, 20)
 
 [node name="poison_area" type="Area3D"]
 script = ExtResource("1_g8eqm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.595032, 1.08438, 0.371521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0439045, 3.52669, 0.196033)
 shape = SubResource("BoxShape3D_g8eqm")
 debug_color = Color(0, 0.647059, 0.2, 1)
 
@@ -20,6 +42,20 @@ autostart = true
 
 [node name="hit_timer" type="Timer" parent="."]
 autostart = true
+
+[node name="fog_particles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03293, 0)
+cast_shadow = 0
+amount = 64
+lifetime = 2.0
+mesh = SubResource("QuadMesh_fdf4x")
+emission_shape = 3
+emission_box_extents = Vector3(6, 4, 5)
+gravity = Vector3(0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57327, 0.427316)
+mesh = SubResource("QuadMesh_lvwjo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="poison_timer" to="." method="_on_poison_timer_timeout"]

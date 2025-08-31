@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyegnn2ubjt3t"]
 
-[ext_resource type="Script" uid="uid://d01w52vdq6b50" path="res://Scenes/rocket_launcher.gd" id="1_17r6f"]
+[ext_resource type="Script" uid="uid://d01w52vdq6b50" path="res://Script/rocket_launcher.gd" id="1_17r6f"]
 [ext_resource type="PackedScene" uid="uid://0bcfmy4m4luc" path="res://Assets/Guns/lancamissil.glb" id="2_3i4gi"]
+
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_17r6f")
