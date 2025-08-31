@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyegnn2ubjt3t"]
+
+[ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="1_17r6f"]
+[ext_resource type="PackedScene" uid="uid://0bcfmy4m4luc" path="res://Assets/Guns/lancamissil.glb" id="2_3i4gi"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_17r6f")
+current_ammo = 6
+ammo = 1
+max_ammo = 6
+number_balas = 1
+gun_name = "Rocket Launcher"
+metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="lancamissil" parent="." instance=ExtResource("2_3i4gi")]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.789424)
+target_position = Vector3(0, 0, 10)

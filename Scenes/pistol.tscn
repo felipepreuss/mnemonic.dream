@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://uswhqpincxe8" path="res://SFX/1336501__steshystesh__laser-pistolgun.mp3" id="1_v21tj"]
 [ext_resource type="AudioStream" uid="uid://d6rbwx7df31r" path="res://SFX/scifi_reload.mp3" id="3_ui64p"]
 
-
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
 script = ExtResource("1_mix3b")
 current_ammo = 12

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cscnspv3at7uy"]
+
+[ext_resource type="Script" uid="uid://b1ewgv68khpx0" path="res://Scenes/dart_rifle.gd" id="1_x084r"]
+[ext_resource type="PackedScene" uid="uid://cd2r40oo0wly0" path="res://Assets/Guns/riflededardos (1).glb" id="2_ufwts"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_x084r")
+current_ammo = 5
+ammo = 16
+max_ammo = 16
+can_reload = true
+number_balas = 1
+metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="riflededardos (1)" parent="." instance=ExtResource("2_ufwts")]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0829777, -0.922353)
+target_position = Vector3(0, -1, -100)

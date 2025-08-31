@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fhmux8ryyl36"]
 
-[ext_resource type="PackedScene" uid="uid://c16ce1bg1ykyt" path="res://Assets/machine_gun.glb" id="2_sfvq1"]
+[ext_resource type="PackedScene" uid="uid://cxl01ln1qwoml" path="res://Assets/Guns/Metralhadora (1).glb" id="1_sovh5"]
 [ext_resource type="AudioStream" uid="uid://bhirkrycnr28b" path="res://SFX/smgblast.mp3" id="2_udryi"]
 [ext_resource type="AudioStream" uid="uid://c36tqpu0xfxey" path="res://SFX/smgfast_reload.mp3" id="3_sovh5"]
 
@@ -45,8 +45,8 @@ number_balas = 1
 gun_name = "Machine Gun"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
 
-[node name="blaster-d2" parent="." instance=ExtResource("2_sfvq1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104096, 0, 0.188018)
+[node name="Metralhadora (1)" parent="." instance=ExtResource("1_sovh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0410293, 0)
 
 [node name="SMG_fire" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_udryi")
