@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bugfqh2kopse"]
 
-[ext_resource type="Script" uid="uid://csl4gvocvy21q" path="res://dart.gd" id="1_yq6eg"]
+[ext_resource type="Script" uid="uid://csl4gvocvy21q" path="res://Script/dart.gd" id="1_yq6eg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yq6eg"]
 albedo_color = Color(0.494118, 1, 0.0431373, 1)
@@ -28,3 +28,5 @@ mesh = SubResource("PrismMesh_kksxm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 transform = Transform3D(1, 0, -4.23516e-22, 0, 1, 0, -4.23516e-22, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_yq6eg")
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

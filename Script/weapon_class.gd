@@ -52,6 +52,12 @@ func _physics_process(delta: float) -> void:
 	if Globals.get_gun:
 		if weapon_scenes.size() == 1:
 			get_new_weapon(load("res://Scenes/pistol.tscn"))
+		elif weapon_scenes.size() == 2:
+			get_new_weapon(load("res://Scenes/shot_gun.tscn"))
+		elif weapon_scenes.size() == 3:
+			get_new_weapon(load("res://Scenes/dart_rifle.tscn"))
+		elif weapon_scenes.size() == 4:
+			get_new_weapon(load("res://Scenes/rocket_launcher.tscn"))
 
 func handle_shooting():
 	if not current_gun or not gun_equipped:

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhssv17acnyh"]
+
+[ext_resource type="Script" uid="uid://6k78b0xr0erm" path="res://Script/poison_area.gd" id="1_g8eqm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8eqm"]
+size = Vector3(10.9576, 5.50092, 10.286)
+
+[node name="poison_area" type="Area3D"]
+script = ExtResource("1_g8eqm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.595032, 1.08438, 0.371521)
+shape = SubResource("BoxShape3D_g8eqm")
+debug_color = Color(0, 0.647059, 0.2, 1)
+
+[node name="poison_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="hit_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="poison_timer" to="." method="_on_poison_timer_timeout"]
+[connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

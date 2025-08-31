@@ -6,21 +6,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_2xhsj"]
 size = Vector3(0.380035, 0.367432, 0.906738)
 
-[sub_resource type="Animation" id="Animation_2xhsj"]
-resource_name = "rotaaate"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 6.28319, 0), Vector3(0, -6.28319, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_77hrl"]
 length = 0.001
 tracks/0/type = "value"
@@ -36,6 +21,21 @@ tracks/0/keys = {
 "values": [Vector3(6.28319, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2xhsj"]
+resource_name = "rotaaate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0), Vector3(0, -6.28319, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77hrl"]
 _data = {
 &"RESET": SubResource("Animation_77hrl"),
@@ -46,7 +46,7 @@ _data = {
 script = ExtResource("1_2xhsj")
 
 [node name="Pistola (1)" parent="." instance=ExtResource("2_2xhsj")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, 0, 0, 0)
 
 [node name="weapon_get_area" type="Area3D" parent="Pistola (1)"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.0563155, 0)
