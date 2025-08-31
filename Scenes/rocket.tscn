@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://df8k02ubo01ww" path="res://Script/rocket.gd" id="1_wrv6b"]
 
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3w1rt"]
 rings = 0
 
@@ -11,6 +10,10 @@ points = PackedVector3Array(0.258749, 0.590142, 0.317758, -0.483897, -0.506621, 
 
 [node name="Node3D" type="RigidBody3D"]
 gravity_scale = 0.0
+lock_rotation = true
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_wrv6b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

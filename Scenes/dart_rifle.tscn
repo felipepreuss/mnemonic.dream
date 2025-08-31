@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b1ewgv68khpx0" path="res://Script/dart_rifle.gd" id="1_x084r"]
 [ext_resource type="PackedScene" uid="uid://cd2r40oo0wly0" path="res://Assets/Guns/riflededardos (1).glb" id="2_ufwts"]
 
-
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_x084r")
 current_ammo = 5

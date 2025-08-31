@@ -1,6 +1,7 @@
 extends WeaponsManager
 
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var marker_3d: Marker3D = $Marker3D
+
 
 var bullet_scene: PackedScene = load("res://Scenes/rocket.tscn")
 
@@ -12,4 +13,4 @@ func _physics_process(delta: float) -> void:
 			#if enemies.has_method("calcularDano"):
 				#get_parent().get_parent().add_shake(0.5)
 				#enemies.calcularDano(50)
-		bullet.global_transform = ray_cast_3d.global_transform
+		bullet.global_transform = marker_3d.global_transform

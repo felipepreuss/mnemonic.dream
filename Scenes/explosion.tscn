@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://gjd2ndb607o3"]
+
+[ext_resource type="Script" uid="uid://bg0bgs48btcom" path="res://explosion.gd" id="1_a801j"]
+[ext_resource type="Texture2D" uid="uid://cvmde470of2bl" path="res://Assets/scorch_02.png" id="2_4okmj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2xjm"]
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_max = 1.5
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.100002
+linear_accel_max = 0.199998
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bvnfy"]
+frequency = 0.0042
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_61lnk"]
+in_3d_space = true
+as_normal_map = true
+bump_strength = 2.7
+noise = SubResource("FastNoiseLite_bvnfy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14ogo"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.999999, 0.724758, 0.308606, 1)
+albedo_texture = ExtResource("2_4okmj")
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = SubResource("NoiseTexture2D_61lnk")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_48id1"]
+material = SubResource("StandardMaterial3D_14ogo")
+size = Vector2(2, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h4yxj"]
+radius = 3.5
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_a801j")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_k2xjm")
+draw_pass_1 = SubResource("QuadMesh_48id1")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_h4yxj")
