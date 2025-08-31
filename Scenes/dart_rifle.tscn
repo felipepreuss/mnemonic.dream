@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cscnspv3at7uy"]
 
-[ext_resource type="Script" uid="uid://b1ewgv68khpx0" path="res://Scenes/dart_rifle.gd" id="1_x084r"]
+[ext_resource type="Script" uid="uid://b1ewgv68khpx0" path="res://dart_rifle.gd" id="1_x084r"]
 [ext_resource type="PackedScene" uid="uid://cd2r40oo0wly0" path="res://Assets/Guns/riflededardos (1).glb" id="2_ufwts"]
 
 [node name="Node3D" type="Node3D"]

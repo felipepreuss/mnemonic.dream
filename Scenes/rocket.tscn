@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc1f5r0mrro6k"]
+[gd_scene load_steps=4 format=3 uid="uid://bc1f5r0mrro6k"]
 
-[ext_resource type="Script" uid="uid://df8k02ubo01ww" path="res://Scenes/rocket.gd" id="1_wrv6b"]
+[ext_resource type="Script" uid="uid://df8k02ubo01ww" path="res://rocket.gd" id="1_wrv6b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3w1rt"]
+rings = 0
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wrv6b"]
+points = PackedVector3Array(0.258749, 0.590142, 0.317758, -0.483897, -0.506621, -0.096246, -0.484898, -0.507652, 0.0825177, 0.499667, -0.47683, -0.00679234, -0.096246, 0.506621, -0.483897, -0.452191, 0.50469, 0.200927, -0.00679234, -0.47683, 0.499667, 0.0228085, -0.956678, -0.0367761, 0.0825177, -0.507652, -0.484898, 0.410056, 0.506289, -0.274866, 0.0229769, 0.96751, 0.0229769, -0.183508, 0.471539, 0.4647, -0.392133, 0.503829, -0.303176, -0.303176, -0.503829, -0.392133, 0.349838, -0.50532, 0.349838, 0.471066, 0.507877, 0.142397, -0.32981, -0.470057, 0.375102, 0.171496, 0.475995, 0.469016, 0.410056, -0.506289, -0.274866, 0.200927, 0.50469, -0.452191, -0.483897, 0.506621, -0.096246, -0.0367761, -0.956678, 0.0228085, 0.468913, 0.505516, -0.15549, 0.259934, -0.503954, -0.421829, 0.406222, 0.501462, 0.288137, 0.438352, -0.504604, 0.230529, -0.0363956, 0.948536, -0.0363956, -0.096246, -0.506621, -0.483897, 0.230529, -0.504604, 0.438352, -0.274866, 0.506289, 0.410056, -0.00679234, 0.47683, 0.499667, -0.15549, -0.505516, 0.468913)
+
+[node name="Node3D" type="RigidBody3D"]
+gravity_scale = 0.0
 script = ExtResource("1_wrv6b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_3w1rt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wrv6b")

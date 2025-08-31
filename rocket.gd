@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 
 var SPEED = 20.0
 var dir : Basis
