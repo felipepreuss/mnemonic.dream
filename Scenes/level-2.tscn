@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d37kk3eeo6mwd"]
+[gd_scene load_steps=34 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
 [ext_resource type="Script" uid="uid://b4kqtfpencpj3" path="res://Script/level_2.gd" id="1_hrep3"]
@@ -80,6 +80,9 @@ albedo_texture = ExtResource("2_fjiq8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrep3"]
 albedo_texture = ExtResource("1_koo5p")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ky03g"]
+size = Vector3(3.46045, 3.54346, 1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_hrep3")
@@ -275,3 +278,12 @@ cast_shadow = 0
 operation = 2
 size = Vector3(1.69197, 2.06299, 0.869)
 material = SubResource("StandardMaterial3D_hrep3")
+
+[node name="level_trans" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898306, 0, 6.76377)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23022, 1.27173, 0.693664)
+shape = SubResource("BoxShape3D_ky03g")
+
+[connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

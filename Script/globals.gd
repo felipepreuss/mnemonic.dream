@@ -11,6 +11,16 @@ var dialogue_start = false
 var get_gun = false
 var CabouTexto = false
 var is_tutorial = false
+var levels = [
+	"res://Scenes/level-1.tscn",
+	"res://Scenes/level-2.tscn",
+	"res://Scenes/level-3.tscn",
+	"res://Scenes/level-4.tscn",
+	"res://Scenes/level-5.tscn",
+	"res://Scenes/level-6.tscn"
+]
+var current_level = 0
+
 signal slowdown
 
 @onready var Dialogue = "res://Scenes/dialogue.tscn"
@@ -18,9 +28,6 @@ signal slowdown
 func reset_powerups():
 	pop_candy_powerup = false
 	chiclete_powerup = false
-	get_chiclete = false
-	get_pop_candy = false
-	get_chocolate = false
 	get_gun = false
 
 func _physics_process(delta: float) -> void:

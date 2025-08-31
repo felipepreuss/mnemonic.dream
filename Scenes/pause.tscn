@@ -36,6 +36,10 @@ theme_override_font_sizes/font_size = 20
 text = "Resume"
 alignment = 0
 
+[node name="SAVE" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
 [node name="Options" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -48,5 +52,6 @@ theme_override_font_sizes/font_size = 20
 text = "Quit"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/SAVE" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

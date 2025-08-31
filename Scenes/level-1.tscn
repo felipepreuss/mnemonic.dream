@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=24 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="1_6a23k"]
@@ -54,6 +54,9 @@ albedo_texture = ExtResource("3_8kvl1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72gx4"]
 albedo_texture = ExtResource("10_dfuvp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dfuvp"]
+size = Vector3(3.63489, 5.55518, 6.47559)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_vshho")
@@ -262,3 +265,12 @@ size = Vector3(215.818, 31.2725, 27.4626)
 [node name="CSGBox3D2" type="CSGBox3D" parent="Parede invisivel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.32, 10.3585, -67.5785)
 size = Vector3(22.7306, 28.9201, 185.15)
+
+[node name="level_trans" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.656, 1.1662, -32.9416)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09653, 2.06909, 0.114014)
+shape = SubResource("BoxShape3D_dfuvp")
+
+[connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

@@ -24,6 +24,7 @@ buses/default_bus_layout=""
 ScreenShake="*res://Script/screen_shake.gd"
 Globals="*res://Script/globals.gd"
 Dialogue="*res://Scenes/dialogue.tscn"
+SaveGame="*res://Script/save_game.gd"
 
 [display]
 

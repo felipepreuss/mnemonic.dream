@@ -1,11 +1,14 @@
 extends Node3D
-@onready var player = $SubViewportContainer/SubViewport/player
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	#player.powerup_check()
+	pass # Replace with function body.
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	get_tree().call_group("Enemy","update_target_location", player.global_transform.origin)
+func _process(delta: float) -> void:
+	pass
 
 
 func _on_level_trans_body_entered(body: Node3D) -> void:

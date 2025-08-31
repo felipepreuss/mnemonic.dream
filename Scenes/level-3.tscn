@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmnef1jidjw84"]
+[gd_scene load_steps=17 format=3 uid="uid://dmnef1jidjw84"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_4ph04"]
-[ext_resource type="Script" uid="uid://cs1uryqy63ka8" path="res://Scenes/level_3.gd" id="1_j84td"]
+[ext_resource type="Script" uid="uid://cs1uryqy63ka8" path="res://Script/level_3.gd" id="1_j84td"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_nfp42"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_4ph04"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="3_oopfi"]
@@ -37,6 +37,9 @@ sky_material = SubResource("ProceduralSkyMaterial_oopfi")
 background_mode = 2
 sky = SubResource("Sky_j84td")
 tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j84td"]
+size = Vector3(8.34908, 6.04016, 11.6299)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_j84td")
@@ -351,4 +354,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.5858, 0, -37.0417)
 visible = false
 
+[node name="level_trans" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.833, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707268, 2.52008, -9.08655)
+shape = SubResource("BoxShape3D_j84td")
+
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/CSGCombiner3D2/OmniLight3D/level_trans" to="." method="_on_level_trans_body_entered"]
+[connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

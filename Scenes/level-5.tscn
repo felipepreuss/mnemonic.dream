@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddbgdj4laknmg"]
+[gd_scene load_steps=11 format=3 uid="uid://ddbgdj4laknmg"]
 
+[ext_resource type="Script" uid="uid://bcc83o2tf6e3k" path="res://Script/level_5.gd" id="1_3dipl"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_hvaeu"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="1_ip5ew"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_ihmlp"]
@@ -21,7 +22,11 @@ tonemap_mode = 2
 albedo_texture = ExtResource("2_ip5ew")
 uv1_scale = Vector3(3, 3, 3)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ckfq"]
+size = Vector3(78.1652, 1, 80.3859)
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_3dipl")
 
 [node name="Pause" parent="." instance=ExtResource("1_ip5ew")]
 
@@ -440,3 +445,12 @@ size = Vector3(1, 14.107, 19.8556)
 [node name="room3_wall17" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D"]
 transform = Transform3D(0.99925, 0, 0.0387192, 0, 1, 0, -0.0387192, 0, 0.99925, 502.661, -67.7154, 33.2281)
 size = Vector3(1, 14.107, 19.8556)
+
+[node name="level_trans" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 317.779, -55.7613, -67.4397)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06863, 0, -6.89923)
+shape = SubResource("BoxShape3D_0ckfq")
+
+[connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

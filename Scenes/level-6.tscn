@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdhm1re0so86v"]
+[gd_scene load_steps=18 format=3 uid="uid://bdhm1re0so86v"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_dkb5v"]
+[ext_resource type="Script" uid="uid://dwru7rmwvq87b" path="res://Script/level_6.gd" id="1_dwax7"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="1_vl8t7"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_bj0im"]
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="3_vl8t7"]
@@ -37,7 +38,11 @@ albedo_texture = ExtResource("3_vl8t7")
 albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
 albedo_texture = ExtResource("4_dwax7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dwax7"]
+size = Vector3(8.45367, 3.98425, 1)
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_dwax7")
 
 [node name="Pause" parent="." instance=ExtResource("1_vl8t7")]
 
@@ -269,3 +274,12 @@ size = Vector3(80, 0.2, 80)
 material = SubResource("StandardMaterial3D_f0sc1")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D"]
+
+[node name="level_trans" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.9267)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.984222, 1.49213, 1.04115)
+shape = SubResource("BoxShape3D_dwax7")
+
+[connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]
