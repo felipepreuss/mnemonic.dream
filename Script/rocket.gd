@@ -3,7 +3,6 @@ extends RigidBody3D
 @export var speed := 20.0
 @export var life_time := 5.0
 
-
 var timer := 0.0
 
 func explode(pos: Vector3 = global_position, normal: Vector3 = Vector3.UP) -> void:
@@ -11,7 +10,6 @@ func explode(pos: Vector3 = global_position, normal: Vector3 = Vector3.UP) -> vo
 	add_sibling(explosion_effect)
 	explosion_effect.global_transform = Transform3D(Basis(Quaternion(Vector3.UP, normal)), position)
 	self.queue_free()
-
 
 func _process(delta: float) -> void:
 	linear_velocity = -global_transform.basis.z * speed

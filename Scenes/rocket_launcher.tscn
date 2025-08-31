@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://d01w52vdq6b50" path="res://Script/rocket_launcher.gd" id="1_17r6f"]
 [ext_resource type="PackedScene" uid="uid://0bcfmy4m4luc" path="res://Assets/Guns/lancamissil.glb" id="2_3i4gi"]
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("ray")]
+[node name="Node3D" type="Node3D"]
 script = ExtResource("1_17r6f")
 current_ammo = 6
 ammo = 1
 max_ammo = 6
-ray = NodePath("")
 number_balas = 1
 gun_name = "Rocket Launcher"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
@@ -16,4 +15,4 @@ metadata/_custom_type_script = "uid://cme4um2042nwv"
 [node name="lancamissil" parent="." instance=ExtResource("2_3i4gi")]
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.31453)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.14153)
