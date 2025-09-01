@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdp1m1v6b855b"]
+[gd_scene load_steps=3 format=3 uid="uid://cdp1m1v6b855b"]
 
+[ext_resource type="Theme" uid="uid://dh5p3g0bd3nr5" path="res://Assets/ui_theme.tres" id="1_onuut"]
 [ext_resource type="Script" uid="uid://5wp24ka0cvbu" path="res://Script/level_complete.gd" id="1_u5kwf"]
 
 [node name="level_complete" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_onuut")
 script = ExtResource("1_u5kwf")
 
 [node name="Label" type="Label" parent="."]
@@ -19,7 +21,7 @@ anchor_bottom = 0.316358
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 70
 text = "LEVEL 1
-DONE."
+"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -38,16 +40,22 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "SCORE: 0000"
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="time" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "TIME: 00:00"
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="kills" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "KILLS: 0000"
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -64,11 +72,13 @@ grow_vertical = 0
 theme_override_constants/separation = 500
 
 [node name="next_button" type="Button" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "NEXT"
 
 [node name="save_button" type="Button" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "SAVE"

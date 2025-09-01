@@ -23,6 +23,7 @@ var state_start = true
 signal on_death
 
 func _ready():
+	Globals.max_contador += 1
 	Globals.contador += 1
 	Globals.slowdown.connect(on_slowdown)
 	#if player != null:

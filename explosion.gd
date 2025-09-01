@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var explosion_force = 15.0
+@export var explosion_force = 6.0
 @export var max_explosion_dist = 3.5
 @export var explosion_damage = 10
 @onready var hitbox = $Area3D
@@ -32,9 +32,9 @@ func push_away_bodies():
 		var force_dir = self.global_position.direction_to(body_pos)
 		var body_dist = (body_pos - self.global_position).length()
 		var explosion_vec = lerp(0.0, explosion_force, 1.0 - clampf((body_dist / max_explosion_dist), 0.0, 1.0)) / force_div * force_dir
-		if body is RigidBody3D:
-			body.apply_impulse(explosion_vec * explosion_force)
-		elif body is CharacterBody3D:
-			body.velocity += explosion_vec * explosion_force
-		
+		#if body is RigidBody3D:
+			#body.apply_impulse(explosion_vec * explosion_force)
+		#elif body is CharacterBody3D:
+			#body.velocity += explosion_vec * explosion_force
+		#
 	 

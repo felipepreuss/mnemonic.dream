@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dh5p3g0bd3nr5"]
+
+[ext_resource type="FontFile" uid="uid://nliqx246x2nc" path="res://Assets/Fonts/Weird Words DEMO.otf" id="1_8185x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ves3q"]
+bg_color = Color(0.737255, 0.737255, 0.737255, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8185x"]
+bg_color = Color(0.737255, 0.737255, 0.737255, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4jr5"]
+bg_color = Color(0.737193, 0.737193, 0.737193, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o3mm"]
+bg_color = Color(0.737255, 0.737255, 0.737255, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[resource]
+default_font = ExtResource("1_8185x")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.5251, 0.525102, 0.525102, 1)
+Button/font_sizes/font_size = 26
+Button/fonts/font = ExtResource("1_8185x")
+Button/styles/focus = SubResource("StyleBoxFlat_ves3q")
+Button/styles/hover = SubResource("StyleBoxFlat_8185x")
+Button/styles/normal = SubResource("StyleBoxFlat_p4jr5")
+Button/styles/pressed = SubResource("StyleBoxFlat_8o3mm")
+Label/fonts/font = ExtResource("1_8185x")

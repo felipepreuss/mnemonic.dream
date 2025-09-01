@@ -3,6 +3,7 @@ extends Node
 var pop_candy_powerup = false
 var chiclete_powerup = false
 var contador = 0
+var max_contador : int = 0
 var get_chiclete = false
 var get_pop_candy = false
 var get_chocolate = false
