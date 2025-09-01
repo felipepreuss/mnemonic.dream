@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+@onready var game = $"../SubViewportContainer/SubViewport"
+
 func _ready():
+	#print(get_parent().get_node_or_null("SubViewportContainer/SubViewport"))
 	visible = false
 func _process(_delta):
 	if Input.is_action_just_pressed("Esc") && !visible:
@@ -28,4 +31,4 @@ func _on_quit_pressed():
 
 
 func _on_save_pressed() -> void:
-	pass
+	SaveGame.save_game(game.get_node("player"), $"../SubViewportContainer/SubViewport/player/head/Camera3D/WeaponsManager", 1)
