@@ -42,7 +42,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		Head.rotate_y(-event.relative.x * SENSITIVITY)
 		Camera.rotate_x(-event.relative.y * SENSITIVITY)
-		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
 	Engine.time_scale = pow(Engine.time_scale, Engine.time_scale)

@@ -3,7 +3,7 @@ extends Node3D
 @export var explosion_force = 15.0
 @export var max_explosion_dist = 3.5
 @export var explosion_damage = 10
-
+@onready var hitbox = $Area3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$GPUParticles3D.emitting = true
@@ -15,6 +15,11 @@ func _ready() -> void:
 	var timer := get_tree().create_timer(5.0)
 	timer.timeout.connect(func(): self.queue_free())
 
+func _physics_process(delta: float) -> void:
+	for enemies in hitbox.get_overlapping_bodies():
+		if enemies.has_method("calcularDano"):
+			enemies.calcularDano(80)
+			print(enemies.vida)
 func push_away_bodies():
 	for body in $Area3D.get_overlapping_bodies():
 		var body_pos = body.global_position
