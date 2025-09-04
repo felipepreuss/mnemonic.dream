@@ -234,7 +234,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8885, 49.3707, -5.73235)
 shape = SubResource("BoxShape3D_2nb4t")
 
 [node name="Pickup" parent="." instance=ExtResource("12_koko0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1344, -2.62527, 93.2239)
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -38.1344, -2.62527, 93.2239)
 new_gun = ExtResource("13_lsb8r")
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_area_3d_body_entered"]
