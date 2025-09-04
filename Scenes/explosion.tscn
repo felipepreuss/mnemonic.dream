@@ -1,7 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://gjd2ndb607o3"]
 
-[ext_resource type="Script" uid="uid://bg0bgs48btcom" path="res://explosion.gd" id="1_a801j"]
+[ext_resource type="Script" uid="uid://bg0bgs48btcom" path="res://Script/explosion.gd" id="1_a801j"]
 [ext_resource type="Texture2D" uid="uid://cvmde470of2bl" path="res://Assets/scorch_02.png" id="2_4okmj"]
+
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2xjm"]
 particle_flag_rotate_y = true

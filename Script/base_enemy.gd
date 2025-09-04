@@ -1,4 +1,6 @@
 extends CharacterBody3D
+class_name BaseEnemy
+
 @export var player : CharacterBody3D
 var vida = 200
 var SPEED = 3.0
@@ -7,17 +9,14 @@ var accel = 10
 var retreat = false
 var death = false
 var attack = false
-var bullet = preload("res://Scenes/bullet_enemy.tscn")
 
-#@onready var slowdown_check = $slowdown_check
 
 var chiclete_powerup_scene = preload("res://Scenes/chiclete_powerup.tscn")
 var pop_candy_powerup_scene = preload("res://Scenes/pop_candy.tscn")
 var chocolate_powerup_scene = preload("res://Scenes/chocolate_powerup.tscn")
 
-var can_shoot = false
 @onready var nav_agent = $NavigationAgent3D
-enum {IDLE, CHASE,ATTACK,RETREAT,DEATH, SHOOT}
+enum {IDLE,CHASE,ATTACK,RETREAT,DEATH,SHOOT}
 var current_state = 0
 var state_start = true
 signal on_death
@@ -29,12 +28,9 @@ func _ready():
 	#if player != null:
 		#player.switch_to_shoot.connect(on_switch_to_shoot)
 		#player.switch_to_chase.connect(on_switch_to_chase)
-	#if slowdown_check != null:
-		#slowdown_check.slowdown.connect(on_slowdown)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	#scale *= 1.003
 	match current_state:
 		IDLE:
 			idle_state(delta)
@@ -46,8 +42,6 @@ func _physics_process(delta: float) -> void:
 			retreat_state(delta)
 		DEATH:
 			death_state(delta)
-		SHOOT:
-			shoot_state(delta)
 
 func idle_state(delta):
 	if death:
@@ -60,7 +54,6 @@ func idle_state(delta):
 	look_at(player.global_transform.origin, Vector3.UP)
 	rotation.x = 0
 	move_and_slide()
-	
 func chase_state(delta):
 	if death:
 		set_state(DEATH)
@@ -116,33 +109,7 @@ func retreat_state(delta):
 	
 func death_state(delta):
 	emit_signal("on_death")
-	$alienDeath.play() 
-
-func shoot_state(delta):
-	if death:
-		set_state(DEATH)
-	elif retreat:
-		set_state(RETREAT)
-	elif Globals.dialogue_start:
-		set_state(IDLE)
-	look_at(player.global_transform.origin, Vector3.UP)
-	rotation.x = 0
-	rotation.z = 0
-	if can_shoot == true:
-		var bala = bullet.instantiate()
-		#bala.transform.basis = transform.basis
-		get_parent().get_parent().get_parent().add_child(bala)
-		bala.rotation.y = rotation.y
-		bala.global_position = $bullet_marker.global_position
-		bala.dir = transform.basis
-		bala.dir.x = -transform.basis.x
-		can_shoot = false
-		#var bala = bullet.instantiate()
-		#bullet.position = pos.global_position
-		#bala.transform.basis = $bullet_marker.global_transform.basis
-		#get_parent().add_child(bullet)
-		
-
+	$alienDeath.play()
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)
 
@@ -160,34 +127,9 @@ func set_state(novo_estado):
 		state_start = true
 
 func _on_alien_death_finished() -> void:
-		var chiclete_powerup = chiclete_powerup_scene.instantiate()
-		var chocolate = chocolate_powerup_scene.instantiate()
-		var pop_candy = pop_candy_powerup_scene.instantiate()
-		var rng = RandomNumberGenerator.new()
-		randomize()
-		var rng_powerup = rng.randi_range(1, 3)
-		print(rng_powerup)
-		if rng_powerup == 1:
-			get_parent().add_child(chiclete_powerup)
-			chiclete_powerup.global_position = $bullet_marker.global_position
-		if rng_powerup == 2:
-			get_parent().add_child(chocolate)
-			chocolate.global_position = $bullet_marker.global_position
-		if rng_powerup == 3:
-			get_parent().add_child(pop_candy)
-			pop_candy.global_position = $bullet_marker.global_position
 		Globals.contador -= 1
 		print("inimigos",Globals.contador)
 		queue_free()
-func _on_bullet_timer_timeout() -> void:
-	can_shoot = true
-func switch_to_shoot() -> void:
-	if death:
-		set_state(DEATH)
-	elif retreat:
-		set_state(RETREAT)
-	else:
-		set_state(SHOOT)
 
 func switch_to_chase() -> void:
 	if death:

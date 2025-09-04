@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5a81q3jrmrid"]
+
+[ext_resource type="Script" uid="uid://2vcjoi0h7lb8" path="res://Script/guardian_enemy.gd" id="1_8l4be"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_hem14"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_c4i4k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mow7b"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mow7b"]
+radius = 1.05611
+height = 4.05609
+
+[node name="guardian_enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_8l4be")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mow7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
+shape = SubResource("CapsuleShape3D_mow7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+
+[node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_hem14")
+volume_db = 1.0
+autoplay = true
+
+[node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_c4i4k")
+volume_db = 1.0
+
+[connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]

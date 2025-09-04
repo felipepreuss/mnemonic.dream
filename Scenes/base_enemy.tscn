@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://citntpm6wt6i7"]
+
+[ext_resource type="Script" uid="uid://wqtxoolc3a0" path="res://Script/base_enemy.gd" id="1_kjpuc"]
+[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_t2m80"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_7p0xe"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_trv5a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p0xe"]
+albedo_texture = ExtResource("2_t2m80")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_trv5a"]
+lightmap_size_hint = Vector2i(17, 14)
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kjpuc"]
+radius = 1.01667
+
+[node name="base_enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_kjpuc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.992016, 0, 0.126112, 0, 1, 0, -0.126112, 0, -0.992016, 0, 0.664997, 0)
+material_override = SubResource("StandardMaterial3D_7p0xe")
+mesh = SubResource("CapsuleMesh_trv5a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
+transform = Transform3D(-0.992016, 0, 0.126112, 0, 1, 0, -0.126112, 0, -0.992016, 0, 0.664997, 0)
+shape = SubResource("SphereShape3D_kjpuc")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+
+[node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_7p0xe")
+volume_db = 1.0
+autoplay = true
+
+[node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_trv5a")
+volume_db = 1.0
+
+[connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]

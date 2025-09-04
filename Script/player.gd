@@ -28,8 +28,7 @@ var step_timer := 0.0
 var step_interval := 0.5  # base interval between steps
 
 signal healthChanged
-signal switch_to_shoot
-signal switch_to_chase
+
 
 
 func _ready():
@@ -149,20 +148,24 @@ func reset_powerups():
 	HP = 100
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
-		body.switch_to_shoot()
-
-
+		if body.has_method("switch_to_shoot"):
+			body.switch_to_shoot()
 func _on_enemy_box_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
-		body.switch_to_chase()
-
-
+		if body.has_method("switch_to_chase"):
+			body.switch_to_chase()
 func _on_player_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bullet"):
 		HP -= 5
 		healthChanged.emit()
 		print (HP)
 
-
 func _on_weapon_get_area_body_entered(body: Node3D) -> void:
+	pass
+
+
+func _on_player_box_body_entered(body: Node3D) -> void:
+	#if body.is_in_group("Enemy"):
+		#if body.has_method("switch_to_attack"):
+			#body.switch_to_attack()
 	pass

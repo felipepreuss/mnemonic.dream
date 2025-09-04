@@ -350,3 +350,4 @@ debug_color = Color(0.628337, 0, 0.201289, 0.42)
 [connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
 [connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]
 [connection signal="area_entered" from="player_box" to="." method="_on_player_box_area_entered"]
+[connection signal="body_entered" from="player_box" to="." method="_on_player_box_body_entered"]

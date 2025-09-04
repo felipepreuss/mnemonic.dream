@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbb0swspkra5t"]
+
+[ext_resource type="Script" uid="uid://cn3pqfeyufdb6" path="res://Script/spider_enemy.gd" id="1_xkfdl"]
+[ext_resource type="Texture2D" uid="uid://ct1knwl4ewdrx" path="res://Assets/spidersprite.png" id="2_he8yh"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_tyhe3"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_kv88u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyhe3"]
+albedo_texture = ExtResource("2_he8yh")
+
+[sub_resource type="SphereMesh" id="SphereMesh_fpiwj"]
+radius = 0.3
+height = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyhe3"]
+size = Vector3(0.591187, 0.74646, 0.625732)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kv88u"]
+
+[node name="Spider Enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_xkfdl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_tyhe3")
+mesh = SubResource("SphereMesh_fpiwj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, -0.00469971, -0.00109863)
+shape = SubResource("BoxShape3D_tyhe3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+
+[node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_tyhe3")
+volume_db = 1.0
+autoplay = true
+
+[node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_kv88u")
+volume_db = 1.0
+
+[node name="attack_box" type="Area3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="attack_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379207, 0)
+shape = SubResource("BoxShape3D_kv88u")
+
+[node name="bullet_marker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413903, 0.137946, 0.00304884)
+
+[node name="bullet_timer" type="Timer" parent="."]
+
+[connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
+[connection signal="body_entered" from="attack_box" to="." method="_on_attack_box_body_entered"]
+[connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
