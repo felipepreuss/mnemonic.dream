@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=27 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -10,7 +10,9 @@
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="3_p8jf4"]
 [ext_resource type="Script" uid="uid://dyhhyl8uclsa2" path="res://Script/directional_light_3d.gd" id="4_70gml"]
 [ext_resource type="Script" uid="uid://ddoddoqp1u83g" path="res://Script/weapon_get_instantiator.gd" id="7_8va2t"]
+[ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="12_koko0"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
+[ext_resource type="PackedScene" uid="uid://ceaey3qmvx0oa" path="res://Scenes/shot_gun.tscn" id="13_lsb8r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -230,6 +232,10 @@ shape = SubResource("BoxShape3D_ap3ea")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="invisible_wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8885, 49.3707, -5.73235)
 shape = SubResource("BoxShape3D_2nb4t")
+
+[node name="Pickup" parent="." instance=ExtResource("12_koko0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1344, -2.62527, 93.2239)
+new_gun = ExtResource("13_lsb8r")
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="level_trans" to="." method="_on_area_3d_body_shape_entered"]

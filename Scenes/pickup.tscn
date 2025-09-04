@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc58amk2buxq0"]
+[gd_scene load_steps=6 format=3 uid="uid://bqeim6tjqkd20"]
 
-[ext_resource type="Script" uid="uid://cxim3hx3sa007" path="res://Script/acquire_weapon.gd" id="1_2xhsj"]
-[ext_resource type="PackedScene" uid="uid://ur8p6e5hn8pj" path="res://Assets/Guns/Pistola (1).glb" id="2_2xhsj"]
+[ext_resource type="Script" uid="uid://32l6277b37n7" path="res://pickup.gd" id="1_v7u4w"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2xhsj"]
-size = Vector3(0.380035, 0.367432, 0.906738)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cya6u"]
 
 [sub_resource type="Animation" id="Animation_77hrl"]
 length = 0.001
@@ -44,22 +42,16 @@ _data = {
 &"rotaaate": SubResource("Animation_2xhsj")
 }
 
-[node name="acquire_weapon" type="Node3D"]
-script = ExtResource("1_2xhsj")
-
-[node name="Pistola (1)" parent="." instance=ExtResource("2_2xhsj")]
+[node name="Pickup" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, 0, 0, 0)
+script = ExtResource("1_v7u4w")
 
-[node name="weapon_get_area" type="Area3D" parent="Pistola (1)"]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.0563155, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cya6u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistola (1)/weapon_get_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0138092, -0.0189209, -0.0466309)
-shape = SubResource("BoxShape3D_2xhsj")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pistola (1)"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_77hrl")
 }
 
-[connection signal="body_entered" from="Pistola (1)/weapon_get_area" to="." method="_on_weapon_get_area_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
