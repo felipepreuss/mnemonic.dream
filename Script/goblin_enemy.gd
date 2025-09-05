@@ -6,6 +6,7 @@ func _ready() -> void:
 	Globals.max_contador += 1
 	Globals.contador += 1
 	Globals.slowdown.connect(on_slowdown)
+
 func chase_state(delta):
 	if death:
 		set_state(DEATH)

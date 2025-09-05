@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbb0swspkra5t"]
+[gd_scene load_steps=10 format=3 uid="uid://bbb0swspkra5t"]
 
 [ext_resource type="Script" uid="uid://cn3pqfeyufdb6" path="res://Script/spider_enemy.gd" id="1_xkfdl"]
 [ext_resource type="Texture2D" uid="uid://ct1knwl4ewdrx" path="res://Assets/spidersprite.png" id="2_he8yh"]
@@ -16,6 +16,9 @@ height = 0.7
 size = Vector3(0.591187, 0.74646, 0.625732)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kv88u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rosbb"]
+size = Vector3(20.7094, 1, 10.3086)
 
 [node name="Spider Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xkfdl")
@@ -46,9 +49,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379207, 0)
 shape = SubResource("BoxShape3D_kv88u")
 
 [node name="bullet_marker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413903, 0.137946, 0.00304884)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311187, 0, 0)
 
 [node name="bullet_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="shoot_box" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shoot_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.137192, 0, -19.7266)
+shape = SubResource("BoxShape3D_rosbb")
 
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="body_entered" from="attack_box" to="." method="_on_attack_box_body_entered"]
