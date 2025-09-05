@@ -139,6 +139,7 @@ mesh = SubResource("QuadMesh_n45e2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_trj04")
+layout_mode = 0
 offset_left = -19.0
 offset_top = -29.0
 offset_right = 1163.0

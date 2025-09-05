@@ -24,7 +24,7 @@
 offsets = PackedFloat32Array(0, 0.544199, 0.546961, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.395028, 0.395028, 0.395028, 1, 0.422371, 0.422371, 0.422371, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_62l51"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qqcod"]
 gradient = SubResource("Gradient_x3wgy")
 
 [sub_resource type="Curve" id="Curve_3smsa"]
@@ -32,7 +32,7 @@ _limits = [0.0, 25.0, 0.0, 1.0]
 _data = [Vector2(0, 25), 0.0, 0.0, 0, 0, Vector2(1e-05, 25), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_yfygn"]
+[sub_resource type="CurveTexture" id="CurveTexture_igrcy"]
 curve = SubResource("Curve_3smsa")
 
 [sub_resource type="Curve" id="Curve_8erm5"]
@@ -40,19 +40,19 @@ _limits = [0.0, 0.850947, 0.0, 1.0]
 _data = [Vector2(0.0180412, 0), 0.0, 0.0, 0, 0, Vector2(0.963917, 0.850947), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_3vlnx"]
+[sub_resource type="CurveTexture" id="CurveTexture_fs7ks"]
 curve = SubResource("Curve_8erm5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f1ek2"]
 angle_min = -720.0
 angle_max = 720.0
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_3vlnx")
+scale_curve = SubResource("CurveTexture_fs7ks")
 color = Color(0.786502, 0.10305, 0.367896, 1)
-color_ramp = SubResource("GradientTexture1D_62l51")
-emission_curve = SubResource("CurveTexture_yfygn")
+color_ramp = SubResource("GradientTexture1D_qqcod")
+emission_curve = SubResource("CurveTexture_igrcy")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbiks"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6n3p"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.807843, 0.054902, 1)
@@ -65,7 +65,7 @@ particles_anim_loop = false
 proximity_fade_distance = 0.1
 
 [sub_resource type="QuadMesh" id="QuadMesh_tx1dd"]
-material = SubResource("StandardMaterial3D_tbiks")
+material = SubResource("StandardMaterial3D_l6n3p")
 
 [sub_resource type="Animation" id="Animation_fkybt"]
 length = 0.001
@@ -122,7 +122,7 @@ volume_db = -25.0
 stream = ExtResource("3_7dp3o")
 volume_db = -25.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52989, 0)
 shape = SubResource("CapsuleShape3D_0b4ue")
 debug_color = Color(1, 1, 1, 0.419608)

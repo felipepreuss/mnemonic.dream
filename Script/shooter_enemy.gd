@@ -1,5 +1,10 @@
-extends AlienEnemy
+extends BaseEnemy
 class_name ShooterEnemy
+
+var can_shoot = false
+@onready var aim = $RayCast3D
+@onready var flash = $flash
+@onready var gun_sound = $gun_fire
 
 func _physics_process(delta: float) -> void:
 	match current_state:
@@ -13,8 +18,6 @@ func _physics_process(delta: float) -> void:
 			retreat_state(delta)
 		DEATH:
 			death_state(delta)
-		SHOOT:
-			shoot_state(delta)
 
 func chase_state(delta):
 	if death:
@@ -32,15 +35,18 @@ func chase_state(delta):
 	look_at(player.global_transform.origin, Vector3.UP)
 	rotation.x = 0
 	if can_shoot == true:
-		var bala = bullet.instantiate()
-		#bala.transform.basis = transform.basis
-		get_parent().get_parent().get_parent().add_child(bala)
-		bala.rotation.y = rotation.y
-		bala.global_position = $bullet_marker.global_position
-		bala.dir = transform.basis
-		bala.dir.x = -transform.basis.x
+		randomize()
+		var target = aim.get_collider()
+		if aim.get_collider() != null and target.is_in_group('Player'):
+			var accuracy = randi_range(0,10)
+			print(accuracy)
+			flash.emitting = true
+			flash.restart()
+			gun_sound.play()
+			if accuracy < 5:
+				target.HP -= 15
 		can_shoot = false
 	move_and_slide()
 
-func _on_bullet_timer_timeout() -> void:
+func _on_shoot_timer_timeout() -> void:
 	can_shoot = true

@@ -51,6 +51,7 @@ func switch_to_shoot() -> void:
 		set_state(RETREAT)
 	else:
 		set_state(SHOOT)
+
 func _on_alien_death_finished() -> void:
 	var chiclete_powerup = chiclete_powerup_scene.instantiate()
 	var chocolate = chocolate_powerup_scene.instantiate()

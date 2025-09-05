@@ -110,6 +110,7 @@ func retreat_state(delta):
 func death_state(delta):
 	emit_signal("on_death")
 	$alienDeath.play()
+
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)
 

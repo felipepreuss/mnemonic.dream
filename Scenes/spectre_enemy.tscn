@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://0x5xhls7hmwi"]
+[gd_scene load_steps=8 format=3 uid="uid://0x5xhls7hmwi"]
 
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="1_gdht4"]
 [ext_resource type="Script" uid="uid://y5uf68nvdgdo" path="res://Script/spectre_enemy.gd" id="1_xwd2c"]
+[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_1acgf"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="2_xwd2c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0prb"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("2_1acgf")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xwd2c"]
 
@@ -14,6 +18,7 @@
 script = ExtResource("1_xwd2c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_u0prb")
 mesh = SubResource("CapsuleMesh_xwd2c")
 
@@ -21,6 +26,11 @@ mesh = SubResource("CapsuleMesh_xwd2c")
 shape = SubResource("CapsuleShape3D_xwd2c")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+path_desired_distance = 50.0
+target_desired_distance = 50.0
+path_max_distance = 50.01
+neighbor_distance = 100.0
+debug_enabled = true
 
 [node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_gdht4")
@@ -32,10 +42,22 @@ stream = ExtResource("2_xwd2c")
 volume_db = 1.0
 
 [node name="bullet_marker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.245632, 0.658336)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.427224, -0.245632, -0.498576)
+
+[node name="bullet_marker2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00444832, -0.245632, -0.642403)
+
+[node name="bullet_marker3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.503439, -0.245632, -0.0509954)
+
+[node name="bullet_marker4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.679319, -0.245632, -0.0307727)
+
+[node name="bullet_marker5" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.331075, -0.245632, -0.498739)
 
 [node name="bullet_timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 2.0
 autostart = true
 
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]

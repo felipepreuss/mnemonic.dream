@@ -468,4 +468,6 @@ use_collision = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.2472, 11.9557, -45.5739)
 size = Vector3(49.3256, 32.3985, 303.39)
 
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parede invisivel"]
+
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

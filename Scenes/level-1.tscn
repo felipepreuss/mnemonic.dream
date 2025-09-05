@@ -96,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, -62.1397)
 player = NodePath("../player")
 
 [node name="Enemy7" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, 101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.9843, 1.11555, 101)
 player = NodePath("../player")
 
 [node name="Enemy8" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
@@ -116,7 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9156, 1.11555, -27.6789)
 player = NodePath("../player")
 
 [node name="Enemy6" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9156, 1.11555, -27.6789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46993, 1.13038, -20.6734)
 player = NodePath("../player")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
