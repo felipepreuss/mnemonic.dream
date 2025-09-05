@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var SPEED : Vector3 = Vector3(0, 0, -5)
-var dir : Basis
+@export var dir : Basis
 
 func _ready():
 	$Timer
