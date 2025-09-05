@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc2whvfhdgxy3"]
+[gd_scene load_steps=4 format=3 uid="uid://bc2whvfhdgxy3"]
 
 [ext_resource type="Script" uid="uid://8fqmb6mnwxvr" path="res://Script/dialogue.gd" id="1_5rqxr"]
 [ext_resource type="Texture2D" uid="uid://8piqocnhya34" path="res://Assets/papel-removebg-preview.png" id="2_dgfud"]
+[ext_resource type="FontFile" uid="uid://2bb8g51p5wc4" path="res://Assets/Fonts/Jersey25Charted-Regular.ttf" id="4_pjl42"]
 
 [node name="Dialogue" type="Control"]
 clip_contents = true
@@ -31,11 +32,15 @@ texture = ExtResource("2_dgfud")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pjl42")
 theme_override_font_sizes/font_size = 35
 
 [node name="Labelo" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+texture_filter = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pjl42")
 theme_override_font_sizes/font_size = 30

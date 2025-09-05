@@ -101,6 +101,22 @@ player = NodePath("../player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59758, 0.995605)
 script = ExtResource("7_8va2t")
 
+[node name="Enemy4" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.2301, -3.97244, 49.4247)
+player = NodePath("../player")
+
+[node name="weapon_get_instantiator" type="Node3D" parent="SubViewportContainer/SubViewport/Enemy4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59758, 0.995605)
+script = ExtResource("7_8va2t")
+
+[node name="Enemy5" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.9881, -3.97244, 40.5769)
+player = NodePath("../player")
+
+[node name="weapon_get_instantiator" type="Node3D" parent="SubViewportContainer/SubViewport/Enemy5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59758, 0.995605)
+script = ExtResource("7_8va2t")
+
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -52.285, -4.13135, 71.9481)
 player = NodePath("../player")
@@ -129,6 +145,21 @@ material = SubResource("StandardMaterial3D_cgksj")
 
 [node name="CasaE1" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.208, 5.82474, 126.574)
+size = Vector3(22.4339, 19.9081, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaE7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.208, 5.82474, 166.159)
+size = Vector3(22.4339, 19.9081, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaE8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.208, 5.82474, 207.826)
+size = Vector3(22.4339, 19.9081, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaE9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.208, 5.82474, 245.954)
 size = Vector3(22.4339, 19.9081, 17.6604)
 material = ExtResource("3_p8jf4")
 
@@ -164,6 +195,26 @@ material = SubResource("StandardMaterial3D_7n6eb")
 
 [node name="CasaD1" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0208, 5.77356, 111.262)
+size = Vector3(18.0681, 20.0104, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaD9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0208, 5.77356, 144.043)
+size = Vector3(18.0681, 20.0104, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaD10" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0208, 5.77356, 181.855)
+size = Vector3(18.0681, 20.0104, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaD11" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0208, 5.77356, 222.926)
+size = Vector3(18.0681, 20.0104, 17.6604)
+material = ExtResource("3_p8jf4")
+
+[node name="CasaD12" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0208, 5.77356, 255.926)
 size = Vector3(18.0681, 20.0104, 17.6604)
 material = ExtResource("3_p8jf4")
 

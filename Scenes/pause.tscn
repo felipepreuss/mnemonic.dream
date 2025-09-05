@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddytulff8t04j"]
+[gd_scene load_steps=3 format=3 uid="uid://ddytulff8t04j"]
 
 [ext_resource type="Script" uid="uid://dt3m5wtv36ndv" path="res://Script/pause.gd" id="1_o80xk"]
+[ext_resource type="Theme" uid="uid://dh5p3g0bd3nr5" path="res://Assets/ui_theme.tres" id="2_l2mpd"]
 
 [node name="Pause" type="CanvasLayer"]
 process_mode = 3
@@ -28,6 +29,7 @@ anchor_right = 0.566667
 anchor_bottom = 0.55
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_l2mpd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Resume" type="Button" parent="ColorRect/VBoxContainer"]

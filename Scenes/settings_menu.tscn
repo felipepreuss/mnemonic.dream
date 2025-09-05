@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b774b8iatemmd"]
+[gd_scene load_steps=3 format=3 uid="uid://b774b8iatemmd"]
 
+[ext_resource type="Theme" uid="uid://dh5p3g0bd3nr5" path="res://Assets/ui_theme.tres" id="1_8ef0u"]
 [ext_resource type="Script" uid="uid://dqj2mtgbxymb1" path="res://Script/settings_menu.gd" id="1_icv2g"]
 
 [node name="settings_menu" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8ef0u")
 script = ExtResource("1_icv2g")
 
 [node name="Label" type="Label" parent="."]

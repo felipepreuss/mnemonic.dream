@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://32l6277b37n7" path="res://Script/pickup.gd" id="1_v7u4w"]
 
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_cya6u"]
 
 [sub_resource type="Animation" id="Animation_77hrl"]
