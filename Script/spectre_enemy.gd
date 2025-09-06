@@ -19,9 +19,6 @@ var movement_speed_multiplier = 0.7  # Slower, more deliberate movement
 var gravity = 20.0
 var is_on_floor = false
 
-func _ready() -> void:
-	pass
-	
 func idle_state(delta):
 	if death:
 		set_state(DEATH)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d37kk3eeo6mwd"]
+[gd_scene load_steps=44 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
 [ext_resource type="Script" uid="uid://b4kqtfpencpj3" path="res://Script/level_2.gd" id="1_hrep3"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://chv6nc68ahtak" path="res://Scenes/chocolate_powerup.tscn" id="7_c5vrt"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="7_sr1xm"]
 [ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="8_0787j"]
+[ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="10_0787j"]
+[ext_resource type="PackedScene" uid="uid://ceaey3qmvx0oa" path="res://Scenes/shot_gun.tscn" id="11_k1i42"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="13_c5vrt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4frd1"]
@@ -274,6 +276,10 @@ size = Vector3(41.4453, 0.26416, 0.139465)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -105.857, 11.1699, -37.7059)
 size = Vector3(41.5744, 0.277588, 0.139465)
 
+[node name="Pickup" parent="SubViewportContainer/SubViewport" instance=ExtResource("10_0787j")]
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, 8.14703, 1.45239, -1.78501)
+new_gun = ExtResource("11_k1i42")
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_hrep3")
@@ -423,7 +429,7 @@ material = SubResource("StandardMaterial3D_hrep3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898306, 0, 6.76377)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23022, 1.27173, 0.693664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23022, 1.27173, -0.146267)
 shape = SubResource("BoxShape3D_ky03g")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]

@@ -44,7 +44,7 @@ func chase_state(delta):
 			flash.restart()
 			gun_sound.play()
 			if accuracy < 5:
-				target.HP -= 15
+				target.HP -= 10
 		can_shoot = false
 	move_and_slide()
 

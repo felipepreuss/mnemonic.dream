@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=27 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -10,12 +10,9 @@
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="3_p8jf4"]
 [ext_resource type="Script" uid="uid://dyhhyl8uclsa2" path="res://Script/directional_light_3d.gd" id="4_70gml"]
 [ext_resource type="Script" uid="uid://ddoddoqp1u83g" path="res://Script/weapon_get_instantiator.gd" id="7_8va2t"]
-[ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="8_lsb8r"]
-[ext_resource type="PackedScene" uid="uid://0x5xhls7hmwi" path="res://Scenes/spectre_enemy.tscn" id="9_ap3ea"]
-[ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="10_t6ver"]
+[ext_resource type="PackedScene" uid="uid://dvgtj7ysdismb" path="res://Scenes/pistol.tscn" id="7_koko0"]
 [ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="12_koko0"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
-[ext_resource type="PackedScene" uid="uid://ceaey3qmvx0oa" path="res://Scenes/shot_gun.tscn" id="13_lsb8r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -96,6 +93,10 @@ environment = SubResource("Environment_ehuit")
 process_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 106.003)
 
+[node name="Pickup" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_koko0")]
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -38.1344, -3.77196, 93.2239)
+new_gun = ExtResource("7_koko0")
+
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 78.9557)
 player = NodePath("../player")
@@ -118,18 +119,6 @@ player = NodePath("../player")
 
 [node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.916, -3.88024, 64.1993)
-player = NodePath("../player")
-
-[node name="Shooter Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("8_lsb8r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5546, -3.03789, 120.9)
-player = NodePath("../player")
-
-[node name="spectre_enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("9_ap3ea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.6676, -3.09482, 99.268)
-player = NodePath("../player")
-
-[node name="guardian_enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("10_t6ver")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.715, -3.30045, 84.4968)
 player = NodePath("../player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -291,10 +280,6 @@ shape = SubResource("BoxShape3D_ap3ea")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="invisible_wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8885, 49.3707, -5.73235)
 shape = SubResource("BoxShape3D_2nb4t")
-
-[node name="Pickup" parent="." instance=ExtResource("12_koko0")]
-transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -38.1344, -2.62527, 93.2239)
-new_gun = ExtResource("13_lsb8r")
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="level_trans" to="." method="_on_area_3d_body_shape_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=26 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="1_6a23k"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_6ps50"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="3_8kvl1"]
 [ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="6_2yqp8"]
-[ext_resource type="Script" uid="uid://ddoddoqp1u83g" path="res://Script/weapon_get_instantiator.gd" id="6_72gx4"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="6_b5c44"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="10_bjjfd"]
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="10_dfuvp"]
@@ -122,10 +121,6 @@ player = NodePath("../player")
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
 transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -79.6174, 1.11555, -16.2678)
 player = NodePath("../player")
-
-[node name="weapon_get_instantiator" type="Node3D" parent="SubViewportContainer/SubViewport/Enemy2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59758, 0.995605)
-script = ExtResource("6_72gx4")
 
 [node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
 transform = Transform3D(-0.920886, 0, 0.389831, 0, 1, 0, -0.389831, 0, -0.920886, -104.761, 1.28225, -15.5628)
