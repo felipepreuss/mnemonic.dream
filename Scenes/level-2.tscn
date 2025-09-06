@@ -426,7 +426,7 @@ size = Vector3(2.00801, 2.4812, 0.869)
 material = SubResource("StandardMaterial3D_hrep3")
 
 [node name="level_trans" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898306, 0, 6.76377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898306, 1.44239, -7.71792)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_trans"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23022, 1.27173, -0.146267)

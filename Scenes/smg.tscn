@@ -1,48 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://fhmux8ryyl36"]
 
+[ext_resource type="Script" uid="uid://cphbm0dgtfm15" path="res://Scenes/smg.gd" id="1_5j6yl"]
 [ext_resource type="PackedScene" uid="uid://cxl01ln1qwoml" path="res://Assets/Guns/Metralhadora (1).glb" id="1_sovh5"]
 [ext_resource type="AudioStream" uid="uid://bhirkrycnr28b" path="res://SFX/smgblast.mp3" id="2_udryi"]
 [ext_resource type="AudioStream" uid="uid://c36tqpu0xfxey" path="res://SFX/smgfast_reload.mp3" id="3_sovh5"]
 
-[sub_resource type="GDScript" id="GDScript_2ecjt"]
-script/source = "extends WeaponsManager
-
-var damage: int
-@onready var blast = $SMG_fire
-@onready var fire_delay = $Timer
-var auto_shoot: bool = true
-
-func _physics_process(delta: float) -> void:
-	if Globals.pop_candy_powerup:
-		fire_delay.wait_time = 0.01
-	if Input.is_action_pressed(\"Left-Click\") and have_ammo and auto_shoot and fire_delay:
-		if current_ammo >= number_balas:
-			auto_shoot = false
-			fire_delay.start()
-			current_ammo -= number_balas
-			if current_ammo < 1:
-				have_ammo = false
-			shooting(ray, lerp(5, 20, 5))  
-			blast.play()
-			#kickb.play(\"recoil\")
-			#flash.emitting = true
-			#flash.restart()
-	if Input.is_action_just_pressed('Reload') and have_ammo:
-		$SMG_reload.play()
-
-func _on_timer_timeout() -> void:
-	auto_shoot = true
-"
-
 [node name="MachineGun" type="Node3D" node_paths=PackedStringArray("ray")]
-script = SubResource("GDScript_2ecjt")
+script = ExtResource("1_5j6yl")
 auto = true
-current_ammo = 25
-ammo = 200
-max_ammo = 25
+current_ammo = 50
+ammo = 250
+max_ammo = 50
+can_reload = true
 ray = NodePath("RayCast3D")
 number_balas = 1
-gun_name = "Machine Gun"
+gun_name = "SMG"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
 
 [node name="Metralhadora (1)" parent="." instance=ExtResource("1_sovh5")]
@@ -54,13 +26,13 @@ unit_size = 1.6
 max_db = 2.85
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 
 [node name="SMG_reload" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_sovh5")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.068187, -0.224572)
-target_position = Vector3(0, -10, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.068187, -0.538711)
+target_position = Vector3(0, -20, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

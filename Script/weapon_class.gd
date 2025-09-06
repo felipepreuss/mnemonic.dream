@@ -21,6 +21,10 @@ var gun_limit: int = 1
 # Store all weapon instances
 var weapon_instances: Array[Node3D] = []
 
+# auto gun fire rate variables
+var last_shot_time = 0.0
+var smg_fire_rate = 0.1  # auto fire rate
+
 @onready var flash: GPUParticles3D
 @onready var kickb: AnimationPlayer
 
@@ -63,10 +67,16 @@ func handle_shooting():
 	if not current_gun or not gun_equipped:
 		return
 	
+	var current_time = Time.get_ticks_msec() / 1000.0  # Current time in seconds
+	
 	if current_gun.auto and Input.is_action_pressed("Left-Click") and not current_gun.melee:
-		try_shoot()
+		# SMG rapid fire - check fire rate
+		if current_time - last_shot_time >= smg_fire_rate:
+			try_shoot()
+			last_shot_time = current_time
 	elif Input.is_action_just_pressed('Left-Click') and not current_gun.melee:
 		try_shoot()
+		last_shot_time = current_time
 
 func try_shoot():
 	if current_gun.current_ammo >= current_gun.number_balas and flash:
