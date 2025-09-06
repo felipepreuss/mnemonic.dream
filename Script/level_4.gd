@@ -4,7 +4,10 @@ extends Node3D
 func _ready() -> void:
 	player.powerup_check()
 	Globals.dialogue_end = true
-
+	Globals.got_pistol = true
+	Globals.got_shotgun = true
+	Globals.got_smg = true
+	player.get_weapons()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	get_tree().call_group("Enemy","update_target_location", player.global_transform.origin)

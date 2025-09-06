@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fhmux8ryyl36"]
 
-[ext_resource type="Script" uid="uid://cphbm0dgtfm15" path="res://Scenes/smg.gd" id="1_5j6yl"]
+[ext_resource type="Script" uid="uid://cphbm0dgtfm15" path="res://Script/smg.gd" id="1_5j6yl"]
 [ext_resource type="PackedScene" uid="uid://cxl01ln1qwoml" path="res://Assets/Guns/Metralhadora (1).glb" id="1_sovh5"]
 [ext_resource type="AudioStream" uid="uid://bhirkrycnr28b" path="res://SFX/smgblast.mp3" id="2_udryi"]
 [ext_resource type="AudioStream" uid="uid://c36tqpu0xfxey" path="res://SFX/smgfast_reload.mp3" id="3_sovh5"]

@@ -161,6 +161,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.811463, 0)
 [node name="chiclete_powerup" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_0787j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21215, 0.703281, 0)
 
+[node name="Pickup" parent="SubViewportContainer/SubViewport" instance=ExtResource("10_0787j")]
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, 8.14703, 1.45239, -1.78501)
+new_gun = ExtResource("11_k1i42")
+
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42.3816, 0, -135.831)
 material_override = SubResource("StandardMaterial3D_sikbw")
@@ -275,10 +279,6 @@ size = Vector3(41.4453, 0.26416, 0.139465)
 [node name="CSGBox3D24" type="CSGBox3D" parent="SubViewportContainer/SubViewport/CSGCombiner3D2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -105.857, 11.1699, -37.7059)
 size = Vector3(41.5744, 0.277588, 0.139465)
-
-[node name="Pickup" parent="SubViewportContainer/SubViewport" instance=ExtResource("10_0787j")]
-transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, 8.14703, 1.45239, -1.78501)
-new_gun = ExtResource("11_k1i42")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

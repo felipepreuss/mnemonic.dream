@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyfljs8p47k6s"]
+
+[ext_resource type="Script" uid="uid://bqxg70hi56goh" path="res://Script/enemy_projectile.gd" id="1_33pam"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxxiw"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_33pam"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ibebl"]
+radius = 0.101785
+
+[node name="enemy_projectile" type="CharacterBody3D" groups=["Bullet"]]
+script = ExtResource("1_33pam")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kxxiw")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_33pam")
+skeleton = NodePath("../..")
+
+[node name="enemy_projectile" type="Area3D" parent="." groups=["Bullet"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_projectile"]
+shape = SubResource("SphereShape3D_ibebl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="enemy_projectile" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

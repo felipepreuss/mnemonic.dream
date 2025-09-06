@@ -12,6 +12,13 @@ var dialogue_start = false
 var get_gun = false
 var CabouTexto = false
 var is_tutorial = false
+
+var got_pistol = false
+var got_shotgun = false
+var got_smg = false
+var got_dart = false
+var got_rocket = false
+
 var levels = [
 	"res://Scenes/level-1.tscn",
 	"res://Scenes/level-2.tscn",

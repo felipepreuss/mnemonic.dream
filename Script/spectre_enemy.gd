@@ -1,9 +1,9 @@
 extends AlienEnemy
-
-var bullet2 = preload("res://Scenes/bullet_enemy.tscn")
-var bullet3 = preload("res://Scenes/bullet_enemy.tscn")
-var bullet4 = preload("res://Scenes/bullet_enemy.tscn")
-var bullet5 = preload("res://Scenes/bullet_enemy.tscn")
+var bullet1 = preload("res://Scenes/enemy_projectile.tscn")
+var bullet2 = preload("res://Scenes/enemy_projectile.tscn")
+var bullet3 = preload("res://Scenes/enemy_projectile.tscn")
+var bullet4 = preload("res://Scenes/enemy_projectile.tscn")
+var bullet5 = preload("res://Scenes/enemy_projectile.tscn")
 
 # Enhanced stealth behavior variables
 var is_visible = false  # Start invisible for more ominous approach
@@ -140,7 +140,7 @@ func shoot_state(delta):
 	var current_time = Time.get_unix_time_from_system()
 	if can_shoot == true and current_time - last_fire_time >= fire_rate:
 		# Shoot all bullets
-		var bala1 = bullet.instantiate()
+		var bala1 = bullet1.instantiate()
 		get_parent().get_parent().get_parent().add_child(bala1)
 		bala1.rotation.y = rotation.y
 		bala1.global_position = $bullet_marker.global_position

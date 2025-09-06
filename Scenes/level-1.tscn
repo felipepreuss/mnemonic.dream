@@ -64,7 +64,7 @@ albedo_texture = ExtResource("10_dfuvp")
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfuvp"]
 size = Vector3(3.63489, 5.55518, 6.47559)
 
-[node name="Node3D2" type="Node3D"]
+[node name="Node3D" type="Node3D"]
 script = ExtResource("1_vshho")
 
 [node name="Pause" parent="." instance=ExtResource("6_b5c44")]

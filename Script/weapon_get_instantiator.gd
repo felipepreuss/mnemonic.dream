@@ -1,7 +1,6 @@
 extends Node3D
-var acquire_weapon_scene = preload("res://Scenes/acquire_weapon.tscn")
+var acquire_weapon_scene = preload("res://Scenes/pickup.tscn")
 @onready var enemy = $".."
-
 var orphan = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,13 +10,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if orphan:
 		var acquire_weapon = acquire_weapon_scene.instantiate()
-		get_parent().add_child(acquire_weapon)
 		acquire_weapon.position = self.position
-		queue_free()
-		if Globals.get_gun:
-			queue_free()
+		acquire_weapon.init(load("res://Scenes/pistol.tscn"))
+		add_child(acquire_weapon)
+		orphan = false
+		#if Globals.get_gun:
+			#pass
+	elif get_child_count() == 2:
+		get_child(1).queue_free()
 	else:
-		pass 
+		pass
 func _on_enemy_on_death() -> void:
 	reparent(get_parent().get_parent())
 	orphan = true

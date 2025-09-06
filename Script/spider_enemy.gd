@@ -6,7 +6,7 @@ var min_speed = 4
 @onready var AttackBox = $attack_box
 var can_hit = false
 
-var bullet = preload("res://Scenes/bullet_enemy.tscn")
+var bullet = preload("res://Scenes/enemy_projectile.tscn")
 var can_shoot = false
 
 func _physics_process(delta: float) -> void:

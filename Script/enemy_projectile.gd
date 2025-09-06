@@ -3,9 +3,6 @@ extends CharacterBody3D
 var SPEED : Vector3 = Vector3(0, 0, -5)
 @export var dir : Basis
 
-func _ready():
-	$Timer
-
 func _process(delta: float) -> void:
 	velocity = SPEED * dir
 	

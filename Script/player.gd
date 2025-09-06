@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 					if randf() > 0.5:
 						walk_1.play()
 					else:
-						walk_2.play()		
+						walk_2.play()
  
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -146,6 +146,10 @@ func reset_powerups():
 	Globals.pop_candy_powerup = false
 	Globals.chiclete_powerup = false
 	HP = 100
+func get_weapons():
+	var weapons_manager = find_child("WeaponsManager")
+	if weapons_manager:
+		weapons_manager.weapon_check()
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		if body.has_method("switch_to_shoot"):
@@ -159,10 +163,6 @@ func _on_player_box_area_entered(area: Area3D) -> void:
 		HP -= 5
 		healthChanged.emit()
 		print (HP)
-
-func _on_weapon_get_area_body_entered(body: Node3D) -> void:
-	pass
-
 
 func _on_player_box_body_entered(body: Node3D) -> void:
 	#if body.is_in_group("Enemy"):

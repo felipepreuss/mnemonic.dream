@@ -32,7 +32,6 @@ func _ready() -> void:
 	await get_parent().ready
 	kickb = $AnimationPlayer  
 	flash = $GunPosition/muzzle
-	
 	# Pre-instantiate all weapons
 	for weapon_scene in weapon_scenes:
 		var weapon_instance = weapon_scene.instantiate()
@@ -46,22 +45,24 @@ func _ready() -> void:
 	if weapon_instances.size() > 0:
 		switch_weapon(0)
 
+func weapon_check():
+	if Globals.got_pistol:
+		get_new_weapon(load("res://Scenes/pistol.tscn"))
+	if Globals.got_shotgun:
+		get_new_weapon(load("res://Scenes/shot_gun.tscn"))
+	if Globals.got_smg:
+		get_new_weapon(load("res://Scenes/smg.tscn"))
+	if Globals.got_dart:
+		get_new_weapon(load("res://Scenes/dart_rifle.tscn"))
+	if Globals.got_rocket:
+		get_new_weapon(load("res://Scenes/rocket_launcher.tscn"))
+
 func _physics_process(delta: float) -> void: 
 	handle_weapon_switch()
 	if current_gun != null:  
 		handle_shooting()
 		handle_reload()
 		update_ammo_display()
-	
-	if Globals.get_gun:
-		if weapon_scenes.size() == 1:
-			get_new_weapon(load("res://Scenes/pistol.tscn"))
-		elif weapon_scenes.size() == 2:
-			get_new_weapon(load("res://Scenes/shot_gun.tscn"))
-		elif weapon_scenes.size() == 3:
-			get_new_weapon(load("res://Scenes/dart_rifle.tscn"))
-		elif weapon_scenes.size() == 4:
-			get_new_weapon(load("res://Scenes/rocket_launcher.tscn"))
 
 func handle_shooting():
 	if not current_gun or not gun_equipped:

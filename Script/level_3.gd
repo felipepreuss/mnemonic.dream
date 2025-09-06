@@ -4,6 +4,9 @@ extends Node3D
 func _ready() -> void:
 	player.powerup_check()
 	Globals.dialogue_end = true
+	Globals.got_pistol = true
+	Globals.got_shotgun = true
+	player.get_weapons()
 func _physics_process(delta: float) -> void:
 	get_tree().call_group("Enemy","update_target_location", player.global_transform.origin)
 func _on_level_trans_body_entered(body: Node3D) -> void:
