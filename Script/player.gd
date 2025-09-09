@@ -81,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY *1.1
 		$AudioStreamPlayer3D2.play()
+
 	 
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backwards")
 	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

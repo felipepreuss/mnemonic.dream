@@ -19,6 +19,8 @@ var got_smg = false
 var got_dart = false
 var got_rocket = false
 
+var start_time_sec = 0
+var elapsed_time_sec 
 var levels = [
 	"res://Scenes/level-1.tscn",
 	"res://Scenes/level-2.tscn",
@@ -43,3 +45,13 @@ func _physics_process(delta: float) -> void:
 		slowdown.emit()
 		await get_tree().create_timer(10)
 		Globals.chiclete_powerup = false
+		
+	
+	
+
+#func just_started():
+	#start_time_sec = Time.get_unix_time_from_system()
+#
+#func elapsed():
+	#elapsed_time_sec = Time.get_unix_time_from_system() - start_time_sec
+		## Use elapsed_time_msec for calculations or display

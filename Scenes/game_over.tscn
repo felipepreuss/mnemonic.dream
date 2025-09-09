@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx6d6j2hvg1t5"]
+[gd_scene load_steps=4 format=3 uid="uid://dx6d6j2hvg1t5"]
 
+[ext_resource type="Theme" uid="uid://dh5p3g0bd3nr5" path="res://Assets/ui_theme.tres" id="1_ek8ke"]
 [ext_resource type="Script" uid="uid://b6kbv8xcd2q23" path="res://Script/game_over.gd" id="1_ojehl"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_8fo1c"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ek8ke")
 script = ExtResource("1_ojehl")
 
 [node name="Fabbri2" type="Sprite2D" parent="."]
@@ -47,12 +49,12 @@ metadata/_edit_use_anchors_ = true
 [node name="load_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "LOAD"
+text = "Load"
 
 [node name="quit_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "QUIT"
+text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
