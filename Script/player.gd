@@ -16,7 +16,7 @@ var power_up = "none"
 const JUMP_VELOCITY = 4.5
 const ACCELERATION = 15.0
 const AIR_ACCELERATION = 5.0
-const FRICTION = 10.0
+const FRICTION = 15.0
 const AIR_FRICTION = 2.0
 
 # Coyote time and jump buffering
@@ -81,14 +81,12 @@ func _unhandled_input(event):
 
 func _physics_process(delta: float) -> void:
 	
-	
 	# Handle dash cooldown
 	if not can_dash:
 		dash_cooldown_timer += delta
 		if dash_cooldown_timer >= DASH_COOLDOWN:
 			can_dash = true
 			dash_cooldown_timer = 0.0
-	
 	# Handle coyote time and jump buffer
 	coyote_time += delta
 	jump_buffer += delta
