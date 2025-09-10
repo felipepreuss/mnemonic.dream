@@ -77,3 +77,13 @@ func _on_alien_death_finished() -> void:
 		Globals.contador -= 1
 		print("inimigos",Globals.contador)
 		queue_free()
+
+
+func _on_shoot_range_body_entered(body: Node3D) -> void:
+	if body.name =="player":
+		switch_to_shoot()
+
+
+func _on_shoot_range_body_exited(body: Node3D) -> void:
+	if body.name =="player":
+		switch_to_chase()

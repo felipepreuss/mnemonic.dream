@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		run_speed -= 0.5
 	for body in $shoot_box.get_overlapping_bodies():
-			if body.is_in_group("Player"):
+			if body.name =="player":
 				switch_to_shoot()
 func chase_state(delta):
 	if death:
@@ -86,6 +86,7 @@ func shoot_state(delta):
 		bala.SPEED = Vector3(0, 0, -15)
 		can_shoot = false
 		switch_to_chase()
+
 func switch_to_attack() -> void:
 	if death:
 		set_state(DEATH)

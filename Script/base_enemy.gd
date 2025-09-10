@@ -46,8 +46,6 @@ func _physics_process(delta: float) -> void:
 func idle_state(delta):
 	if death:
 		set_state(DEATH)
-	elif Globals.dialogue_end:
-		set_state(CHASE)
 	var current_location = global_transform.origin
 	var new_velocity = (current_location).normalized() 
 	velocity = Vector3(0,0,0)
@@ -146,3 +144,8 @@ func on_slowdown() -> void:
 		if Globals.chiclete_powerup and get_tree():
 			await get_tree().create_timer(10).timeout
 			SPEED = 3.0
+
+
+func _on_player_detect_body_entered(body: Node3D) -> void:
+	if body.name == "player":
+		switch_to_chase()

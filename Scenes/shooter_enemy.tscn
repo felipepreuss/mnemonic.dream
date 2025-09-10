@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ch6wku1kvhqvk"]
+[gd_scene load_steps=21 format=3 uid="uid://ch6wku1kvhqvk"]
 
 [ext_resource type="Script" uid="uid://4lv7mmebd15d" path="res://Script/shooter_enemy.gd" id="1_yb3rw"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_v3ujp"]
@@ -65,6 +65,9 @@ proximity_fade_distance = 0.1
 [sub_resource type="QuadMesh" id="QuadMesh_os2ct"]
 material = SubResource("StandardMaterial3D_tbiks")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fugf"]
+size = Vector3(1, 1.9502, 16.3217)
+
 [node name="Shooter Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_yb3rw")
 
@@ -89,6 +92,7 @@ stream = ExtResource("3_yb3rw")
 volume_db = 1.0
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0781415, 0)
 target_position = Vector3(0, 0, -15)
 
 [node name="flash" type="GPUParticles3D" parent="."]
@@ -112,5 +116,12 @@ stream = ExtResource("7_4fugf")
 [node name="Metralhadora (1)" parent="." instance=ExtResource("7_vuv4i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109193, -1.50251)
 
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.037323, -8.61392)
+shape = SubResource("BoxShape3D_4fugf")
+
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

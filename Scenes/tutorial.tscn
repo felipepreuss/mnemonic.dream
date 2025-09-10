@@ -107,6 +107,7 @@ enemy = NodePath("../Enemy")
 transform = Transform3D(0.995772, 0.0745023, 0.0537283, -0.0918266, 0.792888, 0.602409, 0.00228009, -0.604796, 0.796377, -58.1087, 27.0703, 131.054)
 light_energy = 0.4
 light_volumetric_fog_energy = 0.161
+light_bake_mode = 1
 shadow_enabled = true
 script = ExtResource("4_70gml")
 
@@ -275,12 +276,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, -15.6726)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, -15.6645)
@@ -292,12 +304,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, -15.6726)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head2"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, 38.8414)
@@ -309,12 +332,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 38.8332)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head3"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, 65.1611)
@@ -326,19 +360,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 65.153)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
-transform = Transform3D(1.42355, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -1.41431, -1.28571)
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, 98.177)
@@ -350,12 +388,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 98.1689)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head4"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 54.1943)
@@ -367,12 +416,23 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.14
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head5"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head5"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 12.5591)
@@ -384,12 +444,23 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.14
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head9"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head9"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head9"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 125.039)
@@ -401,12 +472,23 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.14
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head6"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head6"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 92.1246)
@@ -418,12 +500,23 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.14
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("3_p8jf4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head7"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head7"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="level_trans" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0912)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbb0swspkra5t"]
+[gd_scene load_steps=11 format=3 uid="uid://bbb0swspkra5t"]
 
 [ext_resource type="Script" uid="uid://cn3pqfeyufdb6" path="res://Script/spider_enemy.gd" id="1_xkfdl"]
 [ext_resource type="Texture2D" uid="uid://ct1knwl4ewdrx" path="res://Assets/spidersprite.png" id="2_he8yh"]
@@ -13,12 +13,15 @@ radius = 0.3
 height = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tyhe3"]
-size = Vector3(0.591187, 0.74646, 0.625732)
+size = Vector3(0.591187, 0.69696, 0.593017)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kv88u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rosbb"]
-size = Vector3(20.7094, 1, 10.3086)
+size = Vector3(0.981223, 0.993279, 8.5217)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e7l54"]
+size = Vector3(1, 1, 6.66351)
 
 [node name="Spider Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xkfdl")
@@ -28,7 +31,7 @@ material_override = SubResource("StandardMaterial3D_tyhe3")
 mesh = SubResource("SphereMesh_fpiwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, -0.00469971, -0.00109863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 1.96397e-05, 0.00329593)
 shape = SubResource("BoxShape3D_tyhe3")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
@@ -57,9 +60,16 @@ autostart = true
 [node name="shoot_box" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shoot_box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.137192, 0, -19.7266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0574431, 0.333202, -11.0004)
 shape = SubResource("BoxShape3D_rosbb")
+
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.343044, -3.60769)
+shape = SubResource("BoxShape3D_e7l54")
 
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="body_entered" from="attack_box" to="." method="_on_attack_box_body_entered"]
 [connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

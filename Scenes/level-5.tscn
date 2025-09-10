@@ -70,6 +70,7 @@ environment = SubResource("Environment_hproo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_bake_mode = 1
 shadow_enabled = true
 
 [node name="pop_candy" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_vx1sp")]

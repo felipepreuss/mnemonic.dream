@@ -151,17 +151,18 @@ environment = SubResource("Environment_dx6h8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_bake_mode = 1
 shadow_enabled = true
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_4frd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496223, 0.5, -4.85488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496223, 0.5, -5.99222)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85037, 0.835004, 3.17335)
 player = NodePath("../player")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
-transform = Transform3D(-0.714057, 0, -0.700087, 0, 1, 0, 0.700087, 0, -0.714057, -1.98942, 2.28178, 0.796084)
+transform = Transform3D(-0.714057, 0, -0.700087, 0, 1, 0, 0.700087, 0, -0.714057, -3.4113, 1.68108, 3.68916)
 player = NodePath("../player")
 
 [node name="Enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_b0ipy")]
@@ -355,6 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29961, 0)
 light_color = Color(1, 1, 0.0980392, 1)
 light_energy = 2.939
 light_volumetric_fog_energy = 3.263
+light_bake_mode = 1
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08129, 4.29961, -7.06489e-07)
@@ -363,6 +365,7 @@ light_energy = 0.177
 light_indirect_energy = 0.192
 light_volumetric_fog_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98272, 2.68561, 0.420532)
@@ -371,6 +374,7 @@ light_energy = 3.235
 light_indirect_energy = 1.647
 light_volumetric_fog_energy = 1.585
 light_size = 0.04
+light_bake_mode = 1
 distance_fade_enabled = true
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="NavigationRegion3D"]
@@ -524,6 +528,7 @@ size = Vector3(49.3256, 32.3985, 303.39)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81425, 5.51748, -37.7129)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -532,6 +537,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81425, 5.51748, -54.2167)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -540,6 +546,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55666, 5.51748, -51.8735)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -548,6 +555,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2111, 5.51748, -51.8735)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -556,6 +564,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2111, 5.51748, -40.2253)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -564,6 +573,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8227, 1.8664, -31.4307)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -572,6 +582,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1774, 1.8664, -31.4307)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -580,6 +591,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1774, 1.8664, -75.8552)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -590,6 +602,7 @@ light_energy = 4.822
 light_indirect_energy = 3.263
 light_volumetric_fog_energy = 3.747
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0

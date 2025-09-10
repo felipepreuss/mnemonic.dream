@@ -281,15 +281,15 @@ func get_weapons():
 		weapons_manager.weapon_check()
 		
 func _on_enemy_box_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Enemy"):
-		if body.has_method("switch_to_shoot"):
-			body.switch_to_shoot()
-			
+	#if body.is_in_group("Enemy"):
+		#if body.has_method("switch_to_shoot"):
+			#body.switch_to_shoot()
+	pass
 func _on_enemy_box_body_exited(body: Node3D) -> void:
-	if body.is_in_group("Enemy"):
-		if body.has_method("switch_to_chase"):
-			body.switch_to_chase()
-			
+	#if body.is_in_group("Enemy"):
+		#if body.has_method("switch_to_chase"):
+			#body.switch_to_chase()
+	pass
 func _on_player_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bullet"):
 		HP -= 5
@@ -301,3 +301,5 @@ func _on_player_box_body_entered(body: Node3D) -> void:
 		#if body.has_method("switch_to_attack"):
 			#body.switch_to_attack()
 	pass
+func add_screen_shake(shake_amount) -> void:
+	Camera.add_shake(shake_amount)

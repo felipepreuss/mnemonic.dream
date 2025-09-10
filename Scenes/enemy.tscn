@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ben12aetap0mp"]
+[gd_scene load_steps=10 format=3 uid="uid://ben12aetap0mp"]
 
 [ext_resource type="Script" uid="uid://dn0bf3h7dyigj" path="res://Script/alien_enemy.gd" id="1_0830c"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_1f0kj"]
@@ -11,6 +11,12 @@ albedo_texture = ExtResource("2_1f0kj")
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0830c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0830c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_287tu"]
+size = Vector3(1.81744, 2.16684, 16.14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0830c"]
+size = Vector3(1.97412, 2.17188, 6.46399)
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_0830c")
@@ -41,5 +47,21 @@ autostart = true
 [node name="bullet_marker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.249993, -0.142254)
 
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.58342, -8.53109)
+shape = SubResource("BoxShape3D_287tu")
+
+[node name="shoot_range" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.966668)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shoot_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300293, 0.585938, -2.73199)
+shape = SubResource("BoxShape3D_0830c")
+
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_entered" from="shoot_range" to="." method="_on_shoot_range_body_entered"]
+[connection signal="body_exited" from="shoot_range" to="." method="_on_shoot_range_body_exited"]

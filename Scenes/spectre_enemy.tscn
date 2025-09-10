@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0x5xhls7hmwi"]
+[gd_scene load_steps=9 format=3 uid="uid://0x5xhls7hmwi"]
 
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="1_gdht4"]
 [ext_resource type="Script" uid="uid://y5uf68nvdgdo" path="res://Script/spectre_enemy.gd" id="1_xwd2c"]
@@ -13,6 +13,9 @@ albedo_texture = ExtResource("2_1acgf")
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xwd2c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xwd2c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1acgf"]
+size = Vector3(1.81744, 1.68137, 22.7817)
 
 [node name="spectre_enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xwd2c")
@@ -60,5 +63,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.331
 wait_time = 2.0
 autostart = true
 
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.340683, -11.5056)
+shape = SubResource("BoxShape3D_1acgf")
+
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

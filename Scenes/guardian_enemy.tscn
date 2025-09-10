@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kpfwdeujk13u"]
+[gd_scene load_steps=10 format=3 uid="uid://kpfwdeujk13u"]
 
 [ext_resource type="Script" uid="uid://2vcjoi0h7lb8" path="res://Script/guardian_enemy.gd" id="1_8l4be"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_c4i4k"]
@@ -16,7 +16,10 @@ radius = 0.512252
 height = 2.01508
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c4i4k"]
-size = Vector3(0.740844, 1.58423, 0.635254)
+size = Vector3(0.740844, 1.58423, 0.70874)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3lun"]
+size = Vector3(1.81744, 1.33623, 13.7141)
 
 [node name="guardian_enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_8l4be")
@@ -43,8 +46,16 @@ volume_db = 1.0
 [node name="attack_box" type="Area3D" parent="."]
 
 [node name="collision" type="CollisionShape3D" parent="attack_box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0286252, 0.197444, -0.759306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0286252, 0.197444, -0.796049)
 shape = SubResource("BoxShape3D_c4i4k")
+
+[node name="player_detect" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134575, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.168114, -7.27418)
+shape = SubResource("BoxShape3D_s3lun")
 
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="body_entered" from="attack_box" to="." method="_on_attack_box_body_entered"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

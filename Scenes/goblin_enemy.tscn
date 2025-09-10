@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt1q75h13ai40"]
+[gd_scene load_steps=9 format=3 uid="uid://dt1q75h13ai40"]
 
 [ext_resource type="Script" uid="uid://bw64mksn70x6p" path="res://Script/goblin_enemy.gd" id="1_l7mss"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_ons48"]
@@ -17,10 +17,14 @@ height = 0.8
 radius = 0.199419
 height = 0.812531
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oopm2"]
+size = Vector3(1.81744, 1.33623, 16.1912)
+
 [node name="goblin_enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_l7mss")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_2k1fa")
 mesh = SubResource("CapsuleMesh_cxlqg")
 
@@ -39,11 +43,19 @@ stream = ExtResource("3_oopm2")
 volume_db = 1.0
 
 [node name="bullet_marker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200053, 0.288218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200053, -0.575308)
 
 [node name="bullet_timer" type="Timer" parent="."]
 wait_time = 0.9
 autostart = true
 
+[node name="player_detect" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134575, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.168114, -8.25707)
+shape = SubResource("BoxShape3D_oopm2")
+
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

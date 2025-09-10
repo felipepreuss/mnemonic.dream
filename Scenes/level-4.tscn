@@ -71,6 +71,7 @@ environment = SubResource("Environment_urvdd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_bake_mode = 1
 shadow_enabled = true
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("6_lo2vs")]
@@ -144,7 +145,7 @@ size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 
 [node name="Ceiling" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.5938, -18.5699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.2043, -18.5699)
 size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 
@@ -318,6 +319,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97167, 1.84949, -23.1242)
@@ -325,6 +327,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3413, 1.84949, -26.8567)
@@ -332,6 +335,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9635, 1.84949, -41.7714)
@@ -339,6 +343,15 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.922, 1.53804, 32.8758)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 1.137
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6708, 1.84949, 32.3792)
@@ -346,6 +359,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2913, 1.84949, 31.3859)
@@ -353,6 +367,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32853, 1.84949, 24.4973)
@@ -360,6 +375,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8183, 1.84949, -0.831013)
@@ -367,6 +383,7 @@ light_color = Color(1, 0.262745, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8183, 1.84949, -6.38949)
@@ -374,6 +391,7 @@ light_color = Color(1, 0.262745, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8287, 1.41242, -5.56568)
@@ -381,6 +399,7 @@ light_color = Color(1, 0.262745, 0.0666667, 1)
 light_energy = 2.924
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 omni_range = 45.948
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
@@ -389,6 +408,7 @@ light_color = Color(1, 0.152941, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8948, 1.84949, -15.0386)
@@ -396,6 +416,7 @@ light_color = Color(1, 0.152941, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, 1.84949, -22.6263)
@@ -403,6 +424,7 @@ light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 0.177
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 omni_range = 10.413
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

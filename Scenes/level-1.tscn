@@ -103,12 +103,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 105.446)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base2" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 55.1032)
@@ -120,12 +131,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 55.0951)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head2"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base8" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 25.4917)
@@ -137,29 +159,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 25.4836)
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
 
-[node name="Poste_base9" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 25.4917)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
-
-[node name="Poste_head9" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 25.4836)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head8"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base3" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.20146, 7.42155, 39.3176)
@@ -171,12 +187,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.0887
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head3"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head3"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base4" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.79832, 7.42155, 6.63297)
@@ -188,12 +215,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.6856
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head4"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head4"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base5" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -21.367)
@@ -205,12 +243,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.2931
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head5"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head5"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base6" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -60.1061)
@@ -222,12 +271,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.2931
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head6"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head6"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="Poste_base7" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -116.936)
@@ -239,18 +299,30 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.2931
 size = Vector3(3.22546, 1.43996, 2.40369)
 material = ExtResource("10_bjjfd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head7"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0947876, -2.16052, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head7"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_os6q4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 13.6383, 0)
+light_bake_mode = 1
 shadow_enabled = true
 sky_mode = 1
 
@@ -266,11 +338,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6174, 1.11555, 25.097)
 player = NodePath("../player")
 
 [node name="Enemy9" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382599, 1.11555, 39.5104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57743, 1.11555, 41.389)
 player = NodePath("../player")
 
 [node name="Enemy4" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76072, 1.11555, 6.80027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33255, 1.11555, 6.80027)
 player = NodePath("../player")
 
 [node name="Enemy5" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
@@ -278,7 +350,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9156, 1.11555, -27.6789)
 player = NodePath("../player")
 
 [node name="Enemy6" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46993, 1.13038, -20.6734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.423, 1.13038, -20.6734)
 player = NodePath("../player")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_6ps50")]
@@ -596,6 +668,7 @@ material = ExtResource("10_bjjfd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.7401, 5.51748, -23.501)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -604,6 +677,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.7401, 5.51748, -40.0048)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -612,6 +686,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.111, 5.51748, -37.6616)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -620,6 +695,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.3432, 5.51748, -37.6616)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -628,6 +704,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.3432, 5.51748, -26.0134)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -636,6 +713,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.377, 1.8664, -17.2188)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -644,6 +722,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.3769, 1.8664, -17.2188)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -652,6 +731,7 @@ shadow_normal_bias = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.3769, 1.8664, -61.6433)
 light_energy = 16.0
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
@@ -662,6 +742,7 @@ light_energy = 4.822
 light_indirect_energy = 3.263
 light_volumetric_fog_energy = 3.747
 light_specular = 0.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0

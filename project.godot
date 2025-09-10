@@ -28,6 +28,7 @@ SaveGame="*res://Script/save_game.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [global_group]

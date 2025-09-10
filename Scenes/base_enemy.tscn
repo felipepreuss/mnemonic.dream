@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://citntpm6wt6i7"]
+[gd_scene load_steps=9 format=3 uid="uid://citntpm6wt6i7"]
 
 [ext_resource type="Script" uid="uid://wqtxoolc3a0" path="res://Script/base_enemy.gd" id="1_kjpuc"]
 [ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_t2m80"]
@@ -14,6 +14,9 @@ radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kjpuc"]
 radius = 1.01667
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7p0xe"]
+size = Vector3(1.81744, 2.02484, 15.9496)
 
 [node name="base_enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_kjpuc")
@@ -38,4 +41,11 @@ autoplay = true
 stream = ExtResource("4_trv5a")
 volume_db = 1.0
 
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.512421, -8.75608)
+shape = SubResource("BoxShape3D_7p0xe")
+
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
