@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r85j7"]
 render_priority = -128
 shader = ExtResource("1_r85j7")
-shader_parameter/albedo = Color(0.27451, 0.160784, 0.478431, 1)
+shader_parameter/albedo = Color(0, 0, 0, 1)
 shader_parameter/proximity_fade_distance = 15.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_7qmck"]
@@ -16,5 +16,4 @@ is_hemisphere = true
 
 [node name="bounding_sphere" type="MeshInstance3D"]
 material_override = SubResource("ShaderMaterial_r85j7")
-transparency = 1.0
 mesh = SubResource("SphereMesh_7qmck")
