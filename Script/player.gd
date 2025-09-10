@@ -11,8 +11,37 @@ var SPEED = 12.0
 var HP = 100
 var max_HP = 125
 var power_up = "none"
+
+# Movement variables
 const JUMP_VELOCITY = 4.5
-const ACELERATION = 2.2
+const ACCELERATION = 15.0
+const AIR_ACCELERATION = 5.0
+const FRICTION = 10.0
+const AIR_FRICTION = 2.0
+
+# Coyote time and jump buffering
+var coyote_time = 0.0
+const COYOTE_TIME_THRESHOLD = 0.15
+var jump_buffer = 0.0
+const JUMP_BUFFER_THRESHOLD = 0.1
+
+# Dash variables
+var is_dashing = false
+var dash_direction = Vector3.ZERO
+var dash_timer = 0.0
+const DASH_DURATION = 0.15
+const DASH_SPEED = 25.0
+const DASH_COOLDOWN = 0.8
+var dash_cooldown_timer = 0.0
+var can_dash = true
+var dash_trail_effect = null
+
+# Camera effects
+var target_fov = 75.0
+const BASE_FOV = 75.0
+const FOV_CHANGE = 5.0
+const DASH_FOV_CHANGE = 10.0
+
 # Weapon related vars
 #var bala = preload("res://Scenes/bala.tscn")
 #@onready var animation_player = $head/Camera3D/weapon/AnimationPlayer
@@ -29,13 +58,20 @@ var step_interval := 0.5  # base interval between steps
 
 signal healthChanged
 
-
+# Get gravity from project settings
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 #	vida.value = life_value
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	crosshair.position.x = get_viewport().size.x /2 - 36 # Replace with function body.
-	crosshair.position.y = get_viewport().size.y /2 - 36
+	crosshair.position.x = get_viewport().size.x / 2 - 36
+	crosshair.position.y = get_viewport().size.y / 2 - 36
+	
+	# Reset jump variables to prevent automatic jumping
+	reset_jump_variables()
+	
+	# Preload dash trail effect if you have one
+	# dash_trail_effect = preload("res://Effects/DashTrail.tscn")
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -44,11 +80,19 @@ func _unhandled_input(event):
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
-	Engine.time_scale = pow(Engine.time_scale, Engine.time_scale)
-	#if Dialogue != null and Dialogue.ui.visible:
-		#get_tree().paused = true
-	#else:
-		#get_tree().paused = false
+	
+	
+	# Handle dash cooldown
+	if not can_dash:
+		dash_cooldown_timer += delta
+		if dash_cooldown_timer >= DASH_COOLDOWN:
+			can_dash = true
+			dash_cooldown_timer = 0.0
+	
+	# Handle coyote time and jump buffer
+	coyote_time += delta
+	jump_buffer += delta
+	
 	delta_time += delta
 	if delta_time >= 1.0:
 		delta_time = 0
@@ -75,51 +119,136 @@ func _physics_process(delta: float) -> void:
 		target_tilt = 0.05
 	Head.rotation.z = lerp(Head.rotation.z, target_tilt, 0.3)
  
+	# Handle dash input
+	if Input.is_action_just_pressed("Shift") and can_dash and not is_dashing:
+		start_dash()
+	
+	# Handle dash movement
+	if is_dashing:
+		handle_dash(delta)
+		return  # Skip normal movement during dash
+	
+	# Apply gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY *1.1
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0  # Reset vertical velocity when on floor
+		coyote_time = 0.0  # Reset coyote time when on floor
+	
+	# Handle jump input
+	if Input.is_action_just_pressed("Jump"):
+		jump_buffer = 0.0
+	
+	# Handle jump with coyote time and jump buffer
+	# FIXED: Added additional check to ensure we're not automatically jumping on scene load
+	if (jump_buffer < JUMP_BUFFER_THRESHOLD) and (coyote_time < COYOTE_TIME_THRESHOLD) and jump_buffer > 0:
+		velocity.y = JUMP_VELOCITY
 		$AudioStreamPlayer3D2.play()
-
+		coyote_time = COYOTE_TIME_THRESHOLD
+		jump_buffer = JUMP_BUFFER_THRESHOLD
 	 
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backwards")
 	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction :
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-		if is_on_floor() and not walk_1.playing and not walk_2.playing:
-					if randf() > 0.5:
-						walk_1.play()
-					else:
-						walk_2.play()
- 
+	
+	# Apply movement with different ground/air physics
+	if is_on_floor():
+		if direction:
+			velocity.x = move_toward(velocity.x, direction.x * SPEED, ACCELERATION * delta)
+			velocity.z = move_toward(velocity.z, direction.z * SPEED, ACCELERATION * delta)
+			
+			# Play footstep sounds
+			if not walk_1.playing and not walk_2.playing:
+				if randf() > 0.5:
+					walk_1.play()
+				else:
+					walk_2.play()
+			
+			# Increase FOV when moving for speed effect
+			target_fov = BASE_FOV + FOV_CHANGE
+		else:
+			# Apply friction when not moving
+			velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+			velocity.z = move_toward(velocity.z, 0, FRICTION * delta)
+			target_fov = BASE_FOV
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		# Air control
+		if direction:
+			velocity.x = move_toward(velocity.x, direction.x * SPEED, AIR_ACCELERATION * delta)
+			velocity.z = move_toward(velocity.z, direction.z * SPEED, AIR_ACCELERATION * delta)
+		else:
+			# Less friction in air
+			velocity.x = move_toward(velocity.x, 0, AIR_FRICTION * delta)
+			velocity.z = move_toward(velocity.z, 0, AIR_FRICTION * delta)
 
+	# Apply FOV change smoothly
+	Camera.fov = lerp(Camera.fov, target_fov, 10 * delta)
 
 	if Globals.pop_candy_powerup == true:
 		SPEED = 10
 	else:
 		SPEED = 5
+		
 	move_and_slide()
-	#atirar
-	#if Input.is_action_just_pressed("Left-Click") and Globals.have_ammo:
-		#animation_player.play("shoot")
-		#if ray.is_colliding():
-			#var target = ray.get_collider()
-			#if target.is_in_group("Enemy"):
-				#var dano = randi_range(0,3)
-				#target.calcularDano(dano)
-		#Globals.current_ammo -= 1
-	#if Globals.current_ammo <= 0:
-		#Globals.have_ammo = false
-	#if Globals.ammo > 0:
-		#Globals.can_reload = true
-	#if Globals.ammo <= 0:
-		#Globals.can_reload = false
 
+func start_dash():
+	is_dashing = true
+	dash_timer = 0.0
+	can_dash = false
+	
+	# Determine dash direction based on input
+	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backwards")
+	if input_dir != Vector2.ZERO:
+		# Dash in the direction of input
+		dash_direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	else:
+		# Dash forward if no input
+		dash_direction = -Head.global_transform.basis.z
+	
+	# Set velocity for dash
+	velocity = dash_direction * DASH_SPEED
+	velocity.y = 0  # Keep dash horizontal
+	
+	# Visual effects
+	target_fov = BASE_FOV + DASH_FOV_CHANGE
+	
+	# Play dash sound if available
+	# $DashSound.play()
+	
+	# Create dash trail effect if available
+	# if dash_trail_effect:
+	#     var trail = dash_trail_effect.instantiate()
+	#     add_child(trail)
+
+func handle_dash(delta):
+	dash_timer += delta
+	
+	if dash_timer >= DASH_DURATION:
+		# End dash
+		is_dashing = false
+		velocity = velocity * 0.5  # Slow down after dash
+		target_fov = BASE_FOV
+	else:
+		# Maintain dash velocity
+		velocity = dash_direction * DASH_SPEED
+	
+	move_and_slide()
+
+# NEW FUNCTION: Reset jump variables to prevent automatic jumping
+func reset_jump_variables():
+	coyote_time = COYOTE_TIME_THRESHOLD  # Set to max to prevent immediate jump
+	jump_buffer = JUMP_BUFFER_THRESHOLD  # Set to max to prevent immediate jump
+
+# NEW: Called when the node enters the scene tree
+func _enter_tree():
+	reset_jump_variables()
+
+# NEW: Called when the node is ready
+func _notification(what):
+	match what:
+		NOTIFICATION_READY:
+			# Small delay to ensure everything is properly initialized
+			await get_tree().create_timer(0.1).timeout
+			reset_jump_variables()
 
 func powerup(powerup):
 	if powerup == "pop_candy":
@@ -147,23 +276,27 @@ func reset_powerups():
 	Globals.pop_candy_powerup = false
 	Globals.chiclete_powerup = false
 	HP = 100
+	
 func get_weapons():
 	var weapons_manager = find_child("WeaponsManager")
 	if weapons_manager:
 		weapons_manager.weapon_check()
+		
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		if body.has_method("switch_to_shoot"):
 			body.switch_to_shoot()
+			
 func _on_enemy_box_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		if body.has_method("switch_to_chase"):
 			body.switch_to_chase()
+			
 func _on_player_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Bullet"):
 		HP -= 5
 		healthChanged.emit()
-		print (HP)
+		print(HP)
 
 func _on_player_box_body_entered(body: Node3D) -> void:
 	#if body.is_in_group("Enemy"):

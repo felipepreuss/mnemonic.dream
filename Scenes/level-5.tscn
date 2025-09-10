@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddbgdj4laknmg"]
+[gd_scene load_steps=19 format=3 uid="uid://ddbgdj4laknmg"]
 
 [ext_resource type="Script" uid="uid://bcc83o2tf6e3k" path="res://Script/level_5.gd" id="1_3dipl"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_hvaeu"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="1_ip5ew"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_ihmlp"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="2_ip5ew"]
+[ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="5_mbtpm"]
 [ext_resource type="PackedScene" uid="uid://y2cbql8sdien" path="res://Scenes/pop_candy.tscn" id="6_vx1sp"]
 [ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="7_m12sr"]
 [ext_resource type="PackedScene" uid="uid://0x5xhls7hmwi" path="res://Scenes/spectre_enemy.tscn" id="8_63gti"]
@@ -12,16 +13,25 @@
 [ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="10_c16yd"]
 [ext_resource type="PackedScene" uid="uid://cyegnn2ubjt3t" path="res://Scenes/rocket_launcher.tscn" id="11_46flf"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ip5ew"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cmd1"]
+shader = ExtResource("5_mbtpm")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.176
+shader_parameter/star_twinkle_speed = 0.356
+shader_parameter/star_twinkle_intensity = 0.151
+shader_parameter/layer_scale = 41.481
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
 
 [sub_resource type="Sky" id="Sky_3xsek"]
-sky_material = SubResource("ProceduralSkyMaterial_ip5ew")
+sky_material = SubResource("ShaderMaterial_3cmd1")
 
 [sub_resource type="Environment" id="Environment_hproo"]
 background_mode = 2
 sky = SubResource("Sky_3xsek")
+sky_custom_fov = 170.0
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ckfq"]

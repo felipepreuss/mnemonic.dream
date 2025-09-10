@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=32 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -79,6 +79,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0.243636, -0.120761, -0.546164)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vgqql"]
 resource_name = "recoil"
@@ -96,10 +108,26 @@ tracks/0/keys = {
 "values": [Vector3(0.243636, -0.120761, -0.546164), Vector3(0.243636, -0.120761, -0.33473), Vector3(0.243636, -0.120761, -0.546164)]
 }
 
+[sub_resource type="Animation" id="Animation_h4iuc"]
+resource_name = "switch_gun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.2, 0.3, 0.53, 0.633333, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.610865, 0, 0), Vector3(1.22173, 0, 0), Vector3(1.8326, 0, 0), Vector3(2.44346, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
 _data = {
 &"RESET": SubResource("Animation_fkybt"),
-&"recoil": SubResource("Animation_vgqql")
+&"recoil": SubResource("Animation_vgqql"),
+&"switch_gun": SubResource("Animation_h4iuc")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x3wgy"]

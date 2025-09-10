@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d37kk3eeo6mwd"]
+[gd_scene load_steps=45 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
 [ext_resource type="Script" uid="uid://b4kqtfpencpj3" path="res://Script/level_2.gd" id="1_hrep3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_b0ipy"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="2_fjiq8"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_vuhrq"]
+[ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="4_fxita"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="5_sr1xm"]
 [ext_resource type="PackedScene" uid="uid://y2cbql8sdien" path="res://Scenes/pop_candy.tscn" id="6_ky03g"]
 [ext_resource type="PackedScene" uid="uid://chv6nc68ahtak" path="res://Scenes/chocolate_powerup.tscn" id="7_c5vrt"]
@@ -16,18 +17,33 @@
 [ext_resource type="PackedScene" uid="uid://ceaey3qmvx0oa" path="res://Scenes/shot_gun.tscn" id="11_k1i42"]
 [ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="13_c5vrt"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4frd1"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dsj4o"]
+shader = ExtResource("4_fxita")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
 
-[sub_resource type="Sky" id="Sky_b0ipy"]
-sky_material = SubResource("ProceduralSkyMaterial_4frd1")
+[sub_resource type="Sky" id="Sky_jis6o"]
+sky_material = SubResource("ShaderMaterial_dsj4o")
 
 [sub_resource type="Environment" id="Environment_dx6h8"]
 background_mode = 2
-sky = SubResource("Sky_b0ipy")
+sky = SubResource("Sky_jis6o")
 tonemap_mode = 2
-fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0316
+volumetric_fog_albedo = Color(0.329412, 0.498039, 0.909804, 1)
+volumetric_fog_emission = Color(0.12549, 0, 0, 1)
+volumetric_fog_anisotropy = -0.9
+volumetric_fog_detail_spread = 1.74
+volumetric_fog_ambient_inject = 9.19
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sikbw"]
 albedo_texture = ExtResource("2_fjiq8")
@@ -334,6 +350,29 @@ radius = 0.381
 height = 0.5
 material = ExtResource("5_sr1xm")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29961, 0)
+light_color = Color(1, 1, 0.0980392, 1)
+light_energy = 2.939
+light_volumetric_fog_energy = 3.263
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08129, 4.29961, -7.06489e-07)
+light_color = Color(1, 1, 0.0980392, 1)
+light_energy = 0.177
+light_indirect_energy = 0.192
+light_volumetric_fog_energy = 16.0
+light_specular = 0.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98272, 2.68561, 0.420532)
+light_color = Color(1, 1, 0.0980392, 1)
+light_energy = 3.235
+light_indirect_energy = 1.647
+light_volumetric_fog_energy = 1.585
+light_size = 0.04
+distance_fade_enabled = true
+
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="NavigationRegion3D"]
 
 [node name="Pratilheira" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2"]
@@ -371,6 +410,11 @@ use_collision = true
 
 [node name="Chão" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.521332)
+size = Vector3(20, 1, 16.043)
+material = SubResource("StandardMaterial3D_fjiq8")
+
+[node name="Chão2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.44142, 0.521332)
 size = Vector3(20, 1, 16.043)
 material = SubResource("StandardMaterial3D_fjiq8")
 
@@ -475,5 +519,79 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.247
 size = Vector3(49.3256, 32.3985, 303.39)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Parede invisivel"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81425, 5.51748, -37.7129)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81425, 5.51748, -54.2167)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55666, 5.51748, -51.8735)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2111, 5.51748, -51.8735)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2111, 5.51748, -40.2253)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8227, 1.8664, -31.4307)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1774, 1.8664, -31.4307)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1774, 1.8664, -75.8552)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1774, 5.29093, -64.3189)
+light_energy = 4.822
+light_indirect_energy = 3.263
+light_volumetric_fog_energy = 3.747
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]
