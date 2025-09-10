@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=26 format=3 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -9,22 +9,42 @@
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="2_p8jf4"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="3_p8jf4"]
 [ext_resource type="Script" uid="uid://dyhhyl8uclsa2" path="res://Script/directional_light_3d.gd" id="4_70gml"]
+[ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="6_8mnmb"]
 [ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="12_koko0"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7n6eb"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_koko0"]
+shader = ExtResource("6_8mnmb")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.842
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
 
 [sub_resource type="Sky" id="Sky_yb1ct"]
-sky_material = SubResource("ProceduralSkyMaterial_7n6eb")
+sky_material = SubResource("ShaderMaterial_koko0")
 
 [sub_resource type="Environment" id="Environment_ehuit"]
 background_mode = 2
 sky = SubResource("Sky_yb1ct")
 tonemap_mode = 2
-fog_enabled = true
+fog_mode = 1
 fog_sun_scatter = 0.1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0316
+volumetric_fog_albedo = Color(0.329412, 0.498039, 0.909804, 1)
+volumetric_fog_emission = Color(0.12549, 0, 0, 1)
+volumetric_fog_anisotropy = -0.9
+volumetric_fog_detail_spread = 1.7411
+volumetric_fog_ambient_inject = 9.19
+volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.08
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_h2ono"]
 vertices = PackedVector3Array(-67.6997, -3.80744, -140.874, -67.4497, -3.80744, -150.124, -81.1997, -3.80744, -149.874, -81.1997, -3.80744, -140.874, -65.9497, -3.80744, -140.624, -18.1997, -3.80744, -149.374, -17.9497, -3.80744, -120.624, -16.1997, -3.80744, -120.624, -16.1997, -3.80744, -130.874, -18.1997, -3.80744, -131.124, -65.9497, -3.80744, -122.124, -66.4497, -3.80744, -121.874, -18.1997, -3.80744, -120.124, -4.69973, -3.80744, -149.624, -4.69973, -3.80744, -150.124, -17.1997, 16.1926, -148.624, -17.1997, 16.1926, -131.874, -5.44973, 16.1926, -131.874, -5.44973, 16.1926, -148.624, -16.9497, -3.80744, -148.374, -16.9497, -3.80744, -132.124, -5.69973, -3.80744, -132.124, -5.69973, -3.80744, -148.374, -80.4497, 16.1926, -139.874, -80.4497, 16.1926, -122.874, -66.9497, 16.1926, -122.874, -66.9497, 16.1926, -139.874, -4.69973, -3.80744, -120.624, -4.69973, -3.80744, -130.874, -81.1997, -3.80744, -121.874, -81.1997, -3.80744, -94.374, -66.4497, -3.80744, -94.374, -18.1997, -3.80744, -102.124, -17.1997, 16.1926, -119.624, -17.1997, 16.1926, -102.624, -5.19973, 16.1926, -102.624, -5.19973, 16.1926, -119.624, -17.9497, -3.80744, -86.624, -15.9497, -3.80744, -86.624, -15.9497, -3.80744, -101.624, -17.9497, -3.80744, -101.624, -65.9497, -3.80744, -94.124, -65.9497, -3.80744, -85.124, -18.1997, -3.80744, -84.874, -4.69973, -3.80744, -86.624, -4.69973, -3.80744, -101.624, -80.6997, 16.1926, -93.374, -80.6997, 16.1926, -77.374, -66.9497, 16.1926, -77.374, -66.9497, 16.1926, -93.374, -17.1997, 16.1926, -85.624, -17.1997, 16.1926, -68.874, -5.19973, 16.1926, -68.874, -5.19973, 16.1926, -85.624, -65.9497, -3.80744, -78.124, -18.1997, -3.80744, -77.874, -18.1997, -3.80744, -57.124, -15.9497, -3.80744, -57.374, -15.9497, -3.80744, -67.874, -18.1997, -3.80744, -68.124, -64.4497, -3.80744, -39.874, -18.1997, -3.80744, -40.124, -66.1997, -3.80744, -76.374, -81.1997, -3.80744, -76.374, -81.1997, -3.80744, -41.124, -64.6997, -3.80744, -41.124, -4.69973, -3.80744, -57.374, -4.69973, -3.80744, -67.874, -17.1997, 16.1926, -56.374, -17.1997, 16.1926, -39.624, -5.19973, 16.1926, -39.624, -5.19973, 16.1926, -56.374, -80.6997, 16.1926, -40.124, -80.6997, 16.1926, -23.124, -65.4497, 16.1926, -23.124, -65.4497, 16.1926, -40.124, -17.6997, -3.80744, -10.374, -4.69973, -3.80744, -10.374, -4.69973, -3.80744, -38.624, -17.9497, -3.80744, -38.624, -64.4497, -3.80744, -22.624, -18.1997, -3.80744, -9.87399, -64.9497, -3.80744, -22.124, -81.1997, -3.80744, -22.124, -81.1997, -3.80744, 8.37601, -64.9497, -3.80744, 8.37601, -18.1997, -3.80744, 7.87601, -17.1997, 16.1926, -9.37399, -17.1997, 16.1926, 7.37601, -5.19973, 16.1926, 7.37601, -5.19973, 16.1926, -9.37399, -15.9497, -3.80744, 21.876, -15.9497, -3.80744, 8.37601, -17.9497, -3.80744, 8.37601, -18.1997, -3.80744, 22.126, -64.6997, -3.80744, 24.626, -18.1997, -3.80744, 24.626, -4.69973, -3.80744, 21.876, -4.69973, -3.80744, 8.37601, -80.6997, 16.1926, 9.37601, -80.6997, 16.1926, 26.376, -65.6997, 16.1926, 26.376, -65.6997, 16.1926, 9.37601, -17.1997, 16.1926, 22.876, -17.1997, 16.1926, 39.876, -5.19973, 16.1926, 39.876, -5.19973, 16.1926, 22.876, -17.6997, -3.80744, 66.126, -4.69973, -3.80744, 66.126, -4.69973, -3.80744, 40.876, -18.1997, -3.80744, 40.626, -64.9497, -3.80744, 27.376, -64.9497, -3.80744, 66.376, -64.6997, -3.80744, 68.376, -17.9497, -3.80744, 68.126, -81.1997, -3.80744, 27.376, -81.1997, -3.80744, 66.376, -16.9497, 16.4426, 67.126, -16.9497, 16.4426, 84.126, -5.19973, 16.4426, 84.126, -5.19973, 16.4426, 67.126, -80.6997, 16.1926, 67.376, -80.6997, 16.1926, 84.126, -65.6997, 16.1926, 84.126, -65.6997, 16.1926, 67.376, -64.6997, -3.80744, 83.126, -17.9497, -3.80744, 83.126, -16.1997, -3.80744, 101.876, -15.9497, -3.80744, 85.126, -17.9497, -3.80744, 84.876, -18.1997, -3.80744, 102.126, -64.6997, -3.80744, 118.876, -18.1997, -3.80744, 118.876, -64.9497, -3.80744, 85.126, -81.1997, -3.80744, 85.126, -81.1997, -3.80744, 117.126, -64.9497, -3.80744, 117.126, -4.69973, -3.80744, 101.876, -4.69973, -3.80744, 85.126, -17.1997, 16.1926, 102.876, -17.1997, 16.1926, 119.626, -5.19973, 16.1926, 119.626, -5.19973, 16.1926, 102.876, -80.6997, 16.1926, 118.126, -80.6997, 16.1926, 135.126, -65.6997, 16.1926, 135.126, -65.6997, 16.1926, 118.126, -80.4497, -3.80744, 118.376, -80.4497, -3.80744, 134.876, -65.9497, -3.80744, 134.876, -65.9497, -3.80744, 118.376, -17.9497, -3.80744, 120.626, -64.6997, -3.80744, 135.876, -81.1997, -3.80744, 136.126, -81.1997, -3.80744, 263.126, -4.69973, -3.80744, 120.626, -4.69973, -3.80744, 263.126)
@@ -84,7 +104,9 @@ transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -40.3686
 enemy = NodePath("../Enemy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.995772, 0.0745023, 0.0537283, -0.0918266, 0.792888, 0.602409, 0.00228009, -0.604796, 0.796377, -58.1087, 27.0703, 131.054)
+light_energy = 0.4
+light_volumetric_fog_energy = 0.161
 shadow_enabled = true
 script = ExtResource("4_70gml")
 
@@ -96,7 +118,7 @@ process_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.494, -4.22155, 106.003)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 78.9557)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.3686, -3.97244, 81.2199)
 player = NodePath("../player")
 
 [node name="Enemy2" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_omtrn")]
@@ -159,7 +181,7 @@ size = Vector3(22.4538, 19.9876, 17.6604)
 material = ExtResource("3_p8jf4")
 
 [node name="CasaE3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.224, 5.77225, 17.946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.229, 5.71219, 17.9473)
 size = Vector3(22.466, 20.013, 17.6604)
 material = ExtResource("3_p8jf4")
 
@@ -242,6 +264,166 @@ material = ExtResource("3_p8jf4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2254, 5.814, -140.272)
 size = Vector3(17.6589, 19.9295, 17.6604)
 material = ExtResource("3_p8jf4")
+
+[node name="Poste_base" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, -15.6645)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, -15.6726)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, -15.6645)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, -15.6726)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, 38.8414)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 38.8332)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, 65.1611)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 65.153)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
+transform = Transform3D(1.42355, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -1.41431, -1.28571)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.710268, 98.177)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 98.1689)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 54.1943)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 54.2594)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head5"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 12.5591)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 12.6242)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head9"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 125.039)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 125.105)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head6"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="Poste_base7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.710268, 92.1246)
+size = Vector3(1, 13.3068, 1)
+material = ExtResource("3_p8jf4")
+
+[node name="Poste_head7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 92.1897)
+size = Vector3(3.22546, 1.43996, 2.40369)
+material = ExtResource("3_p8jf4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head7"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0947876, -2.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
 
 [node name="level_trans" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0912)
