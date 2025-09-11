@@ -3,6 +3,7 @@ extends Control
 @onready var level_label: Label = $Label
 @onready var kills: Label = $VBoxContainer/kills
 @onready var v_box_container: VBoxContainer = $VBoxContainer
+@onready var time_label: Label = $VBoxContainer/time
 
 var tween : Tween
 
@@ -12,6 +13,10 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	kills.text = "Kills: " + str(Globals.max_contador - Globals.contador)
 	
+	var level_time = Globals.get_scene_elapsed_time()
+	var minutes = floor(level_time / 60)
+	var seconds = fmod(level_time, 60)
+	time_label.text = "Time: %02d:%02d" % [minutes, seconds]
 	level_label.visible_ratio = 0
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)

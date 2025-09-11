@@ -7,10 +7,12 @@ func _physics_process(delta: float) -> void:
 func _ready():
 	Dialogue.dialogo = load('res://Script/Dialogos/0.tres')
 	Globals.is_tutorial = true
+	Globals.start_scene_time_tracking()
+	
 	 
 	 
-	print(Globals.start_time_sec)
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "player" and Globals.contador <= 0:
 		body.reset_powerups()
+		Globals.stop_scene_time_tracking()
 		get_tree().change_scene_to_file.call_deferred("res://Scenes/level_complete.tscn")

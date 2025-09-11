@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var explosion_force = 6.0
+@export var explosion_force = 8.5
 @export var max_explosion_dist = 3.5
 @export var explosion_damage = 10
 @onready var hitbox = $Area3D
