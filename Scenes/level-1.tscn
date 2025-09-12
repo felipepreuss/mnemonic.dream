@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=25 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
-[ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="1_6a23k"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="1_8kvl1"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_27dfm"]
 [ext_resource type="Script" uid="uid://hg5xl4a1km67" path="res://Script/level_1.gd" id="1_vshho"]
@@ -12,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="6_b5c44"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="10_bjjfd"]
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="10_dfuvp"]
+[ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="10_t3np7"]
+[ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="12_t3np7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3np7"]
 shader = ExtResource("4_bjjfd")
@@ -51,22 +52,9 @@ albedo_texture = ExtResource("3_8kvl1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ps50"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjjfd"]
-albedo_color = Color(0.473976, 0.473976, 0.473976, 1)
-albedo_texture = ExtResource("1_8kvl1")
-uv1_scale = Vector3(5, 5, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iakj"]
-albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
-albedo_texture = ExtResource("1_8kvl1")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rc3e"]
 albedo_color = Color(0.435294, 0.435294, 0.435294, 1)
 albedo_texture = ExtResource("1_8kvl1")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5c44"]
-albedo_texture = ExtResource("1_6a23k")
-uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yqp8"]
 albedo_texture = ExtResource("3_8kvl1")
@@ -488,12 +476,12 @@ use_collision = true
 [node name="CalcadaE" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-7.49084e-07, 0, -1, 0, 1, 0, 17.137, 0, -4.37114e-08, -75.244, 0.556, 288.087)
 size = Vector3(32.2444, 0.2, 31.8814)
-material = SubResource("StandardMaterial3D_bjjfd")
+material = ExtResource("10_t3np7")
 
 [node name="Calcada2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2885, 0.55611, -68.691)
 size = Vector3(76.7609, 0.2, 164.192)
-material = SubResource("StandardMaterial3D_5iakj")
+material = ExtResource("10_t3np7")
 
 [node name="Calcada" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, 297.278)
@@ -503,7 +491,7 @@ material = SubResource("StandardMaterial3D_4rc3e")
 [node name="Rua" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5148, 0, 202.255)
 size = Vector3(80, 1, 704.51)
-material = SubResource("StandardMaterial3D_b5c44")
+material = ExtResource("12_t3np7")
 
 [node name="Loja" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.831, 6.61372, -33.1087)

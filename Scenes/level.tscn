@@ -40,6 +40,7 @@ environment = SubResource("Environment_oi3di")
 [node name="player" parent="." instance=ExtResource("2_6phgx")]
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92915, -3.9727)
 player = NodePath("../player")
 
 [node name="Pause" parent="." instance=ExtResource("4_81xng")]

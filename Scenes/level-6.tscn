@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdhm1re0so86v"]
+[gd_scene load_steps=22 format=3 uid="uid://bdhm1re0so86v"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_dkb5v"]
 [ext_resource type="Script" uid="uid://dwru7rmwvq87b" path="res://Script/level_6.gd" id="1_dwax7"]
@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="3_vl8t7"]
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="4_dwax7"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="5_2fyrp"]
-[ext_resource type="Texture2D" uid="uid://ssn0md5wcp36" path="res://Assets/dark_texture_01.png" id="5_bj0im"]
 [ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="5_dst8n"]
 [ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="5_fgept"]
 [ext_resource type="PackedScene" uid="uid://0x5xhls7hmwi" path="res://Scenes/spectre_enemy.tscn" id="6_fgept"]
 [ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="7_l57pf"]
+[ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="11_dst8n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cdk7"]
 shader = ExtResource("5_dst8n")
@@ -50,10 +50,6 @@ albedo_texture = ExtResource("3_vl8t7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_472lb"]
 albedo_texture = ExtResource("5_2fyrp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl8t7"]
-albedo_texture = ExtResource("5_bj0im")
-uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gft6v"]
 albedo_texture = ExtResource("3_vl8t7")
@@ -262,7 +258,7 @@ material = SubResource("StandardMaterial3D_472lb")
 [node name="Rua" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D/ParendeCasa9"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.12109, -2.24084, 51.7973)
 size = Vector3(35, 1, 163.598)
-material = SubResource("StandardMaterial3D_vl8t7")
+material = ExtResource("11_dst8n")
 
 [node name="ParendeCasa8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.07465, 2.38956, 0.880278)

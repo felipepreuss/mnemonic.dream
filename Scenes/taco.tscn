@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyoyq5ejonka2"]
+[gd_scene load_steps=9 format=3 uid="uid://cyoyq5ejonka2"]
 
 [ext_resource type="PackedScene" uid="uid://c3m0wkotsvjv8" path="res://Assets/Guns/Taco de baseball.glb" id="1_esccj"]
 [ext_resource type="Script" uid="uid://ca0uwaxt38p1f" path="res://Script/taco.gd" id="1_hnl0q"]
+[ext_resource type="AudioStream" uid="uid://c3h73c7layub6" path="res://SFX/se_zuburi.wav" id="3_gh5bb"]
 
 [sub_resource type="Animation" id="Animation_hnl0q"]
 length = 0.001
@@ -117,3 +118,7 @@ autoplay = "idle"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Taco de baseball/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00426907, 0.491663, -0.0826836)
 shape = SubResource("CapsuleShape3D_hnl0q")
+
+[node name="SeZuburi" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_gh5bb")
+volume_db = -20.0

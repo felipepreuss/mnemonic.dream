@@ -30,6 +30,14 @@ SaveGame="*res://Script/save_game.gd"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/mindu/OneDrive/Documents/project_videos/mnemonic_videos.avi"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/csgtomesh/plugin.cfg")
+
 [global_group]
 
 Enemy=""
