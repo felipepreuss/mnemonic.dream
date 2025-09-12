@@ -1,10 +1,13 @@
 extends WeaponsManager
 @onready var marker_3d: Marker3D = $Marker3D
+@onready var space_cannon: AudioStreamPlayer3D = $"Space-cannon"
+
 var bullet_scene: PackedScene = load("res://Scenes/rocket.tscn")
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Left-Click") and have_ammo:
 		var bullet = bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
+		space_cannon.play()
 		#for enemies in bullet_scene.get_overlapping_bodies():
 			#if enemies.has_method("calcularDano"):
 				#get_parent().get_parent().add_shake(0.5)
