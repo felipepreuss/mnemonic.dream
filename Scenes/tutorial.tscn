@@ -14,7 +14,7 @@
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="12_lsb8r"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
 [ext_resource type="Texture2D" uid="uid://b5bfj88h8sycc" path="res://Assets/Textures/GG1.JPG" id="13_lsb8r"]
-[ext_resource type="Texture2D" uid="uid://dp305mjry63og" path="res://Assets/Textures/SC005.JPG" id="14_ap3ea"]
+[ext_resource type="Texture2D" uid="uid://dp305mjry63og" path="res://Assets/SC005.JPG" id="14_ap3ea"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_koko0"]
 shader = ExtResource("6_8mnmb")

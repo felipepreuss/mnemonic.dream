@@ -1,18 +1,21 @@
 [gd_scene load_steps=25 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
-[ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="1_8kvl1"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_27dfm"]
 [ext_resource type="Script" uid="uid://hg5xl4a1km67" path="res://Script/level_1.gd" id="1_vshho"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="2_6ps50"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="3_8kvl1"]
 [ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="4_bjjfd"]
+[ext_resource type="Texture2D" uid="uid://dp305mjry63og" path="res://Assets/SC005.JPG" id="4_sb611"]
 [ext_resource type="PackedScene" uid="uid://d4k37y0jyqi7m" path="res://Scenes/chiclete_powerup.tscn" id="6_2yqp8"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="6_b5c44"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="10_bjjfd"]
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="10_dfuvp"]
 [ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="10_t3np7"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="12_t3np7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrg1c"]
+albedo_texture = ExtResource("4_sb611")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3np7"]
 shader = ExtResource("4_bjjfd")
@@ -52,10 +55,6 @@ albedo_texture = ExtResource("3_8kvl1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ps50"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rc3e"]
-albedo_color = Color(0.435294, 0.435294, 0.435294, 1)
-albedo_texture = ExtResource("1_8kvl1")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yqp8"]
 albedo_texture = ExtResource("3_8kvl1")
 
@@ -81,10 +80,10 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Poste_base" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 105.454)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 105.446)
@@ -109,10 +108,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base2" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base2" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 55.1032)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head2" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 55.0951)
@@ -137,10 +136,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base8" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base8" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 25.4917)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head8" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 25.4836)
@@ -165,10 +164,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base3" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base3" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.20146, 7.42155, 39.3176)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head3" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.08878, 13.3363, 39.3296)
@@ -193,10 +192,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base4" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base4" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.79832, 7.42155, 6.63297)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head4" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.68565, 13.3363, 6.64501)
@@ -221,10 +220,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base5" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base5" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -21.367)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head5" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.29312, 13.3363, -21.355)
@@ -249,10 +248,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base6" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base6" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -60.1061)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head6" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.29312, 13.3363, -60.094)
@@ -277,10 +276,10 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base7" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+[node name="Poste_base7" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -116.936)
-size = Vector3(1, 13.3068, 1)
-material = ExtResource("10_bjjfd")
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
 
 [node name="Poste_head7" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.29312, 13.3363, -116.924)
@@ -486,7 +485,7 @@ material = ExtResource("10_t3np7")
 [node name="Calcada" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, 297.278)
 size = Vector3(20, 0.2, 896.129)
-material = SubResource("StandardMaterial3D_4rc3e")
+material = ExtResource("10_t3np7")
 
 [node name="Rua" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5148, 0, 202.255)
