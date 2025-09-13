@@ -2,6 +2,7 @@ extends Control
 @onready var menu_track: AudioStreamPlayer = $MENUtrack
 
 func _ready() -> void:
+	SfxManager.woah_aliens.stop()
 	menu_track.play()
 	Globals.reset_powerups()
 	Globals.contador = 0

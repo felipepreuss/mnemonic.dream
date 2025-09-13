@@ -25,6 +25,7 @@ ScreenShake="*res://Script/screen_shake.gd"
 Globals="*res://Script/globals.gd"
 Dialogue="*res://Scenes/dialogue.tscn"
 SaveGame="*res://Script/save_game.gd"
+SfxManager="*res://Scenes/sfx_manager.tscn"
 
 [display]
 

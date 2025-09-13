@@ -1,6 +1,8 @@
 extends Node3D
 @onready var player = $SubViewportContainer/SubViewport/player
 
+var drip_timer: Timer
+
 func _ready() -> void:
 	player.powerup_check()
 	Globals.dialogue_end = true
@@ -9,7 +11,22 @@ func _ready() -> void:
 	Globals.got_smg = true
 	Globals.start_scene_time_tracking()
 	player.get_weapons()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+ 
+	drip_timer = Timer.new()
+	drip_timer.wait_time = 3.0   
+	drip_timer.autostart = true
+	drip_timer.one_shot = false  
+	add_child(drip_timer)
+
+	# signal
+	drip_timer.timeout.connect(_on_drip_timer_timeout)
+
+
+func _on_drip_timer_timeout() -> void:
+	if randi_range(1, 10) == 5:  # 10% chance each tick
+		SfxManager.drip_water.play()
+
+
 func _physics_process(delta: float) -> void:
 	get_tree().call_group("Enemy","update_target_location", player.global_transform.origin)
 
