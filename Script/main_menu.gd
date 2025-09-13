@@ -1,6 +1,8 @@
 extends Control
+@onready var menu_track: AudioStreamPlayer = $MENUtrack
 
 func _ready() -> void:
+	menu_track.play()
 	Globals.reset_powerups()
 	Globals.contador = 0
 	if Dialogue != null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=27 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_27dfm"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="10_dfuvp"]
 [ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="10_t3np7"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="12_t3np7"]
+[ext_resource type="Texture2D" uid="uid://b5bfj88h8sycc" path="res://Assets/Textures/GG1.JPG" id="14_sb611"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrg1c"]
 albedo_texture = ExtResource("4_sb611")
@@ -60,6 +61,11 @@ albedo_texture = ExtResource("3_8kvl1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72gx4"]
 albedo_texture = ExtResource("10_dfuvp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42bfy"]
+albedo_color = Color(0.903598, 0.903598, 0.903598, 1)
+albedo_texture = ExtResource("14_sb611")
+uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfuvp"]
 size = Vector3(3.63489, 5.55518, 6.47559)
@@ -483,8 +489,8 @@ size = Vector3(76.7609, 0.2, 164.192)
 material = ExtResource("10_t3np7")
 
 [node name="Calcada" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, 297.278)
-size = Vector3(20, 0.2, 896.129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, 202.483)
+size = Vector3(20, 0.2, 706.54)
 material = ExtResource("10_t3np7")
 
 [node name="Rua" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -518,6 +524,16 @@ material = ExtResource("10_bjjfd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.5758, 10.6343, 78.6964)
 size = Vector3(22.4339, 19.9081, 17.6604)
 material = ExtResource("10_bjjfd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.729739, 0.555226, 206.562)
+size = Vector3(1, 0.209, 713.578)
+material = SubResource("StandardMaterial3D_42bfy")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4576, 0.555211, 206.241)
+size = Vector3(1, 0.209, 714.022)
+material = SubResource("StandardMaterial3D_42bfy")
 
 [node name="Parede invisivel" type="CSGCombiner3D" parent="."]
 visible = false

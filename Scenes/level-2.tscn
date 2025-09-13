@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://d37kk3eeo6mwd"]
+[gd_scene load_steps=44 format=3 uid="uid://d37kk3eeo6mwd"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4frd1"]
 [ext_resource type="Script" uid="uid://b4kqtfpencpj3" path="res://Script/level_2.gd" id="1_hrep3"]
@@ -20,6 +20,8 @@
 [ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="16_dsj4o"]
 [ext_resource type="Texture2D" uid="uid://b87gh4kdjuv8r" path="res://Assets/Textures/grungytile195.jpg" id="16_o2ng7"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="17_jis6o"]
+[ext_resource type="Texture2D" uid="uid://cofwhtpk0m3rm" path="res://Assets/Textures/Texture_lt_gray_004.jpg" id="19_vf3td"]
+[ext_resource type="Texture2D" uid="uid://b5bfj88h8sycc" path="res://Assets/Textures/GG1.JPG" id="22_kxfcg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dsj4o"]
 shader = ExtResource("4_fxita")
@@ -91,14 +93,17 @@ uv1_scale = Vector3(0.1, 0.1, 0.1)
 albedo_texture = ExtResource("2_vuhrq")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtk1r"]
-albedo_texture = ExtResource("2_fjiq8")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxfcg"]
+albedo_texture = ExtResource("19_vf3td")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuhrq"]
-albedo_texture = ExtResource("2_fjiq8")
+albedo_texture = ExtResource("19_vf3td")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1or5"]
-albedo_texture = ExtResource("2_fjiq8")
+albedo_texture = ExtResource("19_vf3td")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr1xm"]
 albedo_texture = ExtResource("2_fjiq8")
@@ -108,6 +113,11 @@ albedo_texture = ExtResource("1_koo5p")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ky03g"]
 size = Vector3(3.46045, 3.54346, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gfbg"]
+albedo_color = Color(0.903598, 0.903598, 0.903598, 1)
+albedo_texture = ExtResource("22_kxfcg")
+uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_hrep3")
@@ -425,7 +435,13 @@ material = SubResource("StandardMaterial3D_ky03g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270507, 2.43984, -7.22945)
 cast_shadow = 0
 size = Vector3(19.4129, 5, 0.63)
-material = SubResource("StandardMaterial3D_dtk1r")
+material = SubResource("StandardMaterial3D_kxfcg")
+
+[node name="Parede4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270508, 2.43984, 6.93481)
+cast_shadow = 0
+size = Vector3(19.4129, 5, 0.349058)
+material = SubResource("StandardMaterial3D_kxfcg")
 
 [node name="Parede" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.65436, 2.46737, 0.469315)
@@ -492,6 +508,16 @@ material = ExtResource("5_sr1xm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.5758, 10.6343, 78.6964)
 size = Vector3(22.4339, 19.9081, 17.6604)
 material = ExtResource("5_sr1xm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.729739, 0.555226, 206.562)
+size = Vector3(1, 0.209, 713.578)
+material = SubResource("StandardMaterial3D_8gfbg")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4576, 0.555211, 206.241)
+size = Vector3(1, 0.209, 714.022)
+material = SubResource("StandardMaterial3D_8gfbg")
 
 [node name="Parede invisivel" type="CSGCombiner3D" parent="."]
 visible = false
