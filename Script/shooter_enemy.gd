@@ -6,6 +6,12 @@ var can_shoot = false
 @onready var flash = $flash
 @onready var gun_sound = $gun_fire
 
+func _ready():
+	Globals.max_contador += 1
+	Globals.contador += 1
+	score_value = 230
+	Globals.slowdown.connect(on_slowdown)
+	
 func _physics_process(delta: float) -> void:
 	match current_state:
 		IDLE:

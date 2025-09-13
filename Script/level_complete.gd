@@ -4,15 +4,22 @@ extends Control
 @onready var kills: Label = $VBoxContainer/kills
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var time_label: Label = $VBoxContainer/time
+@onready var score_label: Label = $VBoxContainer/score
 
 var tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Globals.level_elapsed_time < 20:
+		Globals.score += 200
+		print('holy cungadero')
+	elif Globals.level_elapsed_time < 60:
+		Globals.score += 100
+		print("awawawawaa")
 	level_label.text = "Level " + str(Globals.current_level + 1) + "\nCompleted"
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	kills.text = "Kills: " + str(Globals.max_contador - Globals.contador)
-	
+	score_label.text = str("Score: ",Globals.score)
 	var level_time = Globals.get_scene_elapsed_time()
 	var minutes = floor(level_time / 60)
 	var seconds = fmod(level_time, 60)
@@ -34,7 +41,9 @@ func _ready() -> void:
 	await get_tree().create_timer(0.8).timeout
 	$HBoxContainer/next_button.visible = true
 	$HBoxContainer/save_button.visible = true
+
 func next_level():
+	Globals.reset_score()
 	if Globals.current_level < Globals.levels.size():
 		get_tree().change_scene_to_file(Globals.levels[Globals.current_level])
 		Globals.current_level += 1

@@ -9,6 +9,12 @@ var can_hit = false
 var bullet = preload("res://Scenes/enemy_projectile.tscn")
 var can_shoot = false
 
+func _ready():
+	Globals.max_contador += 1
+	Globals.contador += 1
+	score_value = 120
+	Globals.slowdown.connect(on_slowdown)
+
 func _physics_process(delta: float) -> void:
 	match current_state:
 		IDLE:

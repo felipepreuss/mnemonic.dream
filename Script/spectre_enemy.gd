@@ -19,6 +19,12 @@ var movement_speed_multiplier = 0.7  # Slower, more deliberate movement
 var gravity = 20.0
 var is_on_floor = false
 
+func _ready():
+	Globals.max_contador += 1
+	Globals.contador += 1
+	score_value = 300
+	Globals.slowdown.connect(on_slowdown)
+	
 func idle_state(delta):
 	if death:
 		set_state(DEATH)
@@ -209,4 +215,6 @@ func _start_stealth_attack_cycle():
 func _on_alien_death_finished() -> void:
 	Globals.contador -= 1
 	print("inimigos", Globals.contador)
+	Globals.score += score_value
+	print("score",Globals.score)
 	queue_free()

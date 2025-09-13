@@ -19,6 +19,10 @@ var got_smg = false
 var got_dart = false
 var got_rocket = false
 
+#Global Score Track 
+var score = 0
+var score_value: int
+
 # Global time tracking (your existing variables)
 var time: float = 0.0
 var minutes = 0
@@ -45,11 +49,13 @@ signal slowdown
 
 @onready var Dialogue = "res://Scenes/dialogue.tscn"
 
+func reset_score():
+	score = 0
+
 func reset_powerups():
 	pop_candy_powerup = false
 	chiclete_powerup = false
 	get_gun = false
-
 
 func update_time_tracking(delta: float) -> void:
 	#Update global time

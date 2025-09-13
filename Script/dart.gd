@@ -19,10 +19,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group('Enemy'):
+	if body.is_in_group('Enemy') or body is CSGCombiner3D:
 		var poison_area = poison_area_scene.instantiate()
 		get_parent().add_child(poison_area)
 		poison_area.position = self.position
-		body.calcularDano(25)
-		print(body.vida)
+		if body.has_method("calcularDano"):
+			body.calcularDano(25)
 		queue_free()

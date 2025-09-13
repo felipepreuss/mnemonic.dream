@@ -5,6 +5,7 @@ func _ready() -> void:
 	vida = 75
 	Globals.max_contador += 1
 	Globals.contador += 1
+	score_value = 50
 	Globals.slowdown.connect(on_slowdown)
 
 func chase_state(delta):

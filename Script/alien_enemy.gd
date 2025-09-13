@@ -4,6 +4,11 @@ class_name AlienEnemy
 var bullet = preload("res://Scenes/bullet_enemy.tscn")
 var can_shoot = false
 
+func _ready():
+	Globals.max_contador += 1
+	Globals.contador += 1
+	score_value = 10
+	Globals.slowdown.connect(on_slowdown)
 func _physics_process(delta: float) -> void:
 	match current_state:
 		IDLE:
@@ -72,17 +77,19 @@ func _on_alien_death_finished() -> void:
 			pop_candy.global_position = $bullet_marker.global_position
 		Globals.contador -= 1
 		print("inimigos",Globals.contador)
+		Globals.score += score_value
+		print("score",Globals.score)
 		queue_free()
 	else:
 		Globals.contador -= 1
 		print("inimigos",Globals.contador)
+		Globals.score += score_value
+		print("score",Globals.score)
 		queue_free()
-
 
 func _on_shoot_range_body_entered(body: Node3D) -> void:
 	if body.name =="player":
 		switch_to_shoot()
-
 
 func _on_shoot_range_body_exited(body: Node3D) -> void:
 	if body.name =="player":

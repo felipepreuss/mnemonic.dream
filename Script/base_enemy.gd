@@ -16,10 +16,12 @@ var pop_candy_powerup_scene = preload("res://Scenes/pop_candy.tscn")
 var chocolate_powerup_scene = preload("res://Scenes/chocolate_powerup.tscn")
 
 @onready var nav_agent = $NavigationAgent3D
+var score_value: int
 enum {IDLE,CHASE,ATTACK,RETREAT,DEATH,SHOOT}
 var current_state = 0
 var state_start = true
 signal on_death
+
 
 func _ready():
 	Globals.max_contador += 1
@@ -128,6 +130,8 @@ func set_state(novo_estado):
 func _on_alien_death_finished() -> void:
 		Globals.contador -= 1
 		print("inimigos",Globals.contador)
+		Globals.score += score_value
+		print("score",Globals.score)
 		queue_free()
 
 func switch_to_chase() -> void:
