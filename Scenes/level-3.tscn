@@ -1,11 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmnef1jidjw84"]
+[gd_scene load_steps=26 format=3 uid="uid://dmnef1jidjw84"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_4ph04"]
 [ext_resource type="Script" uid="uid://cs1uryqy63ka8" path="res://Script/level_3.gd" id="1_j84td"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_nfp42"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="2_t77uf"]
 [ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="5_nfbqa"]
-[ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="5_oopfi"]
 [ext_resource type="PackedScene" uid="uid://cv4dykadxloyc" path="res://bounding_sphere.tscn" id="6_12l26"]
 [ext_resource type="PackedScene" uid="uid://dt1q75h13ai40" path="res://Scenes/goblin_enemy.tscn" id="8_bfm8j"]
 [ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="9_aqejk"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://fhmux8ryyl36" path="res://Scenes/smg.tscn" id="13_nfbqa"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="14_knvxs"]
 [ext_resource type="Texture2D" uid="uid://b5bfj88h8sycc" path="res://Assets/Textures/GG1.JPG" id="15_hyhto"]
+[ext_resource type="Texture2D" uid="uid://b87gh4kdjuv8r" path="res://Assets/Textures/grungytile195.jpg" id="16_hyhto"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hyhto"]
 shader = ExtResource("5_nfbqa")
@@ -55,6 +55,11 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfm8j"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1l0t"]
+albedo_texture = ExtResource("16_hyhto")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12l26"]
 size = Vector3(4.605, 3, 3)
@@ -154,6 +159,7 @@ material = ExtResource("13_hyhto")
 [node name="Calcada3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2885, 0.55611, -68.5984)
 size = Vector3(76.7609, 0.2, 164.377)
+material = ExtResource("13_hyhto")
 
 [node name="Calcada" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4525, 0.55611, -68.4389)
@@ -252,10 +258,10 @@ material = SubResource("StandardMaterial3D_bfm8j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.424, 3.47972, -30.8786)
 size = Vector3(2.76855, 28.6298, 81.71)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2"]
+[node name="choao" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.58, 0.775536, -68.8381)
 size = Vector3(100, 1, 157.724)
-material = ExtResource("5_oopfi")
+material = SubResource("StandardMaterial3D_t1l0t")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.729, 11.0037, 9.77705)
