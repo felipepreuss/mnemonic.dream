@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxj11a6cbsieu"]
+
+[ext_resource type="Script" uid="uid://ctmi35dgt437w" path="res://Script/him.gd" id="1_mh1k7"]
+[ext_resource type="Texture2D" uid="uid://hfrb4so8dsp4" path="res://Assets/him.jpg" id="2_mh1k7"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_yc8u8"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_x8uhq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2nt1"]
+albedo_texture = ExtResource("2_mh1k7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_fpiwj"]
+radius = 0.3
+height = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyhe3"]
+size = Vector3(0.591187, 1.21067, 0.593017)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kv88u"]
+size = Vector3(1, 1, 1.21289)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e7l54"]
+size = Vector3(1, 1, 9.74644)
+
+[node name="Him enemy" type="CharacterBody3D" node_paths=PackedStringArray("player") groups=["Enemy"]]
+script = ExtResource("1_mh1k7")
+player = NodePath(".")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.15819, 0, 0, 0, 1, 0, 0.45689, 0)
+material_override = SubResource("StandardMaterial3D_s2nt1")
+mesh = SubResource("SphereMesh_fpiwj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0.317064, 0.00329593)
+shape = SubResource("BoxShape3D_tyhe3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+
+[node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_yc8u8")
+volume_db = 1.0
+autoplay = true
+
+[node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_x8uhq")
+volume_db = 1.0
+
+[node name="attack_box" type="Area3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="attack_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379207, -0.106445)
+shape = SubResource("BoxShape3D_kv88u")
+
+[node name="Calma" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.343044, -5.14916)
+shape = SubResource("BoxShape3D_e7l54")
+
+[connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
+[connection signal="body_entered" from="attack_box" to="." method="_on_attack_box_body_entered"]
+[connection signal="timeout" from="Calma" to="." method="_on_calma_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

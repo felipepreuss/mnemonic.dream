@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxnak4d77kw8s"]
 
-[ext_resource type="Script" uid="uid://cdpgaw6fmem1k" path="res://Scenes/sfx_manager.gd" id="1_16vp1"]
+[ext_resource type="Script" uid="uid://cdpgaw6fmem1k" path="res://Script/sfx_manager.gd" id="1_16vp1"]
 [ext_resource type="AudioStream" uid="uid://cm48tg1gasd83" path="res://SFX/shizuku.wav" id="1_qhui8"]
 [ext_resource type="AudioStream" uid="uid://c4ms8yrwqihe8" path="res://SFX/8_ucyuu.wav" id="2_33n4p"]
 

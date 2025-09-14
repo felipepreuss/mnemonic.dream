@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdhm1re0so86v"]
+[gd_scene load_steps=23 format=3 uid="uid://bdhm1re0so86v"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_dkb5v"]
 [ext_resource type="Script" uid="uid://dwru7rmwvq87b" path="res://Script/level_6.gd" id="1_dwax7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="5_fgept"]
 [ext_resource type="PackedScene" uid="uid://0x5xhls7hmwi" path="res://Scenes/spectre_enemy.tscn" id="6_fgept"]
 [ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="7_l57pf"]
+[ext_resource type="PackedScene" uid="uid://dxj11a6cbsieu" path="res://Scenes/him.tscn" id="9_0cdk7"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="11_dst8n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cdk7"]
@@ -75,8 +76,9 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_bj0im")]
+[node name="player" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("boss") instance=ExtResource("2_bj0im")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02857, 2.27353, -28.7161)
+boss = NodePath("../Him enemy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_l57pf")
@@ -101,6 +103,30 @@ player = NodePath("../player")
 [node name="Shooter Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("7_l57pf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0910316, 2.30877, 9.31943)
 player = NodePath("../player")
+
+[node name="Him enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("9_0cdk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6668, 1.01582, 11.7204)
+player = NodePath("../player")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.808, 2.27093, 5.40285)
+light_color = Color(1, 0, 1, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60855, 2.27093, 12.5972)
+light_color = Color(1, 0, 1, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13178, 2.27093, -3.85821)
+light_color = Color(1, 0, 1, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport/OmniLight3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8418, -0.327361, 14.1561)
+light_color = Color(1, 0, 1, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="SubViewportContainer/SubViewport/OmniLight3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8584, -0.327361, 14.1561)
+light_color = Color(1, 0, 1, 1)
 
 [node name="level_trans" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.9267)

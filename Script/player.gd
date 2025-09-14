@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var Camera =  $head/Camera3D
 @onready var walk_1: AudioStreamPlayer3D = $Walk1
 @onready var walk_2: AudioStreamPlayer3D = $Walk2
+@export var boss : CharacterBody3D
 
 #@onready var vida = $head/HUD/Color/Vbox/Vida
 #@onready var weapon = $head/Camera3D/weapon

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=35 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://c8vtvxw1d5806" path="res://SFX/jumpnoise.mp3" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Script/power_up.gd" id="7_tx1dd"]
 [ext_resource type="Script" uid="uid://dctki5lgsrowk" path="res://Script/aliens.gd" id="8_gymyn"]
+[ext_resource type="Script" uid="uid://2rc1dthcj3rw" path="res://Script/boss.gd" id="14_fd4e3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -129,6 +130,11 @@ _data = {
 &"recoil": SubResource("Animation_vgqql"),
 &"switch_gun": SubResource("Animation_h4iuc")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd4e3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqcod"]
+bg_color = Color(1, 0, 0.25098, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x3wgy"]
 radius = 5.24767
@@ -342,6 +348,37 @@ text = " "
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_gymyn")
+
+[node name="boss" type="ColorRect" parent="head/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.55
+anchor_top = 0.275
+anchor_right = 19.95
+anchor_bottom = 1.8
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.25098)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="head/HUD/boss"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 531.0
+offset_bottom = 26.0
+text = "BOSS"
+horizontal_alignment = 1
+
+[node name="boss" type="ProgressBar" parent="head/HUD/boss"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.0
+offset_right = 526.0
+offset_bottom = 57.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_fd4e3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qqcod")
+max_value = 3000.0
+script = ExtResource("14_fd4e3")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
