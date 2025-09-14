@@ -46,7 +46,7 @@ volume_db = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200053, -0.575308)
 
 [node name="bullet_timer" type="Timer" parent="."]
-wait_time = 0.9
+wait_time = 2.0
 autostart = true
 
 [node name="player_detect" type="Area3D" parent="."]

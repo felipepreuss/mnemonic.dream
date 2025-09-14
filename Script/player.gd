@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 @onready var crosshair = $UI/Crosshair
 @onready var Head =  $head
 @onready var Camera =  $head/Camera3D

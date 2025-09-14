@@ -9,6 +9,7 @@ func _ready():
 	Globals.contador += 1
 	score_value = 10
 	Globals.slowdown.connect(on_slowdown)
+
 func _physics_process(delta: float) -> void:
 	match current_state:
 		IDLE:

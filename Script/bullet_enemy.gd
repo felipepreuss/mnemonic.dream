@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var SPEED : Vector3 = Vector3(0, 0, -5)
+var SPEED : Vector3 = Vector3(0, 0, -8)
 @export var dir : Basis
 
 func _ready():
