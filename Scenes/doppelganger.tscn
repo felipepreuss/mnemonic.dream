@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bleixplbv3vw8"]
+[gd_scene load_steps=11 format=3 uid="uid://bleixplbv3vw8"]
 
 [ext_resource type="Script" uid="uid://b1hore2rrxv5e" path="res://Script/doppelganger.gd" id="1_jwxej"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_857pd"]
@@ -13,10 +13,13 @@ albedo_color = Color(0.43134, 0.43134, 0.43134, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7rdqq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_857pd"]
-size = Vector3(1.81744, 2.02484, 19.9118)
+size = Vector3(1.81744, 2.02484, 40.4914)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rdqq"]
-size = Vector3(1.97412, 2.17188, 6.46399)
+size = Vector3(1.97412, 2.17188, 6.3599)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qeg5m"]
+size = Vector3(2.17688, 2.44202, 2.73016)
 
 [node name="doppelganger" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_jwxej")
@@ -40,7 +43,7 @@ stream = ExtResource("3_7rdqq")
 volume_db = 1.0
 
 [node name="bullet_timer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.4
 autostart = true
 
 [node name="bullet_marker" type="Marker3D" parent="."]
@@ -49,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.003
 [node name="player_detect" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.512421, -10.7372)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.512421, -22.7132)
 shape = SubResource("BoxShape3D_857pd")
 
 [node name="Pistola (1)" parent="." instance=ExtResource("4_7rdqq")]
@@ -59,11 +62,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.923094)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.966668)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shoot_range"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300293, 0.585938, -2.73199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300293, 0.585938, -2.99783)
 shape = SubResource("BoxShape3D_7rdqq")
+
+[node name="movement_delay" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="player" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0161743, 0.421448, -1.8332)
+shape = SubResource("BoxShape3D_qeg5m")
 
 [connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
 [connection signal="timeout" from="bullet_timer" to="." method="_on_bullet_timer_timeout"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
 [connection signal="body_entered" from="shoot_range" to="." method="_on_shoot_range_body_entered"]
 [connection signal="body_exited" from="shoot_range" to="." method="_on_shoot_range_body_exited"]
+[connection signal="timeout" from="movement_delay" to="." method="_on_movement_delay_timeout"]
+[connection signal="body_entered" from="player" to="." method="_on_player_body_entered"]

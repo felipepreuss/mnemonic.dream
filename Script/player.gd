@@ -6,7 +6,7 @@ class_name Player
 @onready var walk_1: AudioStreamPlayer3D = $Walk1
 @onready var walk_2: AudioStreamPlayer3D = $Walk2
 @export var boss : CharacterBody3D
-
+var can_spawn_boss = true
 #@onready var vida = $head/HUD/Color/Vbox/Vida
 #@onready var weapon = $head/Camera3D/weapon
 var SPEED = 12.0
@@ -305,3 +305,18 @@ func _on_player_box_body_entered(body: Node3D) -> void:
 	pass
 func add_screen_shake(shake_amount) -> void:
 	Camera.add_shake(shake_amount)
+
+
+func _on_boss_spawn_body_entered(body: Node3D) -> void:
+	if body.name == "player":
+		if can_spawn_boss:
+			var clone = load("res://Scenes/doppelganger.tscn")
+			var boss_clone = clone.instantiate()
+			boss_clone.player = self
+			#boss_clone.transform.basis = transform.basis
+			get_parent().add_child(boss_clone)
+			boss_clone.rotation.y = rotation.y
+			boss_clone.global_position = $"../../../boss_marker".global_position
+			#boss_clone.dir = transform.basis
+			#boss_clone.dir.x = -transform.basis.x
+			can_spawn_boss = false
