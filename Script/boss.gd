@@ -4,11 +4,13 @@ extends ProgressBar
 @onready var boss_healthbar: ColorRect = $".."
 
 func _ready() -> void:
-	max_value = player.boss.vida
+	if player != null:
+		player.boss_bar_visible.connect(on_boss_bar_visible)
+	boss_healthbar.visible = false
 func _physics_process(delta: float) -> void:
 	if player.boss != null:
 		value = player.boss.vida
-		
-	else:
-		boss_healthbar.visible = false
-		
+func on_boss_bar_visible():
+	boss_healthbar.visible = true
+	if player.boss != null:
+		max_value = player.boss.vida

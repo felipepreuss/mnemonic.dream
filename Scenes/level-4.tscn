@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmtr0py0litk0"]
+[gd_scene load_steps=25 format=3 uid="uid://bmtr0py0litk0"]
 
 [ext_resource type="Script" uid="uid://b57gk6u484vvs" path="res://Script/level_4.gd" id="1_hoe83"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_m0p0k"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bdeswblan6uax" path="res://Scenes/dog_boss.tscn" id="14_4gfud"]
 [ext_resource type="Texture2D" uid="uid://c6b8853wt66r8" path="res://Assets/Textures/GRYDIRT2.JPG" id="14_7vlbl"]
 [ext_resource type="Texture2D" uid="uid://cj6gj1aeh4hgu" path="res://Assets/Textures/BrickWall.jpg" id="15_4gfud"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gfud"]
+size = Vector3(36.074326, 8.794922, 37.271454)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbnih"]
 shader = ExtResource("5_aes8t")
@@ -69,6 +72,13 @@ handle_input_locally = false
 audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
+
+[node name="boss_area" type="Area3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.259678, 1.360035, -2.841566)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/boss_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.274342, -0.8496094, 12.844711)
+shape = SubResource("BoxShape3D_4gfud")
 
 [node name="dog_boss" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("patrol_points", "player") instance=ExtResource("14_4gfud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.698, 1.2, -3.7339234)
@@ -513,4 +523,5 @@ light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 omni_range = 10.413
 
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/boss_area" to="SubViewportContainer/SubViewport/player" method="_on_boss_area_body_entered"]
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

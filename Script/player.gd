@@ -6,6 +6,7 @@ class_name Player
 @onready var walk_1: AudioStreamPlayer3D = $Walk1
 @onready var walk_2: AudioStreamPlayer3D = $Walk2
 @export var boss : CharacterBody3D
+signal boss_bar_visible
 var can_spawn_boss = true
 #@onready var vida = $head/HUD/Color/Vbox/Vida
 #@onready var weapon = $head/Camera3D/weapon
@@ -322,6 +323,7 @@ func _on_boss_spawn_body_entered(body: Node3D) -> void:
 			boss_clone.global_position = $"../../../boss_marker".global_position
 			#boss_clone.dir = transform.basis
 			#boss_clone.dir.x = -transform.basis.x
+			boss = boss_clone
 			can_spawn_boss = false
 
 
@@ -335,3 +337,8 @@ func _on_walk_2_finished() -> void:
 
 func _on_audio_stream_player_3d_2_finished() -> void:
 	Globals.is_audio_playing = false
+
+
+func _on_boss_area_body_entered(body: Node3D) -> void:
+	if body.name == "player":
+		emit_signal("boss_bar_visible")

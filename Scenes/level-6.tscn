@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdhm1re0so86v"]
+[gd_scene load_steps=24 format=3 uid="uid://bdhm1re0so86v"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_dkb5v"]
 [ext_resource type="Script" uid="uid://dwru7rmwvq87b" path="res://Script/level_6.gd" id="1_dwax7"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="7_l57pf"]
 [ext_resource type="PackedScene" uid="uid://dxj11a6cbsieu" path="res://Scenes/him.tscn" id="9_0cdk7"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="11_dst8n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0cdk7"]
+size = Vector3(7.692478, 4.0478516, 27.22168)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cdk7"]
 shader = ExtResource("5_dst8n")
@@ -75,6 +78,13 @@ handle_input_locally = false
 audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
+
+[node name="boss_area" type="Area3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.584381, 1.360035, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/boss_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20604134, 1.5239258, 8.779785)
+shape = SubResource("BoxShape3D_0cdk7")
 
 [node name="player" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("boss") instance=ExtResource("2_bj0im")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02857, 2.27353, -28.7161)
@@ -347,4 +357,5 @@ material = SubResource("StandardMaterial3D_f0sc1")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/CSGCombiner3D"]
 
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/boss_area" to="SubViewportContainer/SubViewport/player" method="_on_boss_area_body_entered"]
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]
