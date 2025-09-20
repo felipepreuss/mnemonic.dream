@@ -18,7 +18,7 @@ var got_shotgun = false
 var got_smg = false
 var got_dart = false
 var got_rocket = false
-
+var is_audio_playing
 #Global Score Track 
 var score = 0
 var score_value: int

@@ -377,7 +377,6 @@ offset_right = 526.0
 offset_bottom = 57.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_fd4e3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qqcod")
-max_value = 3000.0
 script = ExtResource("14_fd4e3")
 
 [node name="UI" type="Control" parent="."]
@@ -410,7 +409,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6503, 0)
 shape = SubResource("CapsuleShape3D_8erm5")
 debug_color = Color(0.628337, 0, 0.201289, 0.42)
 
+[connection signal="finished" from="Walk1" to="." method="_on_walk_1_finished"]
+[connection signal="finished" from="Walk2" to="." method="_on_walk_2_finished"]
 [connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
 [connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]
+[connection signal="finished" from="AudioStreamPlayer3D2" to="." method="_on_audio_stream_player_3d_2_finished"]
 [connection signal="area_entered" from="player_box" to="." method="_on_player_box_area_entered"]
 [connection signal="body_entered" from="player_box" to="." method="_on_player_box_body_entered"]

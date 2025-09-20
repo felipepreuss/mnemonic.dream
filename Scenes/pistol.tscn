@@ -26,3 +26,6 @@ stream = ExtResource("1_v21tj")
 
 [node name="Rel" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ui64p")
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="Rel" to="." method="_on_rel_finished"]

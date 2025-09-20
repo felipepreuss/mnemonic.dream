@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		DEATH:
 			death_state(delta)
 
-
 func idle_state(delta):
 	if death:
 		set_state(DEATH)
@@ -111,7 +110,6 @@ func retreat_state(delta):
 func death_state(delta):
 	emit_signal("on_death")
 	$alienDeath.play()
-
 
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)

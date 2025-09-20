@@ -82,7 +82,10 @@ func _unhandled_input(event):
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
-	
+	if walk_1.playing:
+		Globals.is_audio_playing = true
+	if walk_2.playing:
+		Globals.is_audio_playing = true
 	# Handle dash cooldown
 	if not can_dash:
 		dash_cooldown_timer += delta
@@ -144,6 +147,7 @@ func _physics_process(delta: float) -> void:
 	if (jump_buffer < JUMP_BUFFER_THRESHOLD) and (coyote_time < COYOTE_TIME_THRESHOLD) and jump_buffer > 0:
 		velocity.y = JUMP_VELOCITY
 		$AudioStreamPlayer3D2.play()
+		Globals.is_audio_playing = true
 		coyote_time = COYOTE_TIME_THRESHOLD
 		jump_buffer = JUMP_BUFFER_THRESHOLD
 	 
@@ -162,7 +166,6 @@ func _physics_process(delta: float) -> void:
 					walk_1.play()
 				else:
 					walk_2.play()
-			
 			# Increase FOV when moving for speed effect
 			target_fov = BASE_FOV + FOV_CHANGE
 		else:
@@ -320,3 +323,15 @@ func _on_boss_spawn_body_entered(body: Node3D) -> void:
 			#boss_clone.dir = transform.basis
 			#boss_clone.dir.x = -transform.basis.x
 			can_spawn_boss = false
+
+
+func _on_walk_1_finished() -> void:
+	Globals.is_audio_playing = false
+
+
+func _on_walk_2_finished() -> void:
+	Globals.is_audio_playing = false
+
+
+func _on_audio_stream_player_3d_2_finished() -> void:
+	Globals.is_audio_playing = false

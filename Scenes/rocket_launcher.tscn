@@ -20,3 +20,5 @@ stream = ExtResource("2_ietni")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.14153)
+
+[connection signal="finished" from="Space-cannon" to="." method="_on_spacecannon_finished"]

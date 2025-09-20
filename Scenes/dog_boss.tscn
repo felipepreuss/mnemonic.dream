@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdeswblan6uax"]
+
+[ext_resource type="Script" uid="uid://dch8q4ejwtpbl" path="res://Script/dog_boss.gd" id="1_8xjul"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_6yuut"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_poeca"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rjxei"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6yuut"]
+radius = 1.0
+height = 3.9961243
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xjul"]
+size = Vector3(37.12201, 5.999832, 37.15503)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6yuut"]
+size = Vector3(2.3799896, 2, 5.412964)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_poeca"]
+size = Vector3(2.9809265, 1.7617798, 6.6757813)
+
+[node name="dog_boss" type="CharacterBody3D" groups=["Boss", "Enemy"]]
+script = ExtResource("1_8xjul")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_rjxei")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 6.8699185e-11, -0.0015716553)
+shape = SubResource("CapsuleShape3D_6yuut")
+
+[node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_6yuut")
+volume_db = 1.0
+autoplay = true
+
+[node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_poeca")
+volume_db = 1.0
+
+[node name="detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048249483, 1.999855, -0.14922571)
+shape = SubResource("BoxShape3D_8xjul")
+
+[node name="hit" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04610443, 0.5, 0.28207397)
+shape = SubResource("BoxShape3D_6yuut")
+
+[node name="close_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="close_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09410095, 0.55966187, 0.28555298)
+shape = SubResource("BoxShape3D_poeca")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
+
+[connection signal="finished" from="alienDeath" to="." method="_on_alien_death_finished"]
+[connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
+[connection signal="body_entered" from="close_detect" to="." method="_on_close_detect_body_entered"]
+[connection signal="body_exited" from="close_detect" to="." method="_on_close_detect_body_exited"]

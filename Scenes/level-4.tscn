@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bmtr0py0litk0"]
+[gd_scene load_steps=24 format=3 uid="uid://bmtr0py0litk0"]
 
 [ext_resource type="Script" uid="uid://b57gk6u484vvs" path="res://Script/level_4.gd" id="1_hoe83"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_m0p0k"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="11_v3qlh"]
 [ext_resource type="PackedScene" uid="uid://cscnspv3at7uy" path="res://Scenes/dart_rifle.tscn" id="12_aes8t"]
 [ext_resource type="PackedScene" uid="uid://cv4dykadxloyc" path="res://bounding_sphere.tscn" id="13_lbnih"]
+[ext_resource type="PackedScene" uid="uid://bdeswblan6uax" path="res://Scenes/dog_boss.tscn" id="14_4gfud"]
 [ext_resource type="Texture2D" uid="uid://c6b8853wt66r8" path="res://Assets/Textures/GRYDIRT2.JPG" id="14_7vlbl"]
 [ext_resource type="Texture2D" uid="uid://cj6gj1aeh4hgu" path="res://Assets/Textures/BrickWall.jpg" id="15_4gfud"]
 
@@ -69,8 +70,14 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_hoe83")]
+[node name="dog_boss" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("patrol_points", "player") instance=ExtResource("14_4gfud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.698, 1.2, -3.7339234)
+patrol_points = [NodePath("../patrol_points/patrol_1"), NodePath("../patrol_points/patrol_2"), NodePath("../patrol_points/patrol_3"), NodePath("../patrol_points/patrol_4"), NodePath("../patrol_points/patrol_5"), NodePath("../patrol_points/patrol_6"), NodePath("../patrol_points/patrol_7"), NodePath("../patrol_points/patrol_8"), NodePath("../patrol_points/patrol_9"), NodePath("../patrol_points/patrol_10")]
+player = NodePath("../player")
+
+[node name="player" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("boss") instance=ExtResource("2_hoe83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.968647, 0.210171, -12.3568)
+boss = NodePath("../dog_boss")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_urvdd")
@@ -130,6 +137,38 @@ size = Vector3(50.3807, 32.3985, 303.39)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74.3174, 11.9557, 32.4516)
 size = Vector3(50.3807, 32.3985, 303.39)
 
+[node name="patrol_points" type="Node" parent="SubViewportContainer/SubViewport"]
+
+[node name="patrol_1" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.45725, 0, -4.6504035)
+
+[node name="patrol_2" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.45725, 0, 15.642254)
+
+[node name="patrol_3" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.64435, 0, -18.628075)
+
+[node name="patrol_4" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.179256, 0, -4.6504035)
+
+[node name="patrol_5" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.480415, 0, 2.6293192)
+
+[node name="patrol_6" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.97254, 0, -14.565303)
+
+[node name="patrol_7" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.07129, 0, -3.8020592)
+
+[node name="patrol_8" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.08437, 0, -24.806385)
+
+[node name="patrol_9" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.036945, 0, 7.672989)
+
+[node name="patrol_10" type="Marker3D" parent="SubViewportContainer/SubViewport/patrol_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.507885, 0, 21.298777)
+
 [node name="level_trans" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1271, 0, 0)
 
@@ -151,7 +190,7 @@ size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 
 [node name="Ceiling" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.2043, -18.5699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.605347, -18.5699)
 size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 

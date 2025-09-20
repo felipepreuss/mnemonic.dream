@@ -4,6 +4,8 @@ extends WeaponsManager
 
 var bullet_scene: PackedScene = load("res://Scenes/rocket.tscn")
 func _physics_process(delta: float) -> void:
+	if space_cannon.playing:
+		Globals.is_audio_playing = true
 	if Input.is_action_just_pressed("Left-Click") and have_ammo:
 		var bullet = bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
@@ -17,3 +19,7 @@ func _physics_process(delta: float) -> void:
 		bullet.global_transform.basis.x = global_transform.basis.x
 		bullet.global_transform.basis.y = global_transform.basis.y
 		bullet.global_transform.basis.z = global_transform.basis.z
+
+
+func _on_spacecannon_finished() -> void:
+		Globals.is_audio_playing = false

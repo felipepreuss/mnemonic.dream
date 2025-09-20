@@ -24,3 +24,5 @@ pitch_scale = 1.5
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0829777, -0.922353)
 target_position = Vector3(0, -1, -100)
+
+[connection signal="finished" from="Laser-shot-1" to="." method="_on_lasershot_1_finished"]
