@@ -5,14 +5,11 @@
 [sub_resource type="Resource" id="Resource_5xb2d"]
 script = ExtResource("1_5xb2d")
 id = 1
-personagem = ""
 texto = "Move: W,A,S,D pegar Arma: tecla 1"
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
 
 [resource]
 script = ExtResource("1_5xb2d")
-id = 0
-personagem = ""
 texto = "Clique botão esquerdo para continuar"
 next_dialog = SubResource("Resource_5xb2d")
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

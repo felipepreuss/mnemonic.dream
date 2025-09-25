@@ -12,7 +12,6 @@ func _process(float):
 			SfxManager.woah_aliens.stop()
 func _ready():
 	Dialogue.dialogo = load('res://Script/Dialogos/0.tres')
-
 	Globals.is_tutorial = true
 	Globals.start_scene_time_tracking()
 func _on_area_3d_body_entered(body: Node3D) -> void:

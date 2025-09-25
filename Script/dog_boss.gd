@@ -11,6 +11,10 @@ var update_path_timer = 0.5
 var can_chase = false
 var chase_delay = 3
 func _ready(): 
+	Globals.max_contador += 1
+	Globals.contador += 1
+	Globals.slowdown.connect(on_slowdown)
+	Globals.score_value = 3000
 	SPEED += 2
 	vida += 8000
 	randomize_patrol()

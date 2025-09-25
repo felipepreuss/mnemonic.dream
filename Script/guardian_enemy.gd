@@ -7,6 +7,7 @@ func _ready():
 	Globals.slowdown.connect(on_slowdown)
 	
 func _on_attack_box_body_entered(body: Node3D) -> void:
-	if body.name == "player":
-			body.HP -= 20
-			body.add_screen_shake(0.6)
+	if !retreat:
+		if body.name == "player":
+				body.HP -= 20
+				body.add_screen_shake(0.6)

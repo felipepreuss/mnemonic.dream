@@ -120,11 +120,13 @@ albedo_texture = ExtResource("22_kxfcg")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_hrep3")
 
 [node name="Pause" parent="." instance=ExtResource("7_sr1xm")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 1
 material = ExtResource("1_v1or5")
 offset_right = 40.0
 offset_bottom = 40.0

@@ -3,6 +3,7 @@ class_name Player
 @onready var crosshair = $UI/Crosshair
 @onready var Head =  $head
 @onready var Camera =  $head/Camera3D
+@onready var interact_ray: RayCast3D = $head/Camera3D/interact_ray
 @onready var walk_1: AudioStreamPlayer3D = $Walk1
 @onready var walk_2: AudioStreamPlayer3D = $Walk2
 @export var boss : CharacterBody3D
@@ -81,7 +82,12 @@ func _unhandled_input(event):
 		Head.rotate_y(-event.relative.x * SENSITIVITY)
 		Camera.rotate_x(-event.relative.y * SENSITIVITY)
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
+		
+func interact():
+	var npc = interact_ray.get_collider()
+	if interact_ray.get_collider() != null and npc.is_in_group('NPC'):
+		npc.dialogue()
+		
 func _physics_process(delta: float) -> void:
 	if walk_1.playing:
 		Globals.is_audio_playing = true
@@ -104,6 +110,8 @@ func _physics_process(delta: float) -> void:
 			HP -= 1
 	if Input.is_action_just_pressed("botão da morte mortal"):
 		death = true
+	if Input.is_action_just_pressed("Interact"):
+		interact()
 	if death or HP < 1:
 		Globals.reset_powerups()
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")

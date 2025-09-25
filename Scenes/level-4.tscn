@@ -57,11 +57,13 @@ uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_hoe83")
 
 [node name="Pause" parent="." instance=ExtResource("2_y5a6b")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 1
 material = ExtResource("1_m0p0k")
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -200,7 +202,7 @@ size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 
 [node name="Ceiling" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.605347, -18.5699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.941, 13.5, -18.57)
 size = Vector3(302.153, 1, 360.052)
 material = SubResource("StandardMaterial3D_lo2vs")
 

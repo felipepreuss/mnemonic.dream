@@ -17,12 +17,13 @@ var dialogo: Dialogo:
 			await get_tree().create_timer(0.01).timeout
 			txt += x
 		Globals.CabouTexto = true
-		
 func _ready():
 	Dialogue.ui.visible = false
-	
+	process_mode = Node.PROCESS_MODE_ALWAYS
 func _process(delta):
 	$Ui/PanelContainer/VBoxContainer/Labelo.text = txt
+	if ui.visible:
+		get_tree().paused = true
 	if Input.is_action_just_pressed("Left-Click") and ui.visible and Globals.CabouTexto:
 		if dialogo.next_dialog != null:
 			Globals.CabouTexto = false
@@ -35,3 +36,4 @@ func _process(delta):
 			ui.visible = false
 			Globals.dialogue_end = true
 			Globals.dialogue_start = false
+			get_tree().paused = false

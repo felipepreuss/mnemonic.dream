@@ -17,10 +17,10 @@ linear_accel_max = 0.199998
 frequency = 0.0042
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_61lnk"]
+noise = SubResource("FastNoiseLite_bvnfy")
 in_3d_space = true
 as_normal_map = true
 bump_strength = 2.7
-noise = SubResource("FastNoiseLite_bvnfy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14ogo"]
 transparency = 1
@@ -43,6 +43,7 @@ size = Vector2(2, 2)
 radius = 3.5
 
 [node name="Node3D" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_a801j")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]

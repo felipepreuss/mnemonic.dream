@@ -13,6 +13,7 @@ emission = Color(0, 1, 0, 1)
 radius = 0.101785
 
 [node name="enemy_projectile" type="CharacterBody3D" groups=["Bullet"]]
+process_mode = 1
 script = ExtResource("1_33pam")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

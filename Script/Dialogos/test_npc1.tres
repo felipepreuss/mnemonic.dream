@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Dialogo" load_steps=5 format=3 uid="uid://dpbesfr4nhybd"]
+
+[ext_resource type="Script" uid="uid://cgpdyh7vnrsoy" path="res://Script/Dialogo.gd" id="1_748w6"]
+
+[sub_resource type="Resource" id="Resource_748w6"]
+script = ExtResource("1_748w6")
+id = 8
+personagem = "DEVICE_ALLY"
+texto = "NOT NECESSARILY IN THAT ORDER. OR, IN ANY ORDER AT ALL."
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_src8h"]
+script = ExtResource("1_748w6")
+id = 7
+personagem = "DEVICE_ALLY"
+texto = "OR, PUT ON YOUR FACE AND WASH YOUR COAT."
+next_dialog = SubResource("Resource_748w6")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_7suar"]
+script = ExtResource("1_748w6")
+id = 6
+personagem = "DEVICE_ALLY"
+texto = "NOW, PUT ON YOUR COAT AND WASH YOUR FACE!"
+next_dialog = SubResource("Resource_src8h")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[resource]
+script = ExtResource("1_748w6")
+id = 5
+personagem = "DEVICE_ALLY"
+texto = "WHETHER 11 HOURS OR 11 YEARS, MNEMONIC.DREAM WILL BE WAITING."
+next_dialog = SubResource("Resource_7suar")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

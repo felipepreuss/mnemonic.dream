@@ -17,6 +17,7 @@ size = Vector3(0.2, 0.2, 0.2)
 points = PackedVector3Array(-0.1, -0.1, -0.1, 0.00293034, 0.0941393, 0.0941393, 0.00293034, 0.0941393, -0.0941393, 0.1, -0.1, -0.1, -0.1, -0.1, 0.1, 0.1, -0.1, 0.1, -0.00293034, 0.0941393, -0.0941393, -0.00293034, 0.0941393, 0.0941393)
 
 [node name="Node3D" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_yq6eg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

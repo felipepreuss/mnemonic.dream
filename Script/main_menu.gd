@@ -8,6 +8,8 @@ func _ready() -> void:
 	Globals.contador = 0
 	if Dialogue != null:
 		Dialogue.ui.visible = false
+	if get_tree().paused == true:
+		get_tree().paused = false
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/tutorial_info.tscn")
 

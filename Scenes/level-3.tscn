@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dmnef1jidjw84"]
+[gd_scene load_steps=27 format=3 uid="uid://dmnef1jidjw84"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_4ph04"]
 [ext_resource type="Script" uid="uid://cs1uryqy63ka8" path="res://Script/level_3.gd" id="1_j84td"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="9_aqejk"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="10_u35u0"]
 [ext_resource type="PackedScene" uid="uid://bbb0swspkra5t" path="res://Scenes/spider_enemy.tscn" id="11_g5dgt"]
+[ext_resource type="PackedScene" uid="uid://c6mde3hgdodb2" path="res://Scenes/secretary_npc.tscn" id="12_knvxs"]
 [ext_resource type="PackedScene" uid="uid://bqeim6tjqkd20" path="res://Scenes/pickup.tscn" id="12_lmqfg"]
 [ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="13_hyhto"]
 [ext_resource type="PackedScene" uid="uid://fhmux8ryyl36" path="res://Scenes/smg.tscn" id="13_nfbqa"]
@@ -65,6 +66,7 @@ uv1_triplanar = true
 size = Vector3(4.605, 3, 3)
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_j84td")
 
 [node name="Pause" parent="." instance=ExtResource("2_t77uf")]
@@ -129,8 +131,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.2731, 1.06706, -36.864)
 player = NodePath("../player")
 
 [node name="Pickup" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_lmqfg")]
-transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -81.4261, 1.23456, -7.95726)
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -81.4261, 1.23456, -5.5742693)
 new_gun = ExtResource("13_nfbqa")
+
+[node name="secretary_npc" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("12_knvxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.20496, 1.4763889, -9.288561)
+player = NodePath("../player")
 
 [node name="bounding_sphere" parent="." instance=ExtResource("6_12l26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.5858, 0, -37.0417)
@@ -444,6 +450,16 @@ light_specular = 5.348
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4096.0
+
+[node name="secretary_light" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D2"]
+transform = Transform3D(2.5, 0, 0, 0, -1.0927848e-07, 2.5, 0, -2.5, -1.0927848e-07, -81.91951, 17.083107, -7.458289)
+light_color = Color(0.239216, 0.0823529, 0.478431, 1)
+light_energy = 16.0
+light_indirect_energy = 1.325
+light_specular = 5.348
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 10.0
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]
 [connection signal="body_entered" from="NavigationRegion3D/CSGCombiner3D2/OmniLight3D/level_trans" to="." method="_on_level_trans_body_entered"]

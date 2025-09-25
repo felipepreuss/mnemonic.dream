@@ -75,7 +75,6 @@ metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
 
 [resource]
 script = ExtResource("1_otyut")
-id = 0
 personagem = "Crystal (eu)"
 texto = "Quem são aqueles ali parados?... oque tá rolando?!?!"
 next_dialog = SubResource("Resource_v5pjx")

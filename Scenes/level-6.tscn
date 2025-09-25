@@ -63,11 +63,13 @@ albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
 albedo_texture = ExtResource("4_dwax7")
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_dwax7")
 
 [node name="Pause" parent="." instance=ExtResource("1_vl8t7")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 1
 material = ExtResource("1_dkb5v")
 offset_right = 1152.0
 offset_bottom = 648.0

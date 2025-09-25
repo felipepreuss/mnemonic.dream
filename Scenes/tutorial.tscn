@@ -118,11 +118,13 @@ size = Vector3(64.5508, 81.1606, 298.005)
 size = Vector3(24.4766, 56.8909, 339.357)
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_h2ono")
 
 [node name="Pause" parent="." instance=ExtResource("1_p1f1o")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 1
 material = ExtResource("1_ys4pu")
 offset_right = 1152.0
 offset_bottom = 648.0

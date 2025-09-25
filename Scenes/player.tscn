@@ -166,6 +166,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989639, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77035, 0)
 script = ExtResource("4_7dp3o")
 
+[node name="interact_ray" type="RayCast3D" parent="head/Camera3D"]
+target_position = Vector3(0, 0, -5)
+
 [node name="WeaponsManager" type="Node3D" parent="head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243636, -0.120761, -0.546164)
 script = ExtResource("2_6t5aa")

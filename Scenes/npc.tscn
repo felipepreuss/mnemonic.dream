@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch8hmp4joua7m"]
+
+[ext_resource type="Script" uid="uid://c51arpxs27s7g" path="res://Script/test_npc.gd" id="1_acqhf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hyhto"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hyhto"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hyhto"]
+size = Vector3(3.5212536, 2.0673828, 4.419548)
+
+[node name="test_npc" type="CharacterBody3D" groups=["NPC"]]
+script = ExtResource("1_acqhf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
+mesh = SubResource("CapsuleMesh_hyhto")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
+shape = SubResource("CapsuleShape3D_hyhto")
+
+[node name="interact_box" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interact_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06538868, 0.5336914, -0.04352951)
+shape = SubResource("BoxShape3D_hyhto")
+
+[connection signal="body_entered" from="interact_box" to="." method="_on_interact_box_body_entered"]
+[connection signal="body_exited" from="interact_box" to="." method="_on_interact_box_body_exited"]
