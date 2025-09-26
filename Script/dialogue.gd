@@ -2,6 +2,7 @@ extends Control
 @onready var ui = $Ui
 @onready var nome = $Ui/PanelContainer/VBoxContainer/Label
 @onready var texto = $Ui/PanelContainer/VBoxContainer/Labelo
+@export var player: Player
 var txt = ""
 
 var dialogo: Dialogo:
@@ -19,11 +20,11 @@ var dialogo: Dialogo:
 		Globals.CabouTexto = true
 func _ready():
 	Dialogue.ui.visible = false
-	process_mode = Node.PROCESS_MODE_ALWAYS
 func _process(delta):
+	if Globals.dialogue_start:
+		if player != null:
+			player.pause_movement()
 	$Ui/PanelContainer/VBoxContainer/Labelo.text = txt
-	if ui.visible:
-		get_tree().paused = true
 	if Input.is_action_just_pressed("Left-Click") and ui.visible and Globals.CabouTexto:
 		if dialogo.next_dialog != null:
 			Globals.CabouTexto = false
@@ -36,4 +37,4 @@ func _process(delta):
 			ui.visible = false
 			Globals.dialogue_end = true
 			Globals.dialogue_start = false
-			get_tree().paused = false
+			player.unpause_movement()

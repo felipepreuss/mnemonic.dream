@@ -92,7 +92,10 @@ func shoot_state(delta):
 		bala.SPEED = Vector3(0, 0, -15)
 		can_shoot = false
 		switch_to_chase()
-
+		
+func _on_bullet_timer_timeout() -> void:
+	if current_state == 1:
+		can_shoot = true
 func switch_to_attack() -> void:
 	if death:
 		set_state(DEATH)
@@ -113,9 +116,6 @@ func calcularDano(dano:int):
 func _on_attack_box_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 			body.HP -= 15
-
-func _on_bullet_timer_timeout() -> void:
-	can_shoot = true
 
 func switch_to_shoot() -> void:
 	if death:

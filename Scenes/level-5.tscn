@@ -56,13 +56,11 @@ uv1_scale = Vector3(3, 3, 3)
 size = Vector3(2963.34, 2.88074, 4741.72)
 
 [node name="Node3D" type="Node3D"]
-process_mode = 3
 script = ExtResource("1_3dipl")
 
 [node name="Pause" parent="." instance=ExtResource("1_ip5ew")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-process_mode = 1
 material = ExtResource("1_hvaeu")
 offset_right = 1152.0
 offset_bottom = 648.0

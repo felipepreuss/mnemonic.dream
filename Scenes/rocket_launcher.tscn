@@ -6,9 +6,9 @@
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_17r6f")
-current_ammo = 6
-ammo = 1
-max_ammo = 6
+current_ammo = 1
+ammo = 6
+max_ammo = 1
 number_balas = 1
 gun_name = "Rocket Launcher"
 metadata/_custom_type_script = "uid://cme4um2042nwv"

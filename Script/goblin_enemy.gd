@@ -33,7 +33,11 @@ func chase_state(delta):
 		bala.dir.x = -transform.basis.x
 		can_shoot = false
 	move_and_slide()
-
+	
+func _on_bullet_timer_timeout() -> void:
+	if current_state == 1:
+		can_shoot = true
+		
 func on_slowdown() -> void:
 	if Globals.chiclete_powerup:
 		SPEED = 0.5

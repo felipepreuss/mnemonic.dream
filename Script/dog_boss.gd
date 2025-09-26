@@ -16,7 +16,7 @@ func _ready():
 	Globals.slowdown.connect(on_slowdown)
 	Globals.score_value = 3000
 	SPEED += 2
-	vida += 8000
+	vida += 5000
 	randomize_patrol()
 func _physics_process(delta: float) -> void:
 	if detect.get_overlapping_bodies().has(player):

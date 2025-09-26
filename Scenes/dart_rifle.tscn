@@ -8,7 +8,7 @@
 script = ExtResource("1_x084r")
 current_ammo = 5
 ammo = 16
-max_ammo = 16
+max_ammo = 5
 can_reload = true
 number_balas = 1
 gun_name = "Dart Rifle"

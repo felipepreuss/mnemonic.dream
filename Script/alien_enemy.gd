@@ -48,7 +48,8 @@ func shoot_state(delta):
 		#bala.transform.basis = $bullet_marker.global_transform.basis
 		#get_parent().add_child(bullet)
 func _on_bullet_timer_timeout() -> void:
-	can_shoot = true
+	if current_state == 5:
+		can_shoot = true
 
 func switch_to_shoot() -> void:
 	if death:

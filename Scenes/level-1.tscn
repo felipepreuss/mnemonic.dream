@@ -71,13 +71,11 @@ albedo_texture = ExtResource("3_8kvl1")
 size = Vector3(3.63489, 5.55518, 6.47559)
 
 [node name="Node3D" type="Node3D"]
-process_mode = 3
 script = ExtResource("1_vshho")
 
 [node name="Pause" parent="." instance=ExtResource("6_b5c44")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-process_mode = 1
 material = ExtResource("1_27dfm")
 offset_right = 40.0
 offset_bottom = 40.0

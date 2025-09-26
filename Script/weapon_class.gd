@@ -85,8 +85,8 @@ func try_shoot():
 		flash.restart()
 		kickb.play('recoil')
 		get_parent().add_shake(0.5)
-		current_gun.current_ammo -= current_gun.number_balas
 		current_gun.have_ammo = current_gun.current_ammo > 0
+		current_gun.current_ammo -= current_gun.number_balas
 	else:
 		current_gun.have_ammo = false
 		print('Sem balas suficientes!')

@@ -39,7 +39,7 @@ const DASH_COOLDOWN = 0.8
 var dash_cooldown_timer = 0.0
 var can_dash = true
 var dash_trail_effect = null
-
+var can_jump = true
 # Camera effects
 var target_fov = 75.0
 const BASE_FOV = 75.0
@@ -82,7 +82,13 @@ func _unhandled_input(event):
 		Head.rotate_y(-event.relative.x * SENSITIVITY)
 		Camera.rotate_x(-event.relative.y * SENSITIVITY)
 		Camera.rotation.x = clamp(Camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-		
+
+func pause_movement():
+	SPEED = 0
+	can_dash = false
+	can_jump = false
+func unpause_movement():
+	can_jump = true
 func interact():
 	var npc = interact_ray.get_collider()
 	if interact_ray.get_collider() != null and npc.is_in_group('NPC'):
@@ -148,7 +154,7 @@ func _physics_process(delta: float) -> void:
 		coyote_time = 0.0  # Reset coyote time when on floor
 	
 	# Handle jump input
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Jump") and can_jump:
 		jump_buffer = 0.0
 	
 	# Handle jump with coyote time and jump buffer

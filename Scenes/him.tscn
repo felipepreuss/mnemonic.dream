@@ -13,10 +13,10 @@ radius = 0.3
 height = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tyhe3"]
-size = Vector3(0.591187, 1.21067, 0.593017)
+size = Vector3(0.591187, 1.4492071, 0.593017)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kv88u"]
-size = Vector3(1, 1, 1.21289)
+size = Vector3(1, 1, 1.2792966)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e7l54"]
 size = Vector3(1, 1, 9.74644)
@@ -31,7 +31,7 @@ material_override = SubResource("StandardMaterial3D_s2nt1")
 mesh = SubResource("SphereMesh_fpiwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0.317064, 0.00329593)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0.43633252, 0.00329593)
 shape = SubResource("BoxShape3D_tyhe3")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
@@ -48,7 +48,7 @@ volume_db = 1.0
 [node name="attack_box" type="Area3D" parent="."]
 
 [node name="collision" type="CollisionShape3D" parent="attack_box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379207, -0.106445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379207, -0.1396483)
 shape = SubResource("BoxShape3D_kv88u")
 
 [node name="Calma" type="Timer" parent="."]
