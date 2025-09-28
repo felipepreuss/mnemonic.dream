@@ -1,16 +1,15 @@
 [gd_scene load_steps=21 format=3 uid="uid://ch6wku1kvhqvk"]
 
 [ext_resource type="Script" uid="uid://4lv7mmebd15d" path="res://Script/shooter_enemy.gd" id="1_yb3rw"]
+[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_4fugf"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_v3ujp"]
-[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_yb3rw"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_yb3rw"]
 [ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="5_13m1b"]
 [ext_resource type="AudioStream" uid="uid://bhirkrycnr28b" path="res://SFX/smgblast.mp3" id="7_4fugf"]
 [ext_resource type="PackedScene" uid="uid://cxl01ln1qwoml" path="res://Assets/Guns/Metralhadora (1).glb" id="7_vuv4i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb3rw"]
-albedo_color = Color(0.0392157, 1, 0.247059, 1)
-albedo_texture = ExtResource("2_yb3rw")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuv4i"]
+albedo_texture = ExtResource("2_4fugf")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v3ujp"]
 height = 2.5
@@ -73,7 +72,7 @@ script = ExtResource("1_yb3rw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_yb3rw")
+material_override = SubResource("StandardMaterial3D_vuv4i")
 mesh = SubResource("CapsuleMesh_v3ujp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]

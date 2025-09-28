@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bw64mksn70x6p" path="res://Script/goblin_enemy.gd" id="1_l7mss"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_ons48"]
-[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_oopm2"]
+[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_oopm2"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_oopm2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k1fa"]
-albedo_color = Color(1, 1, 0, 1)
 albedo_texture = ExtResource("2_oopm2")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cxlqg"]

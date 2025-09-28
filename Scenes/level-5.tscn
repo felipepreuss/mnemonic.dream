@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://ddbgdj4laknmg"]
+[gd_scene load_steps=61 format=4 uid="uid://ddbgdj4laknmg"]
 
 [ext_resource type="Script" uid="uid://bcc83o2tf6e3k" path="res://Script/level_5.gd" id="1_3dipl"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_hvaeu"]
@@ -19,14 +19,15 @@
 [ext_resource type="Material" uid="uid://clm00a7hi1m2h" path="res://Assets/Textures/level-5_BASEWALL.tres" id="14_ljart"]
 [ext_resource type="Script" uid="uid://j4aa0hjpcr1u" path="res://Script/kill_zone.gd" id="14_oedls"]
 [ext_resource type="Texture2D" uid="uid://db81y3h4103p8" path="res://Assets/Textures/CHECKS.JPG" id="15_8qap0"]
-[ext_resource type="Texture2D" uid="uid://bhx2vnlwahle6" path="res://Assets/Textures/Texture_blue_013.jpg" id="15_33x5u"]
 [ext_resource type="Material" uid="uid://ct1mwqpvh82vt" path="res://Scenes/level-5_wall2.tres" id="18_tmyuq"]
 [ext_resource type="Texture2D" uid="uid://dvrf7w1peog8w" path="res://Assets/Textures/1078.jpeg" id="19_4j8wg"]
 [ext_resource type="Texture2D" uid="uid://k67wk3j08dk1" path="res://Assets/Textures/BRICK02.png" id="20_rrhvr"]
 [ext_resource type="Texture2D" uid="uid://d38hugfa4awgx" path="res://Assets/dreams/1.jpg" id="24_k3nuq"]
 [ext_resource type="Texture2D" uid="uid://c4jehbelmtcex" path="res://Assets/dreams/2.jpg" id="25_ma3g0"]
 [ext_resource type="Texture2D" uid="uid://c8p0iokehfbde" path="res://Assets/dreams/3.jpg" id="26_fqnvt"]
+[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="27_5fbal"]
 [ext_resource type="Texture2D" uid="uid://wncmlinnccqg" path="res://Assets/dreams/4.jpg" id="27_fqnvt"]
+[ext_resource type="FontFile" uid="uid://dyla7d6r6jp7o" path="res://Assets/Fonts/Jersey25-Regular.ttf" id="28_w2ra7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2hksx"]
 size = Vector3(94.07922, 18.659302, 87.785095)
@@ -80,10 +81,6 @@ albedo_texture = ExtResource("13_oedls")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrhvr"]
 albedo_texture = ExtResource("14_33x5u")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j8wg"]
-albedo_texture = ExtResource("15_33x5u")
-uv1_scale = Vector3(0.3, 0.3, 0.3)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma3g0"]
 albedo_texture = ExtResource("20_rrhvr")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
@@ -98,8 +95,6 @@ size = Vector3(2963.34, 2.88074, 4741.72)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fbal"]
 shading_mode = 0
 albedo_texture = ExtResource("24_k3nuq")
-uv1_scale = Vector3(0.4, 0.4, 0.4)
-uv1_triplanar = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ma3g0"]
 _surfaces = [{
@@ -113,6 +108,21 @@ _surfaces = [{
 "vertex_count": 24,
 "vertex_data": PackedByteArray("AAAgwAAAIMAAACBAAAAgwAAAIMAAACDAAAAgwAAAIEAAACDAAAAgQAAAIMAAACDAAAAgwAAAIMAAACDAAAAgwAAAIMAAACBAAAAgwAAAIEAAACDAAAAgwAAAIMAAACDAAAAgQAAAIMAAACDAAAAgwAAAIEAAACBAAAAgwAAAIMAAACBAAAAgwAAAIEAAACBAAAAgQAAAIEAAACBAAAAgQAAAIEAAACBAAAAgwAAAIEAAACBAAAAgwAAAIEAAACDAAAAgQAAAIMAAACBAAAAgQAAAIMAAACBAAAAgQAAAIMAAACDAAAAgQAAAIMAAACBAAAAgQAAAIEAAACBAAAAgQAAAIEAAACDAAAAgQAAAIEAAACDAAAAgQAAAIEAAACDAAAAAgP9//n8AAACA/3/+fwAAAID/f/5/AIAAAP//AAAAgAAA//8AAACAAAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAAAgP9//n//f/9/AAD/P/9//38AAP8//3//fwAA/z8AgP////8AAACA/////wAAAID/////AAAAgAAA//8AAP9//38AAP8///8AgP9//n///wCA/3/+f///AID/f/5//////wAA/z8AgP////8AAP//AID/f/5/")
 }]
+
+[sub_resource type="Animation" id="Animation_bo6ho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 6.2831855, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_k3nuq"]
 resource_name = "rotate"
@@ -130,21 +140,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_bo6ho"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.5707964, 6.2831855, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ma3g0"]
 _data = {
 &"RESET": SubResource("Animation_bo6ho"),
@@ -154,19 +149,62 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo6ho"]
 shading_mode = 0
 albedo_texture = ExtResource("25_ma3g0")
-uv1_scale = Vector3(0.8, 0.8, 0.8)
-uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqnvt"]
 shading_mode = 0
 albedo_texture = ExtResource("26_fqnvt")
-uv1_scale = Vector3(0.8, 0.8, 0.8)
-uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2ra7"]
+albedo_texture = ExtResource("27_5fbal")
+grow_amount = 0.995
+stencil_flags = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ebin"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="TextMesh" id="TextMesh_5fbal"]
+text = "He's somewhere else now."
+font = ExtResource("28_w2ra7")
+font_size = 40
+
+[sub_resource type="TextMesh" id="TextMesh_krrsd"]
+text = "It's a slippery slope, you know, Krys?"
+font = ExtResource("28_w2ra7")
+font_size = 60
+
+[sub_resource type="TextMesh" id="TextMesh_w2ra7"]
+text = "dream"
+font = ExtResource("28_w2ra7")
+font_size = 60
+
+[sub_resource type="TextMesh" id="TextMesh_aoi3o"]
+lightmap_size_hint = Vector2i(2, 2)
+add_uv2 = true
+text = "dream"
+font = ExtResource("28_w2ra7")
+font_size = 60
+
+[sub_resource type="TextMesh" id="TextMesh_4ebin"]
+text = "You must know thyself."
+font = ExtResource("28_w2ra7")
+font_size = 45
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krrsd"]
+albedo_color = Color(1, 0, 0.06666667, 1)
+texture_filter = 4
+
+[sub_resource type="TextMesh" id="TextMesh_cc4nx"]
+text = "But it shall not come near you.
+ Only with your eyes shall you look, And see."
+font = ExtResource("28_w2ra7")
+font_size = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoi3o"]
 shading_mode = 0
 albedo_texture = ExtResource("27_fqnvt")
-uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
@@ -591,7 +629,7 @@ material = SubResource("StandardMaterial3D_rrhvr")
 [node name="platform33" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 347.074, -69.6439, 17.4498)
 size = Vector3(2.065, 14.107, 56.3959)
-material = SubResource("StandardMaterial3D_4j8wg")
+material = ExtResource("18_tmyuq")
 
 [node name="platform34" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.3711406e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711406e-08, 351.0302, -69.5708, 2.7954605)
@@ -763,9 +801,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_ma3g0")
 }
 autoplay = "rotate"
+speed_scale = 0.2
 
 [node name="cube2" type="MeshInstance3D" parent="cool_spin_cubes"]
-transform = Transform3D(2, -3.496911e-07, -1.5285484e-14, 0, -8.742278e-08, 2, -3.496911e-07, -2, -8.742278e-08, 326.4471, -27.84375, -7.114729)
+transform = Transform3D(2, -3.496911e-07, -1.5285484e-14, 0, -8.742278e-08, 2, -3.496911e-07, -2, -8.742278e-08, 326.55096, -27.436737, -6.87088)
 material_override = SubResource("StandardMaterial3D_bo6ho")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_ma3g0")
@@ -776,6 +815,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_ma3g0")
 }
 autoplay = "rotate"
+speed_scale = 0.2
 
 [node name="cube3" type="MeshInstance3D" parent="cool_spin_cubes"]
 transform = Transform3D(2, -3.496911e-07, -1.5285484e-14, 0, -8.742278e-08, 2, -3.496911e-07, -2, -8.742278e-08, 193.81477, 0.47847366, -44.71199)
@@ -790,8 +830,114 @@ libraries = {
 }
 autoplay = "rotate"
 
+[node name="cube5" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(2, -3.496911e-07, -1.5285484e-14, 0, -8.742278e-08, 2, -3.496911e-07, -2, -8.742278e-08, 237.67548, 0.47847366, -9.240257)
+material_override = SubResource("StandardMaterial3D_w2ra7")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_ma3g0")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cool_spin_cubes/cube5"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma3g0")
+}
+autoplay = "rotate"
+speed_scale = 0.4
+
+[node name="cube6" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(-1.5861323, 0, 1.2182698, 0, 2, 0, -1.2182698, 0, -1.5861323, 212.13673, -7.479027, -9.30149)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_5fbal")
+skeleton = NodePath("../..")
+
+[node name="cube9" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(1.9999996, -3.496911e-07, -1.528548e-14, 0, -8.742278e-08, 1.9999996, -3.4969105e-07, -2, -8.742276e-08, 242.16507, -7.479027, -4.669198)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_krrsd")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cool_spin_cubes/cube9"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma3g0")
+}
+autoplay = "rotate"
+speed_scale = 0.1
+
+[node name="cube10" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(1.9999996, -3.496911e-07, -1.528548e-14, 0, -8.742278e-08, 1.9999996, -3.4969105e-07, -2, -8.742276e-08, 327.25763, -41.352562, 11.28252)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_w2ra7")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cool_spin_cubes/cube10"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma3g0")
+}
+autoplay = "rotate"
+speed_scale = 0.4
+
+[node name="cube12" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(1.9999996, -3.496911e-07, -1.528548e-14, 0, -8.742278e-08, 1.9999996, -3.4969105e-07, -2, -8.742276e-08, 327.25763, -41.352562, -9.180931)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_w2ra7")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cool_spin_cubes/cube12"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma3g0")
+}
+autoplay = "rotate"
+speed_scale = 0.4
+
+[node name="cube13" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(1.9999996, -3.496911e-07, -1.528548e-14, 0, -8.742278e-08, 1.9999996, -3.4969105e-07, -2, -8.742276e-08, 295.99744, -41.352562, 12.173143)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_w2ra7")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cool_spin_cubes/cube13"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma3g0")
+}
+autoplay = "rotate"
+speed_scale = 0.4
+
+[node name="cube11" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(1.9999996, -3.496911e-07, -1.528548e-14, 0, -8.742278e-08, 1.9999996, -3.4969105e-07, -2, -8.742276e-08, 327.25763, -45.876205, 0.76357746)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_aoi3o")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cool_spin_cubes/cube11"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma3g0")
+}
+autoplay = "rotate"
+speed_scale = 0.4
+
+[node name="cube14" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(0.49186644, 0, -1.9385729, 0, 2, 0, 1.9385729, 0, 0.49186644, 366.66895, -47.301224, 3.2028394)
+material_override = SubResource("StandardMaterial3D_4ebin")
+cast_shadow = 0
+mesh = SubResource("TextMesh_4ebin")
+skeleton = NodePath("../..")
+
+[node name="cube7" type="MeshInstance3D" parent="cool_spin_cubes"]
+transform = Transform3D(1.6892724, 0, -1.0706805, 0, 1.9999998, 0, 1.0706806, 0, 1.6892723, 202.47562, -6.166962, -27.743097)
+material_override = SubResource("StandardMaterial3D_krrsd")
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("TextMesh_cc4nx")
+skeleton = NodePath("../..")
+
 [node name="cube4" type="MeshInstance3D" parent="cool_spin_cubes"]
-transform = Transform3D(2, -3.496911e-07, -1.5285484e-14, 0, -8.742278e-08, 2, -3.496911e-07, -2, -8.742278e-08, 255.83148, -20.738628, 22.198215)
+transform = Transform3D(2.0000002, -6.437289e-07, -1.7560773e-14, 0, -1.6093223e-07, 2.297706, -3.4969113e-07, -3.6817002, -1.0043591e-07, 255.83148, -20.738628, 22.198215)
 material_override = SubResource("StandardMaterial3D_aoi3o")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_ma3g0")

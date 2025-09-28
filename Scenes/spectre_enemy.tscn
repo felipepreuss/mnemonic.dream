@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="1_gdht4"]
 [ext_resource type="Script" uid="uid://y5uf68nvdgdo" path="res://Script/spectre_enemy.gd" id="1_xwd2c"]
-[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_1acgf"]
+[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_1acgf"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="2_xwd2c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0prb"]

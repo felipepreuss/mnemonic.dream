@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://kpfwdeujk13u"]
 
 [ext_resource type="Script" uid="uid://2vcjoi0h7lb8" path="res://Script/guardian_enemy.gd" id="1_8l4be"]
-[ext_resource type="Texture2D" uid="uid://cyvkpf5i46apr" path="res://Assets/fabbri2.png" id="2_c4i4k"]
+[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_c4i4k"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_hem14"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_c4i4k"]
 
