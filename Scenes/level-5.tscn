@@ -1,9 +1,9 @@
 [gd_scene load_steps=61 format=4 uid="uid://ddbgdj4laknmg"]
 
 [ext_resource type="Script" uid="uid://bcc83o2tf6e3k" path="res://Script/level_5.gd" id="1_3dipl"]
-[ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_hvaeu"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="1_ip5ew"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_ihmlp"]
+[ext_resource type="Material" uid="uid://dwcrsqv8prp2y" path="res://Assets/postprocessinglevel5.tres" id="3_5fbal"]
 [ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="5_mbtpm"]
 [ext_resource type="PackedScene" uid="uid://y2cbql8sdien" path="res://Scenes/pop_candy.tscn" id="6_vx1sp"]
 [ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="7_m12sr"]
@@ -51,6 +51,9 @@ sky_material = SubResource("ShaderMaterial_3cmd1")
 background_mode = 2
 sky = SubResource("Sky_3xsek")
 sky_custom_fov = 170.0
+ambient_light_source = 2
+ambient_light_color = Color(0.45529997, 0.4553001, 0.45529985, 1)
+ambient_light_energy = 0.5
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oedls"]
@@ -213,7 +216,7 @@ script = ExtResource("1_3dipl")
 [node name="Pause" parent="." instance=ExtResource("1_ip5ew")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-material = ExtResource("1_hvaeu")
+material = ExtResource("3_5fbal")
 offset_right = 1152.0
 offset_bottom = 648.0
 metadata/_edit_use_anchors_ = true
@@ -238,8 +241,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.86158, -16.106352, 16.3497
 environment = SubResource("Environment_hproo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_energy = 2.0
+transform = Transform3D(-0.86602557, -0.43301266, 0.2499999, 0, 0.49999982, 0.8660251, -0.5000002, 0.74999976, -0.4330125, 0, 0, 0)
+light_energy = 0.5
 light_bake_mode = 1
 
 [node name="pop_candy" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_vx1sp")]
