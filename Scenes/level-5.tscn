@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://ddbgdj4laknmg"]
+[gd_scene load_steps=59 format=4 uid="uid://ddbgdj4laknmg"]
 
 [ext_resource type="Script" uid="uid://bcc83o2tf6e3k" path="res://Script/level_5.gd" id="1_3dipl"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="1_ip5ew"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cx5y24dho4ewb" path="res://Assets/Textures/text_static.jpeg" id="13_nte3n"]
 [ext_resource type="Texture2D" uid="uid://c0eb70urfd0vq" path="res://Assets/Textures/text_blue.jpeg" id="13_oedls"]
 [ext_resource type="Material" uid="uid://ca68ft6cw6uuo" path="res://Scenes/initialplatforms.tres" id="14_6m1sk"]
-[ext_resource type="Texture2D" uid="uid://ddj0n53ue3558" path="res://Assets/Textures/027.jpeg" id="14_33x5u"]
 [ext_resource type="Material" uid="uid://clm00a7hi1m2h" path="res://Assets/Textures/level-5_BASEWALL.tres" id="14_ljart"]
 [ext_resource type="Script" uid="uid://j4aa0hjpcr1u" path="res://Script/kill_zone.gd" id="14_oedls"]
 [ext_resource type="Texture2D" uid="uid://db81y3h4103p8" path="res://Assets/Textures/CHECKS.JPG" id="15_8qap0"]
@@ -80,9 +79,6 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljart"]
 albedo_texture = ExtResource("13_oedls")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrhvr"]
-albedo_texture = ExtResource("14_33x5u")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma3g0"]
 albedo_texture = ExtResource("20_rrhvr")
@@ -173,7 +169,7 @@ font = ExtResource("28_w2ra7")
 font_size = 40
 
 [sub_resource type="TextMesh" id="TextMesh_krrsd"]
-text = "It's a slippery slope, you know, Krys?"
+text = "It's a slippery slope, you know, Crys?"
 font = ExtResource("28_w2ra7")
 font_size = 60
 
@@ -324,9 +320,9 @@ size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_hproo")
 
 [node name="RAmp" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259.364, -20.9037, -28.7719)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259.364, -20.9037, -28.462393)
 use_collision = true
-size = Vector3(53.2855, 1, 14.3557)
+size = Vector3(53.2855, 1, 14.974725)
 material = SubResource("StandardMaterial3D_hproo")
 
 [node name="RAmp2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -510,8 +506,8 @@ size = Vector3(2.065, 14.107, 9.41992)
 material = ExtResource("14_ljart")
 
 [node name="platform24" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 232.496, -21.2751, -16.5169)
-size = Vector3(2.065, 14.107, 9.41992)
+transform = Transform3D(-1, 0, 8.742281e-08, 0, 1, 0, -8.742281e-08, 0, -1, 232.49602, -21.2751, -17.854681)
+size = Vector3(2.065, 14.107, 16.180443)
 material = ExtResource("14_ljart")
 
 [node name="platform35" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -592,11 +588,11 @@ material = ExtResource("18_tmyuq")
 [node name="platform25" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 232.496, -21.2751, -43.0771)
 size = Vector3(2.065, 14.107, 18.8564)
-material = SubResource("StandardMaterial3D_rrhvr")
+material = ExtResource("14_ljart")
 
 [node name="platform51" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 232.496, -24.3844, -27.3209)
-size = Vector3(2.065, 7.88834, 12.0964)
+transform = Transform3D(-1, 0, 8.742281e-08, 0, 1, 0, -8.742281e-08, 0, -1, 232.49487, -24.3844, -27.424978)
+size = Vector3(2.0672755, 7.88834, 12.304548)
 material = ExtResource("14_ljart")
 
 [node name="platform18" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -625,9 +621,9 @@ size = Vector3(2.065, 14.107, 53.4441)
 material = ExtResource("14_ljart")
 
 [node name="platform27" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 260.541, -21.2019, -34.5979)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711402e-08, 260.541, -21.2019, -34.5979)
 size = Vector3(2.065, 14.107, 57.9407)
-material = SubResource("StandardMaterial3D_rrhvr")
+material = ExtResource("14_ljart")
 
 [node name="platform33" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 347.074, -69.6439, 17.4498)
