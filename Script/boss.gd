@@ -2,6 +2,7 @@ extends ProgressBar
 
 @onready var player = $"../../../.."
 @onready var boss_healthbar: ColorRect = $".."
+@onready var label: Label = $Label
 
 func _ready() -> void:
 	if player != null:
@@ -14,3 +15,4 @@ func on_boss_bar_visible():
 	boss_healthbar.visible = true
 	if player.boss != null:
 		max_value = player.boss.vida
+		print(player.boss.boss_name)

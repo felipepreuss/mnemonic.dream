@@ -5,7 +5,7 @@ class_name HimEnemy
 var alien = preload("res://Scenes/enemy.tscn")
 var goblin = preload("res://Scenes/goblin_enemy.tscn")
 var vai = false
-
+var boss_name = "PARENT"
 func _ready():
 	vida += 2800
 	SPEED -= 2.0

@@ -1,7 +1,7 @@
 extends AlienEnemy
 class_name Clone
 var player_moving = false
-
+var boss_name = "DOPPELGANGER"
 const JUMP_VELOCITY = 4.5
 const ACCELERATION = 15.0
 const AIR_ACCELERATION = 5.0

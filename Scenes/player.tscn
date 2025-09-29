@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=36 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Script/power_up.gd" id="7_tx1dd"]
 [ext_resource type="Script" uid="uid://dctki5lgsrowk" path="res://Script/aliens.gd" id="8_gymyn"]
 [ext_resource type="Script" uid="uid://2rc1dthcj3rw" path="res://Script/boss.gd" id="14_fd4e3"]
+[ext_resource type="Script" uid="uid://gpjxspxbvy0m" path="res://Script/boss_label.gd" id="14_qqcod"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -363,14 +364,14 @@ grow_horizontal = 2
 color = Color(1, 1, 1, 0.25098)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="head/HUD/boss"]
+[node name="boss_label" type="Label" parent="head/HUD/boss"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 3.0
 offset_right = 531.0
 offset_bottom = 26.0
-text = "BOSS"
 horizontal_alignment = 1
+script = ExtResource("14_qqcod")
 
 [node name="boss" type="ProgressBar" parent="head/HUD/boss"]
 layout_mode = 0
