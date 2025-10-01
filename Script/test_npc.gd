@@ -46,10 +46,6 @@ func set_state(novo_estado):
 		state_start = true
 
 func dialogue():
-		if change_dialogue == true and show_dialogue == false:
-			Dialogue.dialogo = load('res://Script/Dialogos/test_npc1.tres')
-			change_dialogue = false
 		if show_dialogue:
 			Dialogue.dialogo = load('res://Script/Dialogos/test_npc.tres')
 			show_dialogue = false
-			change_dialogue = true

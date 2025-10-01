@@ -1,4 +1,5 @@
 extends NPC
+class_name SecretaryNPC
 
 func _on_interact_box_body_entered(body: Node3D) -> void:
 	if body.name == "player":

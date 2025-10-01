@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dajiyxnp3ra1w"]
+
+[ext_resource type="Script" uid="uid://bc5o240h7j2p2" path="res://Script/tina_npc.gd" id="1_h07w8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dl0si"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iatbi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hyhto"]
+size = Vector3(10, 2, 10)
+
+[node name="tina_npc" type="CharacterBody3D" groups=["NPC"]]
+script = ExtResource("1_h07w8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
+mesh = SubResource("CapsuleMesh_dl0si")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
+shape = SubResource("SphereShape3D_iatbi")
+
+[node name="interact_box" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interact_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48561716, 0.48140907, -0.026809692)
+shape = SubResource("BoxShape3D_hyhto")
+
+[connection signal="body_entered" from="interact_box" to="." method="_on_interact_box_body_entered"]
+[connection signal="body_exited" from="interact_box" to="." method="_on_interact_box_body_exited"]

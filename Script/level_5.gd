@@ -4,6 +4,7 @@ extends Node3D
 
 func _ready() -> void:
 	player.powerup_check()
+	Dialogue.player = player
 	Globals.dialogue_end = true
 	Globals.got_pistol = true
 	Globals.got_shotgun = true

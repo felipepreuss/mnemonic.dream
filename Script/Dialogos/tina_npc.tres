@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Dialogo" load_steps=4 format=3 uid="uid://ctyh83sk4bxw2"]
+
+[ext_resource type="Script" uid="uid://cgpdyh7vnrsoy" path="res://Script/Dialogo.gd" id="1_nr71t"]
+
+[sub_resource type="Resource" id="Resource_nr71t"]
+script = ExtResource("1_nr71t")
+id = 2
+personagem = "TINA"
+texto = "Relaxa mana, você vai ajudar a gente a sair dessa. Você é a melhor! (Você vai né?)"
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_7suar"]
+script = ExtResource("1_nr71t")
+id = 1
+personagem = "TINA"
+texto = "Meu Deus do céu o que que tá rolando com você e com o mundo hoje?"
+next_dialog = SubResource("Resource_nr71t")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[resource]
+script = ExtResource("1_nr71t")
+personagem = "TINA"
+texto = "Você tá aqui? Então quem era aquela?"
+next_dialog = SubResource("Resource_7suar")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

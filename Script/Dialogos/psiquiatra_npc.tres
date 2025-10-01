@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Dialogo" load_steps=4 format=3 uid="uid://cnckp73ytkbmj"]
+
+[ext_resource type="Script" uid="uid://cgpdyh7vnrsoy" path="res://Script/Dialogo.gd" id="1_rujqd"]
+
+[sub_resource type="Resource" id="Resource_rujqd"]
+script = ExtResource("1_rujqd")
+id = 2
+personagem = "PSIQUIATRA"
+texto = "Qualquer coisa, por favor, fale comigo. Estamos todos aqui para te ajudar."
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[sub_resource type="Resource" id="Resource_bosg1"]
+script = ExtResource("1_rujqd")
+id = 1
+personagem = "PSIQUIATRA"
+texto = "Esse é o começo do fim desta jornada."
+next_dialog = SubResource("Resource_rujqd")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"
+
+[resource]
+script = ExtResource("1_rujqd")
+personagem = "PSIQUIATRA"
+texto = "Você avançou muito nesse tempo. Olha todo o progresso que você fez até aqui."
+next_dialog = SubResource("Resource_bosg1")
+metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

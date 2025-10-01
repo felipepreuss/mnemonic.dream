@@ -202,9 +202,9 @@ func _physics_process(delta: float) -> void:
 	Camera.fov = lerp(Camera.fov, target_fov, 10 * delta)
 
 	if Globals.pop_candy_powerup == true:
-		SPEED = 10
+		SPEED = 12
 	else:
-		SPEED = 5
+		SPEED = 7
 		
 	move_and_slide()
 
