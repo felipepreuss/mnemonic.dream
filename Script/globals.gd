@@ -109,7 +109,12 @@ func set_time_tracking_active(active: bool):
 #reset all level times
 func reset_all_level_times():
 	level_times.clear()
-
+func gun_reset():
+	got_pistol = false
+	got_shotgun = false
+	got_smg = false
+	got_dart = false
+	got_rocket = false
 
 func _physics_process(delta: float) -> void:
 	if Globals.chiclete_powerup:

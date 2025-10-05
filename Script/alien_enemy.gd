@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 		SHOOT:
 			shoot_state(delta)
 	if Globals.contador <= 2 or Globals.boss_killed:
-		print(Globals.contador)
 		if enemy_material != null:
 			enemy_material.set_stencil_mode(2)
 			enemy_material.stencil_color = Color(255,255,0)

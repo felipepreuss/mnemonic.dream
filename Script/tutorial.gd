@@ -11,6 +11,7 @@ func _process(float):
 		if SfxManager.woah_aliens.playing:
 			SfxManager.woah_aliens.stop()
 func _ready():
+	Globals.current_level = 0
 	Dialogue.dialogo = load('res://Script/Dialogos/0.tres')
 	Dialogue.player = player
 	Globals.is_tutorial = true

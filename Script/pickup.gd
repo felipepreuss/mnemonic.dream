@@ -5,6 +5,7 @@ extends Area3D
 @export var enemy: CharacterBody3D
 var orphan = false
 var can_get_gun = false
+
 func _ready() -> void:
 	if enemy != null:
 		enemy.on_death.connect(_on_enemy_on_death)

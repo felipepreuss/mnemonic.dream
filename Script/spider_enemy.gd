@@ -30,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		SHOOT:
 			shoot_state(delta)
 	if Globals.contador <= 2 or Globals.boss_killed:
-		print(Globals.contador)
 		enemy_spider_material.set_stencil_mode(2)
 		enemy_spider_material.stencil_color = Color(255,255,0)
 	if run_speed > max_speed:

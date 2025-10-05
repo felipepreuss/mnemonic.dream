@@ -47,7 +47,7 @@ volume_db = 1.0
 autostart = true
 
 [node name="bullet_marker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.249993, -0.142254)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.62553525, -0.142254)
 
 [node name="player_detect" type="Area3D" parent="."]
 

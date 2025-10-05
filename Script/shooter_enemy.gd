@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		DEATH:
 			death_state(delta)
 	if Globals.contador <= 2 or Globals.boss_killed:
-		print(Globals.contador)
 		enemy_shooter_material.set_stencil_mode(2)
 		enemy_shooter_material.stencil_color = Color(255,255,0)
 func chase_state(delta):
