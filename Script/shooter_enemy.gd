@@ -5,7 +5,7 @@ var can_shoot = false
 @onready var aim = $RayCast3D
 @onready var flash = $flash
 @onready var gun_sound = $gun_fire
-
+var enemy_shooter_material = load("res://Scenes/shooter_enemy.tscn::StandardMaterial3D_vuv4i")
 func _ready():
 	Globals.max_contador += 1
 	Globals.contador += 1
@@ -24,7 +24,10 @@ func _physics_process(delta: float) -> void:
 			retreat_state(delta)
 		DEATH:
 			death_state(delta)
-
+	if Globals.contador <= 2 or Globals.boss_killed:
+		print(Globals.contador)
+		enemy_shooter_material.set_stencil_mode(2)
+		enemy_shooter_material.stencil_color = Color(255,255,0)
 func chase_state(delta):
 	if death:
 		set_state(DEATH)

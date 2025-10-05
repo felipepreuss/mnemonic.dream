@@ -3,6 +3,7 @@ extends Node3D
 @onready var level_trans: Area3D = $level_trans
 
 func _ready() -> void:
+	Globals.boss_killed = false
 	player.powerup_check()
 	Dialogue.player = player
 	Globals.dialogue_end = true
@@ -15,12 +16,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	get_tree().call_group("Enemy","update_target_location", player.global_transform.origin)
-	if Globals.contador <= 0:
+	if Globals.boss_killed == true:
 		level_trans.set_deferred("monitoring",true)
 	else:
 		level_trans.set_deferred("monitoring",false)
 func _on_level_trans_body_entered(body: Node3D) -> void:
-	if body.name == "player" and Globals.contador <= 0:
+	if body.name == "player":
 		Globals.stop_scene_time_tracking()
 		body.reset_powerups()
 		get_tree().change_scene_to_file.call_deferred("res://Scenes/level_complete.tscn")

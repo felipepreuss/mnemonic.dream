@@ -1,5 +1,5 @@
 extends AlienEnemy
-
+var enemy_goblin_material = load("res://Scenes/goblin_enemy.tscn::StandardMaterial3D_2k1fa")
 func _ready() -> void:
 	SPEED = 5.0
 	vida = 75
@@ -7,6 +7,26 @@ func _ready() -> void:
 	Globals.contador += 1
 	score_value = 50
 	Globals.slowdown.connect(on_slowdown)
+
+func _physics_process(delta: float) -> void:
+	match current_state:
+		IDLE:
+			idle_state(delta)
+		CHASE:
+			chase_state(delta)
+		ATTACK:
+			attack_state(delta)
+		RETREAT:
+			retreat_state(delta)
+		DEATH:
+			death_state(delta)
+		SHOOT:
+			shoot_state(delta)
+	if Globals.contador <= 2 or Globals.boss_killed:
+		print(Globals.contador)
+		if enemy_goblin_material != null:
+			enemy_goblin_material.set_stencil_mode(2)
+			enemy_goblin_material.stencil_color = Color(255,255,0)
 
 func chase_state(delta):
 	if death:

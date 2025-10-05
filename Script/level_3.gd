@@ -7,6 +7,7 @@ func _ready() -> void:
 	Globals.got_pistol = true
 	Globals.got_shotgun = true
 	Globals.start_scene_time_tracking()
+	Dialogue.player = player
 	player.get_weapons()
 func _physics_process(delta: float) -> void:
 	get_tree().call_group("Enemy","update_target_location", player.global_transform.origin)

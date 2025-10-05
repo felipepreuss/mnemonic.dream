@@ -2,6 +2,7 @@ extends Node3D
 @onready var player = $SubViewportContainer/SubViewport/player
 
 func _ready() -> void:
+	Globals.boss_killed = false
 	player.powerup_check()
 	Globals.dialogue_end = true
 	Globals.got_pistol = true

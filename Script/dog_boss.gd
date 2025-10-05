@@ -85,6 +85,18 @@ func chase_state(delta):
 	look_at(player.global_transform.origin + new_dir, Vector3.UP)
 	rotation.x = 0
 	move_and_slide()
+	
+func death_state(delta):
+	emit_signal("on_death")
+	$alienDeath.play()
+	
+func _on_alien_death_finished() -> void:
+		Globals.contador -= 1
+		print("inimigos",Globals.contador)
+		Globals.score += score_value
+		print("score",Globals.score)
+		Globals.boss_killed = true
+		queue_free()
 
 func randomize_patrol():
 	var rng = RandomNumberGenerator.new()

@@ -3,6 +3,7 @@ class_name AlienEnemy
 
 var bullet = preload("res://Scenes/bullet_enemy.tscn")
 var can_shoot = false
+var enemy_material = load("res://Scenes/enemy.tscn::StandardMaterial3D_0830c")
 
 func _ready():
 	Globals.max_contador += 1
@@ -24,6 +25,11 @@ func _physics_process(delta: float) -> void:
 			death_state(delta)
 		SHOOT:
 			shoot_state(delta)
+	if Globals.contador <= 2 or Globals.boss_killed:
+		print(Globals.contador)
+		if enemy_material != null:
+			enemy_material.set_stencil_mode(2)
+			enemy_material.stencil_color = Color(255,255,0)
 func shoot_state(delta):
 	if death:
 		set_state(DEATH)

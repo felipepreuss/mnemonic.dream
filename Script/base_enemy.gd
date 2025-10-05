@@ -44,7 +44,6 @@ func _physics_process(delta: float) -> void:
 			retreat_state(delta)
 		DEATH:
 			death_state(delta)
-
 func idle_state(delta):
 	if death:
 		set_state(DEATH)

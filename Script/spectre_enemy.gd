@@ -14,7 +14,7 @@ var visibility_duration = 1.5    # Shorter visibility window
 var fire_rate = 2.5     # Slower fire rate (seconds between shots)
 var last_fire_time = 0.0
 var movement_speed_multiplier = 0.7  # Slower, more deliberate movement
-
+var enemy_spectre_material = load("res://Scenes/spectre_enemy.tscn::StandardMaterial3D_u0prb")
 # Gravity variables
 var gravity = 20.0
 var is_on_floor = false
@@ -24,7 +24,25 @@ func _ready():
 	Globals.contador += 1
 	score_value = 300
 	Globals.slowdown.connect(on_slowdown)
-	
+
+func _physics_process(delta: float) -> void:
+	match current_state:
+		IDLE:
+			idle_state(delta)
+		CHASE:
+			chase_state(delta)
+		ATTACK:
+			attack_state(delta)
+		RETREAT:
+			retreat_state(delta)
+		DEATH:
+			death_state(delta)
+		SHOOT:
+			shoot_state(delta)
+	if Globals.contador <= 2 or Globals.boss_killed:
+		print(Globals.contador)
+		enemy_spectre_material.set_stencil_mode(2)
+		enemy_spectre_material.stencil_color = Color(255,255,0)
 func idle_state(delta):
 	if death:
 		set_state(DEATH)

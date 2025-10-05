@@ -91,6 +91,7 @@ func _on_alien_death_finished() -> void:
 		print("inimigos",Globals.contador)
 		Globals.score += score_value
 		print("score",Globals.score)
+		Globals.boss_killed = true
 		queue_free()
 
 func _on_calma_timeout() -> void:

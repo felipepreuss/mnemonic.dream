@@ -8,3 +8,7 @@ func _ready() -> void:
 func on_boss_bar_visible():
 	if player.boss != null:
 		text = player.boss.boss_name
+
+func _physics_process(delta: float) -> void:
+	if player.boss == null:
+		text = ""

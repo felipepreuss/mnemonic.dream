@@ -5,7 +5,7 @@ var run_speed = 5
 var min_speed = 4
 @onready var AttackBox = $attack_box
 var can_hit = false
-
+var enemy_spider_material = load("res://Scenes/spider_enemy.tscn::StandardMaterial3D_tyhe3")
 var bullet = preload("res://Scenes/enemy_projectile.tscn")
 var can_shoot = false
 
@@ -29,6 +29,10 @@ func _physics_process(delta: float) -> void:
 			death_state(delta)
 		SHOOT:
 			shoot_state(delta)
+	if Globals.contador <= 2 or Globals.boss_killed:
+		print(Globals.contador)
+		enemy_spider_material.set_stencil_mode(2)
+		enemy_spider_material.stencil_color = Color(255,255,0)
 	if run_speed > max_speed:
 		run_speed = max_speed
 	elif run_speed < min_speed:
