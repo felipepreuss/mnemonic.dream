@@ -96,4 +96,4 @@ func _on_alien_death_finished() -> void:
 
 func _on_calma_timeout() -> void:
 	vai = true
-	print("oooh yeah")
+	print("vai")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=48 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -10,11 +10,14 @@
 [ext_resource type="Script" uid="uid://4m555yw0c1ds" path="res://Script/NewShake.gd" id="4_7dp3o"]
 [ext_resource type="Script" uid="uid://b5lk0im56olf8" path="res://Script/life.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://yvigbgbg8i5g" path="res://Script/hp.gd" id="5_pu2lt"]
-[ext_resource type="Script" uid="uid://cw3w6ct1amurw" path="res://Script/gun.gd" id="6_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://cyoyq5ejonka2" path="res://Scenes/taco.tscn" id="6_h4iuc"]
 [ext_resource type="AudioStream" uid="uid://c8vtvxw1d5806" path="res://SFX/jumpnoise.mp3" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://c5j22ky6s41e6" path="res://Script/power_up.gd" id="7_tx1dd"]
 [ext_resource type="Script" uid="uid://dctki5lgsrowk" path="res://Script/aliens.gd" id="8_gymyn"]
+[ext_resource type="Script" uid="uid://bycph3h476avg" path="res://Script/chocolate_tutorial.gd" id="8_l6n3p"]
+[ext_resource type="Script" uid="uid://pcktlnyrxo4p" path="res://Script/gun_hud.gd" id="8_qqcod"]
+[ext_resource type="Script" uid="uid://cjxcbe4c1il50" path="res://Script/pop_candy_tutorial.gd" id="9_olqyp"]
+[ext_resource type="Script" uid="uid://ds3pqk2ax35l4" path="res://Script/chiclete_tutorial.gd" id="10_wpjfl"]
 [ext_resource type="Script" uid="uid://2rc1dthcj3rw" path="res://Script/boss.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://gpjxspxbvy0m" path="res://Script/boss_label.gd" id="14_qqcod"]
 
@@ -132,6 +135,225 @@ _data = {
 &"switch_gun": SubResource("Animation_h4iuc")
 }
 
+[sub_resource type="Animation" id="Animation_l6n3p"]
+resource_name = "color"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.39080548, 0.39080545, 0.39080545, 1), Color(0.39080548, 0.39080545, 0.39080545, 1), Color(0.39215687, 0.39215687, 0.39215687, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_olqyp"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olqyp"]
+_data = {
+&"RESET": SubResource("Animation_olqyp"),
+&"color": SubResource("Animation_l6n3p")
+}
+
+[sub_resource type="Animation" id="Animation_wpjfl"]
+resource_name = "color"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.39215687, 0.39215687, 0.39215687, 1), Color(0.39215687, 0.39215687, 0.39215687, 1), Color(0.39215687, 0.39215687, 0.39215687, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bi64h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.39080548, 0.39080545, 0.39080545, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bi64h"]
+_data = {
+&"RESET": SubResource("Animation_bi64h"),
+&"color": SubResource("Animation_wpjfl")
+}
+
+[sub_resource type="Animation" id="Animation_2ijsl"]
+resource_name = "color"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.39080548, 0.39080545, 0.39080545, 1), Color(0.39215687, 0.39215687, 0.39215687, 1), Color(0.39215687, 0.39215687, 0.39215687, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.4666667, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_p1odr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.39080548, 0.39080545, 0.39080545, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gysh"]
+_data = {
+&"RESET": SubResource("Animation_p1odr"),
+&"color": SubResource("Animation_2ijsl")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd4e3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqcod"]
@@ -202,11 +424,266 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="chocolate_tutorial" type="ColorRect" parent="head/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.925
+anchor_right = 5.725
+anchor_bottom = 8.45
+grow_vertical = 2
+color = Color(0.39080548, 0.39080545, 0.39080545, 1)
+script = ExtResource("8_l6n3p")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="head/HUD/chocolate_tutorial"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "\"Chocolate\"
+
+Gain +70 HP."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/HUD/chocolate_tutorial"]
+libraries = {
+&"": SubResource("AnimationLibrary_olqyp")
+}
+
+[node name="pop_candy_tutorial" type="ColorRect" parent="head/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.925
+anchor_right = 5.725
+anchor_bottom = 8.45
+grow_vertical = 2
+color = Color(0.39080548, 0.39080545, 0.39080545, 1)
+script = ExtResource("9_olqyp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="head/HUD/pop_candy_tutorial"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "\"Pop Candy\"
+\"Pops in your mouth!\"
+
+Consume to gain speed.
+Effect lasts for 10 seconds!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/HUD/pop_candy_tutorial"]
+libraries = {
+&"": SubResource("AnimationLibrary_bi64h")
+}
+
+[node name="chiclete_tutorial" type="ColorRect" parent="head/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.925
+anchor_right = 5.725
+anchor_bottom = 8.45
+grow_vertical = 2
+color = Color(0.39080548, 0.39080545, 0.39080545, 1)
+script = ExtResource("10_wpjfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="head/HUD/chiclete_tutorial"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "\"Chiclete\"
+
+Consume to slow down 
+enemies. 
+Effect lasts for 10 seconds!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/HUD/chiclete_tutorial"]
+libraries = {
+&"": SubResource("AnimationLibrary_0gysh")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="head/HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Guns" type="Control" parent="head/HUD"]
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 60.0
+offset_bottom = 52.0
+script = ExtResource("8_qqcod")
+
+[node name="1" type="ColorRect" parent="head/HUD/Guns"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 554.0
+offset_right = 67.0
+offset_bottom = 629.0
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Label" type="Label" parent="head/HUD/Guns/1"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 27.0
+text = "1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="head/HUD/Guns/1"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 69.0
+offset_bottom = 50.0
+text = "Taco"
+horizontal_alignment = 1
+
+[node name="2" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
+layout_mode = 0
+offset_left = 69.0
+offset_top = 554.0
+offset_right = 138.0
+offset_bottom = 629.0
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Label" type="Label" parent="head/HUD/Guns/2"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 27.0
+text = "2"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="head/HUD/Guns/2"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 69.0
+offset_bottom = 50.0
+text = "Pistola"
+horizontal_alignment = 1
+
+[node name="3" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 554.0
+offset_right = 209.0
+offset_bottom = 629.0
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Label" type="Label" parent="head/HUD/Guns/3"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 27.0
+text = "3"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="head/HUD/Guns/3"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 69.0
+offset_bottom = 50.0
+text = "Shotgun"
+horizontal_alignment = 1
+
+[node name="4" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
+layout_mode = 0
+offset_left = 211.0
+offset_top = 554.0
+offset_right = 280.0
+offset_bottom = 629.0
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Label" type="Label" parent="head/HUD/Guns/4"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 27.0
+text = "4"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="head/HUD/Guns/4"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 69.0
+offset_bottom = 50.0
+text = "SMG"
+horizontal_alignment = 1
+
+[node name="5" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
+layout_mode = 0
+offset_left = 282.0
+offset_top = 554.0
+offset_right = 351.0
+offset_bottom = 629.0
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Label" type="Label" parent="head/HUD/Guns/5"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 27.0
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="head/HUD/Guns/5"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 69.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 14
+text = "Dart 
+Rifle"
+horizontal_alignment = 1
+
+[node name="6" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
+layout_mode = 0
+offset_left = 353.0
+offset_top = 554.0
+offset_right = 422.0
+offset_bottom = 629.0
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Label" type="Label" parent="head/HUD/Guns/6"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 27.0
+text = "6
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="head/HUD/Guns/6"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 69.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 14
+text = "Rocket
+Launcher"
+horizontal_alignment = 1
+
 [node name="Ammo" type="ColorRect" parent="head/HUD"]
 layout_mode = 0
-offset_left = 439.0
+offset_left = 554.0
 offset_top = 560.0
-offset_right = 545.0
+offset_right = 660.0
 offset_bottom = 621.0
 color = Color(1, 1, 1, 0.247059)
 
@@ -231,9 +708,9 @@ manager = NodePath("../../../Camera3D/WeaponsManager")
 
 [node name="Health" type="ColorRect" parent="head/HUD"]
 layout_mode = 0
-offset_left = 319.0
+offset_left = 450.0
 offset_top = 560.0
-offset_right = 418.0
+offset_right = 549.0
 offset_bottom = 621.0
 color = Color(1, 1, 1, 0.25098)
 
@@ -270,40 +747,11 @@ offset_right = 69.0
 offset_bottom = 57.0
 script = ExtResource("5_8erm5")
 
-[node name="Gun" type="ColorRect" parent="head/HUD"]
-layout_mode = 0
-offset_left = 567.0
-offset_top = 560.0
-offset_right = 673.0
-offset_bottom = 621.0
-color = Color(1, 1, 1, 0.247059)
-
-[node name="Label" type="Label" parent="head/HUD/Gun"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 4.0
-offset_right = 77.0
-offset_bottom = 27.0
-text = "Gun"
-horizontal_alignment = 1
-
-[node name="Gun" type="Label" parent="head/HUD/Gun" node_paths=PackedStringArray("manager")]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 31.0
-offset_right = 103.0
-offset_bottom = 54.0
-text = " "
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("6_f1ek2")
-manager = NodePath("../../../Camera3D/WeaponsManager")
-
 [node name="Drogas" type="ColorRect" parent="head/HUD"]
 layout_mode = 0
-offset_left = 690.0
+offset_left = 694.0
 offset_top = 536.0
-offset_right = 796.0
+offset_right = 800.0
 offset_bottom = 639.0
 color = Color(1, 1, 1, 0.247059)
 
@@ -414,8 +862,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6503, 0)
 shape = SubResource("CapsuleShape3D_8erm5")
 debug_color = Color(0.628337, 0, 0.201289, 0.42)
 
+[node name="chiclete_tutorial" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_top = 4.925
+anchor_right = 5.725
+anchor_bottom = 8.45
+grow_vertical = 2
+color = Color(0.39080548, 0.39080545, 0.39080545, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="chiclete_tutorial"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 139.0
+text = "\"Pop Candy\"
+\"Pops in your mouth!\"
+
+
+Consume to gain speed."
+
 [connection signal="finished" from="Walk1" to="." method="_on_walk_1_finished"]
 [connection signal="finished" from="Walk2" to="." method="_on_walk_2_finished"]
+[connection signal="animation_finished" from="head/HUD/chocolate_tutorial/AnimationPlayer" to="head/HUD/chocolate_tutorial" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="head/HUD/pop_candy_tutorial/AnimationPlayer" to="head/HUD/pop_candy_tutorial" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="head/HUD/chiclete_tutorial/AnimationPlayer" to="head/HUD/chiclete_tutorial" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="enemy_box" to="." method="_on_enemy_box_body_entered"]
 [connection signal="body_exited" from="enemy_box" to="." method="_on_enemy_box_body_exited"]
 [connection signal="finished" from="AudioStreamPlayer3D2" to="." method="_on_audio_stream_player_3d_2_finished"]

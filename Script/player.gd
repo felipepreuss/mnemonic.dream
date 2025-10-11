@@ -7,6 +7,11 @@ class_name Player
 @onready var walk_1: AudioStreamPlayer3D = $Walk1
 @onready var walk_2: AudioStreamPlayer3D = $Walk2
 @export var boss : CharacterBody3D
+
+@onready var chocolate_tutorial: ColorRect = $head/HUD/chocolate_tutorial
+@onready var pop_candy_tutorial: ColorRect = $head/HUD/pop_candy_tutorial
+@onready var chiclete_tutorial: ColorRect = $head/HUD/chiclete_tutorial
+
 signal boss_bar_visible
 var can_spawn_boss = true
 #@onready var vida = $head/HUD/Color/Vbox/Vida
@@ -66,7 +71,7 @@ signal healthChanged
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-#	vida.value = life_value
+	#	vida.value = life_value
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	crosshair.position.x = get_viewport().size.x / 2 - 36
 	crosshair.position.y = get_viewport().size.y / 2 - 36
@@ -285,11 +290,13 @@ func powerup(powerup):
 func powerup_check():
 	if Globals.get_chiclete:
 		power_up = "chiclete"
+		chiclete_tutorial.visible = true
 	elif Globals.get_pop_candy:
 		power_up = "pop_candy"
+		pop_candy_tutorial.visible = true
 	elif Globals.get_chocolate:
 		power_up = "chocolate"
-
+		chocolate_tutorial.visible = true
 func reset_powerups():
 	Globals.pop_candy_powerup = false
 	Globals.chiclete_powerup = false
@@ -299,7 +306,7 @@ func get_weapons():
 	var weapons_manager = find_child("WeaponsManager")
 	if weapons_manager:
 		weapons_manager.weapon_check()
-		
+
 func _on_enemy_box_body_entered(body: Node3D) -> void:
 	#if body.is_in_group("Enemy"):
 		#if body.has_method("switch_to_shoot"):
