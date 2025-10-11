@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=63 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://ds3pqk2ax35l4" path="res://Script/chiclete_tutorial.gd" id="10_wpjfl"]
 [ext_resource type="FontFile" uid="uid://dyxwcqkhw3xu4" path="res://Assets/Fonts/Jersey10-Regular.ttf" id="11_olqyp"]
 [ext_resource type="Texture2D" uid="uid://cpwjsip8d0n8j" path="res://Assets/Guns/gun_icons/bat-icon.png" id="13_wpjfl"]
+[ext_resource type="Shader" uid="uid://clk2ghtv0a3h6" path="res://Script/gun_icons.gdshader" id="13_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://c6pw2dfuwoget" path="res://Assets/Guns/gun_icons/pistol-icon.png" id="14_bi64h"]
 [ext_resource type="Script" uid="uid://2rc1dthcj3rw" path="res://Script/boss.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://gpjxspxbvy0m" path="res://Script/boss_label.gd" id="14_qqcod"]
@@ -365,6 +366,36 @@ _data = {
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("11_olqyp")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypfnu"]
+shader = ExtResource("13_y6uwr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83xs0"]
+shader = ExtResource("13_y6uwr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6uwr"]
+shader = ExtResource("13_y6uwr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuaoq"]
+shader = ExtResource("13_y6uwr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wohnl"]
+shader = ExtResource("13_y6uwr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36dho"]
+shader = ExtResource("13_y6uwr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd4e3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqcod"]
@@ -557,11 +588,12 @@ horizontal_alignment = 1
 
 [node name="icon" type="TextureRect" parent="head/HUD/Guns/1"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_ypfnu")
 layout_mode = 0
 offset_left = 5.0
-offset_top = 20.0
+offset_top = 17.0
 offset_right = 69.0
-offset_bottom = 84.0
+offset_bottom = 81.0
 texture = ExtResource("13_wpjfl")
 
 [node name="2" type="ColorRect" parent="head/HUD/Guns"]
@@ -582,13 +614,14 @@ offset_bottom = 21.0
 text = "2"
 horizontal_alignment = 1
 
-[node name="Label2" type="TextureRect" parent="head/HUD/Guns/2"]
+[node name="icon" type="TextureRect" parent="head/HUD/Guns/2"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_83xs0")
 layout_mode = 0
 offset_left = 17.0
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 48.0
-offset_bottom = 80.0
+offset_bottom = 76.0
 texture = ExtResource("14_bi64h")
 stretch_mode = 4
 
@@ -612,6 +645,7 @@ horizontal_alignment = 1
 
 [node name="icon" type="TextureRect" parent="head/HUD/Guns/3"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_y6uwr")
 layout_mode = 0
 offset_left = 1.0
 offset_top = 38.0
@@ -640,6 +674,7 @@ horizontal_alignment = 1
 
 [node name="icon" type="TextureRect" parent="head/HUD/Guns/4"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_xuaoq")
 layout_mode = 0
 offset_left = 13.0
 offset_top = 37.0
@@ -666,8 +701,9 @@ offset_bottom = 21.0
 text = "5"
 horizontal_alignment = 1
 
-[node name="Label2" type="TextureRect" parent="head/HUD/Guns/5"]
+[node name="icon" type="TextureRect" parent="head/HUD/Guns/5"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_wohnl")
 layout_mode = 0
 offset_left = 10.0
 offset_top = 29.0
@@ -695,8 +731,9 @@ text = "6
 "
 horizontal_alignment = 1
 
-[node name="Label2" type="TextureRect" parent="head/HUD/Guns/6"]
+[node name="icon" type="TextureRect" parent="head/HUD/Guns/6"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_36dho")
 layout_mode = 0
 offset_left = 2.0
 offset_top = 15.0

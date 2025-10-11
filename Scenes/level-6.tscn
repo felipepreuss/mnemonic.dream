@@ -15,7 +15,7 @@
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="11_dst8n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0cdk7"]
-size = Vector3(7.692478, 4.0478516, 27.22168)
+size = Vector3(7.692478, 4.0478516, 19.506195)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cdk7"]
 shader = ExtResource("5_dst8n")
@@ -83,7 +83,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.584381, 1.360035, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/boss_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20604134, 1.5239258, 8.779785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20604134, 1.5239258, 4.922043)
 shape = SubResource("BoxShape3D_0cdk7")
 
 [node name="player" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("boss") instance=ExtResource("2_bj0im")]
