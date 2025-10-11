@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=65 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://ds3pqk2ax35l4" path="res://Script/chiclete_tutorial.gd" id="10_wpjfl"]
 [ext_resource type="FontFile" uid="uid://dyxwcqkhw3xu4" path="res://Assets/Fonts/Jersey10-Regular.ttf" id="11_olqyp"]
 [ext_resource type="Texture2D" uid="uid://cpwjsip8d0n8j" path="res://Assets/Guns/gun_icons/bat-icon.png" id="13_wpjfl"]
-[ext_resource type="Shader" uid="uid://clk2ghtv0a3h6" path="res://Script/gun_icons.gdshader" id="13_y6uwr"]
+[ext_resource type="Shader" path="res://Script/gun_icons.gdshader" id="13_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://c6pw2dfuwoget" path="res://Assets/Guns/gun_icons/pistol-icon.png" id="14_bi64h"]
 [ext_resource type="Script" uid="uid://2rc1dthcj3rw" path="res://Script/boss.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://gpjxspxbvy0m" path="res://Script/boss_label.gd" id="14_qqcod"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bylytr0avlmjp" path="res://Assets/Guns/gun_icons/smg-icon.png" id="16_vfarp"]
 [ext_resource type="Texture2D" uid="uid://banag1tjvws44" path="res://Assets/Guns/gun_icons/dart-icon.png" id="17_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://bveafgsey42nv" path="res://Assets/Guns/gun_icons/rocket-icon.png" id="18_83xs0"]
+[ext_resource type="Texture2D" uid="uid://fry10vjof0xh" path="res://Assets/alien-icon.png" id="24_83xs0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -396,6 +397,14 @@ shader = ExtResource("13_y6uwr")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83xs0"]
+bg_color = Color(0.25882354, 0, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0.8)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd4e3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqcod"]
@@ -744,26 +753,41 @@ texture = ExtResource("18_83xs0")
 [node name="Ammo" type="ColorRect" parent="head/HUD"]
 layout_mode = 0
 offset_left = 554.0
-offset_top = 560.0
+offset_top = 578.0
 offset_right = 660.0
-offset_bottom = 621.0
-color = Color(1, 1, 1, 0.247059)
+offset_bottom = 639.0
+color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="head/HUD/Ammo"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 4.0
-offset_right = 77.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_top = -9.0
+offset_right = 26.5
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 26
 text = "Ammo"
 horizontal_alignment = 1
 
 [node name="Blabel" type="Label" parent="head/HUD/Ammo" node_paths=PackedStringArray("manager")]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 31.0
-offset_right = 71.0
-offset_bottom = 54.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -46.0
+offset_right = 21.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 45
 text = " "
 script = ExtResource("3_vgqql")
 manager = NodePath("../../../Camera3D/WeaponsManager")
@@ -771,33 +795,42 @@ manager = NodePath("../../../Camera3D/WeaponsManager")
 [node name="Health" type="ColorRect" parent="head/HUD"]
 layout_mode = 0
 offset_left = 450.0
-offset_top = 560.0
+offset_top = 578.0
 offset_right = 549.0
-offset_bottom = 621.0
-color = Color(1, 1, 1, 0.25098)
+offset_bottom = 639.0
+color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="head/HUD/Health"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 3.0
-offset_right = 74.0
-offset_bottom = 26.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_top = -8.0
+offset_right = 29.5
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 26
 text = "Health"
 horizontal_alignment = 1
 
 [node name="hp" type="Label" parent="head/HUD/Health"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -19.5
-offset_top = -33.0
-offset_right = 20.5
-offset_bottom = -10.0
+anchor_bottom = 0.5
+offset_left = -12.5
+offset_top = -15.0
+offset_right = 12.5
+offset_bottom = 35.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 45
 script = ExtResource("5_pu2lt")
 
 [node name="Health" type="ProgressBar" parent="head/HUD/Health"]
@@ -807,58 +840,76 @@ offset_left = 27.0
 offset_top = 30.0
 offset_right = 69.0
 offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("11_olqyp")
 script = ExtResource("5_8erm5")
 
-[node name="Drogas" type="ColorRect" parent="head/HUD"]
+[node name="Drogas" type="Panel" parent="head/HUD"]
 layout_mode = 0
 offset_left = 694.0
 offset_top = 536.0
 offset_right = 800.0
 offset_bottom = 639.0
-color = Color(1, 1, 1, 0.247059)
+theme_override_styles/panel = SubResource("StyleBoxFlat_83xs0")
 
 [node name="Label" type="Label" parent="head/HUD/Drogas"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 4.0
-offset_right = 88.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 3.0
+offset_right = 43.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 26
 text = "Power up"
 horizontal_alignment = 1
 
 [node name="Power Up" type="Label" parent="head/HUD/Drogas"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 31.0
-offset_right = 100.0
-offset_bottom = 54.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -14.0
+offset_right = 46.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 26
 text = " None"
 horizontal_alignment = 1
 script = ExtResource("7_tx1dd")
 
 [node name="contador de inimigos" type="ColorRect" parent="head/HUD"]
+texture_filter = 3
 layout_mode = 0
 offset_left = 1011.0
 offset_top = 14.0
 offset_right = 1117.0
 offset_bottom = 75.0
-color = Color(1, 1, 1, 0.247059)
+color = Color(1, 1, 1, 0)
 
-[node name="Label" type="Label" parent="head/HUD/contador de inimigos"]
+[node name="Label" type="TextureRect" parent="head/HUD/contador de inimigos"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 4.0
 offset_right = 84.0
 offset_bottom = 27.0
-text = "Inimigos"
-horizontal_alignment = 1
+texture = ExtResource("24_83xs0")
 
 [node name="Aliens" type="Label" parent="head/HUD/contador de inimigos"]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 31.0
-offset_right = 71.0
-offset_bottom = 54.0
+offset_left = 32.0
+offset_top = 71.0
+offset_right = 72.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 26
 text = " "
 horizontal_alignment = 1
 vertical_alignment = 1
