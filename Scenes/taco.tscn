@@ -122,3 +122,5 @@ shape = SubResource("CapsuleShape3D_hnl0q")
 [node name="SeZuburi" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_gh5bb")
 volume_db = -20.0
+
+[connection signal="animation_changed" from="Taco de baseball/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

@@ -7,6 +7,8 @@
 
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("ray")]
 script = ExtResource("1_mix3b")
+max_range = 80.0
+base_damage = 50.0
 current_ammo = 12
 ammo = 36
 max_ammo = 12

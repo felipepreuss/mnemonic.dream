@@ -25,8 +25,8 @@ var power_up = "none"
 const JUMP_VELOCITY = 4.5
 const ACCELERATION = 15.0
 const AIR_ACCELERATION = 5.0
-const FRICTION = 15.0
-const AIR_FRICTION = 2.0
+const FRICTION = 20.0
+const AIR_FRICTION = 5.0
 
 # Coyote time and jump buffering
 var coyote_time = 0.0
@@ -207,7 +207,7 @@ func _physics_process(delta: float) -> void:
 	Camera.fov = lerp(Camera.fov, target_fov, 10 * delta)
 
 	if Globals.pop_candy_powerup == true:
-		SPEED = 12
+		SPEED = 15
 	else:
 		SPEED = 7
 		
@@ -366,3 +366,4 @@ func _on_audio_stream_player_3d_2_finished() -> void:
 func _on_boss_area_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		emit_signal("boss_bar_visible")
+		

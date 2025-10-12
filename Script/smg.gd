@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 			current_ammo -= number_balas
 			if current_ammo < 1:
 				have_ammo = false
-			shooting(ray, lerp(5, 20, 5))  
+			shooting(ray, lerp(5, 15, 5))  
 			blast.play()
 			#kickb.play("recoil")
 			#flash.emitting = true
