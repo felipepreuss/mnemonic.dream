@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=69 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://2fyhxq2k4prt" path="res://Assets/pop_candy.png" id="24_ypfnu"]
 [ext_resource type="Texture2D" uid="uid://dlq3dik8v213h" path="res://Assets/chiclete_powerup.png" id="25_xuaoq"]
 [ext_resource type="Texture2D" uid="uid://bex814u8m34nq" path="res://Assets/chocolate_powerup.png" id="26_wohnl"]
+[ext_resource type="FontFile" uid="uid://dyla7d6r6jp7o" path="res://Assets/Fonts/Jersey25-Regular.ttf" id="30_36dho"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -610,6 +611,7 @@ offset_bottom = 81.0
 texture = ExtResource("13_wpjfl")
 
 [node name="2" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
 texture_filter = 3
 layout_mode = 0
 offset_left = 69.0
@@ -639,6 +641,7 @@ texture = ExtResource("14_bi64h")
 stretch_mode = 4
 
 [node name="3" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
 texture_filter = 3
 layout_mode = 0
 offset_left = 140.0
@@ -667,6 +670,7 @@ offset_bottom = 72.0
 texture = ExtResource("15_2ijsl")
 
 [node name="4" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
 texture_filter = 3
 layout_mode = 0
 offset_left = 211.0
@@ -697,6 +701,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("16_vfarp")
 
 [node name="5" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
 texture_filter = 3
 layout_mode = 0
 offset_left = 282.0
@@ -726,6 +731,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("17_y6uwr")
 
 [node name="6" type="ColorRect" parent="head/HUD/Guns"]
+visible = false
 texture_filter = 3
 layout_mode = 0
 offset_left = 353.0
@@ -987,6 +993,8 @@ offset_left = 9.0
 offset_top = 30.0
 offset_right = 526.0
 offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("30_36dho")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/background = SubResource("StyleBoxEmpty_fd4e3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qqcod")
 script = ExtResource("14_fd4e3")
