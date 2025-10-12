@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=68 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://ds3pqk2ax35l4" path="res://Script/chiclete_tutorial.gd" id="10_wpjfl"]
 [ext_resource type="FontFile" uid="uid://dyxwcqkhw3xu4" path="res://Assets/Fonts/Jersey10-Regular.ttf" id="11_olqyp"]
 [ext_resource type="Texture2D" uid="uid://cpwjsip8d0n8j" path="res://Assets/Guns/gun_icons/bat-icon.png" id="13_wpjfl"]
-[ext_resource type="Shader" path="res://Script/gun_icons.gdshader" id="13_y6uwr"]
+[ext_resource type="Shader" uid="uid://clk2ghtv0a3h6" path="res://Script/gun_icons.gdshader" id="13_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://c6pw2dfuwoget" path="res://Assets/Guns/gun_icons/pistol-icon.png" id="14_bi64h"]
 [ext_resource type="Script" uid="uid://2rc1dthcj3rw" path="res://Script/boss.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://gpjxspxbvy0m" path="res://Script/boss_label.gd" id="14_qqcod"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://banag1tjvws44" path="res://Assets/Guns/gun_icons/dart-icon.png" id="17_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://bveafgsey42nv" path="res://Assets/Guns/gun_icons/rocket-icon.png" id="18_83xs0"]
 [ext_resource type="Texture2D" uid="uid://fry10vjof0xh" path="res://Assets/alien-icon.png" id="24_83xs0"]
+[ext_resource type="Texture2D" uid="uid://2fyhxq2k4prt" path="res://Assets/pop_candy.png" id="24_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://dlq3dik8v213h" path="res://Assets/chiclete_powerup.png" id="25_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://bex814u8m34nq" path="res://Assets/chocolate_powerup.png" id="26_wohnl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
 
@@ -481,7 +484,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 4.925
 anchor_right = 5.725
-anchor_bottom = 8.45
+anchor_bottom = 6.975
 grow_vertical = 2
 color = Color(0.39080548, 0.39080545, 0.39080545, 1)
 script = ExtResource("8_l6n3p")
@@ -492,7 +495,7 @@ layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 227.0
-offset_bottom = 139.0
+offset_bottom = 141.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "\"Chocolate\"
 
@@ -509,7 +512,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 4.925
 anchor_right = 5.725
-anchor_bottom = 8.45
+anchor_bottom = 8.425
 grow_vertical = 2
 color = Color(0.39080548, 0.39080545, 0.39080545, 1)
 script = ExtResource("9_olqyp")
@@ -539,7 +542,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 4.925
 anchor_right = 5.725
-anchor_bottom = 8.45
+anchor_bottom = 9.05
 grow_vertical = 2
 color = Color(0.39080548, 0.39080545, 0.39080545, 1)
 script = ExtResource("10_wpjfl")
@@ -556,6 +559,7 @@ text = "\"Chiclete\"
 
 Consume to slow down 
 enemies. 
+
 Effect lasts for 10 seconds!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/HUD/chiclete_tutorial"]
@@ -850,6 +854,7 @@ offset_top = 536.0
 offset_right = 800.0
 offset_bottom = 639.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_83xs0")
+script = ExtResource("7_tx1dd")
 
 [node name="Label" type="Label" parent="head/HUD/Drogas"]
 layout_mode = 1
@@ -883,7 +888,48 @@ theme_override_fonts/font = ExtResource("11_olqyp")
 theme_override_font_sizes/font_size = 26
 text = " None"
 horizontal_alignment = 1
-script = ExtResource("7_tx1dd")
+
+[node name="pop_candy_icon" type="TextureRect" parent="head/HUD/Drogas"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216981
+anchor_top = 0.34951457
+anchor_right = 0.75565743
+anchor_bottom = 0.83495146
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_ypfnu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="chiclete_icon" type="TextureRect" parent="head/HUD/Drogas"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216981
+anchor_top = 0.34951457
+anchor_right = 0.75565743
+anchor_bottom = 0.83495146
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_xuaoq")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="chocolate_icon" type="TextureRect" parent="head/HUD/Drogas"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216981
+anchor_top = 0.34951457
+anchor_right = 0.75565743
+anchor_bottom = 0.83495146
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_wohnl")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="contador de inimigos" type="ColorRect" parent="head/HUD"]
 texture_filter = 3

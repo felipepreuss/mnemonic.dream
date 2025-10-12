@@ -1,20 +1,26 @@
-extends Label
+extends Panel
 
-@onready var player = $"../../../.."
+@onready var player: Player = $"../../.."
+@onready var icon: TextureRect = $power_icon
+@onready var power_up_label: Label = $"Power Up"
+@onready var pop_candy_icon: TextureRect = $pop_candy_icon
+@onready var chiclete_icon: TextureRect = $chiclete_icon
+@onready var chocolate_icon: TextureRect = $chocolate_icon
 
 func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
 	if player.power_up == "pop_candy":
-		text = "Pop Candy"
+		pop_candy_icon.visible = true
 	elif player.power_up == "chiclete":
-		text = "Chiclete"
+		chiclete_icon.visible = true
 	elif player.power_up == "chocolate":
-		text = "Chocolate"
+		chocolate_icon.visible = true
 	else:
-		text = "None"
-
+		pop_candy_icon.visible = false
+		chiclete_icon.visible = false
+		chocolate_icon.visible = false
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

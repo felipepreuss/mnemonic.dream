@@ -38,6 +38,11 @@ var current_scene_name: String = ""
 var level_times = {}  # Dictionary to store times for each level
 var is_tracking: bool = false
 
+#tutorial checks
+var has_seen_tutorial_1 = false
+var has_seen_tutorial_2 = false
+var has_seen_tutorial_3 = false
+
 var levels = [
 	"res://Scenes/level-1.tscn",
 	"res://Scenes/level-2.tscn",

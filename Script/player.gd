@@ -290,13 +290,16 @@ func powerup(powerup):
 func powerup_check():
 	if Globals.get_chiclete:
 		power_up = "chiclete"
-		chiclete_tutorial.visible = true
+		if $head/HUD/chocolate_tutorial.visible == false and $head/HUD/pop_candy_tutorial.visible == false:
+			chiclete_tutorial.visible = true
 	elif Globals.get_pop_candy:
 		power_up = "pop_candy"
-		pop_candy_tutorial.visible = true
+		if $head/HUD/chocolate_tutorial.visible == false and $head/HUD/chiclete_tutorial.visible == false:
+			pop_candy_tutorial.visible = true
 	elif Globals.get_chocolate:
 		power_up = "chocolate"
-		chocolate_tutorial.visible = true
+		if $head/HUD/chiclete_tutorial.visible == false and $head/HUD/pop_candy_tutorial.visible == false:
+			chocolate_tutorial.visible = true
 func reset_powerups():
 	Globals.pop_candy_powerup = false
 	Globals.chiclete_powerup = false
