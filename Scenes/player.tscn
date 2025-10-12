@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://c0q52hnxwbxdo"]
+[gd_scene load_steps=70 format=3 uid="uid://c0q52hnxwbxdo"]
 
 [ext_resource type="Script" uid="uid://b7lt388f4qdsa" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cme4um2042nwv" path="res://Script/weapon_class.gd" id="2_6t5aa"]
@@ -282,6 +282,9 @@ _data = {
 &"color": SubResource("Animation_wpjfl")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_36dho"]
+line_spacing = 6.0
+
 [sub_resource type="Animation" id="Animation_p1odr"]
 length = 0.001
 tracks/0/type = "value"
@@ -498,8 +501,8 @@ offset_top = 1.0
 offset_right = 227.0
 offset_bottom = 141.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_olqyp")
 text = "\"Chocolate\"
-
 Gain +70 HP."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/HUD/chocolate_tutorial"]
@@ -526,9 +529,9 @@ offset_top = 1.0
 offset_right = 227.0
 offset_bottom = 139.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_olqyp")
 text = "\"Pop Candy\"
 \"Pops in your mouth!\"
-
 Consume to gain speed.
 Effect lasts for 10 seconds!"
 
@@ -541,9 +544,9 @@ libraries = {
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 4.925
+anchor_top = 4.8
 anchor_right = 5.725
-anchor_bottom = 9.05
+anchor_bottom = 7.875
 grow_vertical = 2
 color = Color(0.39080548, 0.39080545, 0.39080545, 1)
 script = ExtResource("10_wpjfl")
@@ -556,12 +559,11 @@ offset_top = 1.0
 offset_right = 227.0
 offset_bottom = 139.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_olqyp")
 text = "\"Chiclete\"
-
-Consume to slow down 
-enemies. 
-
+Consume to slow down enemies.
 Effect lasts for 10 seconds!"
+label_settings = SubResource("LabelSettings_36dho")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/HUD/chiclete_tutorial"]
 libraries = {
@@ -980,10 +982,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="boss_label" type="Label" parent="head/HUD/boss"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 3.0
-offset_right = 531.0
-offset_bottom = 26.0
+offset_top = 2.0
+offset_right = 536.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("11_olqyp")
+theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 script = ExtResource("14_qqcod")
 

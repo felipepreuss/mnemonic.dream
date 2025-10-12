@@ -5,7 +5,7 @@ var patrol_index = 0
 
 @onready var delay = $Delay
 @onready var chase_timer: Timer = $"Chase Timer"
-var boss_name = "FORGETFULNESS"
+var boss_name = "Forgetfulness"
 var patrol_finished = false
 var update_path_timer = 0.5
 var can_chase = false

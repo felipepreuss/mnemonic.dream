@@ -346,6 +346,12 @@ use_collision = true
 size = Vector3(17.3506, 1, 14.3557)
 material = SubResource("StandardMaterial3D_hproo")
 
+[node name="RAmp12" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.708574, 0, 0.7056367, 0, 1, 0, -0.7056367, 0, 0.708574, 311.31506, -14.77006, -3.2442548)
+use_collision = true
+size = Vector3(13.815739, 1, 14.3557)
+material = SubResource("StandardMaterial3D_hproo")
+
 [node name="RAmp5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 345.891, -75.5755, 7.97229)
 use_collision = true
@@ -389,15 +395,21 @@ size = Vector3(117.96, 1, 114.641)
 material = SubResource("StandardMaterial3D_8qap0")
 
 [node name="RAmp3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(0.755339, 0, 0.655334, 0, 1, 0, -0.655334, 0, 0.755339, 296.111, -20.878, -19.8798)
+transform = Transform3D(0.755339, 0, 0.655334, 0, 1, 0, -0.655334, 0, 0.755339, 295.47614, -20.878002, -19.328947)
 use_collision = true
-size = Vector3(16.6787, 1, 21.7262)
+size = Vector3(14.997553, 1, 21.7262)
 material = SubResource("StandardMaterial3D_hproo")
 
 [node name="RAmp4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-0.330322, 0.572134, 0.750699, 0.866026, 0.5, -1.91566e-08, -0.37535, 0.650125, -0.660644, 314.496, -48.4026, -0.715166)
+transform = Transform3D(-0.3522119, 0.6100484, 0.70977944, 0.8660261, 0.5000001, -2.1608917e-08, -0.3548902, 0.6146877, -0.70442367, 314.0504, -48.4026, -0.30804396)
 use_collision = true
-size = Vector3(64.166, 1, 14.458)
+size = Vector3(64.166, 1, 13.250336)
+material = SubResource("StandardMaterial3D_hproo")
+
+[node name="RAmp14" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-0.3543424, 0.61373866, 0.7055249, 0.8660261, 0.5000001, -2.1608917e-08, -0.35276303, 0.61100316, -0.7086847, 315.40277, -39.48123, 2.3558893)
+use_collision = true
+size = Vector3(56.286858, 1, 12.740845)
 material = SubResource("StandardMaterial3D_hproo")
 
 [node name="platform" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
