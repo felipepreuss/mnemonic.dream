@@ -4,8 +4,11 @@ var damage: int
 @onready var blast = $SMG_fire
 @onready var fire_delay = $Timer
 var auto_shoot: bool = true
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:
+	if animation_player:
+		animation_player.queue("smg_anim/idle")
 	if blast.playing:
 		Globals.is_audio_playing = true
 	if $SMG_reload.playing:
@@ -13,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	if Globals.pop_candy_powerup:
 		fire_delay.wait_time = 0.01
 	if Input.is_action_pressed("Left-Click") and have_ammo and auto_shoot and fire_delay:
+		animation_player.play("smg_anim/attack")
 		if current_ammo >= number_balas:
 			auto_shoot = false
 			fire_delay.start()
@@ -26,6 +30,7 @@ func _physics_process(delta: float) -> void:
 			#flash.emitting = true
 			#flash.restart()
 	if Input.is_action_just_pressed('Reload') and have_ammo:
+		animation_player.play("smg_anim/reload")
 		$SMG_reload.play()
 		
 func _on_timer_timeout() -> void:

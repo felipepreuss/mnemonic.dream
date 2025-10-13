@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceaey3qmvx0oa"]
+[gd_scene load_steps=6 format=3 uid="uid://ceaey3qmvx0oa"]
 
 [ext_resource type="Script" uid="uid://cg8s21twqa7np" path="res://Script/shot_gun.gd" id="1_mdamf"]
+[ext_resource type="AnimationLibrary" uid="uid://ber4e3m6leiov" path="res://animations/shotgun_anim.res" id="2_62l51"]
 [ext_resource type="PackedScene" uid="uid://bd1tl74hpv0y3" path="res://Assets/Guns/Shotgun (1).glb" id="2_oon85"]
 [ext_resource type="AudioStream" uid="uid://cc35rr8brxu0g" path="res://SFX/shotgunsound.mp3" id="3_n84jv"]
 [ext_resource type="AudioStream" uid="uid://0a8v0n8m4afm" path="res://SFX/shot_reload.mp3" id="4_oon85"]
@@ -16,6 +17,11 @@ can_reload = true
 number_balas = 1
 gun_name = "Shotgun"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"shotgun_anim": ExtResource("2_62l51")
+}
 
 [node name="Shotgun (1)" parent="." instance=ExtResource("2_oon85")]
 

@@ -2,6 +2,7 @@ extends WeaponsManager
 
 @export var raycontainer: Node3D
 @export var raio: Array[RayCast3D]
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # 🔥 Damage balance — all doubled
 @export var base_damage: float = 40.0         # Was 20.0 → now 40 per pellet (point-blank)
@@ -9,10 +10,13 @@ extends WeaponsManager
 @export var max_range: float = 50.0           # Range where damage reaches minimum
 
 func _physics_process(delta: float) -> void:
+	if animation_player:
+		animation_player.queue("shotgun_anim/idle")
 	Globals.is_audio_playing = $FIRE.playing or $RELOAD.playing
 
 	# FIRE
 	if Input.is_action_just_pressed("Left-Click") and have_ammo:
+		animation_player.play("shotgun_anim/attack")
 		$FIRE.play()
 
 		for r in raycontainer.get_children():
@@ -40,6 +44,7 @@ func _physics_process(delta: float) -> void:
 
 	# RELOAD
 	if Input.is_action_just_pressed("Reload"):
+		animation_player.play("shotgun_anim/reload")
 		$RELOAD.play()
 
 func _on_fire_finished() -> void:

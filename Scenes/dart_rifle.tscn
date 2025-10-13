@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cscnspv3at7uy"]
+[gd_scene load_steps=5 format=3 uid="uid://cscnspv3at7uy"]
 
 [ext_resource type="Script" uid="uid://b1ewgv68khpx0" path="res://Script/dart_rifle.gd" id="1_x084r"]
+[ext_resource type="AnimationLibrary" uid="uid://cghglc27k3duj" path="res://animations/dart_anim.res" id="2_dgh1u"]
 [ext_resource type="AudioStream" uid="uid://b5tftw85xp0sc" path="res://SFX/Laser-Shot-1.mp3" id="2_f5quo"]
 [ext_resource type="PackedScene" uid="uid://cd2r40oo0wly0" path="res://Assets/Guns/riflededardos (1).glb" id="2_ufwts"]
 
@@ -13,6 +14,11 @@ can_reload = true
 number_balas = 1
 gun_name = "Dart Rifle"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"dart_anim": ExtResource("2_dgh1u")
+}
 
 [node name="Laser-shot-1" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_f5quo")

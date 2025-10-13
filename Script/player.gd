@@ -366,4 +366,4 @@ func _on_audio_stream_player_3d_2_finished() -> void:
 func _on_boss_area_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		emit_signal("boss_bar_visible")
-		
+		print("BOSS AREA ENTERED")

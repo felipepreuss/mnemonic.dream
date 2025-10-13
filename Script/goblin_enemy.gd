@@ -2,7 +2,7 @@ extends AlienEnemy
 var enemy_goblin_material = load("res://Scenes/goblin_enemy.tscn::StandardMaterial3D_2k1fa")
 func _ready() -> void:
 	SPEED = 5.0
-	vida = 75
+	vida = 175
 	Globals.max_contador += 1
 	Globals.contador += 1
 	score_value = 50

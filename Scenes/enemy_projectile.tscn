@@ -32,5 +32,6 @@ shape = SubResource("SphereShape3D_ibebl")
 wait_time = 5.0
 autostart = true
 
+[connection signal="area_entered" from="enemy_projectile" to="." method="_on_enemy_projectile_area_entered"]
 [connection signal="body_entered" from="enemy_projectile" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -6,8 +6,11 @@ extends WeaponsManager
 @export var max_range: float = 50.0
 @export var base_damage: float = 40.0
 @export var min_damage: float = 8.0
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var pistol_ammo = max_ammo
 func _physics_process(delta: float) -> void:
+	if animation_player:
+		animation_player.queue("pistol_anim/idle")
 	if laser.playing:
 		Globals.is_audio_playing = true
 	if $Rel.playing:
@@ -27,10 +30,12 @@ func _physics_process(delta: float) -> void:
 				# Apply the damage
 				shooting(r, final_damage)
 				laser.play()
+				animation_player.play("pistol_anim/attack")
 	elif Input.is_action_just_pressed("Left-Click") && not have_ammo:
 		pass
 	if Input.is_action_just_pressed('Reload') && have_ammo:
 		$Rel.play()
+		animation_player.play("pistol_anim/reload")
 
 
 func _on_audio_stream_player_3d_finished() -> void:

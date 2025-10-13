@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://fhmux8ryyl36"]
+[gd_scene load_steps=6 format=3 uid="uid://fhmux8ryyl36"]
 
 [ext_resource type="Script" uid="uid://cphbm0dgtfm15" path="res://Script/smg.gd" id="1_5j6yl"]
 [ext_resource type="PackedScene" uid="uid://cxl01ln1qwoml" path="res://Assets/Guns/Metralhadora (1).glb" id="1_sovh5"]
+[ext_resource type="AnimationLibrary" uid="uid://cutjot2q4kmwn" path="res://animations/smg_anim.res" id="2_tsr3n"]
 [ext_resource type="AudioStream" uid="uid://bhirkrycnr28b" path="res://SFX/smgblast.mp3" id="2_udryi"]
 [ext_resource type="AudioStream" uid="uid://c36tqpu0xfxey" path="res://SFX/smgfast_reload.mp3" id="3_sovh5"]
 
 [node name="MachineGun" type="Node3D" node_paths=PackedStringArray("ray")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0410293, 0)
 script = ExtResource("1_5j6yl")
 auto = true
 current_ammo = 50
@@ -16,6 +18,11 @@ ray = NodePath("RayCast3D")
 number_balas = 1
 gun_name = "SMG"
 metadata/_custom_type_script = "uid://cme4um2042nwv"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"smg_anim": ExtResource("2_tsr3n")
+}
 
 [node name="Metralhadora (1)" parent="." instance=ExtResource("1_sovh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0410293, 0)

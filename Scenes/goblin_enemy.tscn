@@ -13,8 +13,8 @@ radius = 0.2
 height = 0.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l7mss"]
-radius = 0.199419
-height = 0.812531
+radius = 0.40185547
+height = 1.0087304
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oopm2"]
 size = Vector3(1.81744, 1.33623, 16.1912)
@@ -28,6 +28,7 @@ material_override = SubResource("StandardMaterial3D_2k1fa")
 mesh = SubResource("CapsuleMesh_cxlqg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08430824, 0)
 shape = SubResource("CapsuleShape3D_l7mss")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
