@@ -12,6 +12,7 @@ class_name WeaponsManager extends Node3D
 @export var gun_name: String
 @export var melee = false
 @export var weapon_scenes: Array[PackedScene]
+@export var can_shoot: bool = true
 
 var current_gun: Node3D = null
 var gun_equipped: bool = false
@@ -80,7 +81,7 @@ func handle_shooting():
 		last_shot_time = current_time
 
 func try_shoot():
-	if current_gun.current_ammo >= current_gun.number_balas and flash:
+	if current_gun.current_ammo >= current_gun.number_balas and flash and current_gun.can_shoot:
 		flash.emitting = true
 		flash.restart()
 		kickb.play('recoil')
@@ -99,12 +100,14 @@ func handle_weapon_switch():
 
 func handle_reload():
 	if Input.is_action_just_pressed('Reload') and gun_equipped and current_gun:
-		if current_gun.current_ammo < current_gun.max_ammo and current_gun.ammo > 0:
+		if current_gun.current_ammo < current_gun.max_ammo and current_gun.ammo > 0 and current_gun.can_reload:
 			var to_reload = min(current_gun.max_ammo - current_gun.current_ammo, current_gun.ammo)
 			current_gun.current_ammo += to_reload
 			current_gun.ammo -= to_reload
 			current_gun.have_ammo = current_gun.current_ammo > 0
 			print('Recarregado ', to_reload, ' balas.')
+		else:
+			pass
 
 func update_ammo_display():
 	if current_gun:

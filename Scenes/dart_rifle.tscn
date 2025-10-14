@@ -31,4 +31,10 @@ pitch_scale = 1.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0829777, -0.922353)
 target_position = Vector3(0, -1, -100)
 
+[node name="fire_delay" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_reload_attack_changed"]
 [connection signal="finished" from="Laser-shot-1" to="." method="_on_lasershot_1_finished"]
+[connection signal="timeout" from="fire_delay" to="." method="_on_fire_delay_timeout"]

@@ -52,5 +52,11 @@ stream = ExtResource("3_n84jv")
 [node name="RELOAD" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_oon85")
 
+[node name="fire_delay" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_reload_attack_changed"]
 [connection signal="finished" from="FIRE" to="." method="_on_fire_finished"]
 [connection signal="finished" from="RELOAD" to="." method="_on_reload_finished"]
+[connection signal="timeout" from="fire_delay" to="." method="_on_fire_delay_timeout"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyoyq5ejonka2"]
+[gd_scene load_steps=10 format=3 uid="uid://cyoyq5ejonka2"]
 
 [ext_resource type="PackedScene" uid="uid://c3m0wkotsvjv8" path="res://Assets/Guns/Taco de baseball.glb" id="1_esccj"]
 [ext_resource type="Script" uid="uid://ca0uwaxt38p1f" path="res://Script/taco.gd" id="1_hnl0q"]
 [ext_resource type="AnimationLibrary" uid="uid://ytw5jlc3stfc" path="res://animations/bat_anim.res" id="3_adjpj"]
 [ext_resource type="AudioStream" uid="uid://c3h73c7layub6" path="res://SFX/se_zuburi.wav" id="3_gh5bb"]
+[ext_resource type="AudioStream" uid="uid://c3v60gx4531v1" path="res://SFX/metal_impact.mp3" id="5_ulnod"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adjpj"]
 size = Vector3(0.8590088, 2.0632324, 0.75930786)
@@ -77,9 +78,16 @@ stream = ExtResource("3_gh5bb")
 volume_db = -20.0
 
 [node name="parry_delay" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
-[connection signal="animation_changed" from="Taco de baseball/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[node name="parry_audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_ulnod")
+volume_db = 3.78
+pitch_scale = 3.0
+
+[connection signal="area_entered" from="parry_area" to="." method="_on_parry_area_area_entered"]
 [connection signal="animation_changed" from="Taco de baseball/AnimationPlayer" to="." method="_on_parry_animation_changed"]
+[connection signal="animation_changed" from="Taco de baseball/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="Taco de baseball/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="parry_delay" to="." method="_on_parry_delay_timeout"]

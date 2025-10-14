@@ -8,6 +8,8 @@ extends WeaponsManager
 @export var min_damage: float = 8.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var pistol_ammo = max_ammo
+@onready var fire_delay: Timer = $fire_delay
+
 func _physics_process(delta: float) -> void:
 	if animation_player:
 		animation_player.queue("pistol_anim/idle")
@@ -15,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		Globals.is_audio_playing = true
 	if $Rel.playing:
 		Globals.is_audio_playing = true
-	if Input.is_action_just_pressed("Left-Click") && have_ammo:
+	if Input.is_action_just_pressed("Left-Click") && have_ammo && can_shoot:
 		if r.is_colliding():
 				var target = r.get_collider()
 				var hit_position = r.get_collision_point()
@@ -26,21 +28,33 @@ func _physics_process(delta: float) -> void:
 				# Linear falloff — more distance = less damage
 				var t = clamp(distance / max_range, 0.0, 1.0)
 				var final_damage = lerp(base_damage, min_damage, t)
-
 				# Apply the damage
 				shooting(r, final_damage)
-				laser.play()
-				animation_player.play("pistol_anim/attack")
+		laser.play()
+		animation_player.play("pistol_anim/attack")
+		can_shoot = false
+		fire_delay.start()
 	elif Input.is_action_just_pressed("Left-Click") && not have_ammo:
 		pass
-	if Input.is_action_just_pressed('Reload') && have_ammo:
+	if Input.is_action_just_pressed('Reload') && have_ammo && can_reload:
 		$Rel.play()
 		animation_player.play("pistol_anim/reload")
-
-
+		can_reload = false
 func _on_audio_stream_player_3d_finished() -> void:
 	Globals.is_audio_playing = false
 
 
 func _on_rel_finished() -> void:
 	Globals.is_audio_playing = false
+
+func _on_animation_player_animation_changed(reload, idle) -> void:
+	await get_tree().create_timer(0.3).timeout
+	can_reload = true
+
+func _on_fire_delay_timeout() -> void:
+	can_shoot = true
+
+
+func _on_animation_player_reload_attack_changed(reload, attack) -> void:
+	await get_tree().create_timer(0.3).timeout
+	can_reload = true

@@ -29,7 +29,7 @@ func _physics_process(delta):
 						can_hit = false
 				else:
 					pass
-	if Input.is_action_pressed("Right-Click") && melee && can_parry:
+	if Input.is_action_just_pressed("Right-Click") && melee && can_parry:
 			animation_player.play("bat_anim/parry")
 			parry_box.disabled = false
 			is_parrying = true
@@ -45,3 +45,8 @@ func _on_parry_animation_changed(parry, idle) -> void:
 
 func _on_parry_delay_timeout() -> void:
 	can_parry = true
+
+
+func _on_parry_area_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Bullet"):
+		$parry_audio.play()

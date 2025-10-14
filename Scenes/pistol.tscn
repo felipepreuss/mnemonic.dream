@@ -13,6 +13,7 @@ base_damage = 50.0
 current_ammo = 12
 ammo = 36
 max_ammo = 12
+can_reload = true
 ray = NodePath("RayCast3D")
 number_balas = 1
 gun_name = "Pistol"
@@ -35,5 +36,12 @@ stream = ExtResource("1_v21tj")
 [node name="Rel" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ui64p")
 
+[node name="fire_delay" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_reload_attack_changed"]
+[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
 [connection signal="finished" from="Rel" to="." method="_on_rel_finished"]
+[connection signal="timeout" from="fire_delay" to="." method="_on_fire_delay_timeout"]

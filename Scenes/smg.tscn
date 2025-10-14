@@ -42,6 +42,8 @@ stream = ExtResource("3_sovh5")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.068187, -0.538711)
 target_position = Vector3(0, -20, 0)
 
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_reload_attack_changed"]
 [connection signal="finished" from="SMG_fire" to="." method="_on_smg_fire_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="SMG_reload" to="." method="_on_smg_reload_finished"]
