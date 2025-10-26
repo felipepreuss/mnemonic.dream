@@ -3,6 +3,7 @@ extends Node3D
 
 func _ready() -> void:
 	player.powerup_check()
+	
 	Globals.dialogue_end = true
 	Globals.got_pistol = true
 	Globals.start_scene_time_tracking()
