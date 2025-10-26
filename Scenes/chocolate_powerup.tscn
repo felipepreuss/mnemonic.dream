@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://chv6nc68ahtak"]
 
 [ext_resource type="Script" uid="uid://cohbhlvc1ee3q" path="res://Script/chocolate_powerup.gd" id="1_5ummq"]
-[ext_resource type="Texture2D" uid="uid://bex814u8m34nq" path="res://Assets/chocolate_powerup.png" id="1_6i5bb"]
+[ext_resource type="Texture2D" uid="uid://qbduiiwymldx" path="res://Assets/chocolate.png" id="2_5ummq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5ummq"]
 
@@ -74,8 +74,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_5ummq")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-0.2, 0, 5.07036e-07, 0, 0.2, 0, -5.07036e-07, 0, -0.2, 0, 0.5, 0)
-texture = ExtResource("1_6i5bb")
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0.5, 0)
+texture_filter = 4
+render_priority = 1
+texture = ExtResource("2_5ummq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
 libraries = {

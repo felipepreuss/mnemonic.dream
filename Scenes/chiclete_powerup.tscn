@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4k37y0jyqi7m"]
 
-[ext_resource type="Texture2D" uid="uid://dlq3dik8v213h" path="res://Assets/chiclete_powerup.png" id="1_kgdyr"]
 [ext_resource type="Script" uid="uid://ckn626skf1cw" path="res://Script/chiclete_powerup.gd" id="1_qaj43"]
+[ext_resource type="Texture2D" uid="uid://niquajid3git" path="res://Assets/chiclete.png" id="2_qaj43"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qaj43"]
 
@@ -74,8 +74,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_qaj43")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-0.2, 0, 5.07036e-07, 0, 0.2, 0, -5.07036e-07, 0, -0.2, 0, 0.5, 0)
-texture = ExtResource("1_kgdyr")
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0.5, 0)
+texture_filter = 4
+texture = ExtResource("2_qaj43")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
 libraries = {

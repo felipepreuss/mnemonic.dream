@@ -28,10 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://bylytr0avlmjp" path="res://Assets/Guns/gun_icons/smg-icon.png" id="16_vfarp"]
 [ext_resource type="Texture2D" uid="uid://banag1tjvws44" path="res://Assets/Guns/gun_icons/dart-icon.png" id="17_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://bveafgsey42nv" path="res://Assets/Guns/gun_icons/rocket-icon.png" id="18_83xs0"]
+[ext_resource type="Texture2D" uid="uid://dvugo4007hv7g" path="res://Assets/pop_rock.png" id="24_36dho"]
 [ext_resource type="Texture2D" uid="uid://fry10vjof0xh" path="res://Assets/alien-icon.png" id="24_83xs0"]
-[ext_resource type="Texture2D" uid="uid://2fyhxq2k4prt" path="res://Assets/pop_candy.png" id="24_ypfnu"]
-[ext_resource type="Texture2D" uid="uid://dlq3dik8v213h" path="res://Assets/chiclete_powerup.png" id="25_xuaoq"]
-[ext_resource type="Texture2D" uid="uid://bex814u8m34nq" path="res://Assets/chocolate_powerup.png" id="26_wohnl"]
+[ext_resource type="Texture2D" uid="uid://niquajid3git" path="res://Assets/chiclete.png" id="25_yh6i2"]
+[ext_resource type="Texture2D" uid="uid://qbduiiwymldx" path="res://Assets/chocolate.png" id="26_nv4vc"]
 [ext_resource type="FontFile" uid="uid://dyla7d6r6jp7o" path="res://Assets/Fonts/Jersey25-Regular.ttf" id="30_36dho"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b4ue"]
@@ -770,6 +770,7 @@ offset_bottom = 639.0
 color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="head/HUD/Ammo"]
+texture_filter = 5
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -812,6 +813,7 @@ offset_bottom = 639.0
 color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="head/HUD/Health"]
+texture_filter = 5
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -864,6 +866,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_83xs0")
 script = ExtResource("7_tx1dd")
 
 [node name="Label" type="Label" parent="head/HUD/Drogas"]
+texture_filter = 5
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -898,45 +901,57 @@ horizontal_alignment = 1
 
 [node name="pop_candy_icon" type="TextureRect" parent="head/HUD/Drogas"]
 visible = false
+texture_filter = 5
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.216981
-anchor_top = 0.34951457
-anchor_right = 0.75565743
-anchor_bottom = 0.83495146
+anchor_left = 0.22641496
+anchor_top = 0.26213592
+anchor_right = 0.76509136
+anchor_bottom = 0.74757284
+offset_left = -1.0000019
+offset_top = 3.0
+offset_right = 5.900299
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("24_ypfnu")
+texture = ExtResource("24_36dho")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="chiclete_icon" type="TextureRect" parent="head/HUD/Drogas"]
 visible = false
+texture_filter = 5
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.216981
-anchor_top = 0.34951457
-anchor_right = 0.75565743
-anchor_bottom = 0.83495146
+anchor_left = 0.22641496
+anchor_top = 0.26213592
+anchor_right = 0.76509136
+anchor_bottom = 0.74757284
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 5.900299
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("25_xuaoq")
+texture = ExtResource("25_yh6i2")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="chocolate_icon" type="TextureRect" parent="head/HUD/Drogas"]
 visible = false
+texture_filter = 5
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.216981
-anchor_top = 0.34951457
-anchor_right = 0.75565743
-anchor_bottom = 0.83495146
+anchor_left = 0.22641496
+anchor_top = 0.26213592
+anchor_right = 0.76509136
+anchor_bottom = 0.74757284
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 5.900299
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("26_wohnl")
+texture = ExtResource("26_nv4vc")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="contador de inimigos" type="ColorRect" parent="head/HUD"]
 texture_filter = 3
