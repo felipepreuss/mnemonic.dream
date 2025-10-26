@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2dk8mpa4miu"]
+
+[ext_resource type="PackedScene" uid="uid://gie8851my4ig" path="res://Assets/Braco_c_Rig.glb" id="1_e0sh1"]
+
+[node name="Braco_c_Rig" instance=ExtResource("1_e0sh1")]
