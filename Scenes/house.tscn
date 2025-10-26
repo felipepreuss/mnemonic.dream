@@ -1,0 +1,224 @@
+[gd_scene load_steps=9 format=3 uid="uid://dr776xugk71bd"]
+
+[ext_resource type="Texture2D" uid="uid://celskfuhqg67w" path="res://Assets/red_texture_01.png" id="1_iqtyj"]
+[ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="2_xi0mm"]
+[ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="3_bu6dc"]
+[ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="4_l3jqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dst8n"]
+albedo_texture = ExtResource("1_iqtyj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_472lb"]
+albedo_texture = ExtResource("2_xi0mm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gft6v"]
+albedo_texture = ExtResource("1_iqtyj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0sc1"]
+albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
+albedo_texture = ExtResource("4_l3jqw")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="Chão" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.956177, 0.217339, 1.23331)
+size = Vector3(31.343, 1, 30.1007)
+material = SubResource("StandardMaterial3D_dst8n")
+
+[node name="Chão2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.956177, 4.82911, 1.23331)
+size = Vector3(31.343, 1, 30.1007)
+material = SubResource("StandardMaterial3D_dst8n")
+
+[node name="Chão3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.940074, 0.34097, 0, -0.34097, 0.940074, 0, 0, 0, 1, 7.49094, 7.25531, 1.23331)
+size = Vector3(15.6285, 1, 30.101)
+material = SubResource("StandardMaterial3D_dst8n")
+
+[node name="Chão4" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.955278, -0.295708, 8.74228e-08, -0.295708, 0.955278, 0, -8.35131e-08, -2.58516e-08, -1, -8.02165, 7.47063, 1.23331)
+size = Vector3(17.572, 1, 30.101)
+material = SubResource("StandardMaterial3D_dst8n")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.35854)
+size = Vector3(10, 1, 1.8353)
+
+[node name="ParedeCasa" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.009, 2.46737, 0.326087)
+cast_shadow = 0
+size = Vector3(28.9466, 5.03156, 0.79489)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6393, 2.46737, 0.693911)
+cast_shadow = 0
+size = Vector3(29.3561, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.5667, 2.46737, 1.36464)
+cast_shadow = 0
+size = Vector3(40.9595, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa6" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.0668, 2.46737, 1.49735)
+cast_shadow = 0
+size = Vector3(40.871, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa3" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0925083, 2.46737, -13.6525)
+cast_shadow = 0
+size = Vector3(30.4239, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa11" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.849565, 5.58743, -13.6402)
+cast_shadow = 0
+size = Vector3(20.0119, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa19" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.292009, 4.6305, -14.352)
+cast_shadow = 0
+size = Vector3(31.3514, 0.618212, 0.712447)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa13" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.4569, 5.11725, -13.6402)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa14" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.5198, 5.11725, -13.6402)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa12" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.361642, 8.58504, -13.6402)
+cast_shadow = 0
+size = Vector3(1.00601, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa15" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.798589, 5.58743, 16.0092)
+cast_shadow = 0
+size = Vector3(20.0119, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa16" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.4897, 5.11725, 16.0092)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa17" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.4689, 5.11725, 16.0092)
+cast_shadow = 0
+size = Vector3(2.76217, 2.08083, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa18" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.412618, 8.58504, 16.0092)
+cast_shadow = 0
+size = Vector3(1.00601, 3.02119, 0.46762)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParedeQuintal" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.236956, 2.46737, -18.8577)
+cast_shadow = 0
+size = Vector3(42.3137, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParedeQuintal2" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.166978, 2.46737, 21.6739)
+cast_shadow = 0
+size = Vector3(41.2427, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa4" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0464573, 2.46737, 15.0459)
+cast_shadow = 0
+size = Vector3(30.6311, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa7" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.08174, 2.46737, 2.60028)
+cast_shadow = 0
+size = Vector3(21.7192, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa9" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.6286, 2.46737, -4.64117)
+cast_shadow = 0
+size = Vector3(9.0293, 5.03156, 0.683286)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="Rua" type="CSGBox3D" parent="ParendeCasa9"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.12109, -2.24084, 51.7973)
+size = Vector3(35, 1, 163.598)
+material = ExtResource("3_bu6dc")
+
+[node name="ParendeCasa8" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.07465, 2.38956, 0.880278)
+cast_shadow = 0
+size = Vector3(0.863647, 5.03156, 28.4806)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="ParendeCasa10" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.581, 2.38956, 8.81438)
+cast_shadow = 0
+size = Vector3(0.863647, 5.03156, 12.6123)
+material = SubResource("StandardMaterial3D_472lb")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.767982, 1.84995, -13.6409)
+cast_shadow = 0
+operation = 2
+size = Vector3(2.30312, 2.38104, 1.12249)
+material = SubResource("StandardMaterial3D_gft6v")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.479, 1.84995, 2.48884)
+cast_shadow = 0
+operation = 2
+size = Vector3(2.30312, 2.38104, 1.12249)
+material = SubResource("StandardMaterial3D_gft6v")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18761, 1.84995, 2.48884)
+cast_shadow = 0
+operation = 2
+size = Vector3(2.30312, 2.38104, 1.12249)
+material = SubResource("StandardMaterial3D_gft6v")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.07618, 1.84995, -9.63191)
+cast_shadow = 0
+operation = 2
+size = Vector3(2.30312, 2.38104, 1.12249)
+material = SubResource("StandardMaterial3D_gft6v")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.07618, 1.84995, -0.218721)
+cast_shadow = 0
+operation = 2
+size = Vector3(2.30312, 2.38104, 1.12249)
+material = SubResource("StandardMaterial3D_gft6v")
+
+[node name="PortaQuintal" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.767982, 1.84995, -18.9235)
+cast_shadow = 0
+operation = 2
+size = Vector3(6.05957, 2.38104, 1.12249)
+material = SubResource("StandardMaterial3D_gft6v")
+
+[node name="Calcada3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64688, 0.55611, 0.927708)
+size = Vector3(80, 0.2, 80)
+material = SubResource("StandardMaterial3D_f0sc1")
