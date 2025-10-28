@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cop1qo2ppbms0"
-path.s3tc="res://.godot/imported/_albedo9.png-811acc4343f263ebf5c78d003d1f87ac.s3tc.ctex"
+uid="uid://btqkh7fbn2lgs"
+path.s3tc="res://.godot/imported/levelbuilding_grungytile195.jpg-7255163e0ee206cc76eb868955ac1a78.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "c1813fe05ce938769a002729f42a71d8"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/_albedo9.png"
-dest_files=["res://.godot/imported/_albedo9.png-811acc4343f263ebf5c78d003d1f87ac.s3tc.ctex"]
+source_file="res://Assets/levelbuilding_grungytile195.jpg"
+dest_files=["res://.godot/imported/levelbuilding_grungytile195.jpg-7255163e0ee206cc76eb868955ac1a78.s3tc.ctex"]
 
 [params]
 

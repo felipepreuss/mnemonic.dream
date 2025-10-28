@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://0a8v0n8m4afm" path="res://SFX/shot_reload.mp3" id="4_oon85"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qejhi"]
-albedo_color = Color(0, 1, 1, 1)
+albedo_color = Color(0.69411767, 0, 0.3882353, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4d1h"]
 vertex_color_use_as_albedo = true
@@ -108,7 +108,7 @@ bind/23/bone = -1
 bind/23/pose = Transform3D(-0.79701734, -3.2217631, -0.48280996, 2.7068188, -0.931497, 1.7474395, -1.8127311, 0.025600577, 2.8216043, -0.08219918, -0.24907249, -0.24008822)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62l51"]
-albedo_color = Color(0, 1, 1, 1)
+albedo_color = Color(0.69411767, 0, 0.3882353, 1)
 
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("raycontainer", "raio")]
 script = ExtResource("1_mdamf")

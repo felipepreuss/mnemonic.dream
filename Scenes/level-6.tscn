@@ -136,5 +136,25 @@ navigation_mesh = SubResource("NavigationMesh_l57pf")
 [node name="home" parent="NavigationRegion3D" instance=ExtResource("10_fgept")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00294495, -0.00392342, 0.00468159)
 
+[node name="Parede invisivel" type="CSGCombiner3D" parent="."]
+visible = false
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(-4.37114e-08, 0, -1.1212459, 0, 1, 0, 1, 0, -4.9011224e-08, 40.2472, 11.9557, -45.5739)
+size = Vector3(49.3256, 32.3985, 303.39)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.2472, 11.9557, 57.977295)
+size = Vector3(49.3256, 32.3985, 303.39)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -66.08362, 11.9557, -28.16018)
+size = Vector3(49.3256, 32.3985, 303.39)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Parede invisivel"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 59.54081, 11.9557, -28.16018)
+size = Vector3(49.3256, 32.3985, 303.39)
+
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/boss_area" to="SubViewportContainer/SubViewport/player" method="_on_boss_area_body_entered"]
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

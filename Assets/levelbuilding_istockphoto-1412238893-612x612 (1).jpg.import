@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cop1qo2ppbms0"
-path.s3tc="res://.godot/imported/_albedo9.png-811acc4343f263ebf5c78d003d1f87ac.s3tc.ctex"
+uid="uid://dinh4onyowdjr"
+path.s3tc="res://.godot/imported/levelbuilding_istockphoto-1412238893-612x612 (1).jpg-3e4145d31887907db8a720b9f01f4d6a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "f428de90bdfd0aecbc3171dc7280a855"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/_albedo9.png"
-dest_files=["res://.godot/imported/_albedo9.png-811acc4343f263ebf5c78d003d1f87ac.s3tc.ctex"]
+source_file="res://Assets/levelbuilding_istockphoto-1412238893-612x612 (1).jpg"
+dest_files=["res://.godot/imported/levelbuilding_istockphoto-1412238893-612x612 (1).jpg-3e4145d31887907db8a720b9f01f4d6a.s3tc.ctex"]
 
 [params]
 

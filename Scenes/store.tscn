@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cng4i7q5848e3"]
+[gd_scene load_steps=21 format=3 uid="uid://cng4i7q5848e3"]
 
 [ext_resource type="Texture2D" uid="uid://db81y3h4103p8" path="res://Assets/Textures/CHECKS.JPG" id="1_m7h4d"]
 [ext_resource type="Texture2D" uid="uid://b87gh4kdjuv8r" path="res://Assets/Textures/grungytile195.jpg" id="2_a54sg"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ie0oa1ua1ygk" path="res://Assets/orange_texture_08.png" id="4_cwvkk"]
 [ext_resource type="Texture2D" uid="uid://cofwhtpk0m3rm" path="res://Assets/Textures/Texture_lt_gray_004.jpg" id="5_w72gx"]
 [ext_resource type="Texture2D" uid="uid://3i14hu10lcxh" path="res://Assets/red_texture_09.png" id="6_cd1ed"]
+[ext_resource type="Texture2D" uid="uid://chh4gyngsl62" path="res://Assets/Textures/istockphoto-1412238893-612x612 (1).jpg" id="7_f3gkj"]
+[ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="8_cwvkk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjiq8"]
 albedo_texture = ExtResource("1_m7h4d")
@@ -48,6 +50,11 @@ albedo_texture = ExtResource("6_cd1ed")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrep3"]
 albedo_texture = ExtResource("3_f3gkj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w72gx"]
+albedo_texture = ExtResource("7_f3gkj")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D"]
 use_collision = true
@@ -118,3 +125,111 @@ cast_shadow = 0
 operation = 2
 size = Vector3(2.00801, 2.4812, 0.869)
 material = SubResource("StandardMaterial3D_hrep3")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+
+[node name="Pratilheira" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00888, 0.87678, -3.489)
+size = Vector3(0.034, 4, 4)
+material = SubResource("StandardMaterial3D_w72gx")
+
+[node name="Pratilheira2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12859, 0.87678, 2.98308)
+size = Vector3(0.034, 4, 4)
+material = SubResource("StandardMaterial3D_w72gx")
+
+[node name="Pratilheira3" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55351, 0.87678, 2.98308)
+size = Vector3(0.034, 4, 4)
+material = SubResource("StandardMaterial3D_w72gx")
+
+[node name="Pratilheira4" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33718, 0.87964, 2.97165)
+size = Vector3(0.034, 4, 4)
+material = SubResource("StandardMaterial3D_w72gx")
+
+[node name="Pratilheira5" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24122, 0.87678, -3.36673)
+size = Vector3(0.034, 4, 4)
+material = SubResource("StandardMaterial3D_w72gx")
+
+[node name="Pratilheira6" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66773, 0.87678, -3.45428)
+size = Vector3(0.034, 4, 4)
+material = SubResource("StandardMaterial3D_w72gx")
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+
+[node name="Planta" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69134, 0, 6.26396)
+material = ExtResource("8_cwvkk")
+
+[node name="Planta2" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45313, 0, 6.26396)
+material = ExtResource("8_cwvkk")
+
+[node name="Planta3" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75874, 0, -0.852967)
+material = ExtResource("8_cwvkk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.508861, 0, -0.860849, 0, 1, 0, 0.860849, 0, 0.508861, 6.68116, 0.890873, -1.82063)
+radius = 1.256
+height = 1.2
+material = ExtResource("8_cwvkk")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.508861, 0, -0.860849, 0, 1, 0, 0.860849, 0, 0.508861, 5.0894, 0.612917, -0.879714)
+radius = 0.381
+height = 0.5
+material = ExtResource("8_cwvkk")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.508861, 0, -0.860849, 0, 1, 0, 0.860849, 0, 0.508861, 8.05076, 0.676672, -2.85023)
+radius = 0.381
+height = 0.5
+material = ExtResource("8_cwvkk")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.583938, 0, 0.811798, 0, 1, 0, -0.811798, 0, 0.583938, 5.52024, 0.890873, 2.3705)
+radius = 1.256
+height = 1.2
+material = ExtResource("8_cwvkk")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.583938, 0, 0.811798, 0, 1, 0, -0.811798, 0, 0.583938, 7.02131, 0.612917, 3.45023)
+radius = 0.381
+height = 0.5
+material = ExtResource("8_cwvkk")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.583938, 0, 0.811798, 0, 1, 0, -0.811798, 0, 0.583938, 4.0272, 0.676672, 1.52983)
+radius = 0.381
+height = 0.5
+material = ExtResource("8_cwvkk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29961, 0)
+light_color = Color(1, 1, 0.0980392, 1)
+light_energy = 2.939
+light_volumetric_fog_energy = 3.263
+light_bake_mode = 1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08129, 4.29961, -7.06489e-07)
+light_color = Color(1, 1, 0.0980392, 1)
+light_energy = 0.177
+light_indirect_energy = 0.192
+light_volumetric_fog_energy = 16.0
+light_specular = 0.0
+light_bake_mode = 1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98272, 2.68561, 0.420532)
+light_color = Color(1, 1, 0.0980392, 1)
+light_energy = 3.235
+light_indirect_energy = 1.647
+light_volumetric_fog_energy = 1.585
+light_size = 0.04
+light_bake_mode = 1
+distance_fade_enabled = true
