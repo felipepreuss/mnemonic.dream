@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 		pass
 	if Input.is_action_just_pressed('Reload') && have_ammo && can_reload:
 		$Rel.play()
+		 
 		animation_player.play("pistol_anim/reload")
 		can_reload = false
 func _on_audio_stream_player_3d_finished() -> void:
