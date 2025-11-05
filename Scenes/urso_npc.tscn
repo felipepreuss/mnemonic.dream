@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bca58olccc32p"]
 
 [ext_resource type="Script" uid="uid://mmovqpt5xe04" path="res://Script/urso_npc.gd" id="1_jceki"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jceki"]
+[ext_resource type="Texture2D" uid="uid://qbfqu31a0jnb" path="res://Assets/bear.png" id="2_d2p8i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iatbi"]
 
@@ -12,9 +11,11 @@ size = Vector3(10, 2, 10)
 [node name="urso_npc" type="CharacterBody3D" groups=["NPC"]]
 script = ExtResource("1_jceki")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
-mesh = SubResource("CapsuleMesh_jceki")
+billboard = 1
+texture_filter = 2
+texture = ExtResource("2_d2p8i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
