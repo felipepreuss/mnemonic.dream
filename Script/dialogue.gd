@@ -1,7 +1,7 @@
 extends Control
 @onready var ui = $Ui
-@onready var nome = $Ui/PanelContainer/VBoxContainer/Label
-@onready var texto = $Ui/PanelContainer/VBoxContainer/Labelo
+@onready var nome = $Ui/VBoxContainer/Label
+@onready var texto = $Ui/VBoxContainer2/Labelo
 @export var player: Player
 var txt = ""
 
@@ -24,7 +24,7 @@ func _process(delta):
 	if Globals.dialogue_start:
 		if player != null:
 			player.pause_movement()
-	$Ui/PanelContainer/VBoxContainer/Labelo.text = txt
+	$Ui/VBoxContainer2/Labelo.text = txt
 	if Input.is_action_just_pressed("Left-Click") and ui.visible and Globals.CabouTexto:
 		if dialogo.next_dialog != null:
 			Globals.CabouTexto = false

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc2whvfhdgxy3"]
 
 [ext_resource type="Script" uid="uid://8fqmb6mnwxvr" path="res://Script/dialogue.gd" id="1_5rqxr"]
-[ext_resource type="Texture2D" uid="uid://8piqocnhya34" path="res://Assets/papel-removebg-preview.png" id="2_dgfud"]
-[ext_resource type="FontFile" uid="uid://2bb8g51p5wc4" path="res://Assets/Fonts/Jersey25Charted-Regular.ttf" id="4_pjl42"]
+[ext_resource type="Texture2D" uid="uid://bkyl2ghjx6a2j" path="res://Assets/ui.png" id="2_p21q5"]
+[ext_resource type="FontFile" uid="uid://dyxwcqkhw3xu4" path="res://Assets/Fonts/Jersey10-Regular.ttf" id="3_pjl42"]
 
 [node name="Dialogue" type="Control"]
 clip_contents = true
@@ -17,30 +17,43 @@ script = ExtResource("1_5rqxr")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
-[node name="PanelContainer" type="PanelContainer" parent="Ui"]
-offset_top = 505.0
-offset_right = 1153.0
-offset_bottom = 649.0
+[node name="Papel-removebg-preview" type="Sprite2D" parent="Ui"]
+texture_filter = 3
+position = Vector2(577, 552)
+scale = Vector2(3, 3)
+texture = ExtResource("2_p21q5")
 
-[node name="Papel-removebg-preview" type="Sprite2D" parent="Ui/PanelContainer"]
-position = Vector2(605, 433)
-rotation = 0.0698132
-scale = Vector2(5, 5)
-texture = ExtResource("2_dgfud")
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = 296.0
+offset_right = 127.0
+offset_bottom = 328.0
+grow_vertical = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Ui/PanelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Ui/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_pjl42")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("3_pjl42")
+theme_override_font_sizes/font_size = 29
+text = "Test!"
+horizontal_alignment = 1
 
-[node name="Labelo" type="Label" parent="Ui/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Ui"]
+offset_left = 196.0
+offset_top = 497.0
+offset_right = 238.0
+offset_bottom = 537.0
+size_flags_horizontal = 8
+
+[node name="Labelo" type="Label" parent="Ui/VBoxContainer2"]
 texture_filter = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_pjl42")
+theme_override_fonts/font = ExtResource("3_pjl42")
 theme_override_font_sizes/font_size = 30
+text = "Hello!"
