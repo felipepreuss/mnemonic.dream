@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://e5st2iuskey8"]
+[gd_scene load_steps=24 format=3 uid="uid://e5st2iuskey8"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_4rc3e"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_27dfm"]
@@ -12,10 +12,21 @@
 [ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="10_t3np7"]
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="12_t3np7"]
 [ext_resource type="PackedScene" uid="uid://df40mwswohx0j" path="res://Assets/levelbuilding.glb" id="13_t3np7"]
+[ext_resource type="PackedScene" uid="uid://ok0a338dievx" path="res://Scenes/poste.tscn" id="14_nrg1c"]
 [ext_resource type="Texture2D" uid="uid://b5bfj88h8sycc" path="res://Assets/Textures/GG1.JPG" id="14_sb611"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrg1c"]
 albedo_texture = ExtResource("4_sb611")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3np7"]
+albedo_texture = ExtResource("4_sb611")
+
+[sub_resource type="SphereMesh" id="SphereMesh_sb611"]
+material = SubResource("StandardMaterial3D_t3np7")
+radius = 2.0
+height = 2.115
+rings = 3
+is_hemisphere = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3np7"]
 shader = ExtResource("4_bjjfd")
@@ -71,18 +82,26 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Poste_base" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 105.454)
+[node name="POSTES" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1944466, -0.7378969, 105.454)
+
+[node name="Poste_base13" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, 8.304642)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 105.446)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base14" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, 8.4392395)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head"]
+[node name="Poste_head10" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.9985974, -0.052945938, 1.5099579e-07, -0.052945938, 0.9985974, 6.6526304e-08, -1.5430632e-07, 5.843839e-08, -0.9999999, -0.09142923, 11.975879, 8.655869)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head10"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -92,7 +111,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head10"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -100,19 +119,21 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base2" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 55.1032)
+[node name="Poste_base25" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head2" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 55.0951)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base26" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_head15" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head15"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -121,7 +142,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head2"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head15"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -129,19 +150,24 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base8" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.9788, 7.42155, 25.4917)
+[node name="Poste_base17" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -21.448473)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head8" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8661, 13.3363, 25.4836)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base18" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -21.313868)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head8"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_head12" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99373674, 0.11174647, 1.5099579e-07, 0.11174647, 0.99373674, 5.6309894e-08, -1.4375763e-07, 7.283046e-08, -0.9999999, -0.09142923, 11.975879, -21.097246)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head12"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -150,7 +176,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head8"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head12"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -158,19 +184,24 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base3" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.20146, 7.42155, 39.3176)
+[node name="Poste_base19" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -60.655396)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head3" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.08878, 13.3363, 39.3296)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base20" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -60.52079)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head3"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_head13" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.98162717, 0.19080903, 1.5099579e-07, 0.19080903, 0.98162717, 5.0785278e-08, -1.3853129e-07, 7.8663575e-08, -0.9999999, -0.09142923, 11.975879, -60.30417)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head13"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -179,7 +210,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head3"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head13"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -187,19 +218,24 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base4" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.79832, 7.42155, 6.63297)
+[node name="Poste_base21" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -117.07605)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head4" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.68565, 13.3363, 6.64501)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base22" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -116.941444)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head4"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_head14" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.9994286, 0.0338006, 1.5099579e-07, 0.0338006, 0.9994286, 6.136025e-08, -1.488355e-07, 6.642894e-08, -0.9999999, -0.09142923, 11.975879, -116.72482)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head14"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -208,7 +244,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head4"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head14"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -216,19 +252,36 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base5" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -21.367)
+[node name="Poste_base15" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 5.0113664, 7.42155, 39.307693)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head5" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.29312, 13.3363, -21.355)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base16" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 3.4572735, 13.560171, 39.4423)
+use_collision = true
+height = 4.10791
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head5"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_base23" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 5.0113664, 7.42155, 39.307693)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base24" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 3.5592484, 13.602979, 39.4423)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head11" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
+transform = Transform3D(-0.9968263, -0.07960737, 1.5099579e-07, -0.07960737, 0.9968263, 6.8017954e-08, -1.5593132e-07, 5.578171e-08, -0.9999999, 1.2085013, 11.975879, 39.65892)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head11"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -237,7 +290,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head5"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES/Poste_head11"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -245,19 +298,27 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base6" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -60.1061)
+[node name="POSTES2" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, -61.713924, -0.7378969, 173.7531)
+
+[node name="Poste_base13" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, 8.304638)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head6" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.29312, 13.3363, -60.094)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base14" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, 8.439243)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head6"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_head10" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.9985974, -0.052945938, 1.5099579e-07, -0.052945938, 0.9985974, 6.6526304e-08, -1.5430632e-07, 5.843839e-08, -0.9999999, -0.09142923, 11.975879, 8.655865)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head10"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -266,7 +327,7 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head6"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head10"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -274,19 +335,24 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base7" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4058, 7.42155, -116.936)
+[node name="Poste_base17" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -21.448473)
 use_collision = true
 height = 14.0
 material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="Poste_head7" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.29312, 13.3363, -116.924)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = ExtResource("10_bjjfd")
+[node name="Poste_base18" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -21.313868)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Poste_head7"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
+[node name="Poste_head12" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99373674, 0.11174647, 1.5099579e-07, 0.11174647, 0.99373674, 5.6309894e-08, -1.4375763e-07, 7.283046e-08, -0.9999999, -0.09142923, 11.975879, -21.097246)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head12"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
@@ -295,7 +361,306 @@ light_bake_mode = 1
 spot_range = 14.1106
 spot_angle = 55.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Poste_head7"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head12"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base19" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -60.655396)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base20" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -60.52079)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head13" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.98162717, 0.19080903, 1.5099579e-07, 0.19080903, 0.98162717, 5.0785278e-08, -1.3853129e-07, 7.8663575e-08, -0.9999999, -0.09142923, 11.975879, -60.30417)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head13"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head13"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base21" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -117.07605)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base22" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -116.941444)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head14" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.9994286, 0.0338006, 1.5099579e-07, 0.0338006, 0.9994286, 6.136025e-08, -1.488355e-07, 6.642894e-08, -0.9999999, -0.09142923, 11.975879, -116.72482)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head14"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head14"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base15" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 5.0113664, 7.42155, 39.307693)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base16" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 3.4572735, 13.560171, 39.4423)
+use_collision = true
+height = 4.10791
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base23" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 5.0113664, 7.42155, 39.307693)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base24" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 3.5592484, 13.602979, 39.4423)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head11" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES2"]
+transform = Transform3D(-0.9968263, -0.07960737, 1.5099579e-07, -0.07960737, 0.9968263, 6.8017954e-08, -1.5593132e-07, 5.578171e-08, -0.9999999, 1.2085013, 11.975879, 39.65892)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head11"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES2/Poste_head11"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="POSTES3" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, -61.713924, -0.7378969, 51.266487)
+
+[node name="Poste_base13" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, 8.304638)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base14" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, 8.439243)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head10" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.9985974, -0.052945938, 1.5099579e-07, -0.052945938, 0.9985974, 6.6526304e-08, -1.5430632e-07, 5.843839e-08, -0.9999999, -0.09142923, 11.975879, 8.655865)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head10"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head10"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base17" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -21.448473)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base18" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -21.313868)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head12" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99373674, 0.11174647, 1.5099579e-07, 0.11174647, 0.99373674, 5.6309894e-08, -1.4375763e-07, 7.283046e-08, -0.9999999, -0.09142923, 11.975879, -21.097246)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head12"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head12"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base19" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -60.655396)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base20" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -60.52079)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head13" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.98162717, 0.19080903, 1.5099579e-07, 0.19080903, 0.98162717, 5.0785278e-08, -1.3853129e-07, 7.8663575e-08, -0.9999999, -0.09142923, 11.975879, -60.30417)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head13"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head13"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base21" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 3.7114358, 7.42155, -117.07605)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base22" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 2.2593179, 13.602979, -116.941444)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head14" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.9994286, 0.0338006, 1.5099579e-07, 0.0338006, 0.9994286, 6.136025e-08, -1.488355e-07, 6.642894e-08, -0.9999999, -0.09142923, 11.975879, -116.72482)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head14"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head14"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+
+[node name="Poste_base15" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 5.0113664, 7.42155, 39.307693)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base16" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 3.4572735, 13.560171, 39.4423)
+use_collision = true
+height = 4.10791
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base23" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 5.0113664, 7.42155, 39.307693)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_base24" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.38706496, 0.9220526, 1.5099579e-07, 0.9220526, 0.38706496, 0, -5.844518e-08, 1.3922607e-07, -0.99999994, 3.5592484, 13.602979, 39.4423)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_nrg1c")
+
+[node name="Poste_head11" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES3"]
+transform = Transform3D(-0.9968263, -0.07960737, 1.5099579e-07, -0.07960737, 0.9968263, 6.8017954e-08, -1.5593132e-07, 5.578171e-08, -0.9999999, 1.2085013, 11.975879, 39.65892)
+mesh = SubResource("SphereMesh_sb611")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head11"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/POSTES3/Poste_head11"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
 light_color = Color(1, 0.564706, 0.0666667, 1)
 light_energy = 16.0
@@ -668,5 +1033,8 @@ light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
+
+[node name="Node3D" parent="." instance=ExtResource("14_nrg1c")]
+transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 4.526993, -1.1271782, -14.83827)
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_level_trans_body_entered"]

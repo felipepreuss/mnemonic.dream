@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cgubc6p6kjs3g"]
+[gd_scene load_steps=30 format=4 uid="uid://cgubc6p6kjs3g"]
 
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://c5e6q4s76b6gg" path="res://Script/tutorial.gd" id="1_h2ono"]
@@ -14,7 +14,7 @@
 [ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="12_lsb8r"]
 [ext_resource type="Script" uid="uid://dlfn6jh75kbes" path="res://Script/invisible_wall.gd" id="13_koko0"]
 [ext_resource type="Texture2D" uid="uid://b5bfj88h8sycc" path="res://Assets/Textures/GG1.JPG" id="13_lsb8r"]
-[ext_resource type="Texture2D" uid="uid://dp305mjry63og" path="res://Assets/SC005.JPG" id="14_ap3ea"]
+[ext_resource type="PackedScene" uid="uid://ok0a338dievx" path="res://Scenes/poste.tscn" id="15_ap3ea"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_koko0"]
 shader = ExtResource("6_8mnmb")
@@ -90,14 +90,6 @@ _surfaces = [{
 "vertex_count": 24,
 "vertex_data": PackedByteArray("NV5Bwc3MzL3HS2dBNV5Bwc3MzL3HS2fBNV5Bwc3MzD3HS2fBNV5BQc3MzL3HS2fBNV5Bwc3MzL3HS2fBNV5Bwc3MzL3HS2dBNV5Bwc3MzD3HS2fBNV5Bwc3MzL3HS2fBNV5BQc3MzL3HS2fBNV5Bwc3MzD3HS2dBNV5Bwc3MzL3HS2dBNV5Bwc3MzD3HS2dBNV5BQc3MzD3HS2dBNV5BQc3MzD3HS2dBNV5Bwc3MzD3HS2dBNV5Bwc3MzD3HS2fBNV5BQc3MzL3HS2dBNV5BQc3MzL3HS2dBNV5BQc3MzL3HS2fBNV5BQc3MzL3HS2dBNV5BQc3MzD3HS2dBNV5BQc3MzD3HS2fBNV5BQc3MzD3HS2fBNV5BQc3MzD3HS2fBAAAAgP9//n8AAACA/3/+fwAAAID/f/5/AIAAAP//AAAAgAAA//8AAACAAAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAAAgP9//n//f/9/AAD/P/9//38AAP8//3//fwAA/z8AgP////8AAACA/////wAAAID/////AAAAgAAA//8AAP9//38AAP8///8AgP9//n///wCA/3/+f///AID/f/5//////wAA/z8AgP////8AAP//AID/f/5/")
 }]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6ver"]
-albedo_texture = ExtResource("14_ap3ea")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nb4t"]
-albedo_texture = ExtResource("14_ap3ea")
-uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_koko0"]
 size = Vector3(80, 12.4723, 1.015)
@@ -311,258 +303,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2254, 5.814, -140.272)
 size = Vector3(17.6589, 19.9295, 17.6604)
 material = ExtResource("3_p8jf4")
 
-[node name="Poste_base" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.917458, -15.6645)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, -15.6726)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base2" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.917458, -15.6645)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, -15.6726)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head2"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base3" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.917458, 38.8414)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 38.8332)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head3"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head3"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base8" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.917458, 65.1611)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 65.153)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head8"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base4" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.1908, 0.917458, 98.177)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0781, 6.62506, 98.1689)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head4"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head4"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base5" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.917458, 54.1943)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 54.2594)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head5"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head5"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base9" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.917458, 12.5591)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 12.6242)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head9"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head9"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base6" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.917458, 125.039)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 125.105)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head6"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head6"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
-[node name="Poste_base7" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.0345, 0.917458, 92.1246)
-height = 10.0
-material = SubResource("StandardMaterial3D_t6ver")
-
-[node name="Poste_head7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -28.1434, 6.62506, 92.1897)
-size = Vector3(3.22546, 1.43996, 2.40369)
-material = SubResource("StandardMaterial3D_2nb4t")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head7"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.445515, -4.51988, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-spot_range = 14.1106
-spot_angle = 55.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/CSGCombiner3D/Poste_head7"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
-light_color = Color(1, 0.564706, 0.0666667, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_bake_mode = 1
-
 [node name="level_trans" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.0912)
 
@@ -594,6 +334,45 @@ shape = SubResource("BoxShape3D_ap3ea")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="invisible_wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8885, 49.3707, -5.73235)
 shape = SubResource("BoxShape3D_2nb4t")
+
+[node name="POSTE" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -63.95036, -5.81841, 104.59368)
+
+[node name="POSTE7" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, 161.60669)
+
+[node name="POSTE8" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, 234.19284)
+
+[node name="POSTE9" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, 110.75537)
+
+[node name="POSTE10" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, 66.406)
+
+[node name="POSTE11" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, -10.177788)
+
+[node name="POSTE12" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, -60.63308)
+
+[node name="POSTE13" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -22.253834, -5.81841, -126.147255)
+
+[node name="POSTE2" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -63.95036, -5.81841, 46.65561)
+
+[node name="POSTE3" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -63.95036, -5.81841, -15.269962)
+
+[node name="POSTE4" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -63.95036, -5.81841, -66.64671)
+
+[node name="POSTE5" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -63.95036, -5.81841, -112.57946)
+
+[node name="POSTE6" parent="." instance=ExtResource("15_ap3ea")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -63.95036, -5.81841, -156.40756)
 
 [connection signal="body_entered" from="level_trans" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="level_trans" to="." method="_on_area_3d_body_shape_entered"]

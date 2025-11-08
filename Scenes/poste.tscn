@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://ok0a338dievx"]
+
+[ext_resource type="Texture2D" uid="uid://dp305mjry63og" path="res://Assets/SC005.JPG" id="1_ujxbe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng0tu"]
+albedo_texture = ExtResource("1_ujxbe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3np7"]
+albedo_texture = ExtResource("1_ujxbe")
+
+[sub_resource type="SphereMesh" id="SphereMesh_qftx7"]
+material = SubResource("StandardMaterial3D_t3np7")
+radius = 2.0
+height = 2.115
+rings = 3
+is_hemisphere = true
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Poste_base" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95321655, 7.42155, 14.272469)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_ng0tu")
+
+[node name="Poste_base9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.387065, -0.92205244, 0, 0.92205244, 0.387065, 0, 0, 0, 1, 2.41156, 13.602979, 14.272469)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_ng0tu")
+
+[node name="Poste_head" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9837098, -0.17976384, 0, 0.17976384, 0.9837098, 0, 0, 0, 1, 4.7722664, 11.975879, 14.27375)
+mesh = SubResource("SphereMesh_qftx7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1

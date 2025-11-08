@@ -441,7 +441,7 @@ debug_color = Color(1, 1, 1, 0.419608)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989639, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77035, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15162206, 0.77035004, 0.33740962)
 script = ExtResource("4_7dp3o")
 
 [node name="interact_ray" type="RayCast3D" parent="head/Camera3D"]

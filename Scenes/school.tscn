@@ -15,7 +15,6 @@ size = Vector3(4.605, 3, 3)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-use_collision = true
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.649, 5.80795, 1.86671)
@@ -226,8 +225,6 @@ size = Vector3(18.5742, 3.13196, 3.37262)
 [node name="CSGBox3D30" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999096, 0.0425034, 0, -0.0425034, 0.999096, -139.098, 19.4922, -11.2108)
 size = Vector3(18.5742, 3.13196, 3.37262)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.8942, 18.049, -52.8352)
