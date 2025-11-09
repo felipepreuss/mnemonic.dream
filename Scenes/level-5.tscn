@@ -288,7 +288,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, 86.8562,
 new_gun = ExtResource("11_46flf")
 
 [node name="tina_npc" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("12_5fbal")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.69416, -20.631342, -20.421154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.69416, -20.504887, -20.421154)
 player = NodePath("../player")
 
 [node name="urso_npc" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("13_w2ra7")]

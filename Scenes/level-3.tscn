@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmnef1jidjw84"]
+[gd_scene load_steps=29 format=3 uid="uid://dmnef1jidjw84"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_4ph04"]
 [ext_resource type="Script" uid="uid://cs1uryqy63ka8" path="res://Script/level_3.gd" id="1_j84td"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ddoubufl6g4e2" path="res://Assets/ultimate school.glb" id="17_knvxs"]
 [ext_resource type="Material" uid="uid://c6wplqixt74g" path="res://Assets/prototext.tres" id="17_t1l0t"]
 [ext_resource type="PackedScene" uid="uid://ok0a338dievx" path="res://Scenes/poste.tscn" id="18_t1l0t"]
+[ext_resource type="Texture2D" uid="uid://dp305mjry63og" path="res://Assets/SC005.JPG" id="19_plarm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hyhto"]
 shader = ExtResource("5_nfbqa")
@@ -54,6 +55,19 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 albedo_color = Color(0.903598, 0.903598, 0.903598, 1)
 albedo_texture = ExtResource("15_hyhto")
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng0tu"]
+albedo_texture = ExtResource("19_plarm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3np7"]
+albedo_texture = ExtResource("19_plarm")
+
+[sub_resource type="SphereMesh" id="SphereMesh_qftx7"]
+material = SubResource("StandardMaterial3D_t3np7")
+radius = 2.0
+height = 2.115
+rings = 3
+is_hemisphere = true
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_j84td")
@@ -264,8 +278,48 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -70.37188, 0, -48.75396
 [node name="Node3D8" parent="." instance=ExtResource("18_t1l0t")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -70.37188, 0, -35.312157)
 
-[node name="Node3D10" parent="." instance=ExtResource("18_t1l0t")]
+[node name="Node3D10" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -70.37188, 0, -18.467667)
+
+[node name="Poste_base" type="CSGCylinder3D" parent="Node3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95321655, 7.42155, 14.272469)
+use_collision = true
+height = 14.0
+material = SubResource("StandardMaterial3D_ng0tu")
+
+[node name="Poste_base9" type="CSGCylinder3D" parent="Node3D10"]
+transform = Transform3D(0.387065, -0.92205244, 0, 0.92205244, 0.387065, 0, 0, 0, 1, 2.41156, 13.602979, 14.272469)
+use_collision = true
+height = 3.8867188
+material = SubResource("StandardMaterial3D_ng0tu")
+
+[node name="Poste_head" type="MeshInstance3D" parent="Node3D10"]
+transform = Transform3D(0.9837098, -0.17976384, 0, 0.17976384, 0.9837098, 0, 0, 0, 1, 4.7722664, 11.975879, 14.27375)
+mesh = SubResource("SphereMesh_qftx7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D10/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.445515, -4.51988, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_bake_mode = 1
+spot_range = 14.1106
+spot_angle = 55.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D10/Poste_head"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0947876, -1.16052, 0)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_bake_mode = 1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Node3D10/Poste_head"]
+transform = Transform3D(2, 0, 0, 0, 2.3849811e-08, 2, 0, -2, 2.3849811e-08, -5.6797333, -10.44488, 11.71814)
+light_color = Color(1, 0.564706, 0.0666667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_bake_mode = 1
 
 [node name="Node3D9" parent="." instance=ExtResource("18_t1l0t")]
 transform = Transform3D(0.02593269, 0, 0.49932703, 0, 0.5, 0, -0.49932703, 0, 0.02593269, -77.02367, 0, 4.4997826)
