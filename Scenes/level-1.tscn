@@ -119,16 +119,6 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_bake_mode = 1
 
-[node name="Poste_base25" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
-use_collision = true
-height = 14.0
-material = SubResource("StandardMaterial3D_nrg1c")
-
-[node name="Poste_base26" type="CSGCylinder3D" parent="SubViewportContainer/SubViewport/POSTES"]
-use_collision = true
-height = 3.8867188
-material = SubResource("StandardMaterial3D_nrg1c")
-
 [node name="Poste_head15" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/POSTES"]
 mesh = SubResource("SphereMesh_sb611")
 

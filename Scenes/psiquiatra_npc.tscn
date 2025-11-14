@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cc7dp3qhfhcm8"]
 
 [ext_resource type="Script" uid="uid://ccec41d5j8b5i" path="res://Script/psiquiatra_npc.gd" id="1_rgqe5"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_rgqe5"]
+[ext_resource type="Texture2D" uid="uid://frqv70qhhshn" path="res://Assets/psych.png" id="2_g3rkk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iatbi"]
 
@@ -12,9 +11,11 @@ size = Vector3(10, 2, 10)
 [node name="psiquiatra_npc" type="CharacterBody3D" groups=["NPC"]]
 script = ExtResource("1_rgqe5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
-mesh = SubResource("CapsuleMesh_rgqe5")
+billboard = 2
+texture_filter = 4
+texture = ExtResource("2_g3rkk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41925526, 0)
