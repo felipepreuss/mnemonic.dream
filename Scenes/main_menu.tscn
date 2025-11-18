@@ -1,12 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmltaik44kl74"]
+[gd_scene load_steps=20 format=3 uid="uid://dmltaik44kl74"]
 
 [ext_resource type="Script" uid="uid://bn1uapfuhbbk4" path="res://Script/main_menu.gd" id="1_28flt"]
 [ext_resource type="Theme" uid="uid://dh5p3g0bd3nr5" path="res://Assets/ui_theme.tres" id="1_cp0ys"]
-[ext_resource type="Texture2D" uid="uid://nwqncmry4ug2" path="res://Assets/icon.svg" id="2_48xlc"]
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="2_n45e2"]
 [ext_resource type="AudioStream" uid="uid://eini8hwfv32w" path="res://SFX/WhatsApp Audio 2025-04-03 at 12.30.51.mp3" id="3_trj04"]
 [ext_resource type="Script" uid="uid://dfe0eqeduturc" path="res://Script/label.gd" id="4_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="6_trj04"]
+[ext_resource type="Material" uid="uid://r03po7r3b0uw" path="res://Assets/Textures/pavement.tres" id="5_16hvj"]
+[ext_resource type="Material" uid="uid://dnr1c2eph66ox" path="res://Assets/Textures/street.tres" id="6_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://c77k76teip7hd" path="res://Assets/enemies/grayalien.png" id="7_t1dhk"]
 [ext_resource type="FontFile" uid="uid://2bb8g51p5wc4" path="res://Assets/Fonts/Jersey25Charted-Regular.ttf" id="7_yhxw7"]
 [ext_resource type="Shader" uid="uid://8704paq44jqa" path="res://Scenes/glitch.gdshader" id="8_yhxw7"]
 
@@ -24,15 +25,6 @@ background_mode = 2
 sky = SubResource("Sky_vonw3")
 sky_rotation = Vector3(-1.14319, 4.112, 0)
 tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45e2"]
-albedo_texture = ExtResource("2_48xlc")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce3w2"]
-albedo_texture = ExtResource("6_trj04")
-
-[sub_resource type="QuadMesh" id="QuadMesh_n45e2"]
-size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trj04"]
 shader = ExtResource("8_yhxw7")
@@ -128,18 +120,34 @@ sky_mode = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_ce3w2")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-material_override = SubResource("StandardMaterial3D_n45e2")
-use_collision = true
-size = Vector3(100, 1, 100)
+[node name="CalcadaE" type="CSGBox3D" parent="SubViewportContainer/SubViewport/WorldEnvironment"]
+transform = Transform3D(-7.49084e-07, 0, -1, 0, 1, 0, 17.137, 0, -4.37114e-08, -75.244, 0.556, 288.087)
+size = Vector3(32.2444, 0.2, 31.8814)
+material = ExtResource("5_16hvj")
+
+[node name="Calcada2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.3498, 0.55611, -68.691)
+size = Vector3(76.6383, 0.2, 164.192)
+material = ExtResource("5_16hvj")
+
+[node name="Calcada" type="CSGBox3D" parent="SubViewportContainer/SubViewport/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3155, 0.55611, 202.483)
+size = Vector3(20, 0.2, 706.54)
+material = ExtResource("5_16hvj")
+
+[node name="Rua" type="CSGBox3D" parent="SubViewportContainer/SubViewport/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5148, 0, 202.255)
+size = Vector3(80, 1, 704.51)
+material = ExtResource("6_vr1f0")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00565481, 1.6483, 7.54959)
 
-[node name="fambri_preview" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+[node name="fambri_preview" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50827, 0)
-material_override = SubResource("StandardMaterial3D_ce3w2")
-mesh = SubResource("QuadMesh_n45e2")
+billboard = 1
+texture_filter = 4
+texture = ExtResource("7_t1dhk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_trj04")
