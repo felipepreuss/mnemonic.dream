@@ -1,16 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxj11a6cbsieu"]
+[gd_scene load_steps=8 format=3 uid="uid://dxj11a6cbsieu"]
 
 [ext_resource type="Script" uid="uid://ctmi35dgt437w" path="res://Script/him.gd" id="1_mh1k7"]
-[ext_resource type="Texture2D" uid="uid://hfrb4so8dsp4" path="res://Assets/him.jpg" id="2_mh1k7"]
+[ext_resource type="Texture2D" uid="uid://us3n88m6fjuw" path="res://Assets/enemies/placeholder.png" id="2_mh1k7"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_yc8u8"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_x8uhq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2nt1"]
-albedo_texture = ExtResource("2_mh1k7")
-
-[sub_resource type="SphereMesh" id="SphereMesh_fpiwj"]
-radius = 0.3
-height = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tyhe3"]
 size = Vector3(0.591187, 1.4492071, 0.593017)
@@ -25,10 +18,11 @@ size = Vector3(1, 1, 9.74644)
 script = ExtResource("1_mh1k7")
 player = NodePath(".")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.15819, 0, 0, 0, 1, 0, 0.45689, 0)
-material_override = SubResource("StandardMaterial3D_s2nt1")
-mesh = SubResource("SphereMesh_fpiwj")
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.463, 0, 0, 0, 1, 0, 0, 0, 0.463, 0, 0.45689, 0)
+gi_mode = 2
+texture_filter = 4
+texture = ExtResource("2_mh1k7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0.43633252, 0.00329593)

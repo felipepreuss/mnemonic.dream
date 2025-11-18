@@ -1,14 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bleixplbv3vw8"]
+[gd_scene load_steps=10 format=3 uid="uid://bleixplbv3vw8"]
 
-[ext_resource type="Script" uid="uid://b1hore2rrxv5e" path="res://Script/doppelganger.gd" id="1_jwxej"]
-[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_857pd"]
-[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_7rdqq"]
-[ext_resource type="PackedScene" uid="uid://ur8p6e5hn8pj" path="res://Assets/Guns/Pistola (1).glb" id="4_7rdqq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwxej"]
-albedo_color = Color(0.43134, 0.43134, 0.43134, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jwxej"]
+[ext_resource type="Script" uid="uid://b1hore2rrxv5e" path="res://Script/doppelganger.gd" id="1_1bxak"]
+[ext_resource type="Texture2D" uid="uid://bmuw40jkkabvm" path="res://Assets/enemies/doppelPLACEHOLDER.png" id="2_pwyu1"]
+[ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_5sdrn"]
+[ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_2gy03"]
+[ext_resource type="PackedScene" uid="uid://ur8p6e5hn8pj" path="res://Assets/Guns/Pistola (1).glb" id="5_acr7r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7rdqq"]
 
@@ -22,11 +18,10 @@ size = Vector3(1.97412, 2.17188, 6.3599)
 size = Vector3(2.17688, 2.44202, 2.73016)
 
 [node name="doppelganger" type="CharacterBody3D" groups=["Enemy"]]
-script = ExtResource("1_jwxej")
+script = ExtResource("1_1bxak")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_jwxej")
-mesh = SubResource("CapsuleMesh_jwxej")
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_pwyu1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 shape = SubResource("CapsuleShape3D_7rdqq")
@@ -34,12 +29,12 @@ shape = SubResource("CapsuleShape3D_7rdqq")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["Enemy"]]
 
 [node name="alienHurt" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_857pd")
+stream = ExtResource("3_5sdrn")
 volume_db = 1.0
 autoplay = true
 
 [node name="alienDeath" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_7rdqq")
+stream = ExtResource("4_2gy03")
 volume_db = 1.0
 
 [node name="bullet_timer" type="Timer" parent="."]
@@ -55,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.003
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357361, 0.512421, -22.7132)
 shape = SubResource("BoxShape3D_857pd")
 
-[node name="Pistola (1)" parent="." instance=ExtResource("4_7rdqq")]
+[node name="Pistola (1)" parent="." instance=ExtResource("5_acr7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.923094)
 
 [node name="shoot_range" type="Area3D" parent="."]
