@@ -1,18 +1,34 @@
-[gd_scene load_steps=21 format=3 uid="uid://ch6wku1kvhqvk"]
+[gd_scene load_steps=20 format=3 uid="uid://ch6wku1kvhqvk"]
 
 [ext_resource type="Script" uid="uid://4lv7mmebd15d" path="res://Script/shooter_enemy.gd" id="1_yb3rw"]
-[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_4fugf"]
+[ext_resource type="Texture2D" uid="uid://d1jyf00lblgep" path="res://Assets/enemies/gunner-alienPLACEHOLDER.png" id="2_4fugf"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_v3ujp"]
+[ext_resource type="Texture2D" uid="uid://o74s62c2gk7h" path="res://Assets/enemies/gunner-alienPLACEHOLDER-ATTACK.png" id="3_vuv4i"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_yb3rw"]
 [ext_resource type="Texture2D" uid="uid://cufub1n6nc46x" path="res://Assets/muzzle_06.png" id="5_13m1b"]
 [ext_resource type="AudioStream" uid="uid://bhirkrycnr28b" path="res://SFX/smgblast.mp3" id="7_4fugf"]
-[ext_resource type="PackedScene" uid="uid://cxl01ln1qwoml" path="res://Assets/Guns/Metralhadora (1).glb" id="7_vuv4i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuv4i"]
-albedo_texture = ExtResource("2_4fugf")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v3ujp"]
-height = 2.5
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkde8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4fugf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vuv4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4fugf")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcie0"]
 height = 2.52952
@@ -70,10 +86,11 @@ size = Vector3(1, 1.9502, 16.3217)
 [node name="Shooter Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_yb3rw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_vuv4i")
-mesh = SubResource("CapsuleMesh_v3ujp")
+texture_filter = 4
+sprite_frames = SubResource("SpriteFrames_dkde8")
+animation = &"shoot"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0153248, 0)
@@ -111,9 +128,6 @@ autostart = true
 
 [node name="gun_fire" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_4fugf")
-
-[node name="Metralhadora (1)" parent="." instance=ExtResource("7_vuv4i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109193, -1.50251)
 
 [node name="player_detect" type="Area3D" parent="."]
 

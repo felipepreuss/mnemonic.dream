@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmnef1jidjw84"]
+[gd_scene load_steps=28 format=3 uid="uid://dmnef1jidjw84"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_4ph04"]
 [ext_resource type="Script" uid="uid://cs1uryqy63ka8" path="res://Script/level_3.gd" id="1_j84td"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="2_t77uf"]
 [ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="5_nfbqa"]
 [ext_resource type="PackedScene" uid="uid://dt1q75h13ai40" path="res://Scenes/goblin_enemy.tscn" id="8_bfm8j"]
-[ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="9_aqejk"]
 [ext_resource type="PackedScene" uid="uid://ben12aetap0mp" path="res://Scenes/enemy.tscn" id="10_u35u0"]
 [ext_resource type="PackedScene" uid="uid://bbb0swspkra5t" path="res://Scenes/spider_enemy.tscn" id="11_g5dgt"]
 [ext_resource type="PackedScene" uid="uid://c6mde3hgdodb2" path="res://Scenes/secretary_npc.tscn" id="12_knvxs"]
@@ -107,10 +106,6 @@ player = NodePath("../player")
 
 [node name="goblin_enemy3" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("8_bfm8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.441154, 2.3887331, -25.290348)
-player = NodePath("../player")
-
-[node name="guardian_enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("9_aqejk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.56219, 3.1645913, -22.627289)
 player = NodePath("../player")
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("10_u35u0")]

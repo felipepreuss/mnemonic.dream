@@ -3,6 +3,8 @@ extends Control
 @onready var nome = $Ui/VBoxContainer/Label
 @onready var texto = $Ui/VBoxContainer2/Labelo
 @export var player: Player
+@onready var profile_picture = $Ui/VBoxContainer/pfp
+
 var txt = ""
 
 var dialogo: Dialogo:
@@ -10,14 +12,23 @@ var dialogo: Dialogo:
 		Globals.CabouTexto = false
 		Globals.dialogue_start = true
 		dialogo = value
+
 		nome.text = value.personagem
 		texto.text = value.texto
+
+		# >>> Update portrait here <<<
+		if value.portrait != null:
+			profile_picture.texture = value.portrait
+
 		txt = ""
 		ui.visible = true
+
 		for x in texto.text:
 			await get_tree().create_timer(0.01).timeout
 			txt += x
+
 		Globals.CabouTexto = true
+
 func _ready():
 	Dialogue.ui.visible = false
 func _process(delta):

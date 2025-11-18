@@ -5,3 +5,4 @@ class_name Dialogo extends Resource
 @export var personagem : String
 @export var texto : String
 @export var next_dialog : Dialogo
+@export var portrait: Texture

@@ -5,13 +5,14 @@ var can_shoot = false
 @onready var aim = $RayCast3D
 @onready var flash = $flash
 @onready var gun_sound = $gun_fire
+
 var enemy_shooter_material = load("res://Scenes/shooter_enemy.tscn::StandardMaterial3D_vuv4i")
 func _ready():
 	Globals.max_contador += 1
 	Globals.contador += 1
 	score_value = 230
 	Globals.slowdown.connect(on_slowdown)
-	
+	$MeshInstance3D.play("idle")
 func _physics_process(delta: float) -> void:
 	match current_state:
 		IDLE:
@@ -51,6 +52,9 @@ func chase_state(delta):
 			flash.emitting = true
 			flash.restart()
 			gun_sound.play()
+			$MeshInstance3D.play('shoot')
+			 
+			
 			if accuracy < 5:
 				target.HP -= 10
 		can_shoot = false

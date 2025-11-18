@@ -1,16 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://0x5xhls7hmwi"]
+[gd_scene load_steps=7 format=3 uid="uid://0x5xhls7hmwi"]
 
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="1_gdht4"]
 [ext_resource type="Script" uid="uid://y5uf68nvdgdo" path="res://Script/spectre_enemy.gd" id="1_xwd2c"]
-[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_1acgf"]
+[ext_resource type="Texture2D" uid="uid://ddam5risrwfse" path="res://Assets/enemies/SPECTRE.png" id="2_1acgf"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="2_xwd2c"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0prb"]
-transparency = 1
-blend_mode = 1
-albedo_texture = ExtResource("2_1acgf")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xwd2c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xwd2c"]
 
@@ -20,10 +13,11 @@ size = Vector3(1.81744, 1.68137, 22.7817)
 [node name="spectre_enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xwd2c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_u0prb")
-mesh = SubResource("CapsuleMesh_xwd2c")
+billboard = 2
+texture_filter = 4
+texture = ExtResource("2_1acgf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 shape = SubResource("CapsuleShape3D_xwd2c")

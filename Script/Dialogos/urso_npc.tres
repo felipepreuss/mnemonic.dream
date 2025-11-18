@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Dialogo" load_steps=2 format=3 uid="uid://u1brobdnxp6n"]
+[gd_resource type="Resource" script_class="Dialogo" load_steps=3 format=3 uid="uid://u1brobdnxp6n"]
 
 [ext_resource type="Script" uid="uid://cgpdyh7vnrsoy" path="res://Script/Dialogo.gd" id="1_5p01j"]
+[ext_resource type="Texture2D" uid="uid://dw2niyrejt8ps" path="res://Assets/pfps/bearportrait.png" id="1_lfary"]
 
 [resource]
 script = ExtResource("1_5p01j")
 personagem = "URSO"
 texto = "Você vai conseguir, eu te amo, Kris."
+portrait = ExtResource("1_lfary")
 metadata/_custom_type_script = "uid://cgpdyh7vnrsoy"

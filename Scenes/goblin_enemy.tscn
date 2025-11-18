@@ -1,16 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt1q75h13ai40"]
+[gd_scene load_steps=7 format=3 uid="uid://dt1q75h13ai40"]
 
 [ext_resource type="Script" uid="uid://bw64mksn70x6p" path="res://Script/goblin_enemy.gd" id="1_l7mss"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_ons48"]
-[ext_resource type="Texture2D" uid="uid://cgor1ckpyod22" path="res://Assets/Textures/0e07f014-f6fa-4a9a-bfe7-5368226769b2.jpg" id="2_oopm2"]
+[ext_resource type="Texture2D" uid="uid://cc75bpbhp5l6l" path="res://Assets/enemies/goblin.png" id="2_oopm2"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_oopm2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k1fa"]
-albedo_texture = ExtResource("2_oopm2")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_cxlqg"]
-radius = 0.2
-height = 0.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l7mss"]
 radius = 0.40185547
@@ -22,10 +15,11 @@ size = Vector3(1.81744, 1.33623, 16.1912)
 [node name="goblin_enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_l7mss")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_2k1fa")
-mesh = SubResource("CapsuleMesh_cxlqg")
+billboard = 2
+texture_filter = 4
+texture = ExtResource("2_oopm2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08430824, 0)

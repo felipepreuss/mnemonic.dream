@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc2whvfhdgxy3"]
+[gd_scene load_steps=5 format=3 uid="uid://bc2whvfhdgxy3"]
 
 [ext_resource type="Script" uid="uid://8fqmb6mnwxvr" path="res://Script/dialogue.gd" id="1_5rqxr"]
 [ext_resource type="Texture2D" uid="uid://bkyl2ghjx6a2j" path="res://Assets/ui.png" id="2_p21q5"]
 [ext_resource type="FontFile" uid="uid://dyxwcqkhw3xu4" path="res://Assets/Fonts/Jersey10-Regular.ttf" id="3_pjl42"]
+[ext_resource type="Texture2D" uid="uid://duch7ae7p26rs" path="res://Assets/pfps/crys.png" id="4_pjl42"]
 
 [node name="Dialogue" type="Control"]
 clip_contents = true
@@ -42,6 +43,12 @@ theme_override_fonts/font = ExtResource("3_pjl42")
 theme_override_font_sizes/font_size = 29
 text = "Test!"
 horizontal_alignment = 1
+
+[node name="pfp" type="Sprite2D" parent="Ui/VBoxContainer"]
+texture_filter = 5
+position = Vector2(54.000004, -59)
+scale = Vector2(2.0625, 2)
+texture = ExtResource("4_pjl42")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Ui"]
 offset_left = 196.0

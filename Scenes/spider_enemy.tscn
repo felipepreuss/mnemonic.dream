@@ -1,16 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbb0swspkra5t"]
+[gd_scene load_steps=9 format=3 uid="uid://bbb0swspkra5t"]
 
 [ext_resource type="Script" uid="uid://cn3pqfeyufdb6" path="res://Script/spider_enemy.gd" id="1_xkfdl"]
-[ext_resource type="Texture2D" uid="uid://ct1knwl4ewdrx" path="res://Assets/spidersprite.png" id="2_he8yh"]
+[ext_resource type="Texture2D" uid="uid://db0y6h2ou6x5a" path="res://Assets/enemies/spider.png" id="2_tyhe3"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="3_tyhe3"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="4_kv88u"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyhe3"]
-albedo_texture = ExtResource("2_he8yh")
-
-[sub_resource type="SphereMesh" id="SphereMesh_fpiwj"]
-radius = 0.3
-height = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tyhe3"]
 size = Vector3(0.591187, 0.69696, 0.593017)
@@ -26,9 +19,9 @@ size = Vector3(1, 1, 6.66351)
 [node name="Spider Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_xkfdl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_tyhe3")
-mesh = SubResource("SphereMesh_fpiwj")
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
+texture_filter = 4
+texture = ExtResource("2_tyhe3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 1.96397e-05, 0.00329593)
