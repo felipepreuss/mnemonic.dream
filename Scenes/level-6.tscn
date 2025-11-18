@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdhm1re0so86v"]
+[gd_scene load_steps=16 format=3 uid="uid://bdhm1re0so86v"]
 
 [ext_resource type="Material" uid="uid://dgicjbtbf5vt3" path="res://Assets/postprocessing.tres" id="1_dkb5v"]
 [ext_resource type="Script" uid="uid://dwru7rmwvq87b" path="res://Script/level_6.gd" id="1_dwax7"]
 [ext_resource type="PackedScene" uid="uid://ddytulff8t04j" path="res://Scenes/pause.tscn" id="1_vl8t7"]
 [ext_resource type="PackedScene" uid="uid://c0q52hnxwbxdo" path="res://Scenes/player.tscn" id="2_bj0im"]
 [ext_resource type="Shader" uid="uid://drswsnula6iy2" path="res://Scenes/skybox.gdshader" id="5_dst8n"]
-[ext_resource type="PackedScene" uid="uid://kpfwdeujk13u" path="res://Scenes/guardian_enemy.tscn" id="5_fgept"]
 [ext_resource type="PackedScene" uid="uid://0x5xhls7hmwi" path="res://Scenes/spectre_enemy.tscn" id="6_fgept"]
 [ext_resource type="PackedScene" uid="uid://ch6wku1kvhqvk" path="res://Scenes/shooter_enemy.tscn" id="7_l57pf"]
 [ext_resource type="PackedScene" uid="uid://dxj11a6cbsieu" path="res://Scenes/him.tscn" id="9_0cdk7"]
@@ -82,10 +81,6 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 light_bake_mode = 1
 shadow_enabled = true
 
-[node name="guardian_enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("5_fgept")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.271738, 1.7774, -8.55079)
-player = NodePath("../player")
-
 [node name="spectre_enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("6_fgept")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8473, 1.77019, -9.65393)
 player = NodePath("../player")
@@ -95,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9904, 1.77019, 5.26497)
 player = NodePath("../player")
 
 [node name="Shooter Enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("7_l57pf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0910316, 2.30877, 9.31943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0910316, 1.4980156, 9.31943)
 player = NodePath("../player")
 
 [node name="Him enemy" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("9_0cdk7")]
