@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dch8q4ejwtpbl" path="res://Script/dog_boss.gd" id="1_8xjul"]
 [ext_resource type="AudioStream" uid="uid://bu0b2pad3s80c" path="res://SFX/alien-hurt.mp3" id="2_6yuut"]
+[ext_resource type="Texture2D" uid="uid://cknp1iybsflue" path="res://Assets/enemies/pdia-7105331a-48c1-482b-8843-67636f9ffcbd-removebg-preview.png" id="2_poeca"]
 [ext_resource type="AudioStream" uid="uid://dle74230rrs6l" path="res://SFX/1alien-scream-89031.mp3" id="3_poeca"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_rjxei"]
-radius = 1.0
-height = 4.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6yuut"]
 radius = 1.0
@@ -24,9 +21,10 @@ size = Vector3(2.9809265, 1.7617798, 6.6757813)
 [node name="dog_boss" type="CharacterBody3D" groups=["Boss", "Enemy"]]
 script = ExtResource("1_8xjul")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_rjxei")
+axis = 1
+texture = ExtResource("2_poeca")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 6.8699185e-11, -0.0015716553)
